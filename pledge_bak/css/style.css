@@ -1,0 +1,66 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+    font-size: 16px;
+    background:#eee;
+    font-family: 'Nanum Barun Gothic', sans-serif !important;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+.contract-pop{width: 660px;height:850px;background:url('../images/bg.png') #fff no-repeat center;padding:25px 30px;word-break: keep-all;position:relative}
+.contract-pop:after{content:'';position:absolute;left: 30px;top:50px;width:600px;height:770px;border: 2px solid #e83f2e;border-radius: 10px;z-index: 10;}
+.mj{font-family: 'Nanum Myeongjo', sans-serif !important;}
+.logo{text-align: center;margin-bottom: 45px;position:relative;z-index: 20;}
+.logo img{background:#fff;padding:0 30px;}
+h1{font-size: 33px;margin-bottom: 1em;text-align:center;position:relative;z-index: 30;}
+p{font-size: 17px;line-height: 24px;letter-spacing: .03em;text-align:justify;padding-left: 40px;margin-bottom: 30px;position:relative;z-index: 30;}
+ul{padding-left: 60px;padding-right: 40px;position:relative;z-index: 30;}
+li{display: flex;line-height: 22px;letter-spacing: .03em;margin-bottom: .5em;font-size: 16px;}
+li span{flex:none;margin-right: 10px;}
+.form{text-align: center;font-size: 18px;margin-top: 1.5em;position:relative;z-index: 30;}
+.form .date{display: flex;align-items: center;justify-content: center;margin-bottom: 10px;}
+.form .date input{margin-right: 5px;margin-left: 15px;width: 40px;}
+.form .name input{width: 80px;}
+.form input{height: 20px;text-align: center;font-size: 18px;}
+.btnbox{text-align: center;margin-top: 1.5em;}
+.btnbox button{width: 90px;height: 40px;background:#e83f2e;border:0;font-size: 16px;color:#fff;border-radius: 4px;cursor:pointer;}

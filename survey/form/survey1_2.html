@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>survey</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@4.0.1/reset.min.css" />
+	<link rel="stylesheet" type="text/css" href="./css/survey.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+</head>
+<body>
+	<div class="survey-pop">
+		<div class="survey-top green">
+			<h2 class="top-tit">2023 NS홈쇼핑 임직원 CP교육 만족도 조사(2차)</h2>
+			<p class="edu-name">[교육명: 청탁금지법 / 지식재산권 ]</p>
+			<p class="top-con" style="padding-left:164px;">
+				본 설문은 2023년 하반기 전사 CP교육의 만족도를 평가하고<br>
+				CP교육의 지속적인 개선·발전을 위해 실시합니다.<br>
+                임직원 여러분의 많은 참여 바랍니다.
+
+			</p>
+		</div>
+		<div class="survey-con">
+			<table class="survey-table">
+				<colgroup>
+					<col width="7%" />
+					<col width="42%" />
+					<col width="9.5%" />
+					<col width="9.5%" />
+					<col width="9.5%" />
+					<col width="9.5%" />
+					<col width="13%" />
+				</colgroup>
+				<thead>
+					<tr>
+						<th>번호</th>
+						<th>내용</th>
+						<th>매우<br>그렇다</th>
+						<th>그렇다</th>
+						<th>보통이다</th>
+						<th>그렇지<br>않다</th>
+						<th>전혀<br>그렇지 않다</th>
+					</tr>
+				</thead>
+				<tbody>
+				<form action="../srvy_update.php" enctype="multipart/form-data" name="survey" id="survey" method="post">
+				<input type="hidden" name="srvy_code" value="15" />
+				<input type="hidden" name="srvy_count" value="9" />
+					<tr>
+						<td>01</td>
+						<td class="left">본 교육에 대해 전반적으로 만족하셨습니까?</td>
+						<td><input type="radio" name="survey_1" value="5" /></td>
+						<td><input type="radio" name="survey_1" value="4" /></td>
+						<td><input type="radio" name="survey_1" value="3" /></td>
+						<td><input type="radio" name="survey_1" value="2" /></td>
+						<td><input type="radio" name="survey_1" value="1" /></td>
+					</tr>
+					<tr>
+						<td>02</td>
+						<td class="left">본 교육의 내용을 충분히 이해하셨습니까?</td>
+						<td><input type="radio" name="survey_2" value="5" /></td>
+						<td><input type="radio" name="survey_2" value="4" /></td>
+						<td><input type="radio" name="survey_2" value="3" /></td>
+						<td><input type="radio" name="survey_2" value="2" /></td>
+						<td><input type="radio" name="survey_2" value="1" /></td>
+					</tr>
+					<tr>
+						<td>03</td>
+						<td class="left">본 교육의 난이도가 적절하다고 생각하십니까?</td>
+						<td><input type="radio" name="survey_3" value="5" /></td>
+						<td><input type="radio" name="survey_3" value="4" /></td>
+						<td><input type="radio" name="survey_3" value="3" /></td>
+						<td><input type="radio" name="survey_3" value="2" /></td>
+						<td><input type="radio" name="survey_3" value="1" /></td>
+					</tr>
+					<tr>
+						<td>04</td>
+						<td class="left">본 교육의 진행시간이 적절하다고 생각하십니까?</td>
+						<td><input type="radio" name="survey_4" value="5" /></td>
+						<td><input type="radio" name="survey_4" value="4" /></td>
+						<td><input type="radio" name="survey_4" value="3" /></td>
+						<td><input type="radio" name="survey_4" value="2" /></td>
+						<td><input type="radio" name="survey_4" value="1" /></td>
+					</tr>
+					<tr>
+						<td>05</td>
+						<td class="left">본 교육이 본인의 직무(업무)에 도움이 된다고<br>생각하십니까?</td>
+						<td><input type="radio" name="survey_5" value="5" /></td>
+						<td><input type="radio" name="survey_5" value="4" /></td>
+						<td><input type="radio" name="survey_5" value="3" /></td>
+						<td><input type="radio" name="survey_5" value="2" /></td>
+						<td><input type="radio" name="survey_5" value="1" /></td>
+					</tr>
+					<tr>
+						<td>06</td>
+						<td class="left">본 교육이 준법의식 제고에 도움이 된다고<br>생각하십니까?</td>
+						<td><input type="radio" name="survey_6" value="5" /></td>
+						<td><input type="radio" name="survey_6" value="4" /></td>
+						<td><input type="radio" name="survey_6" value="3" /></td>
+						<td><input type="radio" name="survey_6" value="2" /></td>
+						<td><input type="radio" name="survey_6" value="1" /></td>
+					</tr>
+					<tr>
+						<td>07</td>
+						<td class="left">본 교육의 강의 주제가 적절하게 선정되었다고<br>생각하십니까?</td>
+						<td><input type="radio" name="survey_7" value="5" /></td>
+						<td><input type="radio" name="survey_7" value="4" /></td>
+						<td><input type="radio" name="survey_7" value="3" /></td>
+						<td><input type="radio" name="survey_7" value="2" /></td>
+						<td><input type="radio" name="survey_7" value="1" /></td>
+					</tr>
+					<tr>
+						<td>08</td>
+						<td class="left">본인의 직무에 필요한 CP교육 주제가 있는<br>경우에는 기재해주시기 바랍니다.</td>
+						<td colspan="5">
+							<textarea placeholder="의견을 적어 주세요(200자 이내)" rows="1" name="survey_8" id="textarea_1"></textarea>
+						</td>
+					</tr>
+					<tr>
+						<td>09</td>
+						<td class="left">본 교육에 대한 의견을 자유롭게<br>기술하여 주시기 바랍니다.</td>
+						<td colspan="5">
+							<textarea placeholder="의견을 적어 주세요(200자 이내)" rows="1" name="survey_9" id="textarea_2"></textarea>
+						</td>
+					</tr>
+				</form>
+				</tbody>
+			</table>
+			<div class="bottom-btn">
+				<button class="btn-confirm" onclick="confirm()"><img src="./images/btn_confirm.jpg" alt="" /></button>
+				<button class="btn-exit"><img src="./images/btn_exit.jpg" alt="" /></button>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
+<script type="text/javascript">
+	function confirm() { 
+		var chk = $("input:radio:checked").length;
+		var textarea = $("#textarea_1").val();
+		var textarea2 = $("#textarea_2").val();
+
+		console.log(textarea);
+
+		if(chk < 7 || textarea == "" || textarea2 == "") { 
+			alert("선택이 누락된 부분이 있습니다. 다시 확인 해주세요.");
+			return;
+		}
+		
+		$("form").submit();
+	}
+
+
+</script>

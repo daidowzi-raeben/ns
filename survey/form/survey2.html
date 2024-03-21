@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>survey</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@4.0.1/reset.min.css" />
+	<link rel="stylesheet" type="text/css" href="./css/survey.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+</head>
+<body>
+	<div class="survey-pop">
+		<div class="survey-top orange">
+			<h2 class="top-tit">2023 NS홈쇼핑 임직원 윤리경영 및 CP인식도 조사(1차)</h2>
+			<p class="top-con" style="padding-left:165px">
+				본 설문은 우리 회사의 준법·윤리경영에 대한 인식 조사를 위해 실시합니다.<br>
+	            임직원 여러분의 많은 참여 바랍니다.
+
+			</p>
+		</div>
+		<div class="survey-con">
+			<table class="survey-table">
+				<colgroup>
+					<col width="7%" />
+					<col width="42%" />
+					<col width="9.5%" />
+					<col width="9.5%" />
+					<col width="9.5%" />
+					<col width="9.5%" />
+					<col width="13%" />
+				</colgroup>
+				<thead>
+					<tr>
+						<th>번호</th>
+						<th>내용</th>
+						<th>매우<br>그렇다</th>
+						<th>그렇다</th>
+						<th>보통이다</th>
+						<th>그렇지<br>않다</th>
+						<th>전혀<br>그렇지 않다</th>
+					</tr>
+				</thead>
+				<tbody>
+				<form action="../srvy_update.php" enctype="multipart/form-data" name="survey" id="survey" method="post">
+				<input type="hidden" name="srvy_code" value="14" />
+				<input type="hidden" name="srvy_count" value="15" />
+					<tr>
+						<td>01</td>
+						<td class="left">우리 회사의 최고 경영진은 준법경영을 적극적으로<br>실천함으로써 준법 리더십을 발휘(표명)하고 있다고<br>생각합니까?</td>
+						<td><input type="radio" name="survey_1" value="5" /></td>
+						<td><input type="radio" name="survey_1" value="4" /></td>
+						<td><input type="radio" name="survey_1" value="3" /></td>
+						<td><input type="radio" name="survey_1" value="2" /></td>
+						<td><input type="radio" name="survey_1" value="1" /></td>
+					</tr>
+					<tr>
+						<td>02</td>
+						<td class="left">우리 회사의 CP(공정거래자율준수프로그램, 이하<br>동일) 비전과 전략은 적절하게 수립되었으며,<br>임직원에게 명확하게 제시되고 있다고 생각합니까?</td>
+						<td><input type="radio" name="survey_2" value="5" /></td>
+						<td><input type="radio" name="survey_2" value="4" /></td>
+						<td><input type="radio" name="survey_2" value="3" /></td>
+						<td><input type="radio" name="survey_2" value="2" /></td>
+						<td><input type="radio" name="survey_2" value="1" /></td>
+					</tr>
+					<tr>
+						<td>03</td>
+						<td class="left">우리 회사의 CP는 효율적이고 체계적으로 운영되고<br>있다고 생각합니까?</td>
+						<td><input type="radio" name="survey_3" value="5" /></td>
+						<td><input type="radio" name="survey_3" value="4" /></td>
+						<td><input type="radio" name="survey_3" value="3" /></td>
+						<td><input type="radio" name="survey_3" value="2" /></td>
+						<td><input type="radio" name="survey_3" value="1" /></td>
+					</tr>
+					<tr>
+						<td>04</td>
+						<td class="left">우리 회사의 CP운영조직(관리자/책임자/담당자)은<br>효율적인 CP운영을 위해 최적화되어 있다고<br>생각합니까?</td>
+						<td><input type="radio" name="survey_4" value="5" /></td>
+						<td><input type="radio" name="survey_4" value="4" /></td>
+						<td><input type="radio" name="survey_4" value="3" /></td>
+						<td><input type="radio" name="survey_4" value="2" /></td>
+						<td><input type="radio" name="survey_4" value="1" /></td>
+					</tr>
+					<tr>
+						<td>05</td>
+						<td class="left">우리 회사의 CP점검은 회사의 위법 리스크를 사전에<br>방지하기에 충분하다고 생각합니까?</td>
+						<td><input type="radio" name="survey_5" value="5" /></td>
+						<td><input type="radio" name="survey_5" value="4" /></td>
+						<td><input type="radio" name="survey_5" value="3" /></td>
+						<td><input type="radio" name="survey_5" value="2" /></td>
+						<td><input type="radio" name="survey_5" value="1" /></td>
+					</tr>
+					<tr>
+						<td>06</td>
+						<td class="left">우리 회사의 CP편람은 실제 업무 수행 시 필요한<br>공정거래 관련 가이드로서 적절히 기능하고 있다고<br>생각합니까?</td>
+						<td><input type="radio" name="survey_6" value="5" /></td>
+						<td><input type="radio" name="survey_6" value="4" /></td>
+						<td><input type="radio" name="survey_6" value="3" /></td>
+						<td><input type="radio" name="survey_6" value="2" /></td>
+						<td><input type="radio" name="survey_6" value="1" /></td>
+					</tr>
+					<tr>
+						<td>07</td>
+						<td class="left">우리 회사는 협력사의 준법경영을 지원해 동반성장에<br>기여하고 있다고 생각합니까?</td>
+						<td><input type="radio" name="survey_7" value="5" /></td>
+						<td><input type="radio" name="survey_7" value="4" /></td>
+						<td><input type="radio" name="survey_7" value="3" /></td>
+						<td><input type="radio" name="survey_7" value="2" /></td>
+						<td><input type="radio" name="survey_7" value="1" /></td>
+					</tr>
+					<tr>
+						<td>08</td>
+						<td class="left">우리 회사에 공정거래 자율준수 문화가 정착되어<br>있다고 생각합니까?</td>
+						<td><input type="radio" name="survey_8" value="5" /></td>
+						<td><input type="radio" name="survey_8" value="4" /></td>
+						<td><input type="radio" name="survey_8" value="3" /></td>
+						<td><input type="radio" name="survey_8" value="2" /></td>
+						<td><input type="radio" name="survey_8" value="1" /></td>
+					</tr>
+					<tr>
+						<td>09</td>
+						<td class="left">우리 회사의 CP운영에 대한 의견을 간략히<br>적어주세요. (주관식)</td>
+						<td colspan="5">
+							<textarea placeholder="의견을 적어 주세요(200자 이내)" rows="1" name="survey_9" id="textarea_1"></textarea>
+						</td>
+					</tr>
+					<tr>
+						<td>10</td>
+						<td class="left">우리 회사에서는 금품, 향응, 청탁, 알선이<br>근절되었다고 생각합니까?</td>
+						<td><input type="radio" name="survey_10" value="5" /></td>
+						<td><input type="radio" name="survey_10" value="4" /></td>
+						<td><input type="radio" name="survey_10" value="3" /></td>
+						<td><input type="radio" name="survey_10" value="2" /></td>
+						<td><input type="radio" name="survey_10" value="1" /></td>
+					</tr>
+					<tr>
+						<td>11</td>
+						<td class="left">우리회사는 윤리풍토가 건전한 기업문화를 가졌다고<br>생각합니까?</td>
+						<td><input type="radio" name="survey_11" value="5" /></td>
+						<td><input type="radio" name="survey_11" value="4" /></td>
+						<td><input type="radio" name="survey_11" value="3" /></td>
+						<td><input type="radio" name="survey_11" value="2" /></td>
+						<td><input type="radio" name="survey_11" value="1" /></td>
+					</tr>
+					<tr>
+						<td>12</td>
+						<td class="left">우리회사는 윤리경영 점검에 대한 모니터링 체계를<br>갖추고 있다고 생각합니까?</td>
+						<td><input type="radio" name="survey_12" value="5" /></td>
+						<td><input type="radio" name="survey_12" value="4" /></td>
+						<td><input type="radio" name="survey_12" value="3" /></td>
+						<td><input type="radio" name="survey_12" value="2" /></td>
+						<td><input type="radio" name="survey_12" value="1" /></td>
+					</tr>
+					<tr>
+						<td>13</td>
+						<td class="left">우리회사의 익명제보시스템(헬프라인)은 비윤리<br>예방에 도움이 된다고 생각합니까?</td>
+						<td><input type="radio" name="survey_13" value="5" /></td>
+						<td><input type="radio" name="survey_13" value="4" /></td>
+						<td><input type="radio" name="survey_13" value="3" /></td>
+						<td><input type="radio" name="survey_13" value="2" /></td>
+						<td><input type="radio" name="survey_13" value="1" /></td>
+					</tr>
+					<tr>
+						<td>14</td>
+						<td class="left">윤리교육(워크샵 교육 등)은 윤리의식 함양에 도움이<br>된다고 생각합니까?</td>
+						<td><input type="radio" name="survey_14" value="5" /></td>
+						<td><input type="radio" name="survey_14" value="4" /></td>
+						<td><input type="radio" name="survey_14" value="3" /></td>
+						<td><input type="radio" name="survey_14" value="2" /></td>
+						<td><input type="radio" name="survey_14" value="1" /></td>
+					</tr>
+					<tr>
+						<td>15</td>
+						<td class="left">우리 회사의 윤리경영에 대한 의견이나 제안사항을<br>적어주세요.(주관식)</td>
+						<td colspan="5">
+							<textarea placeholder="의견을 적어 주세요(200자 이내)" rows="1" name="survey_15" id="textarea_2"></textarea>
+						</td>
+					</tr>
+				</form>
+				</tbody>
+			</table>
+			<div class="bottom-btn">
+				<button class="btn-confirm" onclick="confirm()"><img src="./images/btn_confirm.jpg" alt="" /></button>
+				<button class="btn-exit"><img src="./images/btn_exit.jpg" alt="" /></button>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
+<script type="text/javascript">
+	function confirm() { 
+		var chk   = $("input:radio:checked").length;
+		var textarea = $("#textarea_1").val();
+		var textarea2 = $("#textarea_2").val();
+
+		if(chk < 13 || textarea == "" || textarea2 == "") { 
+			alert("선택이 누락된 부분이 있습니다. 다시 확인 해주세요.");
+			return;
+		}
+		
+		$("form").submit();
+	}
+</script>

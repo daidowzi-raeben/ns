@@ -1,0 +1,48 @@
+<style>
+    .contract-pop{box-sizing:border-box;width: 561px;height:722px;background:url('./images/bg202207.png') #fff no-repeat center;padding:25px 30px;word-break: keep-all;position:relative;font-family: 'Nanum Gothic', sans-serif !important;color:#000 !important;font-weight:600}
+    .contract-pop .form{text-align: center;font-size: 18px;margin-top: 1.5em;position:relative;z-index: 30;margin-top: 550px;}
+    .contract-pop .form .date{display: flex;align-items: center;justify-content: center;margin-bottom: 10px;}
+    .contract-pop .form .date input{margin-right: 5px;margin-left: 15px;width: 40px;}
+    .contract-pop .form .name input{width: 80px;}
+    .contract-pop .form input{height: 20px;text-align: center;font-size: 18px;}
+    .contract-pop .btnbox{text-align: center;margin-top: 1em;}
+    .contract-pop .btnbox button{width: 90px;height: 30px;background:#e83f2e;border:0;font-size: 16px;color:#fff;border-radius: 4px;cursor:pointer;}
+</style>
+<!-- popup // -->
+<div class="popup" style="position:fixed;left: 0;top: 0;z-index: 99999;">
+    <div class="popContents" style="padding: 0;">
+        <div class="contract-pop">
+
+            <form method="post" action="pld_update.php">
+				<div class="form">
+					<div class="date">
+						<span id="year" ></span>년
+						<input type="text" id="month" name="month"> 월
+						<input type="text" id="date" name="day"> 일
+					</div>
+					<div class="name">
+						사번: <input type="text" style="width:150px;" name="e_number">
+						<span></span>
+						이름: <input type="text" name="mb_name">
+					</div>
+					<div class="btnbox">
+						<button type="submit">제출</button>
+					</div>
+				</div>
+
+			</form>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    var year = new Date().getFullYear();
+    var month = new Date().getMonth() + 1;
+    var date = new Date().getDate();
+    window.onload = function(){
+        document.getElementById('year').innerText = year;
+        document.getElementById('month').value = month;
+        document.getElementById('date').value = date;
+    }
+</script>

@@ -1,0 +1,26 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700|Noto+Sans+KR:400,700&display=swap');
+
+.survey-pop{width:810px;font-family: 'Nanum Gothic', sans-serif;}
+
+.survey-top{padding:15px;text-align:center;font-family: 'Noto Sans KR', sans-serif;}
+.survey-top.green{background:#b7f0b1;}
+.survey-top.orange{background:#ffc19e;}
+.survey-top .top-tit{font-size:31px;font-weight:700;letter-spacing:-.5px;}
+.survey-top .edu-name{font-size:16px;padding-top:10px;}
+.survey-top .top-con{ text-align:left;padding-top:20px;color:#444;font-size:16px;line-height:1.5;letter-spacing:-.5px;}
+
+.survey-con{padding:30px;}
+
+.survey-table{width:749px; border:1.5px solid #ccc;}
+.survey-table tr > *{border-right:1px solid #ccc;border-bottom:1px solid #ccc;}
+.survey-table th{background:#fafafa;font-size:15px;font-weight:600;padding:7px 5px;line-height:1.5;vertical-align:middle;;;color:#555;}
+.survey-table td{color:#333;font-size:13px;text-align: center;padding:7px 10px;line-height:1.5;vertical-align:middle;letter-spacing: -.5px;}
+.survey-table td.left{text-align:left;}
+.survey-table textarea{resize: none;width:100%;vertical-align: middle;text-align: center;padding:10px;box-sizing: border-box;border:1px solid #ccc;font-family: 'Nanum Gothic', sans-serif;}
+.survey-table textarea::placeholder{color:#ccc;}
+
+.bottom-btn{padding:40px 0;text-align:center;}
+.bottom-btn button{border:none;background:none;cursor:pointer;outline:none;padding:0;}
+.bottom-btn .btn-confirm{margin-left:100px;}
+.bottom-btn .btn-exit{float:right;}
