@@ -71,6 +71,7 @@ if(!defined('G5_IS_ADMIN'))
 <link type="text/css" rel="stylesheet" media="all" href="<?php echo G5_URL ?>/_Css/styleDefault.css?ver=<?php echo G5_CSS_VER; ?>" />
 <link type="text/css" rel="stylesheet" media="all" href="<?php echo G5_URL ?>/_Css/layout.css?ver=<?php echo G5_CSS_VER; ?>" />
 <link type="text/css" rel="stylesheet" media="all" href="<?php echo G5_URL ?>/_Css/main.css?ver=<?php echo G5_CSS_VER; ?>" />
+<link type="text/css" rel="stylesheet" media="all" href="<?php echo G5_URL ?>/static/css/common.css?v=<?php echo time(); ?>" />
 
 <link rel="stylesheet" href="<?php echo G5_URL ?>/_Js/jquery/animate.css">
 <link rel="stylesheet" href="<?php echo G5_URL ?>/_Js/jquery/slick-theme.css">
