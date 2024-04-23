@@ -140,7 +140,7 @@
 	{
 		var popupX = (document.body.offsetWidth / 2) - 300;
 		
-		var ret = window.open("/temp/test.php", "popwin", "status=0, width=680, height=722, scrollbars=1, left=" + popupX);
+		var ret = window.open("/temp/index.html", "popwin", "status=0, width=680, height=722, scrollbars=1, left=" + popupX);
 	}
 	
 	// testWin();
@@ -162,7 +162,7 @@
 			if(!$result['cnt']) 
 			{
 ?>
-				<script type='text/javascript'>pldWin();</script> 
+				<script type='text/javascript'>testWin();</script> 
 <?php
 			}
 		}
