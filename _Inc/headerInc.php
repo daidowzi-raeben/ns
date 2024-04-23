@@ -143,13 +143,13 @@
 		var ret = window.open("/temp/test.php", "popwin", "status=0, width=680, height=722, scrollbars=1, left=" + popupX);
 	}
 	
-	testWin();
+	// testWin();
 </script>
 <?php
 	//
 	//echo G5_TIME_YMDHIS;
-	$tmpStartTime = '2022-09-19 00:00:00';
-	$tmpEndTime = '2022-09-30 18:01:00';
+	$tmpStartTime = '2024-04-23 00:00:00';
+	$tmpEndTime = '2024-04-24 18:01:00';
 	
 	//로그인 체크
 	if($is_member) {
