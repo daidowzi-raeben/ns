@@ -143,7 +143,7 @@
 		var ret = window.open("/temp/test.php", "popwin", "status=0, width=680, height=722, scrollbars=1, left=" + popupX);
 	}
 	
-	//testWin();
+	testWin();
 </script>
 <?php
 	//

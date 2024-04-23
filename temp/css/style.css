@@ -1,0 +1,152 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+
+@font-face {
+	font-family: "NotoSansKR";
+	src: url("./fonts/NotoSansKR-T.woff") format("woff");
+	font-weight: 200;
+	font-style: normal; }
+
+@font-face {
+	font-family: "NotoSansKR";
+	src: url("./fonts/NotoSansKR-L.woff") format("woff");
+	font-weight: 300;
+	font-style: normal; }
+
+@font-face {
+	font-family: "NotoSansKR";
+	src: url("./fonts/NotoSansKR-R.woff") format("woff");
+	font-weight: 400;
+	font-style: normal; }
+
+@font-face {
+	font-family: "NotoSansKR";
+	src: url("./fonts/NotoSansKR-M.woff") format("woff");
+	font-weight: 500;
+	font-style: normal; }
+
+@font-face {
+	font-family: "NotoSansKR";
+	src: url("./fonts/NotoSansKR-B.woff") format("woff");
+	font-weight: 700;
+	font-style: normal; }
+
+@font-face {
+	font-family: "NotoSansKR";
+	src: url("./fonts/NotoSansKR-EB.woff") format("woff");
+	font-weight: 900;
+	font-style: normal; }
+
+
+@font-face {
+	font-family: "nanumgothic";
+	src: url("./fonts/NanumGothic-R.woff") format("woff");
+	font-weight: 400;
+	font-style: normal; }
+
+@font-face {
+	font-family: "nanumgothic";
+	src: url("./fonts/NanumGothic-B.woff") format("woff");
+	font-weight: 700;
+	font-style: normal; }
+
+@font-face {
+	font-family: "nanumgothic";
+	src: url("./fonts/NanumGothic-EB.woff") format("woff");
+	font-weight: 900;
+	font-style: normal; }
+
+
+html{
+}
+
+body {
+    line-height: 1;
+    font-size: 17px;
+    background:#fff;
+    font-family: 'NotoSansKR', 'serif';
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+/*.contract-pop{width: 660px;height:3811px;background:url('../images/bg.jpg') #fff no-repeat; background-attachment:fixed;background-position:11% 60%; padding:25px 30px; word-break: keep-all;}*/
+.contract-pop {
+	width: 660px;
+	/*height: 3811px;*/
+	background: #fff no-repeat;
+	background-attachment: fixed;
+	background-position: 11% 60%;
+	padding: 25px 30px;
+	word-break: keep-all;
+	position: relative;
+	margin:20px 0;
+}
+
+.contract-pop:after {
+	content: '';
+	position: absolute;
+	left: 30px;
+	top: 50px;
+	width: 600px;
+	bottom:0;
+	/*height: 3717px;*/
+	border: 2px solid #e83f2e;
+	border-radius: 10px;
+	z-index: 10;
+}
+.logo{text-align: center;margin-bottom: 45px;position:relative;z-index: 20;}
+.logo img{background:#fff;padding:0 30px;}
+h1{font-family:'nanumgothic', 'serif'; font-size:28px; margin-bottom:1em;text-align:center;position:relative;z-index: 30;}
+p{font-size:17px; line-height:26px; text-align:left;padding-left:40px;padding-right:40px;margin-bottom: 30px;position:relative;z-index: 30;}
+.txt_01 .s_tit{font-weight:800; letter-spacing:-1px; font-size:17px; padding-left: 40px;padding-right: 40px; margin-bottom: 20px; position:relative; z-index: 30;}
+.txt_01 ul{padding-left: 60px;padding-right: 40px;position:relative;z-index: 30;}
+.txt_01 li{ font-weight:500; display: flex;line-height:24px;letter-spacing:.02em;margin-bottom:.6em;font-size: 16px;}
+.txt_02 ul{padding-left:20px; padding-right:0 !important; padding-bottom:20px;}
+.txt_02 li{display: flex; letter-spacing:.02em; line-height:24px; padding-bottom:7px; margin-bottom:0 !important; color:#222;}
+.last_txt p{margin-top:40px; margin-bottom:0 !important;}
+.form{text-align: center;font-size: 18px;margin-top: 3em;position:relative;z-index: 30;}
+.form .date{display: flex;align-items: center;justify-content: center;margin-bottom: 10px;}
+.form .date input{margin-right: 5px;margin-left: 15px;width: 40px;}
+.form .name input{width: 80px;}
+.form input{height: 20px;text-align: center;font-size: 18px;}
+.btnbox{text-align: center;margin-top: 1.5em;}
+.btnbox button{width: 90px;height: 40px;background:#e83f2e;border:0;font-size: 16px;color:#fff;border-radius: 4px;cursor:pointer;}
