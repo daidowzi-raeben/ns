@@ -1,7 +1,7 @@
 <?php
 include_once('./_common.php');
 
-$pld_year = '2023';
+$pld_year = '2024';
 $pld_semi = 'A';
 
 $pld_month  = trim($_POST['month']);

@@ -156,7 +156,7 @@
 		// 서약서팝업레이어 시작 { : 로그인 회원인 경우만 서약서 출력
 		if(G5_TIME_YMDHIS > $tmpStartTime && G5_TIME_YMDHIS < $tmpEndTime)
 		{
-			$sql = " select count(pld_no) as cnt from sj_prs_pledge where mb_id = '{$member['mb_id']}' and pld_flag = '0' and pld_year = '2022' and pld_semi = 'B' ";
+			$sql = " select count(pld_no) as cnt from sj_prs_pledge where mb_id = '{$member['mb_id']}' and pld_year = '2024' and pld_semi = 'A' ";
 			$result = sql_fetch($sql);
 			
 			if(!$result['cnt']) 
