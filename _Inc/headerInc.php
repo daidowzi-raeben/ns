@@ -148,8 +148,8 @@
 <?php
 	//
 	//echo G5_TIME_YMDHIS;
-	$tmpStartTime = '2024-04-23 00:00:00';
-	$tmpEndTime = '2024-04-24 18:01:00';
+	$tmpStartTime = '2024-04-25 00:00:00';
+	$tmpEndTime = '2024-05-08 18:01:00';
 	
 	//로그인 체크
 	if($is_member) {
