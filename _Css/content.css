@@ -743,6 +743,42 @@
 .course2 ul li span.bold {
 	font-weight: bold;
 }
+
+.course2-pagenation{
+	display:flex;
+	justify-content: space-between;
+	margin-top:-20px;
+}
+
+.course2-pagenation .btn{
+	flex:1;
+	margin-right:15px;
+	height:35px;
+	border:1px solid #cdcdcd;
+	background-color:#fff;
+	border-radius: 4px;
+	box-shadow: inset 0 -6px 7px rgba(176,176,176,.15);
+	font-size:15px;
+	font-weight: 600;
+}
+
+.course2-pagenation .btn:last-child{
+	margin-right:0;
+}
+
+.course2-pagenation .btn.done{
+	background-color:#2f6f85;
+	box-shadow: inset 0 -6px 7px rgba(4,56,74,.2);
+	color:#fff;
+	border:none;
+}
+
+.course2-pagenation .btn.active{
+	background-color:#7aefef;
+	box-shadow: inset 0 -6px 7px rgba(47,139,139,.2);
+	border:none;
+}
+
 p.btn {
 	float: right;
 	padding-top: 10px;

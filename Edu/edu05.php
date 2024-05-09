@@ -133,7 +133,7 @@ $result_m = sql_fetch($sql_m);
 
 <!-- page-start // -->
 
-			<div class="pagenation">
+			<div class="course2-pagenation">
 				<button type="button" class="btn done">1</button>
 				<button type="button" class="btn active">2</button>
 				<?php for ($i=3; $i<13; $i++) {  ?>
