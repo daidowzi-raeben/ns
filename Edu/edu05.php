@@ -133,9 +133,15 @@ $result_m = sql_fetch($sql_m);
 
 <!-- page-start // -->
 
-
+			<div class="pagenation">
+				<button type="button" class="btn done">1</button>
+				<button type="button" class="btn active">2</button>
+				<?php for ($i=3; $i<13; $i++) {  ?>
+				<button type="button" class="btn"><?php echo $i ?></button>
+				<?php } ?>
+			</div>
           <!-- [2023 하반기 CP전사교육] 지식재산권의 이해와 사례  { -->
-			<div class="course2" style="margin-top:75px">
+			<div class="course2" style="margin-top:15px">
 					<p class="c_img2" style="margin-top:7px"><img src="../_Img/Sub/edu/cyber_img26.png" width="264"></p>
 					<ul class="edu_gap10">
 							<li><span class="title2">과정명</span><span class="sub">[2023 하반기 CP전사교육] 지식재산권의 이해와 사례</span></li>
