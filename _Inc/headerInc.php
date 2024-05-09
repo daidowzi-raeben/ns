@@ -149,7 +149,7 @@
 	//
 	//echo G5_TIME_YMDHIS;
 	$tmpStartTime = '2024-04-25 00:00:00';
-	$tmpEndTime = '2024-05-08 18:01:00';
+	$tmpEndTime = '2024-05-17 18:01:00';
 
   if($member['mb_id'] === 'admin') {
     $tmpStartTime = '2024-04-22 00:00:00';
