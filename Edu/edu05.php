@@ -96,7 +96,31 @@ $result = sql_fetch($sql);
 
 $sql_m = "SELECT *  FROM sj_lesson_apply where app_uid = '{$member['mb_id']}' and app_lssn_no = '19' limit 0, 1 ";
 $result_m = sql_fetch($sql_m);
+
+
+if (!$sst) {
+    $sst = "ls.lssn_no";
+    $sod = "asc";
+}
+
+$page = 1;
+if(!isset($_GET['page'])) {
+	$page = 1;
+} else {
+	$page = $_GET['page'];
+}
+
+$rows = $page - 1;
+$limit = 1;
+
+$sql_where = " where lssn_kind = 'LS03' ";
+$sql_order = " order by {$sst} {$sod} ";
+
+$sql = "select * from  {$g5['lesson_table']} as ls {$sql_where} {$sql_order} limit {$rows}, {$limit}";
+echo $sql;
+$result = sql_query($sql);
 ?>
+
     <div id="svisual-wrap">
 		<div class="vistxt">
 			<p class="btxt"><span>사이버 & 집체교육</span></p>
@@ -133,15 +157,90 @@ $result_m = sql_fetch($sql_m);
 
 <!-- page-start // -->
 
-			<div class="course2-pagenation">
+			<div class="course2-pagenation" style="display:none">
 				<button type="button" class="btn done">1</button>
 				<button type="button" class="btn active">2</button>
 				<?php for ($i=3; $i<13; $i++) {  ?>
 				<button type="button" class="btn"><?php echo $i ?></button>
 				<?php } ?>
 			</div>
-          <!-- [2023 하반기 CP전사교육] 지식재산권의 이해와 사례  { -->
-			<div class="course2" style="margin-top:15px">
+
+<div style="display:none">
+       			<?php 
+			for ($i=0; $row=sql_fetch_array($result); $i++) {
+			?>
+
+
+
+			<div class="course2 flex" style="margin-top:50px; display:flex;">
+					<div class="chasi"><?php echo ($rows * $limit ) + $i + 1 ?>회차</div>
+					<p class="c_img2"><img src="<?php echo CD_IMG_URL ?>/lssn_img/<?php echo $row['lssn_rimg']?>" width="215"></p>
+					<ul class="edu_gap10">
+				    <li><span class="title">주&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;제</span><?php echo $row['lssn_title']?></li>
+					<li><span class="title">학습시간</span>5분</li>
+                    <li><span class="title">학습기간</span><?php echo $row['lssn_sdate']?> ~ <?php echo $row['lssn_edate']?></li>
+                    <li><span class="title">마일리지</span>10점</li>
+				</ul>
+			</div>
+			<p class="btn">
+			<?php
+				$tempSday = $row['lssn_sdate'];
+				$tempEday = $row['lssn_edate'];
+				if(!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday."+1 day")))
+				{
+			?>
+				<a href="#n" class="day-end"><span>학습기간이 아닙니다. </span></a>
+			<?php
+				} else {
+			?>
+				<a href="#" class="class-enter"><span class="enterClass3" lno="<?php echo $row['lssn_no']?>">학습하기</span></a>
+			<?php
+				}
+			?>
+				<!--<a href="#n" class="class-end"><span>학습완료</span></a>-->
+			</p>
+			<div class="sgap"></div>			
+			<?php 
+			}
+			?>
+</div>
+
+
+        <!-- page-end //-->
+
+		<div class="course2" style="margin-top:15px">
+					<p class="c_img2" style="margin-top:7px"><img src="/static/image/thum_01.png" width="264"></p>
+					<ul class="edu_gap10">
+							<li><span class="title2">과정명</span><span class="sub">거래유형별 대규모유통업법 실무 가이드라인</span></li>
+							<li><span class="title">수료조건</span>학습 100% 진행</li>
+							<li><span class="title">학습기간</span>2024.05.20(월) ~ 2024.05.31(금)</li>
+							<li><span class="title">마일리지</span>없음</li>
+							<li><span class="title">학습시간</span>2시간</li>
+					</ul>
+			</div>
+			<p class="btn">
+			<?php
+					$tempSday = "2024-05-14 09:00";
+					$tempEday = "2024-05-31 18:00";
+					if(!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday."+1 day")))
+					{
+			?>
+					<a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
+			<?php
+					}
+					else
+					{
+			?>
+					<a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?=$member['mb_id']?>" class="class-enter" target="_blank"><span>학습하기</span></a>
+			<?php
+					}
+			?>
+
+			</p>
+
+
+		 <!-- [2023 하반기 CP전사교육] 지식재산권의 이해와 사례  { -->
+			<div class="course2" style="margin-top:75px">
 					<p class="c_img2" style="margin-top:7px"><img src="../_Img/Sub/edu/cyber_img26.png" width="264"></p>
 					<ul class="edu_gap10">
 							<li><span class="title2">과정명</span><span class="sub">[2023 하반기 CP전사교육] 지식재산권의 이해와 사례</span></li>
@@ -282,4 +381,26 @@ $result_m = sql_fetch($sql_m);
         <!-- page-end //-->
 		</div>
     </div>
+
+	<script src="/_JS/jquery.bpopup.min.js"></script>
+		<script src="/_JS/lms.js"></script>
+		<style>
+			.popup_container{position:absolute;left: 0;top: 0;width: 100%;height: 100%;z-index: 500;background:#fff;}
+			.new__pop-close{position:absolute;right: 1em;top: 1em;z-index: 600;background:url('/_Img/Sub/close-x.png') no-repeat center;width: 45px;height: 45px;border: none;}
+		</style>
+		<!--s: layer-movie(학습 영상) -->
+		<div id="popup_win" class="layer-wrap movie" style="left:50%; top:50%;">
+			<div class="is-top" style="padding: 0;">
+				<h2>학습평가</h2>
+				<a href="#n" class="close b-close"><span class="blind">닫기기</span></a>
+			</div>
+			<div class="is-con">
+				<div class="movie">
+					<div class="popup_container movie" id="popup_container">
+				
+					</div>
+				</div>
+			</div>
+		</div>
+
     <?php include_once ('../_Inc/subTail.php');?>
