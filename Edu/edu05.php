@@ -117,7 +117,7 @@ $sql_where = " where lssn_kind = 'LS03' ";
 $sql_order = " order by {$sst} {$sod} ";
 
 $sql = "select * from  {$g5['lesson_table']} as ls {$sql_where} {$sql_order} limit {$rows}, {$limit}";
-echo $sql;
+// echo $sql;
 $result = sql_query($sql);
 ?>
 
