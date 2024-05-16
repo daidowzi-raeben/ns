@@ -165,7 +165,7 @@ $result = sql_query($sql);
 				// $is = 'background:#fff;';
 				$sql_cnt = "select ls.lssn_no from cd_lms_lesson as ls
 				LEFT JOIN cd_lms_lesson_result AS b ON ls.lssn_no = b.lssn_no
-				 where lssn_kind = 'LS03' and lssn_company = '".$member['mb_profile']."' 
+				 where lssn_kind = 'LS00' and lssn_company = '".$member['mb_profile']."' 
 				 AND b.mb_id = '".$member['mb_id']."'
 				 order by ls.lssn_no ASC LIMIT ".$p." ,1  ";
 				$result_cnt = sql_fetch($sql_cnt);
@@ -192,7 +192,7 @@ $result = sql_query($sql);
 
 			<div class="course2 flex" style="margin-top:50px; display:flex;">
 					<div class="chasi"><?php echo ($rows * $limit ) + $i + 1 ?>회차</div>
-					<p class="c_img2"><img src="<?php echo CD_IMG_URL ?>/lssn_img/<?php echo $row['lssn_rimg']?>" width="215"></p>
+					<p class="c_img2"><img src="/_Img/lssn_img/<?php echo $row['lssn_rimg']?>" width="215"></p>
 					<ul class="edu_gap10">
 				    <li><span class="title">주&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;제</span><?php echo $row['lssn_title']?></li>
 					<li><span class="title">학습시간</span>5분</li>
