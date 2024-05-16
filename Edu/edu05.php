@@ -158,8 +158,8 @@ $result = sql_query($sql);
 <!-- page-start // -->
 
 			<div class="course2-pagenation" >
-				<button type="button" class="btn done">1</button>
-				<button type="button" class="btn active">2</button>
+				<!-- <button type="button" class="btn done">1</button> -->
+				<!-- <button type="button" class="btn active">2</button> -->
 						<?php for($j=1; $j<=12; $j++) {
 				$p = $j-1;
 				// $is = 'background:#fff;';
