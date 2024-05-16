@@ -62,8 +62,8 @@ if( $LESSON['lssn_controlbar'] == "Y" ) {
 <link type="text/css" rel="stylesheet" media="all" href="http://cd.sejong21.co.kr/theme/lofa/_Css/common.css" />
 <link type="text/css" rel="stylesheet" media="all" href="http://cd.sejong21.co.kr/theme/lofa/_Css/styleDefault.css" />
 <link type="text/css" rel="stylesheet" media="all" href="http://cd.sejong21.co.kr/theme/lofa/_Css/content.css" />
-<script  type="text/javascript" src="http://cd.sejong21.co.kr/theme/lofa/_Js/jquery/jquery-1.11.3.min.js"></script>
-<script  type="text/javascript" src="http://cd.sejong21.co.kr/theme/lofa/_Js/jquery/jquery.easing.1.3.js"></script>
+<script  type="text/javascript" src="/_Js/jquery/jquery-1.11.3.min.js"></script>
+<script  type="text/javascript" src="/_Js/jquery/jquery.easing.1.3.js"></script>
 <script>
 	/*
 	var urls = 'pop02.php'
