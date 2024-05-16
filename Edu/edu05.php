@@ -213,7 +213,7 @@ $result = sql_query($sql);
 					<ul class="edu_gap10">
 							<li><span class="title2">과정명</span><span class="sub">거래유형별 대규모유통업법 실무 가이드라인</span></li>
 							<li><span class="title">수료조건</span>학습 100% 진행</li>
-							<li><span class="title">학습기간</span>2024.05.20(월) ~ 2024.05.31(금)</li>
+							<li><span class="title">학습기간</span>2024.05.20(월) ~ 2024.05.24(금)</li>
 							<li><span class="title">마일리지</span>없음</li>
 							<li><span class="title">학습시간</span>2시간</li>
 					</ul>
@@ -221,7 +221,7 @@ $result = sql_query($sql);
 			<p class="btn">
 			<?php
 					$tempSday = "2024-05-20 09:00";
-					$tempEday = "2024-05-31 18:00";
+					$tempEday = "2024-05-24 18:00";
 					if(!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday."+1 day")))
 					{
 			?>
