@@ -197,7 +197,7 @@ $result = sql_query($sql);
 				    <li><span class="title">주&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;제</span><?php echo $row['lssn_title']?></li>
 					<li><span class="title">학습시간</span><?php echo $row['lssn_time']?></li>
                     <li><span class="title">학습기간</span><?php echo $row['lssn_sdate']?> ~ <?php echo $row['lssn_edate']?></li>
-                    <li><span class="title">마일리지</span><?php echo $row['lssn_point']?></li>
+                    <li><span class="title">마일리지</span><?php echo $row['lssn_point']?>점</li>
 				</ul>
 			</div>
 			<p class="btn">
