@@ -126,7 +126,7 @@ add_javascript('<script type="text/javascript" src="/_JS/jquery.bpopup.min.js"><
                     <input type="text" class="new__input width_400" name="lssn_img_link" id="lssn_img_link" value="<?php echo $lssn['lssn_rimg'] ?>" />
 					<a href="javascript:view_dir();" class="btn btn_02">찾아연결</a>
 					<a href="javascript:preview();" class="btn btn_01">미리보기</a>
-					<br />*img_cd > lssn_img 폴더 안에 이미지가 있어야 합니다.
+					<br />*/_Img > lssn_img 폴더 안에 이미지가 있어야 합니다.
                 </td>
             </tr>
 				<tr>
@@ -380,7 +380,7 @@ add_javascript('<script type="text/javascript" src="/_JS/jquery.bpopup.min.js"><
 		
 		$("#popup_win").bPopup();
 		$("#popup_container").html("");
-		var new_img = '<img src="<?php echo CD_IMG_URL ?>/lssn_img/' + img + '">';
+		var new_img = '<img src="<?php echo SJ_PROCESS_PATH ?>/_Img/lssn_img/' + img + '">';
 		$("#popup_container").append(new_img);
 		//alert(img);
 	}

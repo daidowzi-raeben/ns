@@ -1,7 +1,7 @@
 <?php
 include_once('./_common.php');
 
-$base_dir = G5_PATH . '/_Img/lssn_img';
+$base_dir = SJ_PROCESS_PATH . '/_Img/lssn_img';
 
 $df = opendir($base_dir);
 
