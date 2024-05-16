@@ -400,8 +400,8 @@ $result = sql_query($sql);
 		</div>
     </div>
 
-	<script src="/_JS/jquery.bpopup.min.js"></script>
-		<script src="/_JS/lms.js"></script>
+	<script src="/_Js/jquery.bpopup.min.js"></script>
+		<script src="/_Js/lms.js"></script>
 		<style>
 			.popup_container{position:absolute;left: 0;top: 0;width: 100%;height: 100%;z-index: 500;background:#fff;}
 			.new__pop-close{position:absolute;right: 1em;top: 1em;z-index: 600;background:url('/_Img/Sub/close-x.png') no-repeat center;width: 45px;height: 45px;border: none;}

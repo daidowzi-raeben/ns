@@ -45,7 +45,7 @@ $result = sql_query($sql);
 $colspan = 16;
 
 include_once(G5_PLUGIN_PATH.'/jquery-ui/datepicker.php');
-add_javascript('<script type="text/javascript" src="/_JS/jquery.bpopup.min.js"></script>', 0);
+add_javascript('<script type="text/javascript" src="/_Js/jquery.bpopup.min.js"></script>', 0);
 ?>
 <script>
     $(document).ready(function(){
