@@ -42,7 +42,7 @@ if( $attend_info ) {
 }
 else $open_page = 1;
 
-$page_url = G5_URL . "/campaign/{$LESSON['lssn_div']}/{$CONTENTS}/" . sprintf("%02d",$open_page) . ".html";
+$page_url = G5_URL . "/process/{$LESSON['lssn_div']}/{$CONTENTS}/" . sprintf("%02d",$open_page) . ".html";
 echo $page_url;
 
 ## 컨트롤바 상태

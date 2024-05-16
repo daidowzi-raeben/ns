@@ -1,12 +1,12 @@
 <?php
-$sub_menu = "300310";
+$sub_menu = "300220";
 include_once('./_common.php');
 
 auth_check($auth[$sub_menu], 'r');
 
 $sql_common = " from {$g5['lesson_table']} ";
 
-$sql_search = " where (1) and lssn_kind = 'LS03' ";
+$sql_search = " where (1) and lssn_kind = 'LS00' ";
 if ($stx) {
     $sql_search .= " and ( ";
     switch ($sfl) {

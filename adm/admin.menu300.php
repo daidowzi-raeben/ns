@@ -5,6 +5,7 @@ $menu['menu300'] = array (
 	array('300110', 'e_준법퀴즈캠페인관리', ''.G5_ADMIN_URL.'/process_cp_list.php', 'pc_cplist'),
 	array('300200', '사이버과정관리', ''.G5_ADMIN_URL.'/prc_list.php', 'prc_list'),
 	array('300210', '&nbsp;&nbsp;- 과정관리', ''.G5_ADMIN_URL.'/prc_list.php', 'prc_list'),
+	array('300220', '&nbsp;&nbsp;- 상단 과정관리', ''.G5_ADMIN_URL.'/cd.campaign_list.php', 'prc_list'),
 	//array('300300', '콘텐츠관리', ''.G5_ADMIN_URL.'/ct_list.php', 'ct_list'),
 	array('300400', '시험관리', ''.G5_ADMIN_URL.'/tst_list.php', 'tst_list'),
 	array('300410', '&nbsp;&nbsp;- 문항관리', ''.G5_ADMIN_URL.'/tst_list.php', 'tst_list'),

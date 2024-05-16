@@ -11,7 +11,7 @@ check_admin_token();
 
 
 $lno = isset($_POST['lno']) ? trim($_POST['lno']) : '';
-$lssn_kind = "LS03";
+$lssn_kind = "LS00";
 $lssn_title = isset($_POST['lssn_title']) ? trim(strip_tags($_POST['lssn_title'])) : '';
 $lssn_total = isset($_POST['lssn_total']) ? trim(strip_tags($_POST['lssn_total'])) : '';
 $lssn_class = isset($_POST['lssn_class']) ? trim(strip_tags($_POST['lssn_class'])) : '';
@@ -62,5 +62,5 @@ else if ($w == 'u')
 }
 
 // echo "update {$g5['lesson_table']} set {$sql_common} where lssn_no = {$lno}";
-return;
+// return;
 goto_url('./cd.campaign_list.php?'.$qstr.'&amp;w=u&amp;', false);

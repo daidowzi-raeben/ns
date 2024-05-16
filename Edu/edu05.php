@@ -113,7 +113,7 @@ if(!isset($_GET['page'])) {
 $rows = $page - 1;
 $limit = 1;
 
-$sql_where = " where lssn_kind = 'LS03' ";
+$sql_where = " where lssn_kind = 'LS00' ";
 $sql_order = " order by {$sst} {$sod} ";
 
 $sql = "select * from  {$g5['lesson_table']} as ls {$sql_where} {$sql_order} limit {$rows}, {$limit}";
@@ -157,15 +157,33 @@ $result = sql_query($sql);
 
 <!-- page-start // -->
 
-			<div class="course2-pagenation" style="display:none">
+			<div class="course2-pagenation" >
 				<button type="button" class="btn done">1</button>
 				<button type="button" class="btn active">2</button>
-				<?php for ($i=3; $i<13; $i++) {  ?>
-				<button type="button" class="btn"><?php echo $i ?></button>
+						<?php for($j=1; $j<=12; $j++) {
+				$p = $j-1;
+				// $is = 'background:#fff;';
+				$sql_cnt = "select ls.lssn_no from cd_lms_lesson as ls
+				LEFT JOIN cd_lms_lesson_result AS b ON ls.lssn_no = b.lssn_no
+				 where lssn_kind = 'LS03' and lssn_company = '".$member['mb_profile']."' 
+				 AND b.mb_id = '".$member['mb_id']."'
+				 order by ls.lssn_no ASC LIMIT ".$p." ,1  ";
+				$result_cnt = sql_fetch($sql_cnt);
+				if(isset($result_cnt['lssn_no'])) {
+					$is = 'background:#32CD32;';
+				}
+#				$is = '';
+#				echo $result_cnt['idx'];
+				
+				
+				
+				
+				?>
+					<button type="button" style="<?php if($j != $page) {echo $is; } else {echo $is; } ?>" onclick="location.href='?page=<?php echo $j?>';" class="btn <?php if($j == $page) echo 'active' ?>"><?php echo $j?></button>
 				<?php } ?>
 			</div>
 
-<div style="display:none">
+<div >
        			<?php 
 			for ($i=0; $row=sql_fetch_array($result); $i++) {
 			?>
@@ -388,7 +406,11 @@ $result = sql_query($sql);
 			.popup_container{position:absolute;left: 0;top: 0;width: 100%;height: 100%;z-index: 500;background:#fff;}
 			.new__pop-close{position:absolute;right: 1em;top: 1em;z-index: 600;background:url('/_Img/Sub/close-x.png') no-repeat center;width: 45px;height: 45px;border: none;}
 		</style>
-		<!--s: layer-movie(학습 영상) -->
+		
+
+    <?php include_once ('../_Inc/subTail.php');?>
+
+	<!--s: layer-movie(학습 영상) -->
 		<div id="popup_win" class="layer-wrap movie" style="left:50%; top:50%;">
 			<div class="is-top" style="padding: 0;">
 				<h2>학습평가</h2>
@@ -402,5 +424,3 @@ $result = sql_query($sql);
 				</div>
 			</div>
 		</div>
-
-    <?php include_once ('../_Inc/subTail.php');?>
