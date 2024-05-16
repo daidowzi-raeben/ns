@@ -55,7 +55,7 @@ $worksheet = $workbook->addworksheet();
 $num2_format =& $workbook->addformat(array(num_format => '\0#'));
 
 
-$L = 'LS03';
+$L = 'LS00';
 $qry2 = sql_query("SELECT * from sj_lms_lesson WHERE lssn_kind = '".$L."' ORDER BY lssn_no asc");
 
 

@@ -45,7 +45,7 @@ if (!$lssn) {
 }
 $strLesson = "";
 
-$g5['title'] = '사이버교육 상단 관리';
+$g5['title'] = '직무윤리 캠페인 메시지 관리';
 include_once('./admin.head.php');
 
 $sql = " select * {$sql_common} {$sql_search} {$sql_order} limit {$from_record}, {$rows} ";

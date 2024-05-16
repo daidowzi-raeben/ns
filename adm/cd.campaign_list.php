@@ -54,7 +54,7 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
 $startNum = 1 + (($page-1) * $rows);
 
 
-$g5['title'] = '과정목록';
+$g5['title'] = '직무윤리 캠페인 메시지 관리';
 include_once('./admin.head.php');
 
 $sql = " select * {$sql_common} {$sql_search} {$sql_order} limit {$from_record}, {$rows} ";

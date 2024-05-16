@@ -12,7 +12,7 @@ $menu['menu600'] = array (
 	array('600330', '윤리이야기', ''.G5_ADMIN_URL.'/proc_es_list.php', 'pes_list'),
 	array('600400', '공정거래자율준수서약', ''.G5_ADMIN_URL.'/prs_pl_list.php', 'prspl_list'),
 	array('600500', '사이버교육진도관리', ''.G5_ADMIN_URL.'/cyber_list.php', 'cb_list'),
-	array('600520', '사이버교육진도관리 - 상단', ''.G5_ADMIN_URL.'/cd.learn_campaign_list.php', 'cb_list'),
+	array('600520', '직무윤리 캠페인 메시지 관리', ''.G5_ADMIN_URL.'/cd.learn_campaign_list.php', 'cb_list'),
 	array('600510', '사이버교육진도등록', ''.G5_ADMIN_URL.'/change_cyber.php', 'cb_list'),
 	array('600600', 'CP교육만족도조사관리', ''.G5_ADMIN_URL.'/srvy_result.php?type=A', 'srvy_result'),
 	array('600610', '윤리CP인식도조사관리', ''.G5_ADMIN_URL.'/srvy_result.php?type=B', 'srvy_result'),
