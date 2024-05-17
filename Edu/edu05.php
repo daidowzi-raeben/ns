@@ -157,7 +157,7 @@ $result = sql_query($sql);
 
 <!-- page-start // -->
 
-			<div class="course2-pagenation" >
+			<div class="course2-pagenation" style="display:none">
 				<!-- <button type="button" class="btn done">1</button> -->
 				<!-- <button type="button" class="btn active">2</button> -->
 						<?php for($j=1; $j<=12; $j++) {
@@ -183,7 +183,7 @@ $result = sql_query($sql);
 				<?php } ?>
 			</div>
 
-<div >
+<div  style="display:none">
        			<?php 
 			for ($i=0; $row=sql_fetch_array($result); $i++) {
 			?>
@@ -238,7 +238,7 @@ $result = sql_query($sql);
 			</div>
 			<p class="btn">
 			<?php
-					$tempSday = "2024-05-16 09:00";
+					$tempSday = "2024-05-20 09:00";
 					$tempEday = "2024-05-24 18:00";
 					if(!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday."+1 day")))
 					{
