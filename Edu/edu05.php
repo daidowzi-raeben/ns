@@ -229,7 +229,7 @@ $result = sql_query($sql);
 		<div class="course2" style="margin-top:15px">
 					<p class="c_img2" style="margin-top:7px"><img src="/static/image/thum_01.png" width="264"></p>
 					<ul class="edu_gap10">
-							<li><span class="title2">과정명</span><span class="sub">거래유형별 대규모유통업법 실무 가이드라인</span></li>
+							<li><span class="title2">과정명</span><span class="sub">[2024 상반기 전사 CP교육(1)] 대규모유통업법 실무 가이드라인</span></li>
 							<li><span class="title">수료조건</span>학습 100% 진행</li>
 							<li><span class="title">학습기간</span>2024.05.20(월) ~ 2024.05.24(금)</li>
 							<li><span class="title">마일리지</span>없음</li>
