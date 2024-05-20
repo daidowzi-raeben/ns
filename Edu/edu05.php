@@ -170,6 +170,10 @@ $result = sql_query($sql);
 				 order by ls.lssn_no ASC LIMIT ".$p." ,1  ";
 				//  echo $sql_cnt;
 				$result_cnt = sql_fetch($sql_cnt);
+
+
+
+
 				if(isset($result_cnt['lssn_no'])) {
 					$is = 'done';
 				}
@@ -187,20 +191,29 @@ $result = sql_query($sql);
 <div  >
        			<?php 
 			for ($i=0; $row=sql_fetch_array($result); $i++) {
+					if( !get_lessonApply2($member['mb_id'], $row['lssn_no']) ) {
+					$sql = "insert into {$g5['less_apply_table']} set
+							app_lssn_no = '".$row['lssn_no']."',
+							app_uid = '{$member['mb_id']}',
+							app_rdate = now()";
+					sql_query($sql);
+				}
 			?>
 
-
-
-			<div class="course2 flex" style="margin-top:50px; display:flex;">
-					<div class="chasi"><?php echo ($rows * $limit ) + $i + 1 ?>회차</div>
-					<p class="c_img2"><img src="/_Img/lssn_img/<?php echo $row['lssn_rimg']?>" width="264"></p>
+			<div class="course2" style="margin-top:15px">
+					<p class="c_img2" style="margin-top:7px">
+					<!-- <img src="/static/image/thum_01.png" width="264"> -->
+					<img src="/_Img/lssn_img/<?php echo $row['lssn_rimg']?>" width="264">
+				</p>
 					<ul class="edu_gap10">
-				    <li><span class="title">주&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;제</span><?php echo $row['lssn_title']?></li>
-					<li><span class="title">학습시간</span><?php echo $row['lssn_time']?></li>
-                    <li><span class="title">학습기간</span><?php echo $row['lssn_sdate']?> ~ <?php echo $row['lssn_edate']?></li>
-                    <li><span class="title">마일리지</span><?php echo $row['lssn_point']?>점</li>
-				</ul>
+							<li><span class="title2">과정명</span><span class="sub"><?php echo $row['lssn_title']?></span></li>
+							<li><span class="title">수료조건</span>학습 100% 진행</li>
+							<li><span class="title">학습기간</span><?php echo $row['lssn_sdate']?> ~ <?php echo $row['lssn_edate']?></li>
+							<li><span class="title">마일리지</span><?php echo $row['lssn_point']?>점</li>
+							<li><span class="title">학습시간</span><?php echo $row['lssn_time']?></li>
+					</ul>
 			</div>
+
 			<p class="btn">
 			<?php
 				$tempSday = $row['lssn_sdate'];

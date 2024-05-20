@@ -90,7 +90,7 @@ $qry2 = sql_query("SELECT * from sj_lms_lesson WHERE lssn_kind = 'LS00' ORDER BY
 for($c=0; $res2=sql_fetch_array($qry2); $c++)
 {
 
-$qry3 = sql_fetch("SELECT * from sj_lms_lesson_result WHERE mb_id = '".$res['mb_id']."' AND lssn_no = '".$res2['lssn_no']."' limit 1");
+$qry3 = sql_fetch("SELECT * from cd_lms_lesson_result WHERE mb_id = '".$res['mb_id']."' AND lssn_no = '".$res2['lssn_no']."' limit 1");
 if(!isset($qry3['mb_id'])) {
 $res[$c + 4] = '0';
 } else  {
