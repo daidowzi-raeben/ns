@@ -13,4 +13,5 @@ sql_query("INSERT INTO `cd_lms_lesson_result` (`lssn_no`, `mb_id`, `start_dt`, `
 if($_GET['mode'] == 'u') {
 	sql_query("UPDATE cd_lms_lesson_result SET end_dt = NOW() WHERE mb_id = '".$member['mb_id']."' and lssn_no = '".$_GET['idx']."'");
 }
+
 ?>

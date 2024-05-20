@@ -157,20 +157,21 @@ $result = sql_query($sql);
 
 <!-- page-start // -->
 
-			<div class="course2-pagenation" style="display:none">
+			<div class="course2-pagenation" >
 				<!-- <button type="button" class="btn done">1</button> -->
 				<!-- <button type="button" class="btn active">2</button> -->
 						<?php for($j=1; $j<=12; $j++) {
 				$p = $j-1;
-				// $is = 'background:#fff;';
-				$sql_cnt = "select ls.lssn_no from cd_lms_lesson as ls
+				$is = '';
+				$sql_cnt = "select ls.lssn_no from sj_lms_lesson as ls
 				LEFT JOIN cd_lms_lesson_result AS b ON ls.lssn_no = b.lssn_no
-				 where lssn_kind = 'LS00' and lssn_company = '".$member['mb_profile']."' 
+				 where lssn_kind = 'LS00' 
 				 AND b.mb_id = '".$member['mb_id']."'
 				 order by ls.lssn_no ASC LIMIT ".$p." ,1  ";
+				//  echo $sql_cnt;
 				$result_cnt = sql_fetch($sql_cnt);
 				if(isset($result_cnt['lssn_no'])) {
-					$is = 'background:#32CD32;';
+					$is = 'done';
 				}
 #				$is = '';
 #				echo $result_cnt['idx'];
@@ -179,11 +180,11 @@ $result = sql_query($sql);
 				
 				
 				?>
-					<button type="button" style="<?php if($j != $page) {echo $is; } else {echo $is; } ?>" onclick="location.href='?page=<?php echo $j?>';" class="btn <?php if($j == $page) echo 'active' ?>"><?php echo $j?></button>
+					<button type="button" style="" onclick="location.href='?page=<?php echo $j?>';" class="btn <?php if($j == $page) echo 'active' ?> <?php if($j != $page) {echo $is; } else {echo $is; } ?>"><?php echo $j?></button>
 				<?php } ?>
 			</div>
 
-<div  style="display:none">
+<div  >
        			<?php 
 			for ($i=0; $row=sql_fetch_array($result); $i++) {
 			?>
