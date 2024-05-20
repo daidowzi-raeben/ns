@@ -157,7 +157,7 @@ $result = sql_query($sql);
 
 <!-- page-start // -->
 
-			<div class="course2-pagenation" >
+			<div class="course2-pagenation">
 				<!-- <button type="button" class="btn done">1</button> -->
 				<!-- <button type="button" class="btn active">2</button> -->
 						<?php for($j=1; $j<=12; $j++) {
@@ -200,7 +200,7 @@ $result = sql_query($sql);
 				}
 			?>
 
-			<div class="course2" style="margin-top:15px">
+			<div class="course2" style="margin-top:30px">
 					<p class="c_img2" style="margin-top:7px">
 					<!-- <img src="/static/image/thum_01.png" width="264"> -->
 					<img src="/_Img/lssn_img/<?php echo $row['lssn_rimg']?>" width="264">
