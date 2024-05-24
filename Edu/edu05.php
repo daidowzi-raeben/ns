@@ -157,7 +157,7 @@ $result = sql_query($sql);
 
 <!-- page-start // -->
 
-			<div class="course2-pagenation">
+			<div class="course2-pagenation" style="display:none">
 				<!-- <button type="button" class="btn done">1</button> -->
 				<!-- <button type="button" class="btn active">2</button> -->
 				
@@ -197,7 +197,7 @@ $result = sql_query($sql);
 				?>
 			</div>
 
-<div  >
+<div  style="display:none">
        			<?php 
 			for ($i=0; $row=sql_fetch_array($result); $i++) {
 					if( !get_lessonApply2($member['mb_id'], $row['lssn_no']) ) {
@@ -260,7 +260,7 @@ $result = sql_query($sql);
 					<ul class="edu_gap10">
 							<li><span class="title2">과정명</span><span class="sub">[2024 상반기 전사 CP교육(1)] 대규모유통업법 실무 가이드라인</span></li>
 							<li><span class="title">수료조건</span>학습 100% 진행</li>
-							<li><span class="title">학습기간</span>2024.05.20(월) ~ 2024.05.24(금)</li>
+							<li><span class="title">학습기간</span>2024.05.20(월) ~ 2024.05.31(금)</li>
 							<li><span class="title">마일리지</span>없음</li>
 							<li><span class="title">학습시간</span>2시간</li>
 					</ul>
@@ -268,7 +268,7 @@ $result = sql_query($sql);
 			<p class="btn">
 			<?php
 					$tempSday = "2024-05-20 09:00";
-					$tempEday = "2024-05-24 18:00";
+					$tempEday = "2024-05-31 18:00";
 					if(!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday."+1 day")))
 					{
 			?>
