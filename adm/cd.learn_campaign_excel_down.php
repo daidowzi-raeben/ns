@@ -73,8 +73,8 @@ for($b=0; $res4=sql_fetch_array($qry2); $b++)
 	$data[$b + 4] = $b + 1;
 }
 
-$data[15] = '학습진도율';
-$data[16] = '수료현황';
+$data[16] = '학습진도율';
+$data[17] = '수료현황';
 
 $data = array_map('iconv_euckr', $data);
 $col = 0;
@@ -103,14 +103,14 @@ $aa ++;
 }
 
 if($aa > 11) {
-    $res[16] = '수료';
+    $res[17] = '수료';
 } else {
-    $res[16] = '미수료';
+    $res[17] = '미수료';
 }
 
 }
 
-$res[17] = round(5/12 * 100).'%';
+$res[16] = round($aa / 12 * 100).'%';
 
 #print_r($res);
 
