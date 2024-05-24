@@ -160,7 +160,10 @@ $result = sql_query($sql);
 			<div class="course2-pagenation">
 				<!-- <button type="button" class="btn done">1</button> -->
 				<!-- <button type="button" class="btn active">2</button> -->
-						<?php for($j=1; $j<=12; $j++) {
+				
+						<?php 
+						$y = 0;
+						for($j=1; $j<=12; $j++) {
 				$p = $j-1;
 				$is = '';
 				$sql_cnt = "select ls.lssn_no from sj_lms_lesson as ls
@@ -171,11 +174,14 @@ $result = sql_query($sql);
 				//  echo $sql_cnt;
 				$result_cnt = sql_fetch($sql_cnt);
 
+				// SELECT COUNT(*) AS cnt FROM cd_lms_lesson_result WHERE mb_id = 'test03'
+
 
 
 
 				if(isset($result_cnt['lssn_no'])) {
 					$is = 'done';
+					$y++;
 				}
 #				$is = '';
 #				echo $result_cnt['idx'];
@@ -185,7 +191,10 @@ $result = sql_query($sql);
 				
 				?>
 					<button type="button" style="" onclick="location.href='?page=<?php echo $j?>';" class="btn <?php if($j == $page) echo 'active' ?> <?php if($j != $page) {echo $is; } else {echo $is; } ?>"><?php echo $j?></button>
-				<?php } ?>
+				<?php } 
+				
+				
+				?>
 			</div>
 
 <div  >
@@ -225,9 +234,15 @@ $result = sql_query($sql);
 			<?php
 				} else {
 			?>
-				<a href="#" class="class-enter"><span class="enterClass3" lno="<?php echo $row['lssn_no']?>">학습하기</span></a>
+			<?php 
+			if($y > 11) {
+			?>
+				<a href="#n" class="day-end"><span>학습완료</span></a>
+
+				<?php } else {?>
+<a href="#" class="class-enter"><span class="enterClass3" lno="<?php echo $row['lssn_no']?>">학습하기</span></a>
 			<?php
-				}
+				}}
 			?>
 				<!--<a href="#n" class="class-end"><span>학습완료</span></a>-->
 			</p>

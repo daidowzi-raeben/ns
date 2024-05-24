@@ -73,6 +73,9 @@ for($b=0; $res4=sql_fetch_array($qry2); $b++)
 	$data[$b + 4] = $b + 1;
 }
 
+$data[15] = '학습진도율';
+$data[16] = '수료현황';
+
 $data = array_map('iconv_euckr', $data);
 $col = 0;
 foreach($data as $cell) {
@@ -87,6 +90,7 @@ for($i=1; $res=sql_fetch_array($qry); $i++)
 
 
 $qry2 = sql_query("SELECT * from sj_lms_lesson WHERE lssn_kind = 'LS00' ORDER BY lssn_no asc");
+$aa = 0;
 for($c=0; $res2=sql_fetch_array($qry2); $c++)
 {
 
@@ -95,9 +99,18 @@ if(!isset($qry3['mb_id'])) {
 $res[$c + 4] = '0';
 } else  {
 $res[$c + 4] = '1';
+$aa ++;
+}
+
+if($aa > 11) {
+    $res[16] = '수료';
+} else {
+    $res[16] = '미수료';
 }
 
 }
+
+$res[17] = round(5/12 * 100).'%';
 
 #print_r($res);
 

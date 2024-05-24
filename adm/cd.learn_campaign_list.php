@@ -8,7 +8,7 @@ $sql_common = " from {$g5['member_table']} as m ";
 
 $sql_search = " where (1) and m.mb_level = '1'  ";
 
-if ($type) {
+
     if ($mb_4)
 		$sql_search .= " and m.mb_4 like '{$mb_4}%' ";
 
@@ -17,7 +17,7 @@ if ($type) {
 
 	if ($mb_name)
 		$sql_search .= " and m.mb_name like '{$mb_name}%' ";
-}
+
 
 if ($is_admin != 'super')
     $sql_search .= " and mb_level <= '{$member['mb_level']}' ";
@@ -50,8 +50,7 @@ include_once('./admin.head.php');
 
 $sql = " select * {$sql_common} {$sql_search} {$sql_order} limit {$from_record}, {$rows} ";
 $result = sql_query($sql);
-#echo $sql;
-
+// echo $sql;
 $L = 'LS00';
 $sql_cnt = " SELECT COUNT(lssn_no) AS cnt from sj_lms_lesson WHERE lssn_kind = '".$L."' ";
 $result_cnt = sql_fetch($sql_cnt);
