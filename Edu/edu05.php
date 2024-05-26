@@ -157,7 +157,7 @@ $result = sql_query($sql);
 
 <!-- page-start // -->
 
-			<div class="course2-pagenation" style="display:none">
+			<div class="course2-pagenation">
 				<!-- <button type="button" class="btn done">1</button> -->
 				<!-- <button type="button" class="btn active">2</button> -->
 				
@@ -197,7 +197,7 @@ $result = sql_query($sql);
 				?>
 			</div>
 
-<div  style="display:none">
+<div>
        			<?php 
 			for ($i=0; $row=sql_fetch_array($result); $i++) {
 					if( !get_lessonApply2($member['mb_id'], $row['lssn_no']) ) {
