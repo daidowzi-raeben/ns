@@ -5,8 +5,9 @@ include_once('./_common.php');
 
 $sql = " SELECT * from cd_lms_lesson_result WHERE mb_id = '".$member['mb_id']."' and lssn_no = '".$_GET['idx']."' ";
 $row = sql_fetch($sql);
-
+echo '??';
 if(!isset($row['mb_id']) && $_GET['mode'] == 'w') {
+echo '11';
 sql_query("INSERT INTO `cd_lms_lesson_result` (`lssn_no`, `mb_id`, `start_dt`, `end_dt`, `datetime`) VALUES ( '".$_GET['idx']."', '".$member['mb_id']."', now(), now(), now())");
 }
 
