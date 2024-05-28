@@ -141,7 +141,7 @@ if(a == <?php echo $LESSON['lssn_total'] ?>) {
 
 }
 console.log('>>>>', a)
-},2000)
+},3000)
 
 
 		}

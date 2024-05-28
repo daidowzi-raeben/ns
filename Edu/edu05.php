@@ -172,7 +172,18 @@ $result = sql_query($sql);
 				for ($j=0; $row2=sql_fetch_array($result2); $j++) {
 				$p = $j;
 				$is = '';
-				
+				if($j== 8) {
+				$row2['lssn_no'] = '29';
+				}
+				if($j== 9) {
+				$row2['lssn_no'] = '30';
+				}
+				if($j== 10) {
+				$row2['lssn_no'] = '31';
+				}
+				if($j== 11) {
+				$row2['lssn_no'] = '28';
+				}
 				$sql_cnt = "
 				
 				select * from cd_lms_lesson_result where lssn_no = '".$row2['lssn_no']."'
@@ -186,6 +197,7 @@ $result = sql_query($sql);
 					$is = 'done';
 					$y++;
 				}
+				echo $row2['lssn_no'];
 #				$is = '';
 #				echo $result_cnt['idx'];
 				
