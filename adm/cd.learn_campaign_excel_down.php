@@ -56,7 +56,7 @@ $num2_format =& $workbook->addformat(array(num_format => '\0#'));
 
 
 $L = 'LS00';
-$qry2 = sql_query("SELECT * from sj_lms_lesson WHERE lssn_kind = '".$L."' ORDER BY lssn_no asc");
+$qry2 = sql_query("SELECT * from sj_lms_lesson WHERE lssn_kind = '".$L."' ORDER BY lssn_rdate asc");
 
 
 // Put Excel data
@@ -89,7 +89,7 @@ for($i=1; $res=sql_fetch_array($qry); $i++)
 {
 
 
-$qry2 = sql_query("SELECT * from sj_lms_lesson WHERE lssn_kind = 'LS00' ORDER BY lssn_no asc");
+$qry2 = sql_query("SELECT * from sj_lms_lesson WHERE lssn_kind = 'LS00' ORDER BY lssn_rdate asc");
 $aa = 0;
 for($c=0; $res2=sql_fetch_array($qry2); $c++)
 {

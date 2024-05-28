@@ -98,7 +98,7 @@ $colspan = $result_cnt['cnt'];
 			$cyber = array();
 			$str_cyber = array();
 			$str_cyber_list = array();
-			$sql_list = "SELECT * from sj_lms_lesson WHERE lssn_kind = '".$L."'  ORDER BY lssn_no asc";
+			$sql_list = "SELECT * from sj_lms_lesson WHERE lssn_kind = '".$L."'  ORDER BY lssn_rdate asc";
 			$result_list = sql_query($sql_list);
 			for ($i=0; $row=sql_fetch_array($result_list); $i++) {
 				?>
@@ -193,7 +193,7 @@ $colspan = $result_cnt['cnt'];
 				<td headers="cb_list_"><?php echo $mb_id ?></td>
 				<td headers="cb_list_"><?php echo $mb_3 ?></td>
 				<?php 
-				$sql_list = "SELECT * from sj_lms_lesson WHERE lssn_kind = '".$L."'  ORDER BY lssn_no asc";
+				$sql_list = "SELECT * from sj_lms_lesson WHERE lssn_kind = '".$L."'  ORDER BY lssn_rdate asc";
 				$result_list = sql_query($sql_list);
 				for ($u=0; $row3=sql_fetch_array($result_list); $u++) { 
 					$sql_is = " SELECT * from cd_lms_lesson_result WHERE mb_id = '".$mb_id."' AND lssn_no = '".$row3['lssn_no']."' limit 1 ";
