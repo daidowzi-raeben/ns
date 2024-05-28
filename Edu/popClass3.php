@@ -131,7 +131,7 @@ if(a == <?php echo $LESSON['lssn_total'] ?>) {
 
 		$.ajax({
 			type: "POST",
-			url: "/cd.update.php?mode=u&idx=<?php echo $LESSON['lssn_no'] ?>",
+			url: "/cd.update.php?mode=w&idx=<?php echo $LESSON['lssn_no'] ?>",
 			success: function(res){
 				console.log(res)
 			},
