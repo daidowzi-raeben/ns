@@ -99,14 +99,14 @@ if( $LESSON['lssn_controlbar'] == "Y" ) {
 		
 		controlbar_enable = "<?=$controlbar_enable?>";
 
-			$.ajax({
-			type: "POST",
-			url: "/cd.update.php?mode=w&idx=<?php echo $LESSON['lssn_no'] ?>",
-			success: function(res){
-				console.log(res)
-			},
-			error: function(err){ alert("호출 실패하였습니다.") ;}
-		});
+			// $.ajax({
+			// type: "POST",
+			// url: "/cd.update.php?mode=w&idx=<?php echo $LESSON['lssn_no'] ?>",
+			// success: function(res){
+			// 	console.log(res)
+			// },
+			// error: function(err){ alert("호출 실패하였습니다.") ;}
+		// });
 
 </script>
 </head>

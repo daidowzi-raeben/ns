@@ -200,10 +200,6 @@ $result = sql_query($sql);
 				// echo $row2['lssn_no'];
 #				$is = '';
 #				echo $result_cnt['idx'];
-				
-				
-				
-				
 				?>
 					<button type="button" style="" onclick="location.href='?page=<?php echo $j + 1?>';" class="btn <?php if($j + 1 == $page) echo 'active' ?> <?php if($j + 1 != $page) {echo $is; } else {echo $is; } ?>"><?php echo $j + 1?></button>
 				<?php } 
