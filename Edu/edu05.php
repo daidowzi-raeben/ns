@@ -197,7 +197,7 @@ $result = sql_query($sql);
 					$is = 'done';
 					$y++;
 				}
-				echo $row2['lssn_no'];
+				// echo $row2['lssn_no'];
 #				$is = '';
 #				echo $result_cnt['idx'];
 				
