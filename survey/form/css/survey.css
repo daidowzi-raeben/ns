@@ -15,7 +15,7 @@
 .survey-table{width:749px; border:1.5px solid #ccc;}
 .survey-table tr > *{border-right:1px solid #ccc;border-bottom:1px solid #ccc;}
 .survey-table th{background:#fafafa;font-size:15px;font-weight:600;padding:7px 5px;line-height:1.5;vertical-align:middle;;;color:#555;}
-.survey-table td{color:#333;font-size:13px;text-align: center;padding:7px 10px;line-height:1.5;vertical-align:middle;letter-spacing: -.5px;}
+.survey-table td{color:#333;font-size:13px;text-align: center;padding:7px 10px;line-height:1.5;vertical-align:middle;letter-spacing: -.5px;word-break: keep-all;}
 .survey-table td.left{text-align:left;}
 .survey-table textarea{resize: none;width:100%;vertical-align: middle;text-align: center;padding:10px;box-sizing: border-box;border:1px solid #ccc;font-family: 'Nanum Gothic', sans-serif;}
 .survey-table textarea::placeholder{color:#ccc;}
@@ -24,3 +24,12 @@
 .bottom-btn button{border:none;background:none;cursor:pointer;outline:none;padding:0;}
 .bottom-btn .btn-confirm{margin-left:100px;}
 .bottom-btn .btn-exit{float:right;}
+
+.survey-table td.additional{
+    text-align: left;
+    display:none;
+}
+.survey-table td.additional label input{
+    position:relative;
+    top:2px;
+}
