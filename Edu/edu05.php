@@ -251,7 +251,7 @@ $result = sql_query($sql);
 				<a href="#n" class="day-end"><span>학습완료</span></a>
 
 				<?php } else {?>
-<a href="#" class="class-enter"><span class="enterClass3" lno="<?php echo $row['lssn_no']?>">학습하기</span></a>
+<a href="#" id="classEnter" class="class-enter"><span class="enterClass3" lno="<?php echo $row['lssn_no']?>">학습하기</span></a>
 			<?php
 				}}
 			?>
@@ -446,6 +446,17 @@ $result = sql_query($sql);
 			.popup_container{position:absolute;left: 0;top: 0;width: 100%;height: 100%;z-index: 500;background:#fff;}
 			.new__pop-close{position:absolute;right: 1em;top: 1em;z-index: 600;background:url('/_Img/Sub/close-x.png') no-repeat center;width: 45px;height: 45px;border: none;}
 		</style>
+	<?php if($_GET['auto'] == 'on') { ?>
+		<script>
+			$(function () {
+				setTimeout(() => {
+					 $("body").css("overflow", "hidden");
+    			enter_class3($('.enterClass3').attr("lno"), $('.enterClass3').attr("cno"));
+				}, 1000);
+			});
+		</script>
+
+		<?php }?>
 		
 
     <?php include_once ('../_Inc/subTail.php');?>

@@ -114,6 +114,12 @@ if( $LESSON['lssn_controlbar'] == "Y" ) {
 	<div style="width:100%;height:100%;position:absolute;left:0;top:0;">
 		<iframe src="" name="frm" id="frm" style="width:100%;height:100%;border:0px;" onLoad="isPage(this)"></iframe>
 		<script type="text/javascript">
+$(function(){
+	setTimeout(() => {
+		// console.log(document.getElementById('frm').contentWindow.document.querySelectorAll('.btn-play')[0].click())
+	}, 1500);
+});
+
 			var control_enable = '';
 			setClass( <?php echo $LESSON['lssn_no']?>, "01", "01" );
 			setClassUrl("<?=$page_url?>");
