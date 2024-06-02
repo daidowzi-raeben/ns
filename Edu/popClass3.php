@@ -143,8 +143,9 @@ setTimeout(()=>{
 	
 	if(document.getElementById('frm').contentWindow.document.querySelectorAll('video')[0]?.src) {
 a = document.getElementById('frm').contentWindow.document.querySelectorAll('video')[0].src
+console.log(a.split('/')[4])
  a= Number(a.split('/')[a.split('/').length - 1].substr(0,2))
- console.log(a.split('/')[4])
+ 
 		}
 if(a == <?php echo $LESSON['lssn_total'] ?>) {
 
