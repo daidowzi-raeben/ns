@@ -54,9 +54,10 @@ function enter_class3(l_no) {
     loadUrl: "popClass3.php?l_no=" + l_no,
     //loadUrl:'/Edu/popClass.php?l_no='+l_no+'&c_no='+c_no,
     onClose: function () {
-      const lR = location.href.replace("&auto=on", "");
+      location.reload();
+      // const lR = location.href.replace("&auto=on", "");
       // location.reload();
-      location.href = lR;
+      // location.href = lR;
     },
   });
 
