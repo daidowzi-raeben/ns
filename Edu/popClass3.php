@@ -51,6 +51,19 @@ if( $LESSON['lssn_controlbar'] == "Y" ) {
 } else {
 	$controlbar_enable = "No";
 }
+
+if($page == '1') $LESSON['lssn_no'] = '20';
+if($page == '2') $LESSON['lssn_no'] = '21';
+if($page == '3') $LESSON['lssn_no'] = '22';
+if($page == '4') $LESSON['lssn_no'] = '23';
+if($page == '5') $LESSON['lssn_no'] = '24';
+if($page == '6') $LESSON['lssn_no'] = '25';
+if($page == '7') $LESSON['lssn_no'] = '26';
+if($page == '8') $LESSON['lssn_no'] = '27';
+if($page == '9') $LESSON['lssn_no'] = '28';
+if($page == '10') $LESSON['lssn_no'] = '29';
+if($page == '11') $LESSON['lssn_no'] = '30';
+if($page == '12') $LESSON['lssn_no'] = '31';
 ?>
 <!doctype html>
 <html lang="ko">
