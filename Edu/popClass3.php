@@ -138,12 +138,25 @@ $(function(){
 			setClassUrl("<?=$page_url?>");
 
 					function isPage(v) {
-let a = 0				
+let a = 0	
+let lnos = '';			
 setTimeout(()=>{
 	
 	if(document.getElementById('frm').contentWindow.document.querySelectorAll('video')[0]?.src) {
 a = document.getElementById('frm').contentWindow.document.querySelectorAll('video')[0].src
-console.log(a.split('/')[4])
+const aaaa = a.split('/')[4];
+if(aaaa == 'week_1') lnos = '20';
+if(aaaa == 'week_2') lnos = '21';
+if(aaaa == 'week_3') lnos = '22';
+if(aaaa == 'week_4') lnos = '23';
+if(aaaa == 'week_5') lnos = '24';
+if(aaaa == 'week_6') lnos = '25';
+if(aaaa == 'week_7') lnos = '26';
+if(aaaa == 'week_8') lnos = '27';
+if(aaaa == 'week_9') lnos = '28';
+if(aaaa == 'week_10') lnos = '29';
+if(aaaa == 'week_11') lnos = '30';
+if(aaaa == 'week_12') lnos = '31';
  a= Number(a.split('/')[a.split('/').length - 1].substr(0,2))
  
 		}
@@ -153,7 +166,7 @@ if(a == <?php echo $LESSON['lssn_total'] ?>) {
 
 		$.ajax({
 			type: "POST",
-			url: "/cd.update.php?mode=w&idx=<?php echo $LESSON['lssn_no'] ?>",
+			url: "/cd.update.php?mode=w&idx=" + lnos,
 			success: function(res){
 				console.log(res)
 			},
