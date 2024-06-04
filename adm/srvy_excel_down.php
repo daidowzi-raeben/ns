@@ -121,13 +121,7 @@ else
 		"Q6",
 		"Q7",
 		"Q8",
-		"Q9",
-		"Q10",
-		"Q11",
-		"Q12",
-		"Q13",
-		"Q14",
-		"Q15"
+		"Q9"
 		);
 	}
 	else
@@ -179,14 +173,20 @@ for($i=1; $res=sql_fetch_array($qry); $i++)
 		$worksheet->write($i, 4, $res['srvy_name']);
 		
 		$ar_data = explode('#', $res['srvd_ex']);
+		$ar_data_sub = explode('#', $res['srvd_sub']);
 		$ar_data_text = explode('#', $res['srvd_text']);
 		
 		for($j=0; $j<$cntQ;$j++) 
 		{
-			if($ar_data_text[$j] != '_') {
-				$worksheet->write($i, 5+$j, $ar_data[$j].'/'.$ar_data_text[$j]);
-			} else {
+
+			if($ar_data_sub[$j] == '_' && $ar_data_text[$j] == '_') {
 				$worksheet->write($i, 5+$j, $ar_data[$j]);
+			}
+			if($ar_data_sub[$j] != '_' && $ar_data_text[$j] == '_') {
+				$worksheet->write($i, 5+$j, $ar_data[$j].'<br>'.$ar_data_sub[$j]);
+			}
+			if($ar_data_sub[$j] == '3' && $ar_data_text[$j] != '_') {
+				$worksheet->write($i, 5+$j, $ar_data[$j].'<br>'.$ar_data_text[$j]);
 			}
 		}
 	}

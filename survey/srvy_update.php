@@ -13,10 +13,12 @@ if(!$srvy['srvy_code'])
 for( $i=1; $i<=$srvd_count; $i++ ) 
 {
 	$arr_data[] = ${"survey_".$i} ? ${"survey_".$i} : "_";
+	$arr_data_sub[] = ${"survey_".$i."_2"} ? ${"survey_".$i."_2"} : "_";
 	$arr_data_text[] = ${"survey_text_".$i} ? ${"survey_text_".$i} : "_";
 }
 
 $srvy_data = implode("#",$arr_data);
+$srvy_data_sub = implode("#",$arr_data_sub);
 $srvy_data_text = implode("#",$arr_data_text);
 
 //echo $srvy_data;
@@ -30,6 +32,7 @@ $sql_common = "
 				srvy_year 		= '{$srvy['srvy_year']}',
 				srvy_semi 		= '{$srvy['srvy_semi']}',
 				srvd_ex 		= '{$srvy_data}',
+				srvd_sub 		= '{$srvy_data_sub}',
 				srvd_text 		= '{$srvy_data_text}',
 				srvd_count 		= '{$srvd_count}'";
 

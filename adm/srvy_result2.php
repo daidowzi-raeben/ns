@@ -6,7 +6,7 @@ if($type == "B")
 	$sub_menu = "600610";
 	$g5['title'] = '윤리CP인식도조사관리';
 	$btnTitle = "윤리CP인식도조사";
-	$cntQ = 15;
+	$cntQ = 9;
 	//$bl_year = "2021";
 	//$bl_cate = "A";
 }
@@ -123,6 +123,8 @@ $colspan = 16;
 		$mb_name = $row['mb_name'];
 		
 		$ar_data = explode('#', $row['srvd_ex']);
+		$ar_data_sub = explode('#', $row['srvd_sub']);
+		$ar_data_text = explode('#', $row['srvd_text']);
     ?>
 
     <tr class="<?php echo $bg; ?>">
@@ -136,7 +138,16 @@ $colspan = 16;
 		<?php
 		for($i=0; $i<$cntQ;$i++) {
 		?>
-			<td headers="cb_list_"><?php echo $ar_data[$i] ?></td>
+			<td headers="cb_list_"><?php echo $ar_data[$i] ?>
+		<?php if($ar_data_sub[$i] != '_' && $ar_data_text[$i] == '_') {
+			echo "<br>".$ar_data_sub[$i];
+
+		}?>
+		<?php if($ar_data_text[$i] != '_') {
+			echo "<br>".$ar_data_text[$i];
+
+		}?>
+		</td>
 		<?php
 		}
 		?>
