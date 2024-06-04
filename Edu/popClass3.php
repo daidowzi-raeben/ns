@@ -153,10 +153,10 @@ if(aaaa == 'week_5') lnos = '24';
 if(aaaa == 'week_6') lnos = '25';
 if(aaaa == 'week_7') lnos = '26';
 if(aaaa == 'week_8') lnos = '27';
-if(aaaa == 'week_9') lnos = '28';
-if(aaaa == 'week_10') lnos = '29';
-if(aaaa == 'week_11') lnos = '30';
-if(aaaa == 'week_12') lnos = '31';
+if(aaaa == 'week_9') lnos = '29';
+if(aaaa == 'week_10') lnos = '30';
+if(aaaa == 'week_11') lnos = '31';
+if(aaaa == 'week_12') lnos = '28';
  a= Number(a.split('/')[a.split('/').length - 1].substr(0,2))
  
 		}
