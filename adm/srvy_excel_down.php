@@ -183,10 +183,10 @@ for($i=1; $res=sql_fetch_array($qry); $i++)
 				$worksheet->write($i, 5+$j, $ar_data[$j]);
 			}
 			if($ar_data_sub[$j] != '_' && $ar_data_text[$j] == '_') {
-				$worksheet->write($i, 5+$j, $ar_data[$j].'\n'.$ar_data_sub[$j]);
+				$worksheet->write($i, 5+$j, $ar_data[$j].'/[\r\n]+/'.$ar_data_sub[$j]);
 			}
 			if($ar_data_sub[$j] == '3' && $ar_data_text[$j] != '_') {
-				$worksheet->write($i, 5+$j, $ar_data[$j].'\n'.$ar_data_text[$j]);
+				$worksheet->write($i, 5+$j, $ar_data[$j].'/[\r\n]+/'.$ar_data_text[$j]);
 			}
 		}
 	}
