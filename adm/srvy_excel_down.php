@@ -192,7 +192,9 @@ for($i=1; $res=sql_fetch_array($qry); $i++)
 				if($ar_data_sub[0] == '3') {
 					$worksheet->write($i, 5+$j, $ar_data_text[0]);
 				} else {
+					if($ar_data_sub[0] != '_') {
 					$worksheet->write($i, 5+$j, $ar_data_sub[0]);
+					}
 				}
 			}
 
@@ -201,7 +203,9 @@ for($i=1; $res=sql_fetch_array($qry); $i++)
 				if($ar_data_sub[1] == '3') {
 					$worksheet->write($i, 5+$j, $ar_data_text[1]);
 				} else {
+					if($ar_data_sub[1] != '_') {
 					$worksheet->write($i, 5+$j, $ar_data_sub[1]);
+					}
 				}
 			}
 			if($shCnt == 9) $worksheet->write($i, 5+$j, $ar_data[2]);
@@ -209,7 +213,9 @@ for($i=1; $res=sql_fetch_array($qry); $i++)
 				if($ar_data_sub[2] == '3') {
 					$worksheet->write($i, 5+$j, $ar_data_text[2]);
 				} else {
+					if($ar_data_sub[2] != '_') {
 					$worksheet->write($i, 5+$j, $ar_data_sub[2]);
+					}
 				}
 			}
 			if($shCnt == 11) $worksheet->write($i, 5+$j, $ar_data[3]);
@@ -217,7 +223,9 @@ for($i=1; $res=sql_fetch_array($qry); $i++)
 				if($ar_data_sub[3] == '3') {
 					$worksheet->write($i, 5+$j, $ar_data_text[3]);
 				} else {
+					if($ar_data_sub[3] != '_') {
 					$worksheet->write($i, 5+$j, $ar_data_sub[3]);
+					}
 				}
 			}
 			if($shCnt == 13) $worksheet->write($i, 5+$j, $ar_data[4]);
@@ -225,7 +233,9 @@ for($i=1; $res=sql_fetch_array($qry); $i++)
 				if($ar_data_sub[4] == '3') {
 					$worksheet->write($i, 5+$j, $ar_data_text[4]);
 				} else {
+					if($ar_data_sub[4] != '_') {
 					$worksheet->write($i, 5+$j, $ar_data_sub[4]);
+					}
 				}
 			}
 			if($shCnt == 15) $worksheet->write($i, 5+$j, $ar_data[5]);
@@ -233,7 +243,9 @@ for($i=1; $res=sql_fetch_array($qry); $i++)
 				if($ar_data_sub[5] == '3') {
 					$worksheet->write($i, 5+$j, $ar_data_text[5]);
 				} else {
+					if($ar_data_sub[5] != '_') {
 					$worksheet->write($i, 5+$j, $ar_data_sub[5]);
+					}
 				}
 			}
 			if($shCnt == 17) $worksheet->write($i, 5+$j, $ar_data[6]);
@@ -241,7 +253,9 @@ for($i=1; $res=sql_fetch_array($qry); $i++)
 				if($ar_data_sub[6] == '3') {
 					$worksheet->write($i, 5+$j, $ar_data_text[6]);
 				} else {
+					if($ar_data_sub[6] != '_') {
 					$worksheet->write($i, 5+$j, $ar_data_sub[6]);
+					}
 				}
 			}
 			if($shCnt == 19) $worksheet->write($i, 5+$j, $ar_data[7]);
@@ -249,7 +263,9 @@ for($i=1; $res=sql_fetch_array($qry); $i++)
 				if($ar_data_sub[7] == '3') {
 					$worksheet->write($i, 5+$j, $ar_data_text[7]);
 				} else {
+					if($ar_data_sub[7] != '_') {
 					$worksheet->write($i, 5+$j, $ar_data_sub[7]);
+					}
 				}
 			}
 			if($shCnt == 21) $worksheet->write($i, 5+$j, $ar_data[8]);
