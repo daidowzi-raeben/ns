@@ -184,7 +184,7 @@ for($i=1; $res=sql_fetch_array($qry); $i++)
 		$ar_data_sub = explode('#', $res['srvd_sub']);
 		$ar_data_text = explode('#', $res['srvd_text']);
 		
-		for($j=0; $j<$count($data);$j++) 
+		for($j=0; $j<count($data);$j++) 
 		{
 			$shCnt = 5+$j;
 			if($shCnt == 5) $worksheet->write($i, 5+$j, $ar_data[0]);
