@@ -114,13 +114,21 @@ else
 		"srvd_rdate"=>"설문조사 작성일",
 		"srvy_name"=>"회차",
 		"Q1",
+		"Q1_1",
 		"Q2",
+		"Q2_1",
 		"Q3",
+		"Q3_1",
 		"Q4",
+		"Q4_1",
 		"Q5",
+		"Q5_1",
 		"Q6",
+		"Q6_1",
 		"Q7",
+		"Q7_1",
 		"Q8",
+		"Q8_1",
 		"Q9"
 		);
 	}
@@ -178,16 +186,83 @@ for($i=1; $res=sql_fetch_array($qry); $i++)
 		
 		for($j=0; $j<$cntQ;$j++) 
 		{
+			$shCnt = 5+$j;
+			if($shCnt == 5) $worksheet->write($i, 5+$j, $ar_data[0]);
+			if($shCnt == 6) {
+				if($ar_data_sub[0] == '3') {
+					$worksheet->write($i, 5+$j, $ar_data_text[0]);
+				} else {
+					$worksheet->write($i, 5+$j, $ar_data_sub[0]);
+				}
+			}
 
-			if($ar_data_sub[$j] == '_' && $ar_data_text[$j] == '_') {
-				$worksheet->write($i, 5+$j, $ar_data[$j]);
+			if($shCnt == 7) $worksheet->write($i, 5+$j, $ar_data[1]);
+			if($shCnt == 8) {
+				if($ar_data_sub[1] == '3') {
+					$worksheet->write($i, 5+$j, $ar_data_text[1]);
+				} else {
+					$worksheet->write($i, 5+$j, $ar_data_sub[1]);
+				}
 			}
-			if($ar_data_sub[$j] != '_' && $ar_data_text[$j] == '_') {
-				$worksheet->write($i, 5+$j, $ar_data[$j].'/'.$ar_data_sub[$j]);
+			if($shCnt == 9) $worksheet->write($i, 5+$j, $ar_data[2]);
+			if($shCnt == 10) {
+				if($ar_data_sub[2] == '3') {
+					$worksheet->write($i, 5+$j, $ar_data_text[2]);
+				} else {
+					$worksheet->write($i, 5+$j, $ar_data_sub[2]);
+				}
 			}
-			if($ar_data_sub[$j] == '3' && $ar_data_text[$j] != '_') {
-				$worksheet->write($i, 5+$j, $ar_data[$j].'/'.$ar_data_text[$j]);
+			if($shCnt == 11) $worksheet->write($i, 5+$j, $ar_data[3]);
+			if($shCnt == 12) {
+				if($ar_data_sub[3] == '3') {
+					$worksheet->write($i, 5+$j, $ar_data_text[3]);
+				} else {
+					$worksheet->write($i, 5+$j, $ar_data_sub[3]);
+				}
 			}
+			if($shCnt == 13) $worksheet->write($i, 5+$j, $ar_data[4]);
+			if($shCnt == 14) {
+				if($ar_data_sub[4] == '3') {
+					$worksheet->write($i, 5+$j, $ar_data_text[4]);
+				} else {
+					$worksheet->write($i, 5+$j, $ar_data_sub[4]);
+				}
+			}
+			if($shCnt == 15) $worksheet->write($i, 5+$j, $ar_data[5]);
+			if($shCnt == 16) {
+				if($ar_data_sub[5] == '3') {
+					$worksheet->write($i, 5+$j, $ar_data_text[5]);
+				} else {
+					$worksheet->write($i, 5+$j, $ar_data_sub[5]);
+				}
+			}
+			if($shCnt == 17) $worksheet->write($i, 5+$j, $ar_data[6]);
+			if($shCnt == 18) {
+				if($ar_data_sub[6] == '3') {
+					$worksheet->write($i, 5+$j, $ar_data_text[6]);
+				} else {
+					$worksheet->write($i, 5+$j, $ar_data_sub[6]);
+				}
+			}
+			if($shCnt == 19) $worksheet->write($i, 5+$j, $ar_data[7]);
+			if($shCnt == 20) {
+				if($ar_data_sub[7] == '3') {
+					$worksheet->write($i, 5+$j, $ar_data_text[7]);
+				} else {
+					$worksheet->write($i, 5+$j, $ar_data_sub[7]);
+				}
+			}
+			if($shCnt == 21) $worksheet->write($i, 5+$j, $ar_data[8]);
+
+			// if($ar_data_sub[$j] == '_' && $ar_data_text[$j] == '_') {
+			// 	$worksheet->write($i, 5+$j, $ar_data[$j]);
+			// }
+			// if($ar_data_sub[$j] != '_' && $ar_data_text[$j] == '_') {
+			// 	$worksheet->write($i, 5+$j, $ar_data[$j].'/'.$ar_data_sub[$j]);
+			// }
+			// if($ar_data_sub[$j] == '3' && $ar_data_text[$j] != '_') {
+			// 	$worksheet->write($i, 5+$j, $ar_data[$j].'/'.$ar_data_text[$j]);
+			// }
 		}
 	}
 	
