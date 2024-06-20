@@ -6,7 +6,7 @@ if($type == "B")
 	$sub_menu = "600610";
 	$g5['title'] = '윤리CP인식도조사관리';
 	$btnTitle = "윤리CP인식도조사";
-	$cntQ = 9;
+	$cntQ = 15;
 	//$bl_year = "2021";
 	//$bl_cate = "A";
 }

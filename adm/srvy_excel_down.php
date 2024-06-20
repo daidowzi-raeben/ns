@@ -129,7 +129,13 @@ else
 		"Q7_1",
 		"Q8",
 		"Q8_1",
-		"Q9"
+		"Q9",
+		"Q10",
+		"Q11",
+		"Q12",
+		"Q13",
+		"Q14",
+		"Q15",
 		);
 	}
 	else
@@ -269,6 +275,12 @@ for($i=1; $res=sql_fetch_array($qry); $i++)
 				}
 			}
 			if($shCnt == 21) $worksheet->write($i, 5+$j, $ar_data[8]);
+			if($shCnt == 22) $worksheet->write($i, 5+$j, $ar_data[9]);
+			if($shCnt == 23) $worksheet->write($i, 5+$j, $ar_data[10]);
+			if($shCnt == 24) $worksheet->write($i, 5+$j, $ar_data[11]);
+			if($shCnt == 25) $worksheet->write($i, 5+$j, $ar_data[12]);
+			if($shCnt == 26) $worksheet->write($i, 5+$j, $ar_data[13]);
+			if($shCnt == 27) $worksheet->write($i, 5+$j, $ar_data[14]);
 
 			// if($ar_data_sub[$j] == '_' && $ar_data_text[$j] == '_') {
 			// 	$worksheet->write($i, 5+$j, $ar_data[$j]);
