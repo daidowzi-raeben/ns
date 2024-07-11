@@ -162,11 +162,11 @@ else
 $data = array_map('iconv_euckr', $data);
 
 $col = 0;
-if($type == "A") {
+
 foreach($data as $cell) {
     $worksheet->write(0, $col++, $cell);
 }
-} else {
+
 for($i=1; $res=sql_fetch_array($qry); $i++)
 {
     $res = array_map('iconv_euckr', $res);
@@ -190,7 +190,13 @@ for($i=1; $res=sql_fetch_array($qry); $i++)
 		$ar_data = explode('#', $res['srvd_ex']);
 		$ar_data_sub = explode('#', $res['srvd_sub']);
 		$ar_data_text = explode('#', $res['srvd_text']);
-		
+		if($type == "A") {
+			for($j=0; $j<count($data);$j++) 
+		{
+			$worksheet->write($i, 5+$j, $ar_data[$j]);
+		}
+
+		} else {
 		for($j=0; $j<count($data);$j++) 
 		{
 			$shCnt = 5+$j;
@@ -293,10 +299,11 @@ for($i=1; $res=sql_fetch_array($qry); $i++)
 			// 	$worksheet->write($i, 5+$j, $ar_data[$j].'/'.$ar_data_text[$j]);
 			// }
 		}
+		}
 	}
 	
 }
-}
+
 $workbook->close();
 
 $filename = $str_title.$sub_title.date("ymd", time()).".xls";
