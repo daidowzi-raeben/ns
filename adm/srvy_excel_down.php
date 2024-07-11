@@ -162,10 +162,11 @@ else
 $data = array_map('iconv_euckr', $data);
 
 $col = 0;
+if($type == "A") {
 foreach($data as $cell) {
     $worksheet->write(0, $col++, $cell);
 }
-
+} else {
 for($i=1; $res=sql_fetch_array($qry); $i++)
 {
     $res = array_map('iconv_euckr', $res);
@@ -295,7 +296,7 @@ for($i=1; $res=sql_fetch_array($qry); $i++)
 	}
 	
 }
-
+}
 $workbook->close();
 
 $filename = $str_title.$sub_title.date("ymd", time()).".xls";
