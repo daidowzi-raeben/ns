@@ -170,7 +170,7 @@ $result = sql_query($sql);
         </div>
         <p class="btn">
             <?php
-					$tempSday = "2024-07-22 09:00";
+					$tempSday = "2024-07-17 09:00";
 					$tempEday = "2024-07-29 18:00";
 					if(!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday."+1 day")))
 					{
