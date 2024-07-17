@@ -190,7 +190,7 @@ $result = sql_query($sql);
         </p>
 
 
-        <div class="course2-pagenation">
+        <div class="course2-pagenation" style="margin-top:90px">
 
 
 
