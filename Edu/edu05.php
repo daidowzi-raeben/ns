@@ -165,12 +165,12 @@ $result = sql_query($sql);
                 <li><span class="title">수료조건</span>학습 100% 진행</li>
                 <li><span class="title">학습기간</span>2024.07.22(월) ~ 2024.07.26(금)</li>
                 <li><span class="title">마일리지</span>없음</li>
-                <li><span class="title">학습시간</span>2시간</li>
+                <li><span class="title">학습시간</span>2시간 30분</li>
             </ul>
         </div>
         <p class="btn">
             <?php
-					$tempSday = "2024-07-17 09:00";
+					$tempSday = "2024-07-22 09:00";
 					$tempEday = "2024-07-29 18:00";
 					if(!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday."+1 day")))
 					{
