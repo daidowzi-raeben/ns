@@ -7,8 +7,12 @@ include_once ('../_Inc/subHead.php');
 ?>
     <div id="svisual-wrap">
       <div class="vistxt">
-        <p class="btxt"><span>지속가능경영</span></p>
-        <p class="stxt">고객, 사회, 협력사와의 동반성장을 추구합니다.</p>
+        <p class="btxt"><span>윤리경영</span></p>
+        <div class="content-top--right">
+          <span><img src="../_Img/Icon/home.png" width="25" height="24"></span>
+          <span>소개</span>
+          <span>윤리경영</span>
+        </div>
       </div>
       <div class="visimg vis02"></div>
     </div>
@@ -48,41 +52,7 @@ include_once ('../_Inc/subHead.php');
             <li class="on"><a href="manage02_03.php">윤리위원회</a></li>
           </ul>
         </div>
-        <p class="txt_title2">도입목적</p>
-        <div class="ethics4">
-          <ul class="con1">
-            <p class="stitle">대내외 신뢰 형성을 통한 지속가능경영 추구</p>
-            <li>경영 투명성 강화를 위한 외부 공정거래, 법률, 소비자전문가를 통한 평가 및 자문</li>
-            <li>홈쇼핑 관련 제반 법규 준수, 공정거래 활동 평가</li>
-          </ul>
-          <ul class="con2">
-            <p class="stitle">윤리경영 정착을 통한 사회적 책임 실천</p>
-            <li>건강한 윤리적 기업 문화 구축</li>
-            <li>윤리적 Risk 사전 예방활동 및 제도 평가</li>
-          </ul>
-        </div>
-        <div class="sgap"></div>
-        <p class="txt_title2">역할</p>
-        <div class="ethics5">
-          <ul class="con1">
-            <p class="stitle">회사에서 보고하는 분기별 윤리추진활동에 대한 평가 및 자문</p>
-            <li>분기별 윤리추진제도 신설 및 변경, 활동에 대한 평가</li>
-            <li>비윤리적 Risk 예방 활동 및 실적 점검</li>
-          </ul>
-          <ul class="con2">
-            <p class="stitle">방송법, 공정거래법 등 홈쇼핑 관련 제반 법규 준수 활동에 대한 평가</p>
-            <li>분기별 방송심의 제재 및 재발방지 활동 평가</li>
-            <li>분기별 상품선정위원회 운영 투명성 점검</li>
-          </ul>
-          <ul class="con3">
-            <p class="stitle">협력사 와의 동반성장,상생활동을 위한 제안</p>
-            <li>분기별 상생 TFT 활동 및 불공정 거래 개선활동 평가</li>
-            <li>협력사 상생활동에 대한 보완 및 제안</li>
-          </ul>
-        </div>
-        <div class="sgap"></div>
-        <p class="txt_title2">조직도</p>
-        <p><img src="../_Img/Sub/manage/02_13.jpg" width="800" height="518"></p>
+        <img src="../_Img/Sub/manage/content_3.png" />
         <!-- page-end //--> 
       </div>
     </div>

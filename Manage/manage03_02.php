@@ -7,8 +7,12 @@ include_once ('../_Inc/subHead.php');
 ?>
     <div id="svisual-wrap">
       <div class="vistxt">
-        <p class="btxt"><span>지속가능경영</span></p>
-        <p class="stxt">고객, 사회, 협력사와의 동반성장을 추구합니다.</p>
+        <p class="btxt"><span>준법경영</span></p>
+        <div class="content-top--right">
+          <span><img src="../_Img/Icon/home.png" width="25" height="24"></span>
+          <span>소개</span>
+          <span>준법경영</span>
+        </div>
       </div>
       <div class="visimg vis02"></div>
     </div>
@@ -50,9 +54,7 @@ include_once ('../_Inc/subHead.php');
             <li><a href="manage03_05.php">CP운영현황</a></li>
           </ul>
         </div>
-        <div>
-        <p style="padding-top:40px;"><img src="../_Img/Sub/manage/03_12.jpg" width="800" height="145"></p>
-         <p style="padding-top:30px;"><img src="../_Img/Sub/manage/03_08.jpg" width="801" height="790"></p>
+        <img src="../_Img/Sub/manage/content_5.png" />
         
         <!-- page-end //--> 
       </div>

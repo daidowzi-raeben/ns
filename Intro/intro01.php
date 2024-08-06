@@ -8,11 +8,14 @@ include_once ('../_Inc/subHead.php');
 
 	<link type="text/css" rel="stylesheet" href="../_Css/intro.css"/>
 
-
     <div id="svisual-wrap">
       <div class="vistxt">
-        <p class="btxt"><span>소개</span></p>
-        <p class="stxt">고객, 사회, 협력사와의 동반성장을 추구합니다.</p>
+        <p class="btxt"><span>CEO 메시지</span></p>
+        <div class="content-top--right">
+			<span><img src="../_Img/Icon/home.png" width="25" height="24"></span>
+			<span>소개</span>
+			<span>CEO 메시지</span>
+		</div>
       </div>
       <div class="visimg vis01"></div>
     </div>
@@ -44,57 +47,62 @@ include_once ('../_Inc/subHead.php');
           </ul>
         </div>
         <!-- page-start // -->
-		  <article class="intro">
+		<article class="intro">
 
-			  <div class="intro-wrap">
+			<div class="intro-wrap">
 
-				  <div class="intro-tit-box">
+				<div class="intro-con-box">
 
-					  NS홈쇼핑은 <b>윤리와 준법</b>을 최우선 행동기준으로 삼고 철저히 지켜나가며,<br/>
-					  <b>기업의 사회적 책임</b>을 성실히 이행하는 명문기업으로 자리매김 하고자 합니다
+					<div class="txt-box">
+						
+						<div class="intro-tit-box">
 
+							NS홈쇼핑은 <b>윤리와 준법</b>을<br/>
+							최우선 행동기준으로 삼고 철저히 지켜나가며,<br/>
+							<b>기업의 사회적 책임</b>을 성실히 이행하는<br/>
+							명문기업으로 자리매김 하고자 합니다
 
-				  </div>
+						</div>
+						<div class="des-box">
+							NS 임직원 여러분!<br/>
+							우리는 홈쇼핑 업계의 불황과 장기적인 소비침체에도 불구하고 지난 2023년 임직원 모두의<br/>
+							노력으로 성공적인 턴 어라운드의 해를 만들어냈습니다.<br/>
+							<br/>
+							이러한 성장의 기반에는 회사가 2004년부터 도입하고 발전시켜온<br/>
+							공정거래 자율준수 프로그램 (Compliance Program, 이하 'CP')이 있습니다.<br/>
+							<br/>
+							공정거래 자율준수 문화를 정착시키기 위해서는 임직원 여러분들의 자발적이고 적극적인
+							참여가 전제되어야 합니다.<br/>
+							<br/>
+							이를 위해 회사의 프로세스 및 규정을 숙지하여 각자의 역할을 수행하면서 관련 법규를 준수하고,<br/>
+							업무 수행 시 발생할 수 있는 법 위반 사항들은 담당 부서와 사전 협의를 하시기 바랍니다. <br/>
+							<br/>
+							임직원 여러분들이 공정거래와 준법·윤리경영에 대한 관심과 노력을 기울임으로써<br/>
+							컴플라이언스 실천에 적극 동참할 때에야 비로소 우리의 실적이 온전한 성과가 될 수 있을 것입니다.<br/>
+							<br/>
+							임직원 여러분!<br/>
+							엔에스쇼핑이 모범적인 준법·윤리경영 기업으로 거듭날 수 있도록 전 임직원으로 하여금<br/>
+							강력한 의지를 가지고 공정하고 투명한 기업문화를 만들어가는 데에 최선을 다해주시기 바랍니다.
+							<div class="bottom-wrap">
+								<span>NS 홈쇼핑 대표이사 조항목</span>
+								<span>2024.07.06</span>
+							</div>
+						</div>
 
-				  <div class="intro-con-box">
+					</div>
 
-					  <div class="txt-box">
+					<div class="img-box">
+						<img src="../_Img/Sub/intro/ceo.jpg" alt="이미지">
+					</div>
 
-						  <div class="tit-box">
-							  친애하는 NS홈쇼핑 임직원 여러분!
-						  </div>
-						  <div class="des-box">
-							  우리 NS홈쇼핑은 임직원 여러분의 윤리의식과 준법정신을 바탕으로 윤리적이고 투명한 기업 경영과 청렴하고 공정한 기업 문화를 조성하였습니다.<br/><br/>
+				</div>
 
-							  NS홈쇼핑은 이러한 준법경영을 뒷받침하기 위해 2004년 도입한 공정거래 자율준수 프로그램(CP)을 지속적으로 발전시켜, 2018년 CP등급평가에서 공정위로부터 AA등급이라는 업계 최고수준의 결과를 얻었으며 현재에 이르기까지 체계적으로 CP활동을 이어나가고 있습니다.<br/><br/>
+			</div>
 
-							  NS홈쇼핑은 앞으로도 지속적인 최고 경영자의 자율준수의지 천명, 정기적인 CP교육 실시, CP 기준 및 절차의 엄격한 준수를 통해 더욱 굳건하고 철저하게 준법경영을 실천할 것을 약속합니다.<br/><br/>
+		</article>
 
-							  임직원 여러분도 다양한 CP활동에 적극적으로 임하고 준법의식을 내재화하여 우리 NS홈쇼핑을 윤리와 준법을 최고가치로 두고 행동하는 CP 선도 기업으로 만들어갑시다.<br/><br/>
-
-							  감사합니다.
-								<br>
-								<br>
-								<div class="bottom-wrap">
-									<span>2021. 07. 01.</span>
-									<span>NS홈쇼핑 대표이사<b> 조 항 목</b></span>
-								</div>
-						  </div>
-
-					  </div>
-
-					  <div class="img-box">
-						  <img src="../_Img/Sub/intro/ceo.jpg" alt="이미지">
-					  </div>
-
-				  </div>
-
-			  </div>
-
-		  </article>
-
-		  <div class="confirm">
-			<a href="javascript:confirmProc()"><img src="../_Img/Sub/btn_confirm.jpg" width="97" height="42"></a><span>※ 페이지 다 읽으신 후 [확인] 버튼을 클릭해 주시면 나의 마일리지에 반영됩니다. </span>
+		<div class="confirm">
+			<a href="javascript:confirmProc()">확인</a><span>페이지 다 읽으신 후 <strong>확인버튼</strong>을 클릭해 주시면 나의 마일리지에 반영됩니다.</span>
 		</div>
         <!-- page-end //-->
       </div>

@@ -18,9 +18,13 @@ include_once ('../_Inc/subHead.php');
 <div id="svisual-wrap">
 	<div class="vistxt">
 		<p class="btxt"><span>마일리지</span></p>
-        <p class="stxt">고객, 사회, 협력사와의 동반성장을 추구합니다.</p>
+        <div class="content-top--right">
+            <span><img src="../_Img/Icon/home.png" width="25" height="24"></span>
+            <span>나의참여</span>
+            <span>마일리지</span>
+        </div>
 	</div>
-	<div class="visimg vis07"></div>
+	<div class="visimg vis03"></div>
 </div>
 <div class="content-ov">
 	<div id="subNavi-wrap">
@@ -55,11 +59,18 @@ include_once ('../_Inc/subHead.php');
 		if($varPer > 100)
 			$varPer = 100;
 		?>
-	    <div  class="m_graph total">
+	    <!-- <div  class="m_graph total">
             <div class="tit">마일리지 총 합계</div>
             <div class="num" id="strMile">
             </div>
-		</div>
+		</div> -->
+        <div class="mileage-total">
+            <img src="../_Img/Icon/trophy.png" />
+            <div class="text">
+                마일리지 총 합계
+                <div class="num">20</div>
+            </div>
+        </div>
 		<table class="tbl-type01 mileage">
   <colgroup>
 				<col width="*"/>
@@ -300,9 +311,7 @@ include_once ('../_Inc/subHead.php');
   </tbody>
 </table>
 
-    <div class="table-bottom text-right">
-        ※ 마일리지 적용기간 : 2023년01월01일 ~ 2023년12월15일
-    </div>
+<p class="exmark-txt">마일리지 적용기간 : 2023년01월01일 ~ 2023년12월15일</p>
 		
 		<!-- page-end //-->
 

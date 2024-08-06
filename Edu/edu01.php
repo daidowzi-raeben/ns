@@ -28,8 +28,12 @@ $startNum = $total_count;
 ?>
     <div id="svisual-wrap">
 		<div class="vistxt">
-			<p class="btxt"><span>사이버 & 집체교육</span></p>
-			<p class="stxt">고객, 사회, 협력사와의 동반성장을 추구합니다.</p>
+			<p class="btxt"><span>e-준법교육 캠페인</span></p>
+			<div class="content-top--right">
+				<span><img src="../_Img/Icon/home.png" width="25" height="24"></span>
+				<span>교육/컨텐츠</span>
+				<span>e-준법교육 캠페인</span>
+			</div>
 		</div>
 		<div class="visimg vis04"></div>
 	</div>
@@ -84,7 +88,7 @@ $startNum = $total_count;
 		?>
 			<tr>
 				<td><?php echo $startNum; ?>회</td>
-				<td><?php echo $p_subject?></td>
+				<td class="txt-left"><?php echo $p_subject?></td>
 				<td><?php echo substr($chkView['po_datetime'], 0, 10) ?></td>
 				<td>
 				<?php
@@ -105,7 +109,7 @@ $startNum = $total_count;
 		}
 		?>
 		</table>
-		<div style="text-align:right; margin-top:10px;">[주의][e-준법교육캠페인] 퀴즈 풀이 중 다른 페이지로 이동하시면 학습완료 인정이 안됩니다.</div>
+		<div class="exmark-txt">[주의][e-준법교육캠페인] 퀴즈 풀이 중 다른 페이지로 이동하시면 학습완료 인정이 안됩니다.</div>
         <!-- page-end //--> 
       </div>
     </div>

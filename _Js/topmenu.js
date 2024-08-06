@@ -218,7 +218,7 @@ var mainNavi_W = {
 						subMenu.stop().css({"visibility":"visible","opacity":0}).show();
 						var mnH = $(".depth2",subMenu).outerHeight();
 						subMenu.stop().animate({"opacity":1,"height":mnH},300);
-						$("#mainNavi-wrap").stop().animate({height:mnH + this_s.getMenuBarHeight()},300,function(){})
+						$("#mainNavi-wrap").stop().animate({height:mnH + this_s.getMenuBarHeight()},0,function(){})
 						$(".mn-bar").stop().show().animate({"height":mnH},300,function(){});
 						$("#header-quick").stop().show().animate({"height":mnH},300,function(){});
 						$('#header-wrap').addClass('isOver');
@@ -290,12 +290,13 @@ var mainNavi_W = {
 
 	
 	subMenuBarClose:function(){
-		//$("#mainNavi-wrap").stop().animate({height: this.getMenuBarHeight()},300,function(){});
+		// $("#mainNavi-wrap").stop().animate({height: this.getMenuBarHeight()},300,function(){});
 		$("#mainNavi-wrap").stop().animate({height: 45},300,function(){});
 		$(".mn-bar").stop().animate({"height":0},300,function(){$(this).hide();});
 		$("#header-quick").stop().animate({"height":0},300,function(){$(this).hide();});
 		$('#header-wrap').removeClass('isOver');
 		$(".topmenu").find(".mn_l1").removeClass('is-over');
+		$(".depth2-wrap").css({"height":0}).hide();
 	},
 	setSubMenuOut:function(seq){
 		clearTimeout(this.subTimer );	var this_s = this;

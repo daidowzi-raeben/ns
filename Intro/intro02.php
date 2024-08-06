@@ -5,10 +5,15 @@ include_once ('../_Inc/subHead.php');
 		alert(NS_LOGIN_MSG);
 	}
 ?>
+<link type="text/css" rel="stylesheet" href="../_Css/intro.css"/>
     <div id="svisual-wrap">
       <div class="vistxt">
-        <p class="btxt"><span>소개</span></p>
-        <p class="stxt">고객, 사회, 협력사와의 동반성장을 추구합니다.</p>
+        <p class="btxt"><span>자율준수관리자 메시지</span></p>
+        <div class="content-top--right">
+          <span><img src="../_Img/Icon/home.png" width="25" height="24"></span>
+          <span>소개</span>
+          <span>자율준수관리자 메시지</span>
+        </div>
       </div>
       <div class="visimg vis01"></div>
     </div>
@@ -40,24 +45,56 @@ include_once ('../_Inc/subHead.php');
           </ul>
         </div>
         <!-- page-start // -->
-        <p style="background:url(../_Img/Sub/intro/intro_3.jpg) no-repeat left top; height:150px; padding:128px 0 0 27px;">NS가 CP를 도입한 지도 어느덧 15년이 흘렀습니다.<br>
-          CP운영에 필요한 체계를 마련하고, <br>
-          점차적으로 발전시켜온 NS는 금번 NS윤리준법시스템 오픈을 <br>
-          CP발전의 새로운 도약점으로 삼고자 합니다.</p>
-        <p style="padding-left:25px;">NS윤리준법시스템은 CP 뿐만 아니라 윤리·준법경영 전반을 담고 있습니다.<br>
-          임직원 개개인의 윤리·준법 실천 수준을 확인할 수 있는 「자가진단」, e-준법교육캠페인과 e-윤리영상캠페인 등 윤리·준법
-          지식을 학습할 수 있는 「사이버교육 및 집체교육」 지속가능경영 관련 사규, CP편람 등을 한 눈에 볼 수 있는 「가이드라인」 등
-          윤리·준법경영과 관련된 모든 것을 NS윤리준법시스템에서 통합 관리하고자 합니다.<br>
-          <br>
-          특히, 마일리지 제도를 통해 고득점자에게는 포상을 실시하여 임직원들에게 윤리·준법경영 실천에 대한 유인을
-          제공하겠습니다. NS는 앞으로도 윤리·준법경영 콘텐츠에 대한 접근성을 높이기 위해 최선의 노력을 다할 것입니다.<br>
-          임직원 여러분의 많은 이용 바랍니다.<br>
-          <br>
-          감사합니다.</p>
-          <p style="font-weight:bold;padding-left:25px;"><span style="padding-right:570px;">2019.7.1.</span><span style="font-size:16px;">NS 자율준수관리자</span></p>
-        <div class="confirm"> 
-			<a href="javascript:confirmProc()"><img src="../_Img/Sub/btn_confirm.jpg" width="97" height="42"></a><span>※ 페이지 다 읽으신 후 [확인] 버튼을 클릭해 주시면 나의 마일리지에 반영됩니다. </span> 
-		</div>
+        <article class="intro">
+
+          <div class="intro-wrap">
+                
+            <div class="intro-tit-box">
+
+              NS는 원칙을 기반으로 한 컴플라이언스 준수 문화 확립과 임직원의 준법의식<br />
+              제고를 위해 사회적 책임을 다하고 있습니다.
+
+            </div>
+
+            <div class="intro-con-box">
+
+              <div class="img-box">
+                <img src="../_Img/Sub/intro/content.png" alt="이미지">
+              </div>
+
+              <div class="txt-box">
+                <div class="des-box">
+                  NS는 공정거래법뿐만 아니라 대규모유통업법, 하도급법 등의 법령을 준수하기 위하여<br/>
+                  정기적인 교육 및 CP점검, 자율준수편람 배포 등의 다양한 컴플라이언스 활동을<br/>
+                  실시하고 있습니다.<br/>
+                  <br/>
+                  또한, 회사의 규정 및 자율준수를 성실히 실천한 사람에게는 포상을 실시하고,<br/>
+                  법위반 사항에 대해서는 제재를 가함으로써 임직원의 적극적인 준법실천을 독려하고 있습니다.<br/>
+                  <br/>
+                  더 나아가 '적극적인 CP운영으로, 회사에 자율준수 문화를 정착시키고 협력사와 상생한다'는<br/>
+                  우리의 CP MISSION에 걸맞게 협력사의 준법경영을 지원하여 진정한 동반성장을<br/>
+                  실현하고자 노력 하겠습니다.<br/>
+                  <br/>
+                  NS는 앞으로도 회사의 지속적인 성장과 발전에 필요한 컴플라이언스 프로그램을<br/>
+                  적극적으로 운영할 예정이오니, 임직원 여러분들의 많은 관심과 협조를 당부드립니다.<br/>
+                  <br/>
+                  감사합니다.<br/>
+                  <div class="bottom-wrap">
+                    <span>NS 자율준수관리자</span>
+                    <span>2024.07.06</span>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </article>
+        <div class="confirm">
+          <a href="javascript:confirmProc()">확인</a><span>페이지 다 읽으신 후 <strong>확인버튼</strong>을 클릭해 주시면 나의 마일리지에 반영됩니다.</span>
+        </div>
         <!-- page-end //--> 
       </div>
     </div>
