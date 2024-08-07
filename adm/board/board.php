@@ -5,6 +5,14 @@ if ($board['bo_table']  == "notice") {
 	$sub_menu = "800100";
 }
 
+if ($board['bo_table']  == "info") {
+	$sub_menu = "800800";
+}
+
+if ($board['bo_table']  == "guide") {
+	$sub_menu = "800900";
+}
+
 if (!$board['bo_table']) {
    alert('존재하지 않는 게시판입니다.', G5_URL);
 }
