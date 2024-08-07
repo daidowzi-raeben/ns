@@ -123,11 +123,11 @@ $result = sql_query($sql);
 
 <div id="svisual-wrap">
     <div class="vistxt">
-        <p class="btxt"><span>CP교육</span></p>
+        <p class="btxt"><span>기타교육</span></p>
         <div class="content-top--right">
           <span><img src="../_Img/Icon/home.png" width="25" height="24"></span>
           <span>교육/컨텐츠</span>
-          <span>CP교육</span>
+          <span>기타교육</span>
         </div>
     </div>
     <div class="visimg vis04"></div>
@@ -161,230 +161,13 @@ $result = sql_query($sql);
 
         <!-- page-start // -->
 
-        <div class="edu-course">
-            <div class="img-wrap">
-                <img src="../_Img/Sub/edu/cyber_img29.png">
-            </div>
-            <div class="txt-wrap">
-                <div class="tit">[2024 하반기 CP특별교육] 하도급분야 공정거래교육</div>
-                <div class="row">
-                    <div class="col">
-                        <label>수료조건</label><span>학습 100% 진행</span>
-                    </div>
-                    <div class="col">
-                        <label>마일리지</label><span>없음</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <label>학습기간</label><span>2024.07.22(월) ~ 2024.07.26(금)</span>
-                    </div>
-                    <div class="col">
-                        <label>학습시간</label><span>2시간 30분</span>
-                    </div>
-                </div>
-                <div class="play">
-                    <?php
-                        $tempSday = "2024-07-22 09:00";
-                        $tempEday = "2024-07-29 18:00";
-                        if(!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday."+1 day")))
-                        {
-                    ?>
-                    <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
-                    <?php
-                        }
-                        else
-                        {
-                    ?>
-                    <a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?=$member['mb_id']?>" class="class-enter"
-                        target="_blank"><span>학습하기</span></a>
-                    <?php
-                        }
-                    ?>
-                </div>
-            </div>
-        </div>
-
-
         <div class="edu-course--wrap">
-
-        </div>
-
-        <div class="edu-course">
-            <div class="img-wrap">
-                <img src="/static/image/thum_01.png">
-            </div>
-            <div class="txt-wrap">
-                <div class="tit">[2024 상반기 전사 CP교육(1)] 대규모유통업법 실무 가이드라인</div>
-                <div class="row">
-                    <div class="col">
-                        <label>수료조건</label><span>학습 100% 진행</span>
-                    </div>
-                    <div class="col">
-                        <label>마일리지</label><span>없음</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <label>학습기간</label><span>2024.05.20(월) ~ 2024.05.31(금)</span>
-                    </div>
-                    <div class="col">
-                        <label>학습시간</label><span>2시간</span>
-                    </div>
-                </div>
-                <div class="play">
-                    <?php
-                        $tempSday = "2024-05-20 09:00";
-                        $tempEday = "2024-05-31 18:00";
-                        if(!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday."+1 day")))
-                        {
-                    ?>
-                    <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
-                    <?php
-                            }
-                            else
-                            {
-                    ?>
-                    <a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?=$member['mb_id']?>" class="class-enter"
-                        target="_blank"><span>학습하기</span></a>
-                    <?php
-                            }
-                    ?>
-                </div>
+            <div class="nodata">
+                <img src="../_Img/Icon/exmark_lg.png" />
+                등록된 교육이 없습니다.
             </div>
         </div>
 
-        <div class="edu-course">
-            <div class="img-wrap">
-                <img src="../_Img/Sub/edu/cyber_img26.png">
-            </div>
-            <div class="txt-wrap">
-                <div class="tit">[2023 하반기 CP전사교육] 지식재산권의 이해와 사례</div>
-                <div class="row">
-                    <div class="col">
-                        <label>수료조건</label><span>학습 100% 진행</span>
-                    </div>
-                    <div class="col">
-                        <label>마일리지</label><span>30</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <label>학습기간</label><span>2023.11.22(수) ~ 2023.11.30(금)</span>
-                    </div>
-                    <div class="col">
-                        <label>학습시간</label><span>1시간 30분</span>
-                    </div>
-                </div>
-                <div class="play">
-                    <?php
-                        $tempSday = "2023-11-20 09:00";
-                        $tempEday = "2023-11-29 18:00";
-                        if(!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday."+1 day")))
-                        {
-                    ?>
-                    <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
-                    <?php
-                            }
-                            else
-                            {
-                    ?>
-                    <a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?=$member['mb_id']?>" class="class-enter"
-                        target="_blank"><span>학습하기</span></a>
-                    <?php
-                            }
-                    ?>
-                </div>
-            </div>
-        </div>
-
-        <div class="edu-course">
-            <div class="img-wrap">
-                <img src="../_Img/Sub/edu/cyber_img24.png">
-            </div>
-            <div class="txt-wrap">
-                <div class="tit">[2023 상반기 CP특별교육] 전자상거래 가이드</div>
-                <div class="row">
-                    <div class="col">
-                        <label>수료조건</label><span>학습 100% 진행</span>
-                    </div>
-                    <div class="col">
-                        <label>마일리지</label><span>없음</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <label>학습기간</label><span>2023.06.19(월) ~ 2023.06.30(금)</span>
-                    </div>
-                    <div class="col">
-                        <label>학습시간</label><span>2시간</span>
-                    </div>
-                </div>
-                <div class="play">
-                    <?php
-                        $tempSday = "2023-06-19 09:00";
-                        $tempEday = "2023-06-30 18:00";
-                        if(!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday."+1 day")))
-                        {
-                    ?>
-                    <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
-                    <?php
-                            }
-                            else
-                            {
-                    ?>
-                    <a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?=$member['mb_id']?>" class="class-enter"
-                        target="_blank"><span>학습하기</span></a>
-                    <?php
-                            }
-                    ?>
-                </div>
-            </div>
-        </div>
-
-        <div class="edu-course">
-            <div class="img-wrap">
-                <img src="../_Img/Sub/edu/cyber_img23.png">
-            </div>
-            <div class="txt-wrap">
-                <div class="tit">[2023 상반기 전사 CP교육] 유통업분야 공정거래교육</div>
-                <div class="row">
-                    <div class="col">
-                        <label>수료조건</label><span>학습 100% 진행, 최종평가 60점 이상</span>
-                    </div>
-                    <div class="col">
-                        <label>마일리지</label><span>30</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <label>학습기간</label><span>2023.04.17(월) ~ 2023.04.28(금)</span>
-                    </div>
-                    <div class="col">
-                        <label>학습시간</label><span>2시간</span>
-                    </div>
-                </div>
-                <div class="play">
-                    <?php
-                        $tempSday = "2023-04-17 08:00";
-                        $tempEday = "2023-04-28 18:00";
-                        if(!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday."+1 day")))
-                        {
-                    ?>
-                    <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
-                    <?php
-                            }
-                            else
-                            {
-                    ?>
-                    <a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?=$member['mb_id']?>" class="class-enter"
-                        target="_blank"><span>학습하기</span></a>
-                    <?php
-                            }
-                    ?>
-                </div>
-            </div>
-        </div>
 
         <!-- page-end //-->
 

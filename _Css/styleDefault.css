@@ -248,6 +248,21 @@ height:50px;background:none;border:none;}
 .notice-txt{display:inline-block; vertical-align:top; padding:5px 10px; color:#fff; font-size:12px; font-weight:600; line-height:120%;background:#579635}
 .board-list-wrap table tbody td a.reply{background:url(../_Img/Sub/ripple-icon.png) no-repeat 0px 4px; padding-left:15px; font-size:16px;}
 
+.board-list-wrap table tbody td.empty_table{
+	padding:100px 0;
+	background-color:#fff;
+	font-size:18px;
+	color:#111;
+}
+.board-list-wrap table tbody td.empty_table:before{
+	content:"";
+	display:block;
+	width:68px;
+	height:68px;
+	background:url(../_Img/Icon/exmark_lg.png)no-repeat center / 100%;
+	margin:0 auto 20px;
+}
+
 
 
 /* 페이징 */

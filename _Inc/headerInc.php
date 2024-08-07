@@ -113,8 +113,8 @@
               <div class='depth2'>
                 <div>
                   <div id="tm0405" class="mn_l2"><a href="/Edu/edu05.php" class="mn_a2" target="_self"><span class="txt">CP교육</span></a></div>
-                  <div id="tm0405" class="mn_l2"><a href="/Edu/edu05.php" class="mn_a2" target="_self"><span class="txt">윤리교육</span></a></div>
-                  <div id="tm0405" class="mn_l2"><a href="/Edu/edu05.php" class="mn_a2" target="_self"><span class="txt">기타교육</span></a></div>
+                  <div id="tm0405" class="mn_l2"><a href="/Edu/edu07.php" class="mn_a2" target="_self"><span class="txt">윤리교육</span></a></div>
+                  <div id="tm0405" class="mn_l2"><a href="/Edu/edu08.php" class="mn_a2" target="_self"><span class="txt">기타교육</span></a></div>
                 </div>
                 <div>
                   <div id="tm0401" class="mn_l2"><a href="/Edu/edu01.php" class="mn_a2" target="_self"><span class="txt">e-준법교육 캠페인</span></a></div>
@@ -137,9 +137,9 @@
                   <div id="tm0504" class="mn_l2"><a href="/Guide/guide04.php" class="mn_a2" target="_self"><span class="txt">청탁금지법 가이드라인</span></a></div>
                 </div>
                 <div>
-                  <div class="mn_l2"><a href="" class="mn_a2" target="_self"><span class="txt">법령정보</span></a></div>
-                  <div class="mn_l2"><a href="" class="mn_a2" target="_self"><span class="txt">사내 준법 가이드라인</span></a></div>
-                  <div class="mn_l2"><a href="" class="mn_a2" target="_self"><span class="txt">준법상담</span></a></div>
+                  <div class="mn_l2"><a href="<?php echo G5_URL ?>/bbs/board.php?bo_table=info" class="mn_a2" target="_self"><span class="txt">법령정보</span></a></div>
+                  <div class="mn_l2"><a href="<?php echo G5_URL ?>/bbs/board.php?bo_table=guide" class="mn_a2" target="_self"><span class="txt">사내 준법 가이드라인</span></a></div>
+                  <div class="mn_l2"><a href="<?php echo G5_URL ?>/bbs/board.php?bo_table=cns" class="mn_a2" target="_self"><span class="txt">준법상담</span></a></div>
                 </div>
               </div>
             </div>
@@ -204,8 +204,8 @@
         <div class="tit">교육 / 컨텐츠</div>
         <div class="line">
           <a href="/Edu/edu05.php" class="btn-menu">CP교육</a>
-          <a href="/Edu/edu05.php" class="btn-menu">윤리교육</a>
-          <a href="/Edu/edu05.php" class="btn-menu">기타교육</a>
+          <a href="/Edu/edu07.php" class="btn-menu">윤리교육</a>
+          <a href="/Edu/edu08.php" class="btn-menu">기타교육</a>
         </div>
         <div class="line">
           <a href="/Edu/edu01.php" class="btn-menu">e-준법교육 캠페인</a>
@@ -223,9 +223,9 @@
           <a href="/Guide/guide04.php" class="btn-menu">청탁금지법 가이드라인</a>
         </div>
         <div class="line">
-          <a href="" class="btn-menu">법령정보</a>
-          <a href="" class="btn-menu">사내 준법 가이드라인</a>
-          <a href="" class="btn-menu">준법상담</a>
+          <a href="<?php echo G5_URL ?>/bbs/board.php?bo_table=info" class="btn-menu">법령정보</a>
+          <a href="<?php echo G5_URL ?>/bbs/board.php?bo_table=guide" class="btn-menu">사내 준법 가이드라인</a>
+          <a href="<?php echo G5_URL ?>/bbs/board.php?bo_table=cns" class="btn-menu">준법상담</a>
         </div>
       </li>
       <li class="item">
