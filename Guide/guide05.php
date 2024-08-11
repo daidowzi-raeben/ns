@@ -6,7 +6,7 @@ include_once ('../_Inc/subHead.php');
 	}
 ?>
     <div id="svisual-wrap">
-      <div class="vistxt">
+      <div class="vistxt" data-aos="fade-up" data-aos-duration="1000">
         <p class="btxt"><span>대규모유통업법 가이드라인</span></p>
         <div class="content-top--right">
           <span><img src="../_Img/Icon/home.png" width="25" height="24"></span>

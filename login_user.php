@@ -11,9 +11,10 @@ include_once(G5_PATH.'/head.php');
 .login-box--wrap{
 	width:100%;
 	display:flex;
+	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	margin:220px auto 100px;
+	margin:100px auto 100px;
 }
 .login-box{
 	box-shadow: 0 10px 57px rgba(0,0,0,.14);
@@ -24,6 +25,8 @@ include_once(G5_PATH.'/head.php');
 .login-box--label{
 	display:block;
 	font-size:18px;
+    font-weight: 700;
+    color:#000;
 }
 .login-box .frm_input{
 	width:100%;
@@ -34,6 +37,7 @@ include_once(G5_PATH.'/head.php');
 	box-sizing: border-box;
 	margin:20px 0;
 	font-size:18px;
+	color:#000;
 }
 .login-box .login-btn{
 	width:100%;
@@ -47,12 +51,16 @@ include_once(G5_PATH.'/head.php');
 	justify-content: center;
 	border:none;
 	margin-top:30px;
+	font-weight: 700;
 }
 .login-box--id{
 	background:url(./_Img/Icon/user.png)no-repeat 20px center;
 }
 .login-box--pass{
 	background:url(./_Img/Icon/lock.png)no-repeat 20px center;
+}
+.login-logo{
+	margin-bottom:50px;
 }
 </style>
 </head>
@@ -70,6 +78,7 @@ include_once(G5_PATH.'/head.php');
 <form name="flogin" action="/bbs/login_check.php" onsubmit="return flogin_submit(this);" method="post">
 <input type="hidden" name="url" value="">
 <div class="login-box--wrap">
+	<img src="./_Img/login_logo.png" class="login-logo" /> 
 	<div class="login-box">
 		<label class="login-box--label">아이디</label>
 		<input type="text" name="mb_id" id="login_id" required class="frm_input required login-box--id" autocomplete="off" onFocus="clearText(this)" onblur="defaultText(this)" placeholder="아이디를 입력해 주세요"/>
@@ -79,7 +88,9 @@ include_once(G5_PATH.'/head.php');
 	</div>
 </div>
 </form>
-
+<?php
+include_once(G5_PATH.'/tail.php');
+?>
 </body>
 <script>
 function flogin_submit(f)

@@ -20,7 +20,7 @@ if($bo_table == "e_campaign") {
 ?>
 
 <div id="svisual-wrap">
-	<div class="vistxt">
+	<div class="vistxt" data-aos="fade-up" data-aos-duration="1000">
 		<p class="btxt"><span><?php echo $strTitle?></span></p>
         <div class="content-top--right">
           <span><img src="../_Img/Icon/home.png" width="25" height="24"></span>

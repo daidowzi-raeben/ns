@@ -149,6 +149,7 @@
     word-break: keep-all;
     height:180px;
     font-weight: 600;
+    color:#000;
 }
 .main-notice .msec-notice ul li .tit:before{
     content:"공지사항";
@@ -220,7 +221,30 @@
 }
 .main-con--img .img-wrap{
     display:block;
+    position:relative;
+    overflow: hidden;
 }
 .main-con--img .img-wrap:first-child{
     margin-bottom:160px;
+}
+.main-con--img .img-wrap .hover-icon{
+    position:absolute;
+    right:-180px;
+    bottom:-210px;
+    width:280px;
+    height:280px;
+    background:rgba(195,114,122,.35);
+    border-radius: 150px;
+    transition:all .8s;
+    transform:scale(0);
+}
+.main-con--img .img-wrap:hover .hover-icon{
+    transform:scale(1);
+    right:-80px;
+    bottom:-110px;
+}
+.main-con--img .img-wrap .hover-icon img{
+    position:absolute;
+    left:130px;
+    top:100px;
 }

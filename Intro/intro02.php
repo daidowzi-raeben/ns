@@ -7,7 +7,7 @@ include_once ('../_Inc/subHead.php');
 ?>
 <link type="text/css" rel="stylesheet" href="../_Css/intro.css"/>
     <div id="svisual-wrap">
-      <div class="vistxt">
+      <div class="vistxt" data-aos="fade-up" data-aos-duration="1000">
         <p class="btxt"><span>자율준수관리자 메시지</span></p>
         <div class="content-top--right">
           <span><img src="../_Img/Icon/home.png" width="25" height="24"></span>

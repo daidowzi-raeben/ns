@@ -16,7 +16,7 @@
 }
 *{box-sizing: border-box;}
 html,body {height:100%; font-family:'Pretendard','Nanum Gothic', '맑은 고딕', 'Malgun Gothic', Dotum; }
-html{ overflow: hidden;}
+/* html{ overflow: hidden;} */
 body {overflow:auto; }
 select, input, button, textarea, button{font-family:'Pretendard','Nanum Gothic', '맑은 고딕', 'Malgun Gothic', Dotum;}
 input::placeholder{color:#999;}
@@ -110,7 +110,7 @@ body.no-scr {overflow-y:hidden;}
 } */
 .topmenu .mn_l1 {display:inline-block;; position:relative; }
 .topmenu .mn_l1.isTopHide {display:none;}
-.topmenu .mn_s1 {color:#111;font-size:20px;font-weight:500;cursor:pointer;text-align:center;white-space:nowrap;text-transform:uppercase;display:block;text-overflow:ellipsis;letter-spacing:0}
+.topmenu .mn_s1 {color:#111;font-size:20px;font-weight:600;cursor:pointer;text-align:center;white-space:nowrap;text-transform:uppercase;display:block;text-overflow:ellipsis;letter-spacing:0}
 .topmenu li.mn_l1:first-child:after{display:none}
 .topmenu li.mn_l1 .mn_s1{transition:all .3s;}
 .topmenu li.mn_l1.is-over .mn_s1{color:#5853a3;position:relative;}
@@ -399,6 +399,7 @@ body.no-scr {overflow-y:hidden;}
 	background-color:#eff2f6;
 	border:1px solid #e3e3e3;
 	margin-bottom:30px;
+	font-weight: 700;
 }
 .site-map--menu .item .line{
 	width:calc(50% - 2px);
@@ -412,7 +413,8 @@ body.no-scr {overflow-y:hidden;}
 	position:relative;
 	padding-left:10px;
 	white-space: nowrap;
-	margin-bottom:15px;
+	margin-bottom:12px;
+	color:#000;
 }
 .site-map--menu .item .line .btn-menu:before{content:"·";position:absolute;left:0;color:#5853a3;}
 .site-map--menu .item .line .btn-menu:hover{color:#5853a3;text-decoration: underline;text-underline-offset: 2px;}

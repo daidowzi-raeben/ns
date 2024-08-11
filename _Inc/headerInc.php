@@ -23,7 +23,7 @@
     <div class="icon icon-4"></div>
     청탁금지법
   </a>
-  <a href="" class="quick-menu">
+  <a href="<?php echo G5_URL ?>/bbs/board.php?bo_table=guide" class="quick-menu">
     <div class="icon icon-5"></div>
     사내준법<br />가이드라인
   </a>
@@ -178,7 +178,17 @@
   </div>
   <div class="right">
     <a href="/login_user.php" class="header-btn">MY MILEAGE</a>
+    <?php
+    if(!$is_member) {
+    ?>
     <a href="/login_user.php" class="header-btn type2">LOGIN</a>
+    <?php 
+    } else {
+    ?>
+    <a href="<?php echo G5_BBS_URL?>/logout.php" class="header-btn type2">LOGOUT</a>
+    <?php
+    }
+    ?>
     <button type="button" class="btn menu" onclick="$('.site-map').addClass('active');"></button>
   </div>
 </div>
@@ -305,8 +315,8 @@
 		}
 		// } 서약서팝업레이어 끝
 		
-		// include SJ_SURVEY_PATH.'/srvy_win.inc.php'; 	// 설문조사1 팝업
-		// include SJ_SURVEY_PATH.'/srvy_win2.inc.php'; 	// 설문조사2 팝업
+		include SJ_SURVEY_PATH.'/srvy_win.inc.php'; 	// 설문조사1 팝업
+		include SJ_SURVEY_PATH.'/srvy_win2.inc.php'; 	// 설문조사2 팝업
 		include G5_PATH.'/temp/t_win.inc.php'; 			// 내부 서약서 팝업
 	
 	}

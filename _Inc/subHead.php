@@ -40,7 +40,8 @@ var g5_cookie_domain = "<?php echo G5_COOKIE_DOMAIN ?>";
 	<link rel="stylesheet" href="../_Js/jquery/animate.css">
 	<link rel="stylesheet" href="../_Js/jquery/slick-theme.css">
 	<link rel="stylesheet" href="../_Js/jquery/slick.css">
-	
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 	<script  type="text/javascript" src="../_Js/jquery/jquery-1.11.3.min.js"></script>
 	<script  type="text/javascript" src="../_Js/jquery/jquery.easing.1.3.js"></script>
 	<script  type="text/javascript" src="../_Js/jquery/owl.carousel.js"></script>

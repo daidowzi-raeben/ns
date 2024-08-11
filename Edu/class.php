@@ -49,7 +49,7 @@ inner join cd_member AS b ON a.lssn_company = b.mb_profile
 WHERE lssn_no = '".$idx."' and mb_id = '".$member[mb_id]."' ");
 ?>
 	<div id="svisual-wrap">
-		<div class="vistxt">
+		<div class="vistxt" data-aos="fade-up" data-aos-duration="1000">
 			<p class="btxt"><span>��������</span></p>
 			<p class="stxt">���������� �������� ����,û��,�ع�,�α� �� <br />
 			���̹� ����,�޽��� ����, ķ���� ������ ����<br />

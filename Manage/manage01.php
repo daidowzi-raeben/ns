@@ -7,7 +7,7 @@ include_once ('../_Inc/subHead.php');
 ?>
 <link type="text/css" rel="stylesheet" href="../_Css/intro.css"/>
     <div id="svisual-wrap">
-      <div class="vistxt">
+      <div class="vistxt" data-aos="fade-up" data-aos-duration="1000">
         <p class="btxt"><span>지속가능경영</span></p>
         <div class="content-top--right">
           <span><img src="../_Img/Icon/home.png" width="25" height="24"></span>
@@ -65,7 +65,7 @@ include_once ('../_Inc/subHead.php');
               </div>
 
               <div class="txt-box">
-                <div class="des-box">
+                <div class="des-box pl-310">
                   지속가능경영이란, 기업이 경영에 영향을 미치는 경제적, 환경적, 사회적 이슈들을 종합적으로 균형 있게 고려하면서 기업의 지속가능성을 추구하는 경영활동을 말합니다.<br/>
                   <br/>
                   NS홈쇼핑은 지속 가능한 성장을 위해 기업의 신뢰성과 투명성을 제고하며, 경제적·법적·윤리적·자선적 책임의 4대 사회적 책임을 구체적으로 실행하고 있습니다.<br/>

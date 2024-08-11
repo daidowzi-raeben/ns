@@ -64,17 +64,19 @@ include_once(G5_THEME_PATH.'/head.main.php');
       </script>
       <div class="main-notice">
         <div class="main-notice--wrap">
-          <div class="main-notice--tit">NOTICE</div>
-          <div class="main-notice--sub">
+          <div class="main-notice--tit" data-aos="fade-up" data-aos-duration="1000">NOTICE</div>
+          <div class="main-notice--sub" data-aos="fade-up" data-aos-duration="1000">
             새로운 소식들을 전해드립니다.
             <a href="" class="more"><img src="./_Img/icon/plus.png" alt="" /></a>
           </div>
-          <?php echo latest('notice', 'notice', 4, 50); ?>
+          <div data-aos="fade-up" data-aos-duration="1000">
+            <?php echo latest('notice', 'notice', 4, 50); ?>
+          </div>
         </div>
       </div>
       <div class="main-con">
         <div class="main-con--wrap">
-          <div class="main-con--tit">
+          <div class="main-con--tit" data-aos="fade-up" data-aos-duration="1000">
             OUR<br />SERVICE
             <div class="main-con--sub">
               윤리적이고 투명한 기업 경영과<br />
@@ -84,19 +86,31 @@ include_once(G5_THEME_PATH.'/head.main.php');
           </div>
           <div class="main-con--img">
             <div class="left">
-              <a href="" class="img-wrap">
+              <a href="/Guide/guide01.php" class="img-wrap" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
                 <img src="./_Img/Main/main_con1.png" alt="" />
+                <div class="hover-icon">
+                  <img src="./_Img/icon/arrow_right_wh.png" />
+                </div>
               </a>
-              <a href="/Mileage/mileage01.php" class="img-wrap">
+              <a href="/Mileage/mileage01.php" class="img-wrap" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
                 <img src="./_Img/Main/main_con3.png" alt="" />
+                <div class="hover-icon">
+                  <img src="./_Img/icon/arrow_right_wh.png" />
+                </div>
               </a>
             </div>
             <div class="right">
-              <a href="" class="img-wrap">
+              <a href="/Edu/edu05.php" class="img-wrap" data-aos="fade-up" data-aos-duration="1000">
                 <img src="./_Img/Main/main_con2.png" alt="" />
+                <div class="hover-icon">
+                  <img src="./_Img/icon/arrow_right_wh.png" />
+                </div>
               </a>
-              <a href="Community/community02.php" class="img-wrap">
+              <a href="Community/community02.php" class="img-wrap" data-aos="fade-up" data-aos-duration="1000">
                 <img src="./_Img/Main/main_con4.png" alt="" />
+                <div class="hover-icon">
+                  <img src="./_Img/icon/arrow_right_wh.png" />
+                </div>
               </a>
             </div>
           </div>

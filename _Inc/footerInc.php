@@ -9,3 +9,7 @@
             <p>COPYRIGHT 2024. NS SHOPPING ALL RIGHTS RESERVED</p>
         </div>
 </footer>
+
+<script>
+  AOS.init();
+</script>

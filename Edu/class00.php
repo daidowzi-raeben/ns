@@ -29,7 +29,7 @@ $result = sql_fetch($sql);
 <script src="/js/jquery.bpopup.min.js"></script>
 <script src="/js/lms.js"></script>
     <div id="svisual-wrap">
-        <div class="vistxt">
+        <div class="vistxt" data-aos="fade-up" data-aos-duration="1000">
             <p class="btxt"><span>사이버 & 집체교육</span></p>
             <p class="stxt">고객, 사회, 협력사와의 동반성장을 추구합니다.</p>
         </div>

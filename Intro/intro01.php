@@ -9,7 +9,7 @@ include_once ('../_Inc/subHead.php');
 	<link type="text/css" rel="stylesheet" href="../_Css/intro.css"/>
 
     <div id="svisual-wrap">
-      <div class="vistxt">
+      <div class="vistxt" data-aos="fade-up" data-aos-duration="1000">
         <p class="btxt"><span>CEO 메시지</span></p>
         <div class="content-top--right">
 			<span><img src="../_Img/Icon/home.png" width="25" height="24"></span>
@@ -84,7 +84,7 @@ include_once ('../_Inc/subHead.php');
 							엔에스쇼핑이 모범적인 준법·윤리경영 기업으로 거듭날 수 있도록 전 임직원으로 하여금<br/>
 							강력한 의지를 가지고 공정하고 투명한 기업문화를 만들어가는 데에 최선을 다해주시기 바랍니다.
 							<div class="bottom-wrap">
-								<span>NS 홈쇼핑 대표이사 조항목</span>
+								<span class="bold">NS 홈쇼핑 대표이사 조항목</span>
 								<span>2024.07.06</span>
 							</div>
 						</div>
@@ -92,7 +92,7 @@ include_once ('../_Inc/subHead.php');
 					</div>
 
 					<div class="img-box">
-						<img src="../_Img/Sub/intro/ceo.jpg" alt="이미지">
+						<img src="../_Img/Sub/intro/ceo.png" alt="이미지">
 					</div>
 
 				</div>

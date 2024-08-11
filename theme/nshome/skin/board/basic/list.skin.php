@@ -11,7 +11,7 @@ if ($is_nogood) $colspan++;
 ?>
 
 <div id="svisual-wrap">
-	<div class="vistxt">
+	<div class="vistxt" data-aos="fade-up" data-aos-duration="1000">
 		<p class="btxt"><span>커뮤니티
 </span></p>
 		<p class="stxt">고객, 사회, 협력사와의 동반성장을 추구합니다.</p>

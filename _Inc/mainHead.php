@@ -13,7 +13,6 @@
 	
 	<link rel="stylesheet" href=" _Js/jquery/slick-theme.css">
 	<link rel="stylesheet" href=" _Js/jquery/slick.css">
-	
 	<script  type="text/javascript" src=" _Js/jquery/jquery-1.11.1.min.js"></script>
     <script  type="text/javascript" src=" _Js/jquery/jquery-1.11.3.min.js"></script>
 	<script  type="text/javascript" src=" _Js/jquery/jquery.easing.1.3.js"></script>
@@ -28,7 +27,6 @@
 <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE8.js"></script>
 <![endif]-->    
 </head>
-
 <body id="body">
 <div id="skipNavi">
   <h1 class="blind">NS홈쇼핑 스킵네비게이션</h1>

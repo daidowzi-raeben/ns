@@ -76,7 +76,8 @@ if(!defined('G5_IS_ADMIN'))
 <link rel="stylesheet" href="<?php echo G5_URL ?>/_Js/jquery/animate.css">
 <link rel="stylesheet" href="<?php echo G5_URL ?>/_Js/jquery/slick-theme.css">
 <link rel="stylesheet" href="<?php echo G5_URL ?>/_Js/jquery/slick.css">
-
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script  type="text/javascript" src="<?php echo G5_URL ?>/_Js/jquery/jquery-1.11.1.min.js"></script>
 <script  type="text/javascript" src="<?php echo G5_URL ?>/_Js/jquery/jquery-1.11.3.min.js"></script>
 <script  type="text/javascript" src="<?php echo G5_URL ?>/_Js/jquery/jquery.easing.1.3.js"></script>
