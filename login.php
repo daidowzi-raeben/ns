@@ -12,8 +12,9 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>세종교육원</title>
 <style>
-body{background:url(<?php echo G5_URL ?>/img/bg.jpg) no-repeat top center;width:100%;}
-.login{width:699px; height:391px; margin:300px auto; background:url(<?php echo G5_URL ?>/img/login_box.png) no-repeat; position:relative}
+html{padding:0;margin:0;}
+body{background:url(<?php echo G5_URL ?>/img/bg.jpg) no-repeat center / cover;width:100vw;height:100vh;padding:0;margin:0;display:flex;align-items:center;justify-content: center;}
+.login{background:url(<?php echo G5_URL ?>/img/login_box.png) no-repeat; position:relative;width:700px;margin-top:200px;}
 .login ul{ width:200px; height:40px; padding:82px 0 0 390px; float:left}
 .login ul li{padding-bottom:5px; list-style:none;}
 input{border:1px solid #333; height:26px; font-size:15px; box-sizing:border-box; width:140px; padding:0 5px;}
