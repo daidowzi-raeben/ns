@@ -89,13 +89,13 @@ include_once(G5_THEME_PATH.'/head.main.php');
               <a href="/Guide/guide01.php" class="img-wrap" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
                 <img src="./_Img/Main/main_con1.png" alt="" />
                 <div class="hover-icon">
-                  <img src="./_Img/icon/arrow_right_wh.png" />
+                  <img src="./_Img/Icon/arrow_right_wh.png" />
                 </div>
               </a>
               <a href="/Mileage/mileage01.php" class="img-wrap" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
                 <img src="./_Img/Main/main_con3.png" alt="" />
                 <div class="hover-icon">
-                  <img src="./_Img/icon/arrow_right_wh.png" />
+                  <img src="./_Img/Icon/arrow_right_wh.png" />
                 </div>
               </a>
             </div>
@@ -103,13 +103,13 @@ include_once(G5_THEME_PATH.'/head.main.php');
               <a href="/Edu/edu05.php" class="img-wrap" data-aos="fade-up" data-aos-duration="1000">
                 <img src="./_Img/Main/main_con2.png" alt="" />
                 <div class="hover-icon">
-                  <img src="./_Img/icon/arrow_right_wh.png" />
+                  <img src="./_Img/Icon/arrow_right_wh.png" />
                 </div>
               </a>
               <a href="Community/community02.php" class="img-wrap" data-aos="fade-up" data-aos-duration="1000">
                 <img src="./_Img/Main/main_con4.png" alt="" />
                 <div class="hover-icon">
-                  <img src="./_Img/icon/arrow_right_wh.png" />
+                  <img src="./_Img/Icon/arrow_right_wh.png" />
                 </div>
               </a>
             </div>
