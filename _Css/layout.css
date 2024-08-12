@@ -273,8 +273,8 @@ body.no-scr {overflow-y:hidden;}
 /* ----------------------------
 	하단
 ----------------------------*/
-#footer-wrap {display:block; margin:0 auto 0 auto;height:140px;}
-#footer-wrap:after{background:#57694f; width:2000px; position:absolute; height:100%;left:50%; margin-left:-1000px; top:0; z-index:-1; display:block; content:"";}
+#footer-wrap {display:block; margin:0 auto 0 auto;height:140px;background:#57694f;}
+#footer-wrap:after{ width:2000px; position:absolute; height:100%;left:50%; margin-left:-1000px; top:0; z-index:-1; display:block; content:"";}
 #footer {position:relative; width:1680px;height:140px;}
 
 #f-link{ height:41px; position:relative;}
@@ -601,4 +601,8 @@ body.no-scr {overflow-y:hidden;}
 
 .nodata img{
 	margin-bottom:20px;
+}
+
+.swiper-backface-hidden .swiper-slide{
+	background-size:cover !important;
 }

@@ -67,7 +67,7 @@ include_once(G5_THEME_PATH.'/head.main.php');
           <div class="main-notice--tit" data-aos="fade-up" data-aos-duration="1000">NOTICE</div>
           <div class="main-notice--sub" data-aos="fade-up" data-aos-duration="1000">
             새로운 소식들을 전해드립니다.
-            <a href="" class="more"><img src="./_Img/icon/plus.png" alt="" /></a>
+            <a href="" class="more"><img src="./_Img/Icon/plus.png" alt="" /></a>
           </div>
           <div data-aos="fade-up" data-aos-duration="1000">
             <?php echo latest('notice', 'notice', 4, 50); ?>
