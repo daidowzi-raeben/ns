@@ -177,7 +177,7 @@
     </div>
   </div>
   <div class="right">
-    <a href="/login_user.php" class="header-btn">MY MILEAGE</a>
+    <a href="/Mileage/mileage01.php" class="header-btn">MY MILEAGE</a>
     <?php
     if(!$is_member) {
     ?>
