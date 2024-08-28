@@ -2,7 +2,7 @@
 
 @import url(http://cdn.jsdelivr.net/font-nanum/1.0/nanumgothic/nanumgothic.css);
 
-@font-face {
+/* @font-face {
     font-family: 'Pretendard-Regular';
     src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
     font-weight: 400;
@@ -13,6 +13,68 @@
     src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff') format('woff');
     font-weight: 700;
     font-style: normal;
+} */
+@font-face {
+font-family: "Pretendard";
+src: url("./fonts/Pretendard1.woff") format("woff");
+font-weight: 100;
+font-style: normal;
+}
+
+@font-face {
+font-family: "Pretendard";
+src: url("./fonts/Pretendard2.woff") format("woff");
+font-weight: 200;
+font-style: normal;
+}
+
+@font-face {
+font-family: "Pretendard";
+src: url("./fonts/Pretendard3.woff") format("woff");
+font-weight: 300;
+font-style: normal;
+}
+
+@font-face {
+font-family: "Pretendard";
+src: url("./fonts/Pretendard4.woff") format("woff");
+font-weight: 400;
+font-style: normal;
+}
+
+@font-face {
+font-family: "Pretendard";
+src: url("./fonts/Pretendard5.woff") format("woff");
+font-weight: 500;
+font-style: normal;
+}
+
+@font-face {
+font-family: "Pretendard";
+src: url("./fonts/Pretendard6.woff") format("woff");
+font-weight: 600;
+font-style: normal;
+}
+
+@font-face {
+font-family: "Pretendard";
+src: url("./fonts/Pretendard7.woff") format("woff");
+font-weight: 700;
+font-style: normal;
+}
+
+@font-face {
+font-family: "Pretendard";
+src: url("./fonts/Pretendard8.woff") format("woff");
+font-weight: 800;
+font-style: normal;
+}
+
+@font-face {
+font-family: "Pretendard";
+src: url("./fonts/Pretendard9.woff") format("woff");
+font-weight: 900;
+font-style: normal;
 }
 *{box-sizing: border-box;}
 html,body {height:100%; font-family:'Pretendard','Nanum Gothic', '맑은 고딕', 'Malgun Gothic', Dotum; }
