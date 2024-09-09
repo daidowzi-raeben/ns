@@ -248,3 +248,8 @@
     left:130px;
     top:100px;
 }
+@media all and (max-width:1500px) {
+    body {
+        zoom:0.8;
+    }
+}
