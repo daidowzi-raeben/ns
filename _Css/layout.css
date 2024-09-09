@@ -668,3 +668,9 @@ body.no-scr {overflow-y:hidden;}
 .swiper-backface-hidden .swiper-slide{
 	background-size:cover !important;
 }
+
+@media all and (max-width:1500px) {
+	body {
+		zoom: 0.8;
+	}
+}
