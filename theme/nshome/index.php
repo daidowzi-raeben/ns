@@ -67,7 +67,7 @@ include_once(G5_THEME_PATH.'/head.main.php');
           <div class="main-notice--tit" data-aos="fade-up" data-aos-duration="1000">NOTICE</div>
           <div class="main-notice--sub" data-aos="fade-up" data-aos-duration="1000">
             새로운 소식들을 전해드립니다.
-            <a href="" class="more"><img src="./_Img/Icon/plus.png" alt="" /></a>
+            <a href="<?php echo G5_URL ?>/bbs/board.php?bo_table=notice" class="more"><img src="./_Img/Icon/plus.png" alt="" /></a>
           </div>
           <div data-aos="fade-up" data-aos-duration="1000">
             <?php echo latest('notice', 'notice', 4, 50); ?>
@@ -92,7 +92,7 @@ include_once(G5_THEME_PATH.'/head.main.php');
                   <img src="./_Img/Icon/arrow_right_wh.png" />
                 </div>
               </a>
-              <a href="/Mileage/mileage01.php" class="img-wrap" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
+              <a href="/Test/test02.php" class="img-wrap" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
                 <img src="./_Img/Main/main_con3.png" alt="" />
                 <div class="hover-icon">
                   <img src="./_Img/Icon/arrow_right_wh.png" />

@@ -108,7 +108,7 @@
               </ul>
             </div>
           </li> -->
-          <li id="tm04" class="mn_l1 mn_type "> <a href="/Edu/edu01.php" class="mn_a1"><span class="mn_s1">교육 / 컨텐츠</span></a>
+          <li id="tm04" class="mn_l1 mn_type "> <a href="/Edu/edu05.php" class="mn_a1"><span class="mn_s1">교육 / 컨텐츠</span></a>
             <div class="depth2-wrap subg">
               <div class='depth2'>
                 <div>

@@ -47,7 +47,7 @@ include_once ('../_Inc/subHead.php');
         </div>
         <!-- page-start // -->
         <div class="help-top"><img src="../_Img/Sub/community/help_img.png" alt="헬프라인 이미지"></div>
-        <p class="help-text">헬프라인의 모든 신고 및 접수 절차는 레드휘슬이 독립적으로 담당하며, 신고자 익명성 보장을 위해 IP추적 차단 기술이 적용된
+        <p class="help-text">헬프라인의 모든 신고 및 접수 절차는 케이휘슬이 독립적으로 담당하며, 신고자 익명성 보장을 위해 IP추적 차단 기술이 적용된
         시스템입니다.<br /> NS임직원 뿐만 아니라 협력사 임직원도 누구나 이용할 수 있으며, 윤리경영 위배나 공정거래 저해 및 불공정한
         관행을 적극적으로 신고하여 주시기 바랍니다.<br>
         상품,서비스 관련 고객민원은 서비스 전담부서인 <span style="color:#ff0000">02-6336-1719</span>로 연락주시기 바랍니다. </p>
@@ -64,7 +64,7 @@ include_once ('../_Inc/subHead.php');
             <img src="../_Img/Icon/help_icon2.png" />
             <div class="text">
               <div class="tit">윤리경영 질의</div>
-              직무 이해상충 윤리강령의 적용과 해석 윤리적 고민
+              직무 이해상충 / 윤리강령의 적용과 해석 / 윤리적 고민
             </div>
           </div>
         </div>

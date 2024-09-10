@@ -22,7 +22,7 @@ if($bo_table == "notice") {
 	$strTitle = "법령정보";
 	$over3 = " over";
 } elseif($bo_table == "guide") {
-	$strTitle = "사내준법가이드라인";
+	$strTitle = "사내 준법 가이드라인";
 	$over3 = " over";
 }
 

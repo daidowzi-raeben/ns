@@ -1069,7 +1069,7 @@ p.btn a {
 }
 .rule h7{
 	display:block;
-	margin-bottom:-20px;
+	/* margin-bottom:-20px; */
 }
 .rule p.sfont {
 	font-size: 14px;
@@ -3031,6 +3031,10 @@ dd {
 
 .tbl-type01.mileage tr td:nth-last-child(2) {
 	background: #e9f9ff;
+}
+
+.tbl-type01 .th{
+	background-color:#eff2f6;
 }
 
 .pr-0 {

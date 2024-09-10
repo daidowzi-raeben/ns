@@ -51,8 +51,8 @@ include_once ('../_Inc/subHead.php');
                 
             <div class="intro-tit-box">
 
-              NS는 원칙을 기반으로 한 컴플라이언스 준수 문화 확립과 임직원의 준법의식<br />
-              제고를 위해 사회적 책임을 다하고 있습니다.
+              NS는 원칙을 기반으로 한 컴플라이언스 준수 문화 확립과 임직원의 준법의식 제고를 위해<br />
+              사회적 책임을 다하고 있습니다.
 
             </div>
 
@@ -81,7 +81,7 @@ include_once ('../_Inc/subHead.php');
                   감사합니다.<br/>
                   <div class="bottom-wrap">
                     <span>NS 자율준수관리자</span>
-                    <span>2024.07.06</span>
+                    <span>2024.09.10</span>
                   </div>
                 </div>
 
