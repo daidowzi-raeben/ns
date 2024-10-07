@@ -85,7 +85,7 @@ include_once ('../_Inc/subHead.php');
 							강력한 의지를 가지고 공정하고 투명한 기업문화를 만들어가는 데에 최선을 다해주시기 바랍니다.
 							<div class="bottom-wrap">
 								<span class="bold">NS 홈쇼핑 대표이사 조항목</span>
-								<span>2024.09.10</span>
+								<span>2024.10.14</span>
 							</div>
 						</div>
 

@@ -241,6 +241,7 @@ height:50px;background:none;border:none;}
 .board-list-wrap table thead th{font-size:18px;text-align:center; padding:15px; color:#111; border-bottom:1px solid #dedede;background:#fff;}
 .board-list-wrap table tbody th{font-size:18px; text-align:center; padding:15px; border-bottom:1px solid #dedede;color:#111; background:#f7f7f7;}
 .board-list-wrap table tbody td{font-size:18px; text-align:center; padding:15px; border-bottom:1px solid #dedede;color:#111;}
+.board-list-wrap table tbody td .fa-heart{display:none;}
 .board-list-wrap table tbody tr:hover{background-color:#ebf4f7;}
 .board-list-wrap table tbody td.l img{ display:inline-block; vertical-align:middle; margin-left:5px;}
 .board-list-wrap table tbody td a:hover{color:#111; text-decoration:underline;}

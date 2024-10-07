@@ -81,7 +81,7 @@ include_once ('../_Inc/subHead.php');
                   감사합니다.<br/>
                   <div class="bottom-wrap">
                     <span>NS 자율준수관리자</span>
-                    <span>2024.09.10</span>
+                    <span>2024.10.14</span>
                   </div>
                 </div>
 

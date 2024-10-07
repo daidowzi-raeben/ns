@@ -42,7 +42,8 @@ padding-bottom: 20px; }
 article.intro .intro-wrap .intro-con-box .txt-box .des-box {
 font-size: 18px;
 line-height: 1.5;
-color:#000; }
+color:#000; 
+word-break: keep-all;}
 article.intro .intro-wrap .intro-con-box .txt-box .des-box.pl-310{
   padding-left:310px;
 }

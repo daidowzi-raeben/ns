@@ -314,7 +314,7 @@ include_once ('../_Inc/subHead.php');
             </tbody>
         </table>
 
-        <p class="exmark-txt">마일리지 적용기간 : 2023년01월01일 ~ 2023년12월15일</p>
+        <p class="exmark-txt">마일리지 적용기간 : 2024년01월01일 ~ 2024년12월15일</p>
 
         <!-- page-end //-->
 

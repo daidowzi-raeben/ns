@@ -15,7 +15,7 @@
     <div class="icon icon-2"></div>
     CP교육
   </a>
-  <a href="/Manage/manage03.php" class="quick-menu">
+  <a href="/Guide/guide02.php" class="quick-menu">
     <div class="icon icon-3"></div>
     CP편람
   </a>
