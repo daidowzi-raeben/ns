@@ -1352,6 +1352,45 @@ dd {
 	padding-left: 115px;
 }
 
+.test-result .tit{
+	font-size: 32px;
+	font-weight: 600;
+	color: #000;
+}
+.test-result .box{
+	background-color: #eff2f6;
+	border-radius: 40px;
+	padding: 60px;
+	text-align: center;
+	margin: 25px 0 60px;
+	font-size: 60px;
+	font-weight: 500;
+	color: #000;
+}
+.test-result .box img{
+	margin-right: 80px;
+}
+.test-result .box strong{
+	color: #5853a3;
+	font-weight: 700;
+}
+.test-result .bottom{
+	display:flex;
+}
+.test-result .bottom .col{
+	flex: 1;
+}
+.test-result .bottom .col .label{
+	font-size:22px;
+	color: #5853a3;
+	font-weight: 600;
+}
+.test-result .bottom .col .text{
+	margin:20px 0 40px;
+	font-size:16px;
+	color:#111;
+}
+
 /* sitemap-wrap */
 .sitemap {
 	width: 175px;
