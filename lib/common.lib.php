@@ -1365,7 +1365,7 @@ function get_mileage_date($mb_id, $rel_table, $start_num)
 	global $config;
     global $g5;
 	
-	$res = sql_fetch();
+	$res = sql_fetch("SELECT * from sj_point WHERE mb_id = '{$mb_id}' AND po_rel_table = '{$rel_table}' and po_semi='2024' ORDER BY po_datetime DESC LIMIT 1");
 if($mb_id == 'admin') {
 #	echo " SELECT po_datetime FROM {$g5['point_table']} where mb_id = '{$mb_id}' and po_rel_table = '{$rel_table}' and po_year = '{$config['cf_1']}' and po_semi='{$config['cf_2']}' limit {$start_num}, 1; ";
 #	echo "<br>";
