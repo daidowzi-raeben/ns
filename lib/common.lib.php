@@ -1114,7 +1114,7 @@ function insert_point_ns($mb_id, $point, $content='', $rel_table='', $rel_id='',
 	$dd2 = substr($dd, 8 , 2);
 	$dd3 = substr($dd, 11 , 2);
 	if($dd2 > 14 && $dd3 > 17) {
-		return 1;
+		// return 1;
 	} 
 	
 	//echo $mb_id . "/" . $point . "/". $content . "/" . $rel_table . "/" . $rel_id . "/" . $rel_action . "/" . $rel_num;
@@ -1238,6 +1238,7 @@ function insert_point_ns($mb_id, $point, $content='', $rel_table='', $rel_id='',
 					po_year = '{$config['cf_1']}',
 					po_semi = '{$config['cf_2']}'
 					";
+                   
     sql_query($sql);
 
     // 포인트를 사용한 경우 포인트 내역에 사용금액 기록
@@ -1365,7 +1366,7 @@ function get_mileage_date($mb_id, $rel_table, $start_num)
 	global $config;
     global $g5;
 	
-	$res = sql_fetch();
+	$res = sql_fetch("SELECT * from sj_point WHERE mb_id = '{$mb_id}' AND po_rel_table = '{$rel_table}' and po_year='{$config['cf_1']}' ORDER BY po_datetime DESC LIMIT 1");
     // SELECT * from sj_point WHERE mb_id = '{$mb_id}' AND po_rel_table = '{$rel_table}' and po_year='2024' ORDER BY po_datetime DESC LIMIT 1
 if($mb_id == 'admin') {
 #	echo " SELECT po_datetime FROM {$g5['point_table']} where mb_id = '{$mb_id}' and po_rel_table = '{$rel_table}' and po_year = '{$config['cf_1']}' and po_semi='{$config['cf_2']}' limit {$start_num}, 1; ";
