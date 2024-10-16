@@ -29,7 +29,7 @@ include_once ('../_Inc/subHead.php');
           <div class="leftmenu" id="leftmenu">
             <ul class="depth2">
               <li id="lm01" class='lm_l2 over'><a href="../Manage/manage01.php"  class='lm_a2'><span class='isTxt'>지속가능경영 </span></a></li>
-              <li id="lm02" class='lm_l2'><a href="../Manage/manage02.php"  class='lm_a2'><span class='isTxt'>윤리경영</span></a></li>
+              <li id="lm02" class='lm_l2'><a href="../Manage/manage02.php"  class='lm_a2'><span class='isTxt'>윤리이야기</span></a></li>
               <li id="lm02" class='lm_l2'><a href="../Manage/manage03.php"  class='lm_a2'><span class='isTxt'>준법경영</span></a></li>
             </ul>
           </div>

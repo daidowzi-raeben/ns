@@ -13,7 +13,7 @@ if($bo_table == "e_campaign") {
 	$strTitle = "윤리캠페인";
 	$eduOver3 = " over";
 } elseif($bo_table == "e_story") {
-	$strTitle = "윤리경영";
+	$strTitle = "윤리이야기";
 	$eduOver4 = " over";
 }
 
