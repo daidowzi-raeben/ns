@@ -150,7 +150,7 @@ $colspan = 16;
 		<th scope="col" id="mb_list_name">준법캠페인</th>
 		<th scope="col" id="mb_list_name">윤리영상캠페인</th>
 		<th scope="col" id="mb_list_name">윤리캠페인</th>
-		<th scope="col" id="mb_list_name">윤리이야기</th>
+		<th scope="col" id="mb_list_name">윤리경영</th>
 		<th scope="col" id="mb_list_name">사이버교육</th>
 		<th scope="col" id="mb_list_name">사이버교육2</th>
 		<th scope="col" id="mb_list_name">자율준수편람</th>

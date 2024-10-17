@@ -33,7 +33,7 @@ if ($is_nogood) $colspan++;
               <li id="lm01" class='lm_l2'><a href="edu01.php"  class='lm_a2'><span class='isTxt'>e_준법교육 캠페인</span></a></li>
               <li id="lm02" class='lm_l2'><a href="edu02.php"  class='lm_a2'><span class='isTxt'>e_윤리교육 캠페인</span></a></li>
               <li id="lm03" class='lm_l2 over'><a href="edu03.php"  class='lm_a2'><span class='isTxt'>윤리캠페인</span></a></li>
-              <li id="lm04" class='lm_l2'><a href="edu04.php"  class='lm_a2'><span class='isTxt'>윤리이야기</span></a></li>
+              <li id="lm04" class='lm_l2'><a href="edu04.php"  class='lm_a2'><span class='isTxt'>윤리경영</span></a></li>
               <li id="lm03" class='lm_l2'><a href="edu05.php"  class='lm_a2'><span class='isTxt'>사이버교육</span></a></li>
               <li id="lm04" class='lm_l2'><a href="edu06.php"  class='lm_a2'><span class='isTxt'>교육일정</span></a></li>
             </ul>

@@ -86,7 +86,7 @@
                 <div>
                   <div id="tm0201" class="mn_l2"><a href="/Manage/manage01.php" class="mn_a2" target="_self"><span class="txt">지속가능경영</span></a></div>
                   <div id="tm0203" class="mn_l2"><a href="/Manage/manage03.php" class="mn_a2" target="_self"><span class="txt">준법경영 </span></a></div>
-                  <div id="tm0202" class="mn_l2"><a href="/Manage/manage02.php" class="mn_a2" target="_self"><span class="txt">윤리이야기 </span></a></div>
+                  <div id="tm0202" class="mn_l2"><a href="/Manage/manage02.php" class="mn_a2" target="_self"><span class="txt">윤리경영 </span></a></div>
                 </div>
               </div>
             </div>
@@ -95,7 +95,7 @@
             <div class="depth2-wrap subg">
               <ul class='depth2'>
                 <li id="tm0201" class="mn_l2"><a href="/Manage/manage01.php" class="mn_a2" target="_self"><span class="txt">지속가능경영</span></a></li>
-                <li id="tm0202" class="mn_l2"><a href="/Manage/manage02.php" class="mn_a2" target="_self"><span class="txt">윤리이야기 </span></a></li>
+                <li id="tm0202" class="mn_l2"><a href="/Manage/manage02.php" class="mn_a2" target="_self"><span class="txt">윤리경영 </span></a></li>
                 <li id="tm0203" class="mn_l2"><a href="/Manage/manage03.php" class="mn_a2" target="_self"><span class="txt">준법경영 </span></a></li>
               </ul>
             </div>
@@ -207,7 +207,7 @@
         <div class="line">
           <a href="/Manage/manage01.php" class="btn-menu">지속가능경영</a>
           <a href="/Manage/manage03.php" class="btn-menu">준법경영</a>
-          <a href="/Manage/manage02.php" class="btn-menu">윤리이야기</a>
+          <a href="/Manage/manage02.php" class="btn-menu">윤리경영</a>
         </div>
       </li>
       <li class="item">

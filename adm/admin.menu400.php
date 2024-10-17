@@ -2,7 +2,7 @@
 $menu['menu400'] = array (
     array('400000', '커뮤니티관리', ''.G5_ADMIN_URL.'/board/board.php?bo_table=e_campaign', 'community'),
     array('400100', '윤리캠페인관리', ''.G5_ADMIN_URL.'/board/board.php?bo_table=e_campaign', 'e_camp'),
-    array('400200', '윤리이야기관리', ''.G5_ADMIN_URL.'/board/board.php?bo_table=e_story', 'e_story'),
+    array('400200', '윤리경영관리', ''.G5_ADMIN_URL.'/board/board.php?bo_table=e_story', 'e_story'),
     
 	/*
 	array('400100', '게시판관리', ''.G5_ADMIN_URL.'/board_list.php', 'bbs_board'),

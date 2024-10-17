@@ -26,7 +26,7 @@ include_once ('../_Inc/subHead.php');
               <li id="lm01" class='lm_l2'><a href="edu01.php"  class='lm_a2'><span class='isTxt'>e_준법교육 캠페인</span></a></li>
               <li id="lm02" class='lm_l2'><a href="edu02.php"  class='lm_a2'><span class='isTxt'>e_윤리교육 캠페인</span></a></li>
               <li id="lm03" class='lm_l2'><a href="edu03.php"  class='lm_a2'><span class='isTxt'>윤리캠페인</span></a></li>
-              <li id="lm04" class='lm_l2 over'><a href="edu04.php"  class='lm_a2'><span class='isTxt'>윤리이야기</span></a></li>
+              <li id="lm04" class='lm_l2 over'><a href="edu04.php"  class='lm_a2'><span class='isTxt'>윤리경영</span></a></li>
               <li id="lm03" class='lm_l2'><a href="edu05.php"  class='lm_a2'><span class='isTxt'>사이버교육</span></a></li>
               <li id="lm04" class='lm_l2'><a href="edu06.php"  class='lm_a2'><span class='isTxt'>교육일정</span></a></li>
             </ul>
@@ -36,13 +36,13 @@ include_once ('../_Inc/subHead.php');
       </div>
       <div id="contents">
         <div class="cont-top">
-          <h2 class="tit">윤리이야기
+          <h2 class="tit">윤리경영
 </h2>
           <ul class="path">
             <li><img src="../_Img/Sub/icon_home.png" width="13" height="16">
             <li>사이버 & 집체교육
 </li>
-            <li>윤리이야기
+            <li>윤리경영
 </li>
           </ul>
         </div>

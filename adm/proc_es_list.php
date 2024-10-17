@@ -43,7 +43,7 @@ $proc_count = $row['cnt'];
 
 $listall = '<a href="'.$_SERVER['SCRIPT_NAME'].'" class="ov_listall">전체목록</a>';
 
-$g5['title'] = '윤리이야기';
+$g5['title'] = '윤리경영';
 include_once('./admin.head.php');
 
 $sql = " select * {$sql_common} {$sql_search} {$sql_order} limit {$from_record}, {$rows} ";
@@ -92,7 +92,7 @@ $colspan = 16;
 		<th scope="col" id="mb_list_id" rowspan="2">이름</th>
 		<th scope="col" id="mb_list_id" rowspan="2">아이디</th>
 		<!--<th scope="col" id="mb_list_id" rowspan="2">부서명</th>-->
-		<th scope="col" id="mb_list_name" colspan="<?php echo $proc_count?>">윤리이야기 수행결과</th>
+		<th scope="col" id="mb_list_name" colspan="<?php echo $proc_count?>">윤리경영 수행결과</th>
 		<th scope="col" id="mb_list_id" rowspan="2">적용마일리지(회당)</th>
 		<th scope="col" id="mb_list_id" rowspan="2">획득마일리지</th>
 		<th scope="col" id="mb_list_id" rowspan="2">마일리지 합계</th>

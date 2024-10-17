@@ -9,7 +9,7 @@ $menu['menu600'] = array (
 	//array('600300', 'e-윤리영상캠페인', ''.G5_ADMIN_URL.'/proc_ce_list.php', 'pce_list'),
 	array('600310', 'e-준법교육캠페인', ''.G5_ADMIN_URL.'/proc_cp_list.php', 'pcp_list'),
 	array('600320', '윤리캠페인', ''.G5_ADMIN_URL.'/proc_ec_list.php', 'pec_list'),
-	array('600330', '윤리이야기', ''.G5_ADMIN_URL.'/proc_es_list.php', 'pes_list'),
+	array('600330', '윤리경영', ''.G5_ADMIN_URL.'/proc_es_list.php', 'pes_list'),
 	array('600400', '공정거래자율준수서약', ''.G5_ADMIN_URL.'/prs_pl_list.php', 'prspl_list'),
 	array('600500', '사이버교육진도관리', ''.G5_ADMIN_URL.'/cyber_list.php', 'cb_list'),
 	array('600520', '직무윤리 캠페인 메시지 관리', ''.G5_ADMIN_URL.'/cd.learn_campaign_list.php', 'cb_list'),

@@ -7,7 +7,7 @@ if($bo_table == "e_campaign") {
 	$over1 = " over";
 	$point = 1;
 } elseif($bo_table == "e_story") {
-	$strTitle = "윤리이야기";
+	$strTitle = "윤리경영";
 	$over2 = " over";
 	$point = 1;
 }

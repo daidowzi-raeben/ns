@@ -74,7 +74,7 @@ include_once ('../_Inc/subHead.php');
             <li><a href="../Edu/edu01.php">e-준법교육 캠페인</a></li>
             <li><a href="../Edu/edu02.php">e-윤리영상 캠페인</a></li>
             <li><a href="../bbs/board.php?bo_table=e_campaign">윤리캠페인</a></li>
-            <li><a href="../bbs/board.php?bo_table=e_story">윤리이야기</a></li>
+            <li><a href="../bbs/board.php?bo_table=e_story">윤리경영</a></li>
             <li><a href="../Edu/edu05.php">사이버교육</a></li>
             <li><a href="../bbs/board.php?bo_table=schedule">교육일정</a></li>
           </ul>

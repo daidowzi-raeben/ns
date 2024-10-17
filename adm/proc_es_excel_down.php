@@ -113,7 +113,7 @@ for($i=1; $res=sql_fetch_array($qry); $i++)
 
 $workbook->close();
 
-$filename = "윤리이야기".date("ymd", time()).".xls";
+$filename = "윤리경영".date("ymd", time()).".xls";
 if( is_ie() ) $filename = utf2euc($filename);
 
 header("Content-Type: application/x-msexcel; name=".$filename);

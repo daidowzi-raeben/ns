@@ -171,7 +171,7 @@ include_once ('../_Inc/subHead.php');
 	$stCnt = get_mileage_count($member['mb_id'], "e_story"); 
 ?>
 <tr>
-    <td>윤리이야기</td>
+    <td>윤리경영</td>
     <td>1</td>
     <td>41</td>
     <td><?php echo $stCnt ?></td>
