@@ -174,6 +174,8 @@ if ($sst) {
 	$sql_order = " order by {$sst} {$sod} ";
 }
 
+$sql_order = "order by wr_datetime desc";
+
 if ($is_search_bbs) {
     $sql = " select distinct wr_parent from {$write_table} where {$sql_search} {$sql_order} limit {$from_record}, $page_rows ";
 } else {
