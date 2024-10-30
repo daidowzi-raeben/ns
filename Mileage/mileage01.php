@@ -193,7 +193,7 @@ include_once ('../_Inc/subHead.php');
 	$sum_point += $stMile;
 ?>
                 <tr>
-                    <td>윤리경영</td>
+                    <td>윤리이야기</td>
                     <td>1</td>
                     <td>41</td>
                     <td><?php echo $stCnt ?></td>
