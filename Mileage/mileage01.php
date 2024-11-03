@@ -208,7 +208,7 @@ include_once ('../_Inc/subHead.php');
 	$sum_point += $stMile;
 ?>
                 <tr>
-                    <td>사이버교육</td>
+                    <td>온라인 교육</td>
                     <td>30</td>
                     <td>학습기간 내 1회</td>
                     <td><?php echo $stCnt ?></td>

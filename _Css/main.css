@@ -95,6 +95,10 @@
     margin-top:-6px;
     position:relative;
 }
+.main-notice .main-notice--wrap{
+    position: relative;
+    z-index: 1;
+}
 .main-notice:after{
     content:"";
     display:block;

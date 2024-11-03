@@ -642,6 +642,7 @@ body.no-scr {overflow-y:hidden;}
 	color:#111;
 	line-height: 1.5;
 	letter-spacing: -.5px;
+	word-break: keep-all;
 }
 
 .top-btn{

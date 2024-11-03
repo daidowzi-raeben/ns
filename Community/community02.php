@@ -68,7 +68,7 @@ include_once ('../_Inc/subHead.php');
             </div>
           </div>
         </div>
-        <p style="text-align:center;"><span style="padding-right:5px"><a href="https://www.kbei.org/whistle/center/?code=harimholdings" target="_blank" class="help-btn">헬프라인 신고하기</a></span><span><a href="https://www.kbei.org/whistle/center/?code=harimholdings" target="_blank" class="help-btn blue">윤리경영 질의하기</a></span></p>
+        <p style="text-align:center;"><span style="padding-right:5px"><a href="https://www.kbei.org/whistle/center/02/s_1.php?code=harimholdings&q_step=1&ch_code=CH-V7C2-E" target="_blank" class="help-btn">헬프라인 신고하기</a></span><span><a href="https://www.kbei.org/whistle/center/02/s_1.php?code=harimholdings&q_step=1&ch_code=CH-V7C2-E" target="_blank" class="help-btn blue">윤리경영 질의하기</a></span></p>
         <p class="help-bottom">· 신고 및 질의 후 <span>고유번호</span>와 <span>비밀번호</span>를 꼭 메모해 주시기 바랍니다. (분실 시 찾을 수 없습니다.)<br> 
         · 처리결과는 <span>케이휘슬 홈페이지(<strong>https://www.kbei.org/whistle</strong> 접속 → 메인화면 → 처리결과확인)</span> 에서 확인하실 수 있습니다.
 </p>
