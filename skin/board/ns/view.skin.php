@@ -13,7 +13,9 @@ if($bo_table == "notice") {
 	$over3 = " over";
 }
 ?>
-
+<style>
+	.content_move {display:none;}
+</style>
 <div id="svisual-wrap">
 	<div class="vistxt" data-aos="fade-up" data-aos-duration="1000">
 		<p class="btxt"><span><?php echo $strTitle?>
