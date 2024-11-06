@@ -104,7 +104,7 @@ if($bo_table == "notice") {
                     <col scope="col" width="70">
                     <col scope="col" width="*">
                     <col scope="col" width="100">
-                    <col scope="col" width="100">
+                    <col scope="col" width="150">
                     <col scope="col" width="80">
                 </colgroup>
                 <thead>
@@ -139,7 +139,7 @@ if($bo_table == "notice") {
 						?>
                         </td>
                         <td><?php echo $list[$i]['name'] ?></td>
-                        <td><?php echo $list[$i]['datetime2'] ?></td>
+                        <td><?php echo $list[$i]['datetime'] ?></td>
                         <td><?php echo $list[$i]['wr_hit'] ?></td>
                     </tr>
                     <?php } ?>
