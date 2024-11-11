@@ -122,7 +122,7 @@ if($bo_table == "notice") {
 			?>
                     <tr>
                         <td>
-                        <?php if(!isset($list[$i]['num'])){?>공지<?php }?>
+                        <?php if(!isset($list[$i]['num'])){?><span class="notice-icon"></span><?php }?>
                         <?php echo $list[$i]['num']; ?></td>
                         <td class="l">
                             <a href="<?php echo $list[$i]['href'] ?>">

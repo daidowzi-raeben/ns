@@ -158,7 +158,7 @@
               </div>
             </div>
           </li>
-          <li id="tm07" class="mn_l1 mn_type "> <a href="/Mileage/mileage01.php" class="mn_a1"><span class="mn_s1">나의 참여</span></a>
+          <li id="tm07" class="mn_l1 mn_type "> <a href="/Test/test02.php" class="mn_a1"><span class="mn_s1">나의 참여</span></a>
             <div class="depth2-wrap subg">
               <div class='depth2'>
                 <div>

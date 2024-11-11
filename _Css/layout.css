@@ -675,3 +675,11 @@ body.no-scr {overflow-y:hidden;}
 		zoom: 0.8;
 	}
 }
+
+.notice-icon{
+	display:inline-block;
+	width:25px;
+	height:23px;
+	background: url(../_Img/Icon/megaphone_icon.png)no-repeat center;
+	vertical-align: bottom;
+}
