@@ -121,7 +121,9 @@ if($bo_table == "notice") {
 			for ($i=0; $i<count($list); $i++) {
 			?>
                     <tr>
-                        <td><?php echo $list[$i]['num']; ?></td>
+                        <td>
+                        <?php if(!isset($list[$i]['num'])){?>공지<?php }?>
+                        <?php echo $list[$i]['num']; ?></td>
                         <td class="l">
                             <a href="<?php echo $list[$i]['href'] ?>">
                                 <?php echo $list[$i]['icon_reply'] ?>
