@@ -80,6 +80,17 @@ if( !get_lessonApply2($member['mb_id'], 19) ) {
 }
 
 
+
+if( !get_lessonApply2($member['mb_id'], 32) ) {
+	$sql = "insert into {$g5['less_apply_table']} set
+			app_lssn_no = '32',
+			app_uid = '{$member['mb_id']}',
+			app_rdate = now()";
+	sql_query($sql);
+}
+
+
+
 if (!$sst) {
     $sst = "ls.lssn_rdate";
     $sod = "asc";
