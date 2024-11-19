@@ -83,6 +83,8 @@ if($l_no == 10 || $l_no == 14)
 	$page_url = G5_URL . "/process/{$foldName}/{$CONTENTS['c_url']}/" . sprintf("%02d",$open_page) . ".html";
 else if($l_no == 19)
 	$page_url = G5_URL . "/process/{$foldName}/{$CONTENTS['c_url']}/{$CONTENTS['c_url']}_" . sprintf("%02d",$open_page) . ".html";
+else if($l_no == 32)
+	$page_url = G5_URL . "/process/{$foldName}/{$CONTENTS['c_url']}/{$CONTENTS['c_url']}_" ."0". sprintf("%02d",$open_page) . ".html";
 else if($l_no == 16)
 	$page_url = G5_URL . "/process/{$foldName}/{$CONTENTS['c_url']}/" . sprintf("%03d",$open_page) . ".html";
 else if($l_no == 17)
