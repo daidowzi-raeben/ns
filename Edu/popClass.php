@@ -84,7 +84,8 @@ if($l_no == 10 || $l_no == 14)
 else if($l_no == 19)
 	$page_url = G5_URL . "/process/{$foldName}/{$CONTENTS['c_url']}/{$CONTENTS['c_url']}_" . sprintf("%02d",$open_page) . ".html";
 else if($l_no == 32)
-	$page_url = G5_URL . "/process/{$foldName}/{$CONTENTS['c_url']}/" . sprintf("%03d",$open_page) . ".htm";
+	// $page_url = G5_URL . "/process/{$foldName}/{$CONTENTS['c_url']}/" . sprintf("%03d",$open_page) . ".htm";
+	$page_url = "http://nas.sonhojun.com:11000/2024/sejong/01/001.htm";
 else if($l_no == 16)
 	$page_url = G5_URL . "/process/{$foldName}/{$CONTENTS['c_url']}/" . sprintf("%03d",$open_page) . ".html";
 else if($l_no == 17)
