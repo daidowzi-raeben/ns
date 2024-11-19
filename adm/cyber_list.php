@@ -57,7 +57,7 @@ else if($app_lssn_no == "16")
 else if($app_lssn_no == "17")
 	$strLesson = "청탁금지법 교육(하반기)";
 else if($app_lssn_no == "32")
-	$strLesson = "[2024 하반기 전사 윤리경영 교육] 성과를 만드는 힘, 직장윤리!";
+	$strLesson = "윤리경영 교육] 성과를 만드는 힘, 직장윤리!";
 $sql_order = " order by {$sst} {$sod} ";
 
 $sql = " select count(*) as cnt {$sql_common} {$sql_search} {$sql_order} ";
@@ -125,7 +125,7 @@ $colspan = 16;
 				<?#=option_selected("15", $app_lssn_no, "지식재산권(하반기)");?>
 				<?=option_selected("16", $app_lssn_no, "미디어팀교육");?>
 				<?=option_selected("17", $app_lssn_no, "청탁금지법 교육(하반기)");?>
-				<?=option_selected("19", $app_lssn_no, "윤리경영 사이버교육(하반기)");?>
+				<?=option_selected("32", $app_lssn_no, "윤리경영 사이버교육(하반기)");?>
 			</select>
 		</td>
     </tr>
@@ -223,6 +223,7 @@ $colspan = 16;
 		//학습 진도 가져오기
 		$sql = " select * from {$g5['less_apply_table']} where app_uid = '{$mb_id}' and app_lssn_no = '{$app_lssn_no}' and DATE_FORMAT(app_rdate,'%y') = DATE_FORMAT(NOW(),'%y') limit 0, 1 ";
 		$row2 = sql_fetch($sql);
+		
 		
 		if($app_lssn_no == "2")
 			$testScore = $row2['app_score'];
