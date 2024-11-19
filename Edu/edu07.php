@@ -162,6 +162,9 @@ $result = sql_query($sql);
         <!-- page-start // -->
 
         <div class="course2-pagenation" style="margin-bottom:30px">
+
+
+
             <?php 
 						$y = 0;
 
@@ -202,11 +205,66 @@ $result = sql_query($sql);
 #				$is = '';
 #				echo $result_cnt['idx'];
 				?>
-            <button type="button" style="" onclick="location.href='?page=<?php echo $j + 1?>';"
+            <button type="button" style="display:none" onclick="location.href='?page=<?php echo $j + 1?>';"
                 class="btn <?php if($j + 1 == $page) echo 'active' ?> <?php if($j + 1 != $page) {echo $is; } else {echo $is; } ?>"><?php echo $j + 1?></button>
             <?php } 
 				?>
         </div>
+
+
+        
+          <div class="edu-course">
+            <div class="img-wrap">
+                <img src="../_Img/Sub/edu/cyber_img25_2.jpg">
+            </div>
+            <div class="txt-wrap">
+                <div class="tit">[2024 하반기 전사 윤리경영 교육] 성과를 만드는 힘, 직장윤리!</div>
+                <div class="row">
+                    <div class="col">
+                        <label>수료조건</label><span>학습 100% 진행</span>
+                    </div>
+                    <div class="col">
+                        <label>마일리지</label><span>없음</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label>학습기간</label><span>2024.11.20(수) ~ 2024.11.30(토)</span>
+                    </div>
+                    <div class="col">
+                        <label>학습시간</label><span>90분</span>
+                    </div>
+                </div>
+                <div class="play">
+                    <?php
+                        $tempSday = "2024-11-19 09:00";
+                        $tempEday = "2024-11-30 18:00";
+                        if(!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday."+1 day")))
+                        {
+                    ?>
+                    <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
+                    <?php
+                            }
+                            else
+                            {
+                    ?>
+                    <a href="/Edu/class20.php?ls=32" class="class-enter"
+                        style="<?php if (	$result_m['app_study_rate'] == 100) { echo "background: #5a5ae7;"; }?>"><span>
+                            <?php if (	$result_m['app_study_rate'] == 100) {
+                                echo '학습완료';
+                            } else  {
+                                echo '학습하기';
+                            }
+                            ?>
+                        </span></a>
+                    <?php
+                            }
+                    ?>
+                </div>
+            </div>
+        </div>
+
+
 
         <div class="edu-course--wrap">
             <?php 
@@ -310,56 +368,7 @@ $result = sql_query($sql);
 			?> -->
         </div>
 
-         <div class="edu-course">
-            <div class="img-wrap">
-                <img src="../_Img/Sub/edu/cyber_img25_2.jpg">
-            </div>
-            <div class="txt-wrap">
-                <div class="tit">[2024 하반기 전사 윤리경영 교육] 성과를 만드는 힘, 직장윤리!</div>
-                <div class="row">
-                    <div class="col">
-                        <label>수료조건</label><span>학습 100% 진행</span>
-                    </div>
-                    <div class="col">
-                        <label>마일리지</label><span>없음</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <label>학습기간</label><span>2024.11.20(수) ~ 2024.11.30(토)</span>
-                    </div>
-                    <div class="col">
-                        <label>학습시간</label><span>90분</span>
-                    </div>
-                </div>
-                <div class="play">
-                    <?php
-                        $tempSday = "2024-11-20 09:00";
-                        $tempEday = "2024-11-30 18:00";
-                        if(!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday."+1 day")))
-                        {
-                    ?>
-                    <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
-                    <?php
-                            }
-                            else
-                            {
-                    ?>
-                    <a href="/Edu/class19.php?ls=20" class="class-enter"
-                        style="<?php if (	$result_m['app_study_rate'] == 100) { echo "background: #5a5ae7;"; }?>"><span>
-                            <?php if (	$result_m['app_study_rate'] == 100) {
-                                echo '학습완료';
-                            } else  {
-                                echo '학습하기';
-                            }
-                            ?>
-                        </span></a>
-                    <?php
-                            }
-                    ?>
-                </div>
-            </div>
-        </div>
+       
 
         <div class="edu-course">
             <div class="img-wrap">
