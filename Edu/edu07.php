@@ -334,7 +334,7 @@ $result = sql_query($sql);
                 </div>
                 <div class="play">
                     <?php
-                        $tempSday = "2024-11-10 09:00";
+                        $tempSday = "2024-11-20 09:00";
                         $tempEday = "2024-11-30 18:00";
                         if(!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday."+1 day")))
                         {
