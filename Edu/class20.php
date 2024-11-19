@@ -79,7 +79,7 @@ $result = sql_fetch($sql);
                         <col width="*">
                         <col width="14%">
                         <col width="14%">
-                        <!--<col width="14%">-->
+                        <col width="14%">
                         <col width="14%">
                     </colgroup>
                     <thead>
@@ -88,7 +88,7 @@ $result = sql_fetch($sql);
                         <th>과정제목</th>
                         <th>학습시작</th>
                         <th>학습종료</th>
-                        <!--<th>진도율</th>-->
+                        <th>진도율</th>
                         <th>학습</th>
                     </tr>
                     </thead>
@@ -121,7 +121,7 @@ $result = sql_fetch($sql);
                         <td style="text-align:left;"><?php echo get_chapterName($row['cpt_contents'])?>  </td>
                         <td><?=substr($result['lssn_sdate'],0,10)?></td>
                         <td><?=substr($result['lssn_edate'],0,10)?></td>
-                        <!--<td><?php echo $att_rate_text?></td>-->
+                        <td><?php echo $att_rate_text?></td>
                         <td>
 						<?php
 						if( $cpt_study_rate[$i] >= 100 || $userLessonData['app_study_rate'] == 100 ) { 
