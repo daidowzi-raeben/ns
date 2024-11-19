@@ -29,7 +29,7 @@ if (!$sst) {
 
 //사이버 교육 과목 분류에 따른 설정
 if (!$app_lssn_no) {
-	$app_lssn_no = "19";
+	$app_lssn_no = "32";
 }
 
 if($app_lssn_no == "1" || $app_lssn_no == "3")
