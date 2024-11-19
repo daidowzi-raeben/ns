@@ -56,8 +56,8 @@ else if($app_lssn_no == "16")
 	$strLesson = "미디어팀교육";
 else if($app_lssn_no == "17")
 	$strLesson = "청탁금지법 교육(하반기)";
-else if($app_lssn_no == "18")
-	$strLesson = "윤리경영 사이버교육(하반기)";
+else if($app_lssn_no == "32")
+	$strLesson = "[2024 하반기 전사 윤리경영 교육] 성과를 만드는 힘, 직장윤리!";
 $sql_order = " order by {$sst} {$sod} ";
 
 $sql = " select count(*) as cnt {$sql_common} {$sql_search} {$sql_order} ";
