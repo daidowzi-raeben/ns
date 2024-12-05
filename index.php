@@ -16,6 +16,11 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 <?
 
 if($member['mb_id']) {
+    ?>
+<script>
+    movieWin();
+</script>
+    <?php
 $sql_c= "SELECT * from sj_prs_pledge WHERE mb_id = '".$member['mb_id']."' AND pld_month = 9 AND pld_year = '2023' AND pld_semi = 'A'";
 $result_c = sql_fetch($sql_c);
 if(!isset($result_c['mb_id'])) {
@@ -26,7 +31,6 @@ const t = new Date()
 if(t >= s && t <= e) {
     window.open('/pledge/index.html','윤리서약','width=700,height=800');
 }
-    movieWin();
 </script>";
 }
 }
