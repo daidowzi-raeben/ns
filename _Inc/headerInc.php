@@ -288,7 +288,7 @@
 	{
 		var popupX = (document.body.offsetWidth / 2) - 300;
 		
-		var ret = window.open("/temp/movie.html", "popwin", "status=0, width=680, height=500, scrollbars=1, left=" + popupX);
+		var ret = window.open("/temp/movie.html", "popwin", "status=0, width=1280, height=720, scrollbars=1, left=" + popupX);
 	}
 	
 </script>
