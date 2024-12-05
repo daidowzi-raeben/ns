@@ -284,12 +284,7 @@
 		var ret = window.open("/temp/index.html", "popwin", "status=0, width=680, height=722, scrollbars=1, left=" + popupX);
 	}
 
-  	function movieWin()
-	{
-		var popupX = (document.body.offsetWidth / 2) - 300;
-		
-		var ret = window.open("/temp/movie.html", "popwin", "status=0, width=1280, height=710, scrollbars=1, left=" + popupX);
-	}
+
 	
 </script>
 <!-- sejong~5273 -->
@@ -304,7 +299,7 @@
 	//로그인 체크
 	if($is_member) {
     ?>
-<script type='text/javascript'>movieWin();</script>
+<!-- <script type='text/javascript'>movieWin();</script> -->
     <?php
 		// 서약서팝업레이어 시작 { : 로그인 회원인 경우만 서약서 출력
 		if(G5_TIME_YMDHIS > $tmpStartTime && G5_TIME_YMDHIS < $tmpEndTime)

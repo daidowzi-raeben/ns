@@ -87,6 +87,20 @@ include_once(G5_PATH.'/head.php');
     <!-- } 사진 최신글2 끝 -->
 </div>
 
+<script>
+      	function movieWin()
+	{
+		var popupX = (document.body.offsetWidth / 2) - 300;
+		
+		var ret = window.open("/temp/movie.html", "popwin", "status=0, width=1280, height=710, scrollbars=1, left=" + popupX);
+	}
+</script>
+
 <?php
+	if($is_member) {
+    ?>
+<!-- <script type='text/javascript'>movieWin();</script> -->
+<?php }
+
 include_once(G5_PATH.'/tail.php');
 ?>
