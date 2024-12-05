@@ -99,7 +99,7 @@ include_once(G5_PATH.'/head.php');
 <?php
 	if($is_member) {
     ?>
-<!-- <script type='text/javascript'>movieWin();</script> -->
+<script type='text/javascript'>movieWin();</script>
 <?php }
 
 include_once(G5_PATH.'/tail.php');
