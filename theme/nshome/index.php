@@ -125,6 +125,24 @@ include_once(G5_THEME_PATH.'/head.main.php');
     </div>
     <!-- page end // -->
 	</div>
+
+  <script>
+      	function movieWin()
+	{
+		var popupX = (document.body.offsetWidth / 2) - 300;
+		
+		var ret = window.open("/temp/movie.html", "popwin", "status=0, width=1280, height=710, scrollbars=1, left=" + popupX);
+	}
+</script>
+
+
 <?php
+if($is_member) {
+  ?>
+<script>
+movieWin();
+</script>
+  <?php
+}
 include_once(G5_THEME_PATH.'/tail.main.php');
 ?>
