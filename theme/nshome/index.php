@@ -126,12 +126,25 @@ include_once(G5_THEME_PATH.'/head.main.php');
     <!-- page end // -->
 	</div>
 
-  <script>
+<?php
+$tmpStartTime = '2024-12-16 00:00:00';
+$tmpEndTime = '2024-12-22 23:59:59';
+
+$htmls = "movie.html";
+if(G5_TIME_YMDHIS > $tmpStartTime && G5_TIME_YMDHIS < $tmpEndTime) {
+  $htmls = "movie2.html";
+}
+
+if(G5_TIME_YMDHIS > "2024-12-23 00:00:00" && G5_TIME_YMDHIS < "2024-12-29 23:59:59") {
+  $htmls = "movie3.html";
+}
+?>
+<script>
       	function movieWin()
 	{
 		var popupX = (document.body.offsetWidth / 2) - 300;
 		
-		var ret = window.open("/temp/movie.html", "popwin", "status=0, width=1280, height=710, scrollbars=1, left=" + popupX);
+		var ret = window.open("/temp/<?php echo $htmls?>", "popwin", "status=0, width=1280, height=710, scrollbars=1, left=" + popupX);
 	}
 </script>
 
