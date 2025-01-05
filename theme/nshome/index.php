@@ -153,7 +153,7 @@ if(G5_TIME_YMDHIS > "2024-12-23 00:00:00" && G5_TIME_YMDHIS < "2024-12-29 23:59:
 if($is_member) {
   ?>
 <script>
-movieWin();
+// movieWin();
 </script>
   <?php
 }
