@@ -18,7 +18,11 @@ if(t >= s && t <= e) {
 </script>";
 }
 }
-
+echo "<br><br><br><br><br><br><br><br><br>";
+echo G5_MYSQL_HOST;
+echo G5_MYSQL_USER;
+echo G5_MYSQL_PASSWORD;
+echo G5_MYSQL_DB;
 
 $isReady = false;
 if($isReady)
