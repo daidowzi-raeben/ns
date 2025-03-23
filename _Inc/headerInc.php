@@ -153,6 +153,7 @@
                 </div>
                 <div>
                   <div id="tm0602" class="mn_l2"><a href="/Community/community02.php" class="mn_a2" target="_self"><span class="txt">헬프라인</span></a></div>
+                  <!-- <div id="tm0602" class="mn_l2"><a href="/bbs/board.php?bo_table=ns_co" class="mn_a2" target="_self"><span class="txt">윤리 이모저모</span></a></div> -->
                 </div>
                 <!-- <li id="tm0603" class="mn_l2"><a href="<?php echo G5_URL ?>/bbs/board.php?bo_table=cns" class="mn_a2" target="_self"><span class="txt">준법상담</span></a></li> -->
               </div>
