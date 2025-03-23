@@ -2062,17 +2062,19 @@ function sql_query_t($sql)
 }
 
 // 쿼리를 실행한 후 결과값에서 한행을 얻는다.
-function sql_fetch($sql, $error=G5_DISPLAY_SQL_ERROR, $link=null)
+function sql_query($sql, $error=G5_DISPLAY_SQL_ERROR, $link=null)
 {
     global $g5;
 
-    if(!$link)
+    if (!$link)
         $link = $g5['connect_db'];
 
-    $result = sql_query($sql, $error, $link);
-    //$row = @sql_fetch_array($result) or die("<p>$sql<p>" . mysqli_errno() . " : " .  mysqli_error() . "<p>error file : $_SERVER['SCRIPT_NAME']");
-    $row = sql_fetch_array($result);
-    return $row;
+    $result = mysqli_query($link, $sql);
+
+    if (!$result && $error)
+        die("<p>$sql<p>" . mysqli_errno($link) . " : " .  mysqli_error($link) . "<p>error file : ".$_SERVER['SCRIPT_NAME']);
+
+    return $result;
 }
 
 
