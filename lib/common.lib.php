@@ -2069,14 +2069,18 @@ function sql_query($sql, $error=G5_DISPLAY_SQL_ERROR, $link=null)
     if (!$link)
         $link = $g5['connect_db'];
 
+    echo "<pre>쿼리 실행: $sql</pre>";
+
     $result = mysqli_query($link, $sql);
 
-    if (!$result && $error)
-        die("<p>$sql<p>" . mysqli_errno($link) . " : " .  mysqli_error($link) . "<p>error file : ".$_SERVER['SCRIPT_NAME']);
+    if (!$result && $error) {
+        echo "<pre>❌ 쿼리 실패: " . mysqli_error($link) . "</pre>";
+        die();
+    }
 
+    echo "<pre>✅ 쿼리 성공!</pre>";
     return $result;
 }
-
 
 // 결과값에서 한행 연관배열(이름으로)로 얻는다.
 function sql_fetch_array($result)
