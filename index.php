@@ -1,10 +1,5 @@
 <?php
 include_once('./_common.php');
-echo "<br><br><br><br><br><br><br><br><br><br><br>";
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 define('_INDEX_', true);
 if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 
