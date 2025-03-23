@@ -2036,6 +2036,13 @@ function sql_query($sql, $error=G5_DISPLAY_SQL_ERROR, $link=null)
     // `information_schema` DB로의 접근을 허락하지 않습니다.
     $sql = preg_replace("#^select.*from.*where.*`?information_schema`?.*#i", "select 1", $sql);
 
+    if (!mysqli_ping($g5['connect_db'])) {
+        echo "<pre>⛔ 연결 끊김, 재연결 시도</pre>";
+        $g5['connect_db'] = mysqli_connect('175.126.82.119', 'root', 'Rlxk5273', 'test_g');
+        mysqli_set_charset($g5['connect_db'], 'utf8');
+    }
+
+
     if(function_exists('mysqli_query') && G5_MYSQLI_USE) {
         if ($error) {
             $result = @mysqli_query($link, $sql) or die("<p>$sql<p>" . mysqli_errno($link) . " : " .  mysqli_error($link) . "<p>error file : {$_SERVER['SCRIPT_NAME']}");
