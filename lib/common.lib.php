@@ -2037,10 +2037,10 @@ function sql_query($sql, $error=G5_DISPLAY_SQL_ERROR, $link=null)
     $sql = preg_replace("#^select.*from.*where.*`?information_schema`?.*#i", "select 1", $sql);
 
     if (!mysqli_ping($g5['connect_db'])) {
-        echo "<pre>⛔ 연결 끊김, 재연결 시도</pre>";
-        $g5['connect_db'] = mysqli_connect('175.126.82.119', 'root', 'Rlxk5273', 'test_g');
+        $g5['connect_db'] = mysqli_connect(G5_MYSQL_HOST, G5_MYSQL_USER, G5_MYSQL_PASSWORD, G5_MYSQL_DB);
         mysqli_set_charset($g5['connect_db'], 'utf8');
     }
+    
 
 
     if(function_exists('mysqli_query') && G5_MYSQLI_USE) {
