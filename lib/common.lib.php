@@ -2062,26 +2062,18 @@ function sql_query_t($sql)
 }
 
 // 쿼리를 실행한 후 결과값에서 한행을 얻는다.
-// function sql_query($sql, $error=G5_DISPLAY_SQL_ERROR, $link=null)
-// {
-//     global $g5;
+function sql_fetch($sql, $error=G5_DISPLAY_SQL_ERROR, $link=null)
+{
+    global $g5;
 
-//     if (!$link)
-//         $link = $g5['connect_db'];
+    if(!$link)
+        $link = $g5['connect_db'];
 
-//     echo "<pre>[sql_query] 실행할 쿼리: $sql</pre>";
-
-//     $result = @mysqli_query($link, $sql);
-
-//     if (!$result && $error) {
-//         echo "<pre>❌ 쿼리 실패: " . mysqli_error($link) . "</pre>";
-//         echo "<pre>📌 위치: " . $_SERVER['SCRIPT_FILENAME'] . "</pre>";
-//         exit;
-//     }
-
-//     echo "<pre>✅ 쿼리 성공</pre>";
-//     return $result;
-// }
+    $result = sql_query($sql, $error, $link);
+    //$row = @sql_fetch_array($result) or die("<p>$sql<p>" . mysqli_errno() . " : " .  mysqli_error() . "<p>error file : $_SERVER['SCRIPT_NAME']");
+    $row = sql_fetch_array($result);
+    return $row;
+}
 
 
 // 결과값에서 한행 연관배열(이름으로)로 얻는다.
