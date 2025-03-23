@@ -12,6 +12,9 @@ if ($board['bo_table']  == "info") {
 if ($board['bo_table']  == "guide") {
 	$sub_menu = "800900";
 }
+if ($board['bo_table']  == "ns_co") {
+	$sub_menu = "800200";
+}
 
 if (!$board['bo_table']) {
    alert('존재하지 않는 게시판입니다.', G5_URL);

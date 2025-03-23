@@ -24,6 +24,9 @@ if($bo_table == "notice") {
 } elseif($bo_table == "guide") {
 	$strTitle = "사내 준법 가이드라인";
 	$over3 = " over";
+} elseif($bo_table == "ns_co") {
+	$strTitle = "윤리 이모저모";
+	$over3 = " over";
 }
 
 ?>

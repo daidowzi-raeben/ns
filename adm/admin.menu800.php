@@ -10,5 +10,6 @@ $menu['menu800'] = array (
 	array('800700', '준법상담게시판', ''.G5_ADMIN_URL.'/board/board.php?bo_table=cns', 'cns'),
     array('800800', '법령정보', ''.G5_ADMIN_URL.'/board/board.php?bo_table=info', 'info'),
     array('800900', '사내 준법 가이드라인', ''.G5_ADMIN_URL.'/board/board.php?bo_table=guide', 'guide'),
+    array('800200', '윤리 이모저모 관리', ''.G5_ADMIN_URL.'/board/board.php?bo_table=ns_co', 'guide'),
 );
 ?>
