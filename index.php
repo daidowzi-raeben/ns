@@ -19,25 +19,6 @@ if(t >= s && t <= e) {
 }
 }
 
-$host = '175.126.82.119'; // 또는 127.0.0.1, 혹은 실제 서버 주소
-$user = 'root';
-$pass = 'Rlxk5273';
-$dbname = 'test_g';
-echo "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>";
-$conn = new mysqli($host, $user, $pass, $dbname);
-
-if ($conn->connect_error) {
-    die("연결 실패: " . $conn->connect_error);
-} else {
-    echo "연결성공공";
-}
-$sql = "select * from sj_board";
-$result = sql_query($sql);
-    for ($i=0; $row=sql_fetch_array($result); $i++) {
-        echo $row['bo_table'];
-
-    }
-$conn->set_charset("utf8"); // 문자셋 설정 (중요)
 
 $isReady = false;
 if($isReady)
