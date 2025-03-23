@@ -2069,11 +2069,17 @@ function sql_query($sql, $error=G5_DISPLAY_SQL_ERROR, $link=null)
     if (!$link)
         $link = $g5['connect_db'];
 
-    $result = mysqli_query($link, $sql);
+    echo "<pre>[sql_query] 실행할 쿼리: $sql</pre>";
 
-    if (!$result && $error)
-        die("<p>$sql<p>" . mysqli_errno($link) . " : " .  mysqli_error($link) . "<p>error file : ".$_SERVER['SCRIPT_NAME']);
+    $result = @mysqli_query($link, $sql);
 
+    if (!$result && $error) {
+        echo "<pre>❌ 쿼리 실패: " . mysqli_error($link) . "</pre>";
+        echo "<pre>📌 위치: " . $_SERVER['SCRIPT_FILENAME'] . "</pre>";
+        exit;
+    }
+
+    echo "<pre>✅ 쿼리 성공</pre>";
     return $result;
 }
 
