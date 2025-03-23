@@ -43,7 +43,9 @@ include_once(G5_PATH.'/head.php');
 ?>
 
 <h2 class="sound_only">최신글</h2>
-<div>???</div>
+<div>
+    <?php echo $config['cf_theme'];?>
+</div>
 <div class="latest_wr">
 <!-- 최신글 시작 { -->
 
