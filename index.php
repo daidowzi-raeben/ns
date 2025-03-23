@@ -18,7 +18,6 @@ if(t >= s && t <= e) {
 }
 }
 
-
 $isReady = false;
 if($isReady)
 {
@@ -26,10 +25,10 @@ if($isReady)
 	exit;
 }
 
-// if(defined('G5_THEME_PATH')) {
+if(defined('G5_THEME_PATH')) {
     require_once(G5_THEME_PATH.'/index.php');
     return;
-// }
+}
 
 /*
 if (G5_IS_MOBILE) {
