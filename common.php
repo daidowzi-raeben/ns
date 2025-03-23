@@ -473,6 +473,9 @@ if ($is_admin != 'super') {
 
 
 // 테마경로
+$sql = "select * from {$g5['config_table']}";
+$config = sql_fetch($sql);
+
 if(defined('_THEME_PREVIEW_') && _THEME_PREVIEW_ === true)
     $config['cf_theme'] = trim($_GET['theme']);
 
