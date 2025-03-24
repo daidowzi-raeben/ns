@@ -473,8 +473,16 @@ if ($is_admin != 'super') {
 
 
 // 테마경로
-$sql = "select * from {$g5['config_table']}";
+$sql = "SELECT * FROM {$g5['config_table']} WHERE cf_id = 'config'";
 $config = sql_fetch($sql);
+
+// if (!defined('G5_THEME_PATH') && $config['cf_theme']) {
+//     define('G5_THEME_PATH', G5_PATH.'/theme/'.$config['cf_theme']);
+// }
+
+// if (!defined('G5_THEME_URL') && $config['cf_theme']) {
+//     define('G5_THEME_URL', G5_URL.'/theme/'.$config['cf_theme']);
+// }
 
 if(defined('_THEME_PREVIEW_') && _THEME_PREVIEW_ === true)
     $config['cf_theme'] = trim($_GET['theme']);
