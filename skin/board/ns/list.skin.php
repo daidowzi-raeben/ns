@@ -116,7 +116,9 @@ if($bo_table == "notice") {
                         <th>제목</th>
                         <th>작성자</th>
                         <th>등록일</th>
+                        <?php if ($bo_table != 'ns_co') {?>
                         <th>조회수</th>
+                        <?php }?>
                     </tr>
                 </thead>
                 <tbody>
@@ -145,7 +147,9 @@ if($bo_table == "notice") {
                         </td>
                         <td><?php echo $list[$i]['name'] ?></td>
                         <td><?php echo $list[$i]['datetime'] ?></td>
+                        <?php if ($bo_table != 'ns_co') {?>
                         <td><?php echo $list[$i]['wr_hit'] ?></td>
+                        <?php }?>
                     </tr>
                     <?php } ?>
                     <?php if (count($list) == 0) { echo '<tr><td colspan="'.$colspan.'" class="empty_table">게시물이 없습니다.</td></tr>'; } ?>
