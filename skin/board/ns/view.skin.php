@@ -70,7 +70,9 @@ if($bo_table == "notice") {
 							<p class="btxt"><?php echo cut_str(get_text($view['wr_subject']), 70); // 글제목 출력?></p>
 							<span><strong>작성자</strong> : <?php echo $view['name'] ?></span>
 							<span><strong>작성일자</strong> : <?php echo date("y-m-d H:i", strtotime($view['wr_datetime'])) ?></span>
+							<?php if ($bo_table != 'ns_co') {?>
 							<span><strong>조회수</strong> : <?php echo number_format($view['wr_hit']) ?></span>
+							<?php }?>
 						  </th>
 					  </tr>
 				  </thead>
