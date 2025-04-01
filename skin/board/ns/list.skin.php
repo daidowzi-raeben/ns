@@ -108,7 +108,9 @@ if($bo_table == "notice") {
                     <col scope="col" width="*">
                     <col scope="col" width="100">
                     <col scope="col" width="150">
+                    <?php if ($bo_table != 'ns_co') {?>
                     <col scope="col" width="80">
+                    <?php }?>
                 </colgroup>
                 <thead>
                     <tr>
