@@ -312,7 +312,7 @@
 			if(!$result['cnt']) 
 			{
 ?>
-				<!-- <script type='text/javascript'>testWin();</script>  -->
+				<script type='text/javascript'>testWin();</script> 
 <?php
 			}
 		}
