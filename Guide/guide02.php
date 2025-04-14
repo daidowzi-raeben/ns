@@ -76,8 +76,8 @@ function confirmProc(val) {
         },
 		success: function(data){
 			//alert(data);
-			//window.open("http://nsenc.sejongenc.kr/ebook/ecatalog5.html");
-			window.open("http://nstest.sejong21.co.kr/ebook/ecatalog5.html");
+			window.open("http://nsenc.sejongenc.kr/ebook/ecatalog5.html");
+			// window.open("http://nstest.sejong21.co.kr/ebook/ecatalog5.html");
 			
 		},
 		error: function(err){ alert("호출 실패하였습니다.") ;}
