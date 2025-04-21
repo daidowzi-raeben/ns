@@ -294,9 +294,9 @@
 	//
 	//echo G5_TIME_YMDHIS;
   
-	$tmpStartTime = '2024-11-09 00:00:00';
+	$tmpStartTime = '2025-04-23 00:00:00';
 
-	$tmpEndTime = '2026-12-13 18:01:00';
+	$tmpEndTime = '2025-05-02 18:01:00';
 	
 	//로그인 체크
 	if($is_member) {
@@ -312,7 +312,7 @@
 			if(!$result['cnt']) 
 			{
 ?>
-				<!-- <script type='text/javascript'>testWin();</script>  -->
+				<script type='text/javascript'>testWin();</script> 
 <?php
 			}
 		}
