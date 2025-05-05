@@ -10,8 +10,8 @@ $sql_common .= " on m.bl_no = b.bl_no ";
 
 $sql_search = " where (1) and m.mb_level = '1' ";
 
-if ($mb_4)
-	$sql_search .= " and m.mb_4 like '{$mb_4}%' ";
+if ($mb_3)
+	$sql_search .= " and m.mb_3 like '{$mb_3}%' ";
 
 if ($mb_id)
 	$sql_search .= " and m.mb_id like '{$mb_id}%' ";
@@ -117,7 +117,7 @@ $colspan = 16;
 		<td headers="mb_list_id" class="td_name2">
             <?php echo $mb_id ?>
         </td>  
-		<td headers="mb_list_"><?php echo get_text($row['mb_4']); ?></td>
+		<td headers="mb_list_"><?php echo get_text($row['mb_3']); ?></td>
 		<td headers="mb_list_"><?php echo substr($row2['pld_regdate'], 0, 10) ?></td>
 		<td headers="mb_list_"><?php echo $strWrite?></td>
 		<!--<td headers="mb_list_">0</td>-->

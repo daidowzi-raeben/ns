@@ -21,8 +21,8 @@ $sql_common .= " on m.bl_no = b.bl_no ";
 
 $sql_search = " where (1) and m.mb_level = '1' ";
 
-if ($mb_4)
-	$sql_search .= " and m.mb_4 like '{$mb_4}%' ";
+if ($mb_3)
+	$sql_search .= " and m.mb_3 like '{$mb_3}%' ";
 
 if ($mb_id)
 	$sql_search .= " and m.mb_id like '{$mb_id}%' ";
@@ -68,7 +68,7 @@ $num2_format =& $workbook->addformat(array(num_format => '\0#'));
 $data = array(
 "mb_name"=>"이름",
 "mb_id"=>"아이디",
-"mb_4"=>"부서명",
+"mb_3"=>"부서명",
 "서약서 작성날짜",
 "서약서 작성여부",
 );
@@ -94,7 +94,7 @@ for($i=1; $res=sql_fetch_array($qry); $i++)
 
 	$worksheet->write($i, 0, $res['mb_name']);
 	$worksheet->write($i, 1, $res['mb_id']);
-	$worksheet->write($i, 2, $res['mb_4']);
+	$worksheet->write($i, 2, $res['mb_3']);
 	$worksheet->write($i, 3, substr($row2['pld_regdate'], 0, 10));
 	$worksheet->write($i, 4, $strWrite);
 }
