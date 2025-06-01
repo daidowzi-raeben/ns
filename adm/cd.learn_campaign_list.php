@@ -115,13 +115,13 @@ $colspan = $result_cnt['cnt'];
 				$mb_3 = $row['mb_3'];
 				$mb_point = $row['mb_point'];
 				
-				
+				echo $row['cpt_contents']."??";
 				$lssn_data_new = sql_fetch("SELECT * from sj_lms_chapter_attend 
-				where app_uid = '{$mb_id}' and att_lssn_no = '33' and att_contents = '{$row['att_contents']}'
+				where app_uid = '{$mb_id}' and att_lssn_no = '33' and att_contents = '{$row['cpt_contents']}'
 				 ");
 
 				 echo "SELECT * from sj_lms_chapter_attend 
-				where app_uid = '{$mb_id}' and att_lssn_no = '33' and att_contents = '{$row['att_contents']}'
+				where app_uid = '{$mb_id}' and att_lssn_no = '33' and att_contents = '{$row['cpt_contents']}'
 				 ";
 				
 				
