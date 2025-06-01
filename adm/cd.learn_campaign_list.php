@@ -99,8 +99,7 @@ $colspan = $result_cnt['cnt'];
 			$cyber = array();
 			$str_cyber = array();
 			$str_cyber_list = array();
-			$sql_list = "SELECT * from sj_lms_lesson WHERE lssn_kind = '".$L."'  ORDER BY lssn_rdate asc";
-			echo $sql_list;
+			$sql_list = "SELECT * from sj_lms_chapter WHERE cpt_lesson = '33'";
 			$result_list = sql_query($sql_list);
 			for ($i=0; $row=sql_fetch_array($result_list); $i++) {
 				?>
@@ -117,6 +116,9 @@ $colspan = $result_cnt['cnt'];
 				$mb_point = $row['mb_point'];
 				
 				
+				$lssn_data_new = sql_fetch("SELECT * from sj_lms_chapter_attend 
+				where app_uid = '{$mb_id}' and att_lssn_no = '33' and att_contents = '{$row['cpt_contents']}'
+				 ");
 				
 				
 
@@ -193,11 +195,10 @@ $colspan = $result_cnt['cnt'];
 					<?php echo $mb_name ?>
 				</td>  
 				<td headers="cb_list_"><?php echo $mb_id ?></td>
-				<td headers="cb_list_"><?php echo $cyber1['app_study_rate'] ?></td>
-				<td headers="cb_list_"><?php echo $cyber1['app_study_rate']?></td>
+				<td headers="cb_list_"><?php echo $lssn_data_new['att_rdate'] ?></td>
+				<td headers="cb_list_"><?php echo $lssn_data_new['att_study_last']?></td>
 				<?php 
 				$sql_list = "SELECT * from sj_lms_lesson WHERE lssn_kind = '".$L."'  ORDER BY lssn_rdate asc";
-				echo"SELECT * from sj_lms_lesson WHERE lssn_kind = '".$L."'  ORDER BY lssn_rdate asc";
 				$result_list = sql_query($sql_list);
 				for ($u=0; $row3=sql_fetch_array($result_list); $u++) { 
 					$sql_is = " SELECT * from cd_lms_lesson_result WHERE mb_id = '".$mb_id."' AND lssn_no = '".$row3['lssn_no']."' limit 1 ";

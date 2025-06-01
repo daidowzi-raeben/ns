@@ -243,7 +243,7 @@ $result = sql_query($sql);
                 </div>
                 <div class="row">
                     <div class="col">
-                        <label>학습기간</label><span>2025.06.09(월) ~ 2025.06.19(목목)</span>
+                        <label>학습기간</label><span>2025.06.09(월) ~ 2025.06.19(목)</span>
                     </div>
                     <div class="col">
                         <label>학습시간</label><span>90분</span>
