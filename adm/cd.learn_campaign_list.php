@@ -202,7 +202,6 @@ $colspan = $result_cnt['cnt'];
 				for ($u=0; $row3=sql_fetch_array($result_list); $u++) { 
 					$sql_is = " SELECT * from sj_lms_chapter_attend 
 				where att_uid = '{$mb_id}' and att_lssn_no = '33' and att_contents = '{$row3['cpt_contents']}' limit 1";
-				echo $sql_is;
 					$result_is = sql_fetch($sql_is);
 					?>
 				<td headers="cb_list_"><?php if(isset($result_is['att_study_rate'])) {echo $result_is['att_study_rate']; }else {echo '0';}?></td>
