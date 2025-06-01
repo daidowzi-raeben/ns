@@ -262,7 +262,7 @@ $result = sql_query($sql);
                             else
                             {
                     ?>
-                    <a href="/Edu/class20.php?ls=32" class="class-enter"
+                    <a href="/Edu/class21.php?ls=33" class="class-enter"
                         style="<?php if (	$result_m2['app_study_rate'] == 100) { echo "background: #5a5ae7;"; }?>"><span>
                             <?php if (	$result_m2['app_study_rate'] == 100) {
                                 echo '학습완료';
@@ -305,7 +305,7 @@ $result = sql_query($sql);
                 <div class="play">
                     <?php
                         $tempSday = "2024-11-19 09:00";
-                        $tempEday = "2026-11-30 18:00";
+                        $tempEday = "2024-11-30 18:00";
                         if(!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday."+1 day")))
                         {
                     ?>
