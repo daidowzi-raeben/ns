@@ -196,16 +196,31 @@ $colspan = $result_cnt['cnt'];
 				<td headers="cb_list_"><?php echo $mb_id ?></td>
 				
 				<?php 
+
+				$sql_st = "SELECT * FROM sj_lms_chapter_attend WHERE att_uid = '".$mb_id"'
+AND att_lssn_no = '33' ORDER BY att_no asc limit 1";
+$result_st = sql_fetch($sql_st);
+
+$sql_ed = "SELECT * FROM sj_lms_chapter_attend WHERE att_uid = '".$mb_id"'
+AND att_lssn_no = '33' ORDER BY att_no desc limit 1";
+$result_ed = sql_fetch($sql_ed);
+
+
+
 				$sql_list = "SELECT * from sj_lms_chapter WHERE cpt_lesson = '33'";
 				$result_list = sql_query($sql_list);
 				for ($u=0; $row3=sql_fetch_array($result_list); $u++) { 
+
+
+
+					
 $sql_is = " SELECT * from sj_lms_chapter_attend 
 				where att_uid = '{$mb_id}' and att_lssn_no = '33' and att_contents = '{$row3['cpt_contents']}' limit 1";
 					$result_is = sql_fetch($sql_is);
 					if($u == 0) {
 						?>
-<td headers="cb_list_"><?php echo date("Y-m-d", strtotime($result_is['att_rdate'])); ?></td>
-				<td headers="cb_list_"><?php echo date("Y-m-d", strtotime($result_is['att_study_last'])); ?></td>
+<td headers="cb_list_"><?php echo date("Y-m-d", strtotime($result_st['att_rdate'])); ?></td>
+				<td headers="cb_list_"><?php echo date("Y-m-d", strtotime($result_ed['att_study_last'])); ?></td>
 						<?php
 					}
 					

@@ -64,7 +64,7 @@ $data = array(
 "mb_no"=>"번호",
 "mb_name"=>"이름",
 "mb_id"=>"아이디",
-"mb_3"=>"부서명"
+"mb_3"=>"학습 시작/종료일"
 );
 
 
@@ -99,6 +99,18 @@ $qry3 = sql_fetch("SELECT * from cd_lms_lesson_result WHERE mb_id = '".$res['mb_
 	$sql_is = " SELECT * from sj_lms_chapter_attend 
 				where att_uid = '".$res['mb_id']."' and att_lssn_no = '33' and att_contents = '{$res2['cpt_contents']}' limit 1";
 $result_is = sql_fetch($sql_is);
+
+
+$sql_st = "SELECT * FROM sj_lms_chapter_attend WHERE att_uid = '".$res['mb_id']."'
+AND att_lssn_no = '33' ORDER BY att_no asc limit 1";
+$result_st = sql_fetch($sql_st);
+
+$sql_ed = "SELECT * FROM sj_lms_chapter_attend WHERE att_uid = '".$res['mb_id']."'
+AND att_lssn_no = '33' ORDER BY att_no desc limit 1";
+$result_ed = sql_fetch($sql_ed);
+
+$res[$c + 3] = $result_st['att_rdate']."~".$result_ed['att_study_last'];
+
 
 if(!isset($result_is['att_study_rate'])) {
 $res[$c + 4] = '0';
