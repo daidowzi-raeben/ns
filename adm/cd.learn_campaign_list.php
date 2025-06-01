@@ -88,7 +88,7 @@ $colspan = $result_cnt['cnt'];
 				<th scope="col" id="mb_list_id" rowspan="2">아이디</th>
 				<th scope="col" id="mb_list_id" rowspan="2">학습시작일</th>
 				<th scope="col" id="mb_list_id" rowspan="2">학습종료일일</th>
-				<th scope="col" id="mb_list_name" colspan="<?php echo $colspan?>">항목별 수행결과</th>
+				<th scope="col" id="mb_list_name" colspan="<?php echo $colspan - 1?>">항목별 수행결과</th>
 <!-- 				<th scope="col" id="mb_list_id" rowspan="2">마일리지 합계</th> -->
 			</tr>
 
@@ -119,6 +119,10 @@ $colspan = $result_cnt['cnt'];
 				$lssn_data_new = sql_fetch("SELECT * from sj_lms_chapter_attend 
 				where app_uid = '{$mb_id}' and att_lssn_no = '33' and att_contents = '{$row['cpt_contents']}'
 				 ");
+
+				 echo "SELECT * from sj_lms_chapter_attend 
+				where app_uid = '{$mb_id}' and att_lssn_no = '33' and att_contents = '{$row['cpt_contents']}'
+				 ";
 				
 				
 
