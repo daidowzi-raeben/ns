@@ -49,6 +49,7 @@ $g5['title'] = '직무윤리 캠페인 메시지 관리';
 include_once('./admin.head.php');
 
 $sql = " select * {$sql_common} {$sql_search} {$sql_order} limit {$from_record}, {$rows} ";
+echo $sql;
 $result = sql_query($sql);
 // echo $sql;
 $L = 'LS00';
@@ -86,7 +87,8 @@ $colspan = $result_cnt['cnt'];
 				<th scope="col" id="mb_list_no" rowspan="2">No</th>
 				<th scope="col" id="mb_list_id" rowspan="2">이름</th>
 				<th scope="col" id="mb_list_id" rowspan="2">아이디</th>
-				<th scope="col" id="mb_list_id" rowspan="2">부서명</th>
+				<th scope="col" id="mb_list_id" rowspan="2">학습시작일</th>
+				<th scope="col" id="mb_list_id" rowspan="2">학습종료일일</th>
 				<th scope="col" id="mb_list_name" colspan="<?php echo $colspan?>">항목별 수행결과</th>
 <!-- 				<th scope="col" id="mb_list_id" rowspan="2">마일리지 합계</th> -->
 			</tr>
@@ -191,7 +193,8 @@ $colspan = $result_cnt['cnt'];
 					<?php echo $mb_name ?>
 				</td>  
 				<td headers="cb_list_"><?php echo $mb_id ?></td>
-				<td headers="cb_list_"><?php echo $mb_3 ?></td>
+				<td headers="cb_list_"><?php echo $cyber1['app_study_rate'] ?></td>
+				<td headers="cb_list_"><?php echo $cyber1['app_study_rate']?></td>
 				<?php 
 				$sql_list = "SELECT * from sj_lms_lesson WHERE lssn_kind = '".$L."'  ORDER BY lssn_rdate asc";
 				$result_list = sql_query($sql_list);
