@@ -14,6 +14,16 @@ if( !$l_no ) {
 $LESSON = get_lesson2($l_no);
 $CHAPTER = get_chapter($c_no);
 
+$userLessData = get_lessonApply($member['mb_id'], $l_no);
+//�н� ������ ���ٸ�, ���� ����
+if( !$userLessData ) {
+	$sql = "insert into {$g5['less_apply_table']} set
+			app_lssn_no = '{$l_no}',
+			app_uid = '{$member['mb_id']}',
+			app_rdate = now()";
+	sql_query($sql);
+}
+
 if($l_no == 10)
 	$foldName = "acnt";
 else if($l_no == 12)
