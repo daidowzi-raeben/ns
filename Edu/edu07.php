@@ -229,7 +229,7 @@ $result = sql_query($sql);
         
           <div class="edu-course">
             <div class="img-wrap">
-                <img src="../_Img/Sub/edu/cyber_img30.pngg">
+                <img src="../_Img/Sub/edu/cyber_img30.png">
             </div>
             <div class="txt-wrap">
                 <div class="tit">[2025 직장인의 소통 지혜! 비즈니스 윤리</div>
@@ -280,6 +280,7 @@ $result = sql_query($sql);
 
 
         <div class="edu-course--wrap">
+            <div class="edu-course">
             <div class="img-wrap">
                 <img src="../_Img/Sub/edu/cyber_img25_2.jpg">
             </div>
@@ -327,6 +328,7 @@ $result = sql_query($sql);
                             }
                     ?>
                 </div>
+            </div>
             </div>
         </div>
 
