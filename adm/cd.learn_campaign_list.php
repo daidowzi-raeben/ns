@@ -49,7 +49,6 @@ $g5['title'] = '직무윤리 캠페인 메시지 관리';
 include_once('./admin.head.php');
 
 $sql = " select * {$sql_common} {$sql_search} {$sql_order} limit {$from_record}, {$rows} ";
-echo $sql;
 $result = sql_query($sql);
 // echo $sql;
 $L = 'LS00';
@@ -101,6 +100,7 @@ $colspan = $result_cnt['cnt'];
 			$str_cyber = array();
 			$str_cyber_list = array();
 			$sql_list = "SELECT * from sj_lms_lesson WHERE lssn_kind = '".$L."'  ORDER BY lssn_rdate asc";
+			echo $sql_list;
 			$result_list = sql_query($sql_list);
 			for ($i=0; $row=sql_fetch_array($result_list); $i++) {
 				?>
