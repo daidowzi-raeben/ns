@@ -115,12 +115,12 @@ if (!empty($result_st['att_rdate']) && !empty($result_ed['att_study_last'])) {
     $end_date = strtotime($result_ed['att_study_last']);
 
     if ($start_date && $end_date) {
-        $res[$c + 3] = date("Y-m-d", $start_date) . " ~ " . date("Y-m-d", $end_date);
+        $res[3] = date("Y-m-d", $start_date) . " ~ " . date("Y-m-d", $end_date);
     } else {
-        $res[$c + 3] = "";
+        $res[3] = "";
     }
 } else {
-    $res[$c + 3] = "";
+    $res[3] = "";
 }
 
 
