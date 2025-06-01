@@ -32,6 +32,8 @@ else if($l_no == 19)
 	$foldName = "19";
 else if($l_no == 32)
 	$foldName = "20";
+else if($l_no == 33)
+	$foldName = "21";
 else if($l_no != 6)
 	$foldName = "cyber";
 else
