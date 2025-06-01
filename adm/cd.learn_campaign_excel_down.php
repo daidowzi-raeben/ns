@@ -108,11 +108,22 @@ $result_st = sql_fetch($sql_st);
 $sql_ed = "SELECT * FROM sj_lms_chapter_attend WHERE att_uid = '".$res['mb_id']."'
 AND att_lssn_no = '33' ORDER BY att_no desc limit 1";
 $result_ed = sql_fetch($sql_ed);
- if(isset($result_ed['att_study_last'])) {
-$res[$c + 3] = $result_st['att_rdate']."~".$result_ed['att_study_last'];
- } else {
+
+
+if (!empty($result_st['att_rdate']) && !empty($result_ed['att_study_last'])) {
+    $start_date = strtotime($result_st['att_rdate']);
+    $end_date = strtotime($result_ed['att_study_last']);
+
+    if ($start_date && $end_date) {
+        $res[$c + 3] = date("Y-m-d", $start_date) . " ~ " . date("Y-m-d", $end_date);
+    } else {
+        $res[$c + 3] = "";
+    }
+} else {
     $res[$c + 3] = "";
- }
+}
+
+
 
 if(!isset($result_is['att_study_rate'])) {
 $res[$c + 4] = '0';
