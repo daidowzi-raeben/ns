@@ -194,12 +194,18 @@ $colspan = $result_cnt['cnt'];
 					<?php echo $mb_name ?>
 				</td>  
 				<td headers="cb_list_"><?php echo $mb_id ?></td>
-				<td headers="cb_list_"><?php echo $lssn_data_new['att_rdate'] ?></td>
-				<td headers="cb_list_"><?php echo $lssn_data_new['att_study_last']?></td>
+				
 				<?php 
 				$sql_list = "SELECT * from sj_lms_chapter WHERE cpt_lesson = '33'";
 				$result_list = sql_query($sql_list);
 				for ($u=0; $row3=sql_fetch_array($result_list); $u++) { 
+
+					if($u == 0) {
+						?>
+<td headers="cb_list_"><?php echo $row3['att_rdate'] ?></td>
+				<td headers="cb_list_"><?php echo $row3['att_study_last']?></td>
+						<?php
+					}
 					$sql_is = " SELECT * from sj_lms_chapter_attend 
 				where att_uid = '{$mb_id}' and att_lssn_no = '33' and att_contents = '{$row3['cpt_contents']}' limit 1";
 					$result_is = sql_fetch($sql_is);
