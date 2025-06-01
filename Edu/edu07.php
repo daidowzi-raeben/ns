@@ -229,6 +229,58 @@ $result = sql_query($sql);
         
           <div class="edu-course">
             <div class="img-wrap">
+                <img src="../_Img/Sub/edu/cyber_img30.pngg">
+            </div>
+            <div class="txt-wrap">
+                <div class="tit">[2025 직장인의 소통 지혜! 비즈니스 윤리</div>
+                <div class="row">
+                    <div class="col">
+                        <label>수료조건</label><span>학습 100% 진행</span>
+                    </div>
+                    <div class="col">
+                        <label>마일리지</label><span>30</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label>학습기간</label><span>2025.06.09(월) ~ 2025.06.19(목목)</span>
+                    </div>
+                    <div class="col">
+                        <label>학습시간</label><span>90분</span>
+                    </div>
+                </div>
+                <div class="play">
+                    <?php
+                        $tempSday = "2025-06-01 09:00";
+                        $tempEday = "2025-06-19 18:00";
+                        if(!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday."+1 day")))
+                        {
+                    ?>
+                    <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
+                    <?php
+                            }
+                            else
+                            {
+                    ?>
+                    <a href="/Edu/class20.php?ls=32" class="class-enter"
+                        style="<?php if (	$result_m2['app_study_rate'] == 100) { echo "background: #5a5ae7;"; }?>"><span>
+                            <?php if (	$result_m2['app_study_rate'] == 100) {
+                                echo '학습완료';
+                            } else  {
+                                echo '학습하기';
+                            }
+                            ?>
+                        </span></a>
+                    <?php
+                            }
+                    ?>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="edu-course--wrap">
+            <div class="img-wrap">
                 <img src="../_Img/Sub/edu/cyber_img25_2.jpg">
             </div>
             <div class="txt-wrap">
@@ -252,7 +304,7 @@ $result = sql_query($sql);
                 <div class="play">
                     <?php
                         $tempSday = "2024-11-19 09:00";
-                        $tempEday = "2024-11-30 18:00";
+                        $tempEday = "2026-11-30 18:00";
                         if(!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday."+1 day")))
                         {
                     ?>
