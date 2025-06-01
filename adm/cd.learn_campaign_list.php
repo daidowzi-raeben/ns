@@ -204,8 +204,8 @@ $sql_is = " SELECT * from sj_lms_chapter_attend
 					$result_is = sql_fetch($sql_is);
 					if($u == 0) {
 						?>
-<td headers="cb_list_"><?php echo $result_is['att_rdate'] ?></td>
-				<td headers="cb_list_"><?php echo $result_is['att_study_last']?></td>
+<td headers="cb_list_"><?php echo date("Y-m-d", strtotime($result_is['att_rdate'])); ?></td>
+				<td headers="cb_list_"><?php echo date("Y-m-d", strtotime($result_is['att_study_last'])); ?></td>
 						<?php
 					}
 					
