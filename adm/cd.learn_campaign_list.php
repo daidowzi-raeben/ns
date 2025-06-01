@@ -219,8 +219,8 @@ $sql_is = " SELECT * from sj_lms_chapter_attend
 					$result_is = sql_fetch($sql_is);
 					if($u == 0) {
 						?>
-<td headers="cb_list_"><?php echo date("Y-m-d", strtotime($result_st['att_rdate'])); ?></td>
-				<td headers="cb_list_"><?php echo date("Y-m-d", strtotime($result_ed['att_study_last'])); ?></td>
+<td headers="cb_list_"><?php if(isset($result_st['att_rdate']))  echo date("Y-m-d", strtotime($result_st['att_rdate'])); ?></td>
+				<td headers="cb_list_"><?php if(isset($result_ed['att_study_last']))  echo date("Y-m-d", strtotime($result_ed['att_study_last'])); ?></td>
 						<?php
 					}
 					
