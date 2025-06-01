@@ -97,7 +97,7 @@ for($c=0; $res2=sql_fetch_array($qry2); $c++)
 $qry3 = sql_fetch("SELECT * from cd_lms_lesson_result WHERE mb_id = '".$res['mb_id']."' AND lssn_no = '".$res2['cpt_lesson']."' limit 1");
 
 	$sql_is = " SELECT * from sj_lms_chapter_attend 
-				where att_uid = '".$res['mb_id']."' and att_lssn_no = '33' and att_contents = '{$qry2['cpt_contents']}' limit 1";
+				where att_uid = '".$res['mb_id']."' and att_lssn_no = '33' and att_contents = '{$res2['cpt_contents']}' limit 1";
 $result_is = sql_fetch($sql_is);
 
 if(!isset($result_is['att_study_rate'])) {
