@@ -197,11 +197,11 @@ $colspan = $result_cnt['cnt'];
 				
 				<?php 
 
-				$sql_st = "SELECT * FROM sj_lms_chapter_attend WHERE att_uid = '".$mb_id"'
+				$sql_st = "SELECT * FROM sj_lms_chapter_attend WHERE att_uid = '".$mb_id."'
 AND att_lssn_no = '33' ORDER BY att_no asc limit 1";
 $result_st = sql_fetch($sql_st);
 
-$sql_ed = "SELECT * FROM sj_lms_chapter_attend WHERE att_uid = '".$mb_id"'
+$sql_ed = "SELECT * FROM sj_lms_chapter_attend WHERE att_uid = '".$mb_id."'
 AND att_lssn_no = '33' ORDER BY att_no desc limit 1";
 $result_ed = sql_fetch($sql_ed);
 
