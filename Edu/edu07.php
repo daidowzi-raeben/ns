@@ -238,7 +238,7 @@ $result = sql_query($sql);
                         <label>수료조건</label><span>학습 100% 진행</span>
                     </div>
                     <div class="col">
-                        <label>마일리지</label><span>30</span>
+                        <label>마일리지</label><span>없음</span>
                     </div>
                 </div>
                 <div class="row">
