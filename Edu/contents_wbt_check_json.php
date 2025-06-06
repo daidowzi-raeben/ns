@@ -1,10 +1,13 @@
 <?php
 include_once('./_common.php');
 
-$isEnd = false;
+$isEnd = "false";
+if(isset($_POST['isEnd'])) {
+	$isEnd = "true";
+}
 if($page == 3) {
-	if($isEnd == false) {
-		echo "false";
+	if($isEnd == "false") {
+		// echo "false";
 		exit;
 	}
 }
