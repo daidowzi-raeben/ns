@@ -1,6 +1,13 @@
 <?php
 include_once('./_common.php');
 
+$isEnd = false;
+if($page == 3) {
+	if($isEnd == false) {
+		echo "false";
+		exit;
+	}
+}
 if( !$member['mb_id'] ){
 		$rtn["res"] = false;
 		$rtn["msg"] = "로그인후에 이용해주세요.";

@@ -226,13 +226,13 @@ $result = sql_query($sql);
         </div>
 
 
-<!--         
+        
           <div class="edu-course">
             <div class="img-wrap">
                 <img src="../_Img/Sub/edu/cyber_img30.png">
             </div>
             <div class="txt-wrap">
-                <div class="tit">[2025 직장인의 소통 지혜! 비즈니스 윤리</div>
+                <div class="tit">2025 직장인의 소통 지혜! 비즈니스 윤리</div>
                 <div class="row">
                     <div class="col">
                         <label>수료조건</label><span>학습 100% 진행</span>
@@ -276,7 +276,7 @@ $result = sql_query($sql);
                     ?>
                 </div>
             </div>
-        </div> -->
+        </div> 
 
 
         <div class="edu-course--wrap">
