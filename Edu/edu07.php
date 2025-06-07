@@ -243,7 +243,7 @@ $result = sql_query($sql);
                 </div>
                 <div class="row">
                     <div class="col">
-                        <label>학습기간</label><span>2025.06.09(월) ~ 2025.06.19(목)</span>
+                        <label>학습기간</label><span>2025.06.09(월) ~ 2025.06.13(금)</span>
                     </div>
                     <div class="col">
                         <label>학습시간</label><span>90분</span>
@@ -251,7 +251,7 @@ $result = sql_query($sql);
                 </div>
                 <div class="play">
                     <?php
-                        $tempSday = "2025-06-09 09:00";
+                        $tempSday = "2025-06-01 09:00";
                         $tempEday = "2025-06-19 18:00";
                         if(!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday."+1 day")))
                         {
