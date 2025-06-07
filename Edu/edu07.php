@@ -251,7 +251,7 @@ $result = sql_query($sql);
                 </div>
                 <div class="play">
                     <?php
-                        $tempSday = "2025-06-01 09:00";
+                        $tempSday = "2025-06-09 09:00";
                         $tempEday = "2025-06-19 18:00";
                         if(!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday."+1 day")))
                         {
