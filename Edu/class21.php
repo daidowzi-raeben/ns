@@ -20,6 +20,16 @@ $sql = "select ls.*, ap.*
 			left join {$g5['lesson_table']} as ls on( ls.lssn_no = ap.app_lssn_no ) {$sql_where} {$sql_order}";
 $result = sql_fetch($sql);
 
+$userLessData = get_lessonApply($member['mb_id'], $lssn_no);
+if( !$userLessData ) {
+	$sql = "insert into {$g5['less_apply_table']} set
+			app_lssn_no = '{$lssn_no}',
+			app_uid = '{$member['mb_id']}',
+			app_rdate = now()";
+	sql_query($sql);
+}
+
+
 ?>
 <script src="/js/jquery.bpopup.min.js"></script>
 <script src="/js/lms.js"></script>
