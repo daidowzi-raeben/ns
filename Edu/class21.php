@@ -60,7 +60,7 @@ if( !$userLessData ) {
         <div id="contents">
             <div class="cont-top">
                 <h2 class="tit">사이버교육
-                </h2>
+                </h >
                 <ul class="path">
                     <li><img src="../_Img/Sub/icon_home.png" width="13" height="16">
                     <li>사이버 & 집체교육
