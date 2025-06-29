@@ -26,6 +26,7 @@ if($result['srvy_code'])
 	<!-- } 팝업레이어 끝 -->
 	<?php
 	$sql = " select count(srvd_no) as cnt from {$g5['survey_data_table']} where srvy_code = {$result['srvy_code']} and srvd_uid = '{$member['mb_id']}' and srvy_year = '{$result['srvy_year']}' ";
+	echo $sql;
 	$res = sql_fetch($sql);
 
 	if(!$res['cnt']) 
