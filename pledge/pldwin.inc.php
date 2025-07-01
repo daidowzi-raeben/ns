@@ -54,9 +54,9 @@
 				<form action="">
 					<div class="form">
 						<div class="date">
-							<span id="year"></span>년
-							<input type="text" id="month"> 월
-							<input type="text" id="date"> 일
+							<span id="year" value="<?php echo date("Y")?>"></span>년
+							<input type="text" id="month" value="<?php echo date("m")?>"> 월
+							<input type="text" id="date" value="<?php echo date("d")?>"> 일
 						</div>
 						<div class="name">
 							사번: <input type="text" style="width:150px;">
