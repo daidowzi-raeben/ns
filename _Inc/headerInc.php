@@ -278,7 +278,7 @@
 		// var ret = window.open("/pledge/", "popwin", "status=0, width=680, height=722, left=" + popupX);
 		setTimeout(() => {
       var ret = window.open("/pledge/", "popwin", "scrollbars=yes, status=0, width=680, height=722, left=" + popupX);
-    }, );
+    }, 100);
 	}
 
 	function testWin()
