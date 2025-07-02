@@ -1,7 +1,7 @@
 <?php
 include_once('./_common.php');
 
-if($type == "A")
+if($type == "B")
 {
 	$sub_menu = "600610";
 	$g5['title'] = '윤리CP인식도조사관리';
@@ -25,7 +25,7 @@ auth_check($auth[$sub_menu], 'r');
 
 $sql_common = " from {$g5['member_table']} as m ";
 $sql_common .= " left join {$g5['survey_data_table']} as sd ";
-$sql_common .= " on m.mb_id = sd.srvd_uid and sd.srvy_type = '{$type}' and sd.srvy_year='$bl_year' and sd.srvy_semi = '$bl_cate' ";
+$sql_common .= " on m.mb_id = sd.srvd_uid and sd.srvy_type = 'A' and sd.srvy_year='$bl_year' and sd.srvy_semi = '$bl_cate' ";
 
 $sql_search = " where (1) and m.mb_level = '1' ";
 
