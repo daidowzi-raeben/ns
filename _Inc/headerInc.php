@@ -8,7 +8,7 @@
     <li><a href="/bbs/board.php?bo_table=schedule"><img src="/_Img/quick_6.jpg" width="78" height="69" /></a></li>
   </ul> -->
     <?php
-	$sql = " select count(srvd_no) as cnt from {$g5['survey_data_table']} where srvy_code = {$result['srvy_code']} and srvd_uid = '{$member['mb_id']}' and srvy_year = '{$result['srvy_year']}' ";
+	$sql = " select count(srvd_no) as cnt from {$g5['survey_data_table']} where srvy_code = '19' and srvd_uid = '{$member['mb_id']}' and srvy_year = '{$result['srvy_year']}' ";
 	$res = sql_fetch($sql);
 
 	if(!$res['cnt'] && $member['mb_id']) 
@@ -21,7 +21,7 @@
   <?php } ?>
 
       <?php
-	$sql = " select count(srvd_no) as cnt from {$g5['survey_data_table']} where srvy_code = {$result['srvy_code']} and srvd_uid = '{$member['mb_id']}' ";
+	$sql = " select count(srvd_no) as cnt from {$g5['survey_data_table']} where srvy_code = '21' and srvd_uid = '{$member['mb_id']}' ";
 	$res = sql_fetch($sql);
 
 	if(!$res['cnt'] && $member['mb_id']) 
