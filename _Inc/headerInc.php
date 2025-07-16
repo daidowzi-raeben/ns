@@ -7,6 +7,35 @@
     <li><a href="/Test/test01.php"><img src="/_Img/quick_5.jpg" width="78" height="70" /></a></li>
     <li><a href="/bbs/board.php?bo_table=schedule"><img src="/_Img/quick_6.jpg" width="78" height="69" /></a></li>
   </ul> -->
+    <?php
+    $sql_A = " select * from {$g5['survey_table']}
+            where '".G5_TIME_YMDHIS."' between date_format(srvy_sdate, '%Y-%m-%d 05:59:59') and date_format(srvy_edate, '%Y-%m-%d 18:00:00')
+        and srvy_type = 'A' and srvy_status = 'Y' and srvy_year = '2025'
+            order by srvy_code asc limit 1";
+  //echo $sql;
+  $result_A = sql_fetch($sql, false);
+  if($result_A['srvy_code']) {
+  ?>
+  <a  target="_blank" href="<?php echo G5_URL ?>/bbs/board.php?bo_table=notice" class="quick-menu">
+    <div class="icon icon-1"></div>
+    CP인식도<br>조사
+  </a>
+  <?php } ?>
+
+      <?php
+    $sql_B = " select * from {$g5['survey_table']}
+          where '".G5_TIME_YMDHIS."' between date_format(srvy_sdate, '%Y-%m-%d 05:59:59') and date_format(srvy_edate, '%Y-%m-%d 18:00:00')
+			and srvy_type = 'B' and srvy_status = 'Y'  and srvy_year = '2025'
+          order by srvy_code asc limit 1";
+  //echo $sql;
+  $result_B = sql_fetch($sql, false);
+  if($result_B['srvy_code']) {
+  ?>
+  <a target="_blank" href="<?php echo G5_URL ?>/bbs/board.php?bo_table=notice" class="quick-menu">
+    <div class="icon icon-1"></div>
+    CP교육<br>만족도 조사
+  </a>
+  <?php } ?>
   <a href="<?php echo G5_URL ?>/bbs/board.php?bo_table=notice" class="quick-menu">
     <div class="icon icon-1"></div>
     공지사항
