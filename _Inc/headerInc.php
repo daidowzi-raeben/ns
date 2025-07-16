@@ -11,7 +11,7 @@
 	$sql = " select count(srvd_no) as cnt from {$g5['survey_data_table']} where srvy_code = {$result['srvy_code']} and srvd_uid = '{$member['mb_id']}' and srvy_year = '{$result['srvy_year']}' ";
 	$res = sql_fetch($sql);
 
-	if(!$res['cnt']) 
+	if(!$res['cnt'] && $member['mb_id']) 
 	{
   ?>
   <a  target="_blank" href="<?php echo G5_URL ?>/bbs/board.php?bo_table=notice" class="quick-menu">
@@ -24,7 +24,7 @@
 	$sql = " select count(srvd_no) as cnt from {$g5['survey_data_table']} where srvy_code = {$result['srvy_code']} and srvd_uid = '{$member['mb_id']}' ";
 	$res = sql_fetch($sql);
 
-	if(!$res['cnt']) 
+	if(!$res['cnt'] && $member['mb_id']) 
 	{
   ?>
   <a target="_blank" href="<?php echo G5_URL ?>/bbs/board.php?bo_table=notice" class="quick-menu">
