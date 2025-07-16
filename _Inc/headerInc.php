@@ -15,7 +15,7 @@
 	{
   ?>
   <a  target="_blank" href="<?php echo G5_URL ?>/bbs/board.php?bo_table=notice" class="quick-menu">
-    <div class="icon icon-1"></div>
+    
     CP인식도<br>조사
   </a>
   <?php } ?>
@@ -28,7 +28,7 @@
 	{
   ?>
   <a target="_blank" href="<?php echo G5_URL ?>/bbs/board.php?bo_table=notice" class="quick-menu">
-    <div class="icon icon-1"></div>
+    
     CP교육<br>만족도 조사
   </a>
   <?php } ?>
