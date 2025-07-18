@@ -105,7 +105,7 @@ if($str == "1")
 }
 else
 {
-	if($type == "B")
+	if($type == "A")
 	{
 		$data = array(
 		"mb_name"=>"이름",

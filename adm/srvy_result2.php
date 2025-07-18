@@ -89,7 +89,7 @@ $colspan = 16;
 	</div>
 	<div class="r_div">
 		<?php if ($is_admin == 'super' || $is_admin == 'manager') { ?>
-		<a href="./srvy_excel_down.php?type=<?php echo $type . $NSqstr?>&amp;str=1" target="_blank" id="member_add" class="btn btn_04">EXCEL</a>
+		<a href="./srvy_excel_down.php?type=<?php echo $type . $NSqstr?>&amp;str=2" target="_blank" id="member_add" class="btn btn_04">EXCEL</a>
 		<?php } ?>
 	</div>
 </div>
