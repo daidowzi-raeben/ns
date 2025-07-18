@@ -1,7 +1,7 @@
 <?php
 include_once('./_common.php');
 
-if($type == "B")
+if($type == "A")
 {
 	$sub_menu = "600610";
 	$g5['title'] = '윤리CP인식도조사관리';
