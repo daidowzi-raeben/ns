@@ -190,7 +190,7 @@ for($i=1; $res=sql_fetch_array($qry); $i++)
 		$ar_data = explode('#', $res['srvd_ex']);
 		$ar_data_sub = explode('#', $res['srvd_sub']);
 		$ar_data_text = explode('#', $res['srvd_text']);
-		if($type == "A") {
+		if($type == "B") {
 			for($j=0; $j<count($data);$j++) 
 		{
 			$worksheet->write($i, 5+$j, $ar_data[$j]);
