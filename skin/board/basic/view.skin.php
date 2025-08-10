@@ -197,15 +197,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
     </div>
     <!-- } 게시물 상단 버튼 끝 -->
 
-    <?php 
-    if($bo_table == 'ns_co') {
-        ?>
-        <div id="contents">
-        <div class="confirm">
-          <a href="javascript:confirmProc()">확인</a><span>페이지 다 읽으신 후 <strong>확인버튼</strong>을 클릭해 주시면 나의 마일리지에 반영됩니다.</span>
-        </div>
-    </div>
-    <?php } ?>
+
     
     <script>
 function confirmProc(val) {
