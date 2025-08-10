@@ -71,7 +71,7 @@ $sql = " select * {$sql_common} {$sql_search} {$sql_order} limit {$from_record},
 #echo $sql;
 $result = sql_query($sql);
 
-$colspan = 14;
+$colspan = 15;
 ?>
 
 <!--<div class="local_ov01 local_ov">
@@ -205,7 +205,7 @@ $colspan = 14;
         }
 		
 		$sum_point = 0;
-		for($i=1; $i<=21; $i++)
+		for($i=1; $i<=22; $i++)
 		{
 			$sum_point += $row['point_' . $i];
 		}
