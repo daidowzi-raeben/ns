@@ -117,7 +117,7 @@ if($bo_table == "notice") {
 				    <?php 
     if($member['mb_id'] == 'admin') {
         ?>
-        <div id="contents" style="height:unset !important;">
+        <div id="contents" style="mi-height:unset !important;">
         <div class="confirm">
           <a href="javascript:confirmProc()">확인</a><span>페이지 다 읽으신 후 <strong>확인버튼</strong>을 클릭해 주시면 나의 마일리지에 반영됩니다.</span>
         </div>
