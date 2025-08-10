@@ -1334,6 +1334,10 @@ function insert_point_ns($mb_id, $point, $content='', $rel_table='', $rel_id='',
 			$mb_col = "point_21";
 			$mp_col = "mp_21";
 			break;
+		case "ns_co":	//CB > 투명한 사회로 가는 길, 청탁금지법_(외부)
+			$mb_col = "point_22";
+			$mp_col = "mp_22";
+			break;
 	}
 
     // 포인트 UPDATE

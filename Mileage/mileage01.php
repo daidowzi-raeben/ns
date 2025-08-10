@@ -231,6 +231,22 @@ include_once ('../_Inc/subHead.php');
                     <td><?php echo $stMile ?></td>
                     <td>수료시 가산</td>
                 </tr>
+
+                <?php 
+	$strVal = get_mileage_date($member['mb_id'], "ns_co", 0); 
+	$stMile = get_mileage($member['mb_id'], "ns_co"); 
+	$stCnt = get_mileage_count($member['mb_id'], "ns_co"); 
+	$sum_point += $stMile;
+?>
+                <tr>
+                    <td>윤리톡톡</td>
+                    <td>1</td>
+                    <td>제한없음</td>
+                    <td><?php echo $stCnt ?></td>
+                    <td><?php echo $strVal? substr($strVal, 0, 10) : "";?></td>
+                    <td><?php echo $stMile ?></td>
+                    <td>시행시 가산<br />(24시간 이후<br />마일리지 축적)</td>
+                </tr>
                 <?php 
 	$strVal = get_mileage_date($member['mb_id'], "guide03", 0); 
 	$stMile = get_mileage($member['mb_id'], "guide03"); 
