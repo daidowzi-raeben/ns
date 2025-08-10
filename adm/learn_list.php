@@ -140,6 +140,7 @@ $colspan = 14;
 		<th scope="col" id="mb_list_name">대규모유통법가이드라인</th>
 		<th scope="col" id="mb_list_name">CP교육만족도조사</th>
 		<th scope="col" id="mb_list_name">윤리CP인식도조사</th>
+		<th scope="col" id="mb_list_name">윤리톡톡</th>
 	</tr>
     </thead>
     <tbody>
@@ -215,6 +216,7 @@ $colspan = 14;
 		$sum_point -= $row['point_18'];
 		$sum_point -= $row['point_20'];
 		$sum_point -= $row['point_21'];
+		$sum_point -= $row['point_22'];
     ?>
 
     <tr class="<?php echo $bg; ?>">
@@ -245,6 +247,7 @@ $colspan = 14;
 		<td headers="mb_list_"><?php echo get_text($row['point_19']); ?></td>
 		<td headers="mb_list_"><?php echo get_text($row['point_13']); ?></td>
 		<td headers="mb_list_"><?php echo get_text($row['point_14']); ?></td>
+		<td headers="mb_list_"><?php echo get_text($row['point_22']); ?></td>
 		<td headers="mb_list_"><?php echo get_text($sum_point); ?></td>
 		<!--<td headers="mb_list_">0</td>-->
     </tr>
