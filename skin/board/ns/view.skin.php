@@ -114,6 +114,17 @@ if($bo_table == "notice") {
 				  </tbody>
 			</table>
 			<div class="ssgap"></div>
+			<div>
+				    <?php 
+    if($member['mb_id'] == 'admin') {
+        ?>
+        <div id="contents">
+        <div class="confirm">
+          <a href="javascript:confirmProc()">확인</a><span>페이지 다 읽으신 후 <strong>확인버튼</strong>을 클릭해 주시면 나의 마일리지에 반영됩니다.</span>
+        </div>
+    </div>
+    <?php } ?>
+			</div>
 			<div class="r">
 				<a href="<?php echo $list_href ?>" class="bw-btn"><span>목록</span></a>
 			</div>
@@ -242,3 +253,23 @@ function excute_good(href, $el, $tx)
 }
 </script>
 <!-- } 게시글 읽기 끝 -->
+
+    <script>
+function confirmProc(val) {
+		
+	$.ajax({
+		type: "POST",
+		url: g5_bbs_url+"/ajax.conf_point.php",
+		data : {
+            "conf": "ns_co",
+			"wr_id" : "<?php echo $wr_id?>",
+            "str" : "<?php echo $view['wr_subject']?>"
+        },
+		success: function(data){
+			alert(data);
+			location.reload();
+		},
+		error: function(err){ alert("호출 실패하였습니다.") ;}
+	});
+}
+</script>
