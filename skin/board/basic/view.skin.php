@@ -197,6 +197,37 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
     </div>
     <!-- } 게시물 상단 버튼 끝 -->
 
+    <?php 
+    if($member['mb_id'] == 'admin') {
+        ?>
+        <div id="contents">
+        <div class="confirm">
+          <a href="javascript:confirmProc()">확인</a><span>페이지 다 읽으신 후 <strong>확인버튼</strong>을 클릭해 주시면 나의 마일리지에 반영됩니다.</span>
+        </div>
+    </div>
+    <?php } ?>
+    
+    <script>
+function confirmProc(val) {
+		
+	$.ajax({
+		type: "POST",
+		url: g5_bbs_url+"/ajax.conf_point.php",
+		data : {
+            "conf": "ns_co",
+			"wr_id" : "<?php echo $wr_id?>",
+            "str" : "<?php echo $view['wr_subject']?>"
+        },
+		success: function(data){
+			alert(data);
+			location.reload();
+		},
+		error: function(err){ alert("호출 실패하였습니다.") ;}
+	});
+}
+</script>
+
+
     <?php
     // 코멘트 입출력
     include_once(G5_BBS_PATH.'/view_comment.php');

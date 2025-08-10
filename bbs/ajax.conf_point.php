@@ -6,6 +6,18 @@ if (!$is_member) die("로그인이 필요합니다");
 $conf = $_REQUEST['conf'];
 $num = $_REQUEST['num'];
 
+$wr_id = "";
+$str = "";
+
+if(isset($_REQUEST['wr_id'])) {
+	$wr_id = $_REQUEST['wr_id'];
+	$num = $wr_id;
+}
+
+if(isset($_REQUEST['str'])) {
+	$str = $_REQUEST['str'];
+}
+
 switch($conf)
 {
 	case "ceo":
@@ -62,6 +74,10 @@ switch($conf)
 	case "srvy02":
 		$strVal = "윤리CP인식도 조사 완료";
 		$point = "10";
+		break;
+	case "ns_co":
+		$strVal = $str;
+		$point = "1";
 		break;
 }
 
