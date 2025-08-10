@@ -198,7 +198,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
     <!-- } 게시물 상단 버튼 끝 -->
 
     <?php 
-    if($member['bo_table'] == 'ns_co') {
+    if($bo_table == 'ns_co') {
         ?>
         <div id="contents">
         <div class="confirm">
