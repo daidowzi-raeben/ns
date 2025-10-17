@@ -265,6 +265,22 @@ $result = sql_query($sql);
                         if($member['mb_id'] == 'admin') {
                             $tempSday = "2025-06-01 09:00";
                         }
+                        if($member['mb_id'] == 'ns001') {
+                            $tempSday = "2025-06-01 09:00";
+                        }
+                        if($member['mb_id'] == 'ns002') {
+                            $tempSday = "2025-06-01 09:00";
+                        }
+                        if($member['mb_id'] == 'ns003') {
+                            $tempSday = "2025-06-01 09:00";
+                        }
+                        if($member['mb_id'] == 'ns004') {
+                            $tempSday = "2025-06-01 09:00";
+                        }
+                        if($member['mb_id'] == 'ns005') {
+                            $tempSday = "2025-06-01 09:00";
+                        }
+
                         if(!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday."+1 day")))
                         {
                     ?>
