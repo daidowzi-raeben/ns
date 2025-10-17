@@ -90,6 +90,15 @@ if( !get_lessonApply2($member['mb_id'], 32) ) {
 }
 
 
+if( !get_lessonApply2($member['mb_id'], 34) ) {
+	$sql = "insert into {$g5['less_apply_table']} set
+			app_lssn_no = '34',
+			app_uid = '{$member['mb_id']}',
+			app_rdate = now()";
+	sql_query($sql);
+}
+
+
 
 if (!$sst) {
     $sst = "ls.lssn_rdate";
@@ -139,9 +148,9 @@ $result = sql_query($sql);
     <div class="vistxt" data-aos="fade-up" data-aos-duration="1000">
         <p class="btxt"><span>윤리교육</span></p>
         <div class="content-top--right">
-          <span><img src="../_Img/Icon/home.png" width="25" height="24"></span>
-          <span>교육/컨텐츠</span>
-          <span>윤리교육</span>
+            <span><img src="../_Img/Icon/home.png" width="25" height="24"></span>
+            <span>교육/컨텐츠</span>
+            <span>윤리교육</span>
         </div>
     </div>
     <div class="visimg vis04"></div>
@@ -226,8 +235,62 @@ $result = sql_query($sql);
         </div>
 
 
-        
-          <div class="edu-course">
+
+        <div class="edu-course">
+            <div class="img-wrap">
+                <img src="../_Img/Sub/edu/cyber_img31.png">
+            </div>
+            <div class="txt-wrap">
+                <div class="tit">미래를 준비하는 당신의 윤리적 경쟁력</div>
+                <div class="row">
+                    <div class="col">
+                        <label>수료조건</label><span>학습 100% 진행</span>
+                    </div>
+                    <div class="col">
+                        <label>마일리지</label><span>없음</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label>학습기간</label><span>2025.10.27(월) ~ 2025.10.31(금)</span>
+                    </div>
+                    <div class="col">
+                        <label>학습시간</label><span>90분</span>
+                    </div>
+                </div>
+                <div class="play">
+                    <?php
+                        $tempSday = "2025-10-27 09:00";
+                        $tempEday = "2025-10-31 18:00";
+                        if($member['mb_id'] == 'admin') {
+                            $tempSday = "2025-06-01 09:00";
+                        }
+                        if(!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday."+1 day")))
+                        {
+                    ?>
+                    <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
+                    <?php
+                            }
+                            else
+                            {
+                    ?>
+                    <a href="/Edu/class21.php?ls=34" class="class-enter"
+                        style="<?php if (	$result_m2['app_study_rate'] == 100) { echo "background: #5a5ae7;"; }?>"><span>
+                            <?php if (	$result_m2['app_study_rate'] == 100) {
+                                echo '학습완료';
+                            } else  {
+                                echo '학습하기';
+                            }
+                            ?>
+                        </span></a>
+                    <?php
+                            }
+                    ?>
+                </div>
+            </div>
+        </div>
+
+        <div class="edu-course">
             <div class="img-wrap">
                 <img src="../_Img/Sub/edu/cyber_img30.png">
             </div>
@@ -276,59 +339,59 @@ $result = sql_query($sql);
                     ?>
                 </div>
             </div>
-        </div> 
+        </div>
 
 
         <div class="edu-course--wrap">
             <div class="edu-course">
-            <div class="img-wrap">
-                <img src="../_Img/Sub/edu/cyber_img25_2.jpg">
-            </div>
-            <div class="txt-wrap">
-                <div class="tit">[2024 하반기 전사 윤리경영 교육] 성과를 만드는 힘, 직장윤리!</div>
-                <div class="row">
-                    <div class="col">
-                        <label>수료조건</label><span>학습 100% 진행</span>
-                    </div>
-                    <div class="col">
-                        <label>마일리지</label><span>없음</span>
-                    </div>
+                <div class="img-wrap">
+                    <img src="../_Img/Sub/edu/cyber_img25_2.jpg">
                 </div>
-                <div class="row">
-                    <div class="col">
-                        <label>학습기간</label><span>2024.11.20(수) ~ 2024.11.30(토)</span>
+                <div class="txt-wrap">
+                    <div class="tit">[2024 하반기 전사 윤리경영 교육] 성과를 만드는 힘, 직장윤리!</div>
+                    <div class="row">
+                        <div class="col">
+                            <label>수료조건</label><span>학습 100% 진행</span>
+                        </div>
+                        <div class="col">
+                            <label>마일리지</label><span>없음</span>
+                        </div>
                     </div>
-                    <div class="col">
-                        <label>학습시간</label><span>90분</span>
+                    <div class="row">
+                        <div class="col">
+                            <label>학습기간</label><span>2024.11.20(수) ~ 2024.11.30(토)</span>
+                        </div>
+                        <div class="col">
+                            <label>학습시간</label><span>90분</span>
+                        </div>
                     </div>
-                </div>
-                <div class="play">
-                    <?php
+                    <div class="play">
+                        <?php
                         $tempSday = "2024-11-19 09:00";
                         $tempEday = "2024-11-30 18:00";
                         if(!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday."+1 day")))
                         {
                     ?>
-                    <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
-                    <?php
+                        <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
+                        <?php
                             }
                             else
                             {
                     ?>
-                    <a href="/Edu/class20.php?ls=32" class="class-enter"
-                        style="<?php if (	$result_m2['app_study_rate'] == 100) { echo "background: #5a5ae7;"; }?>"><span>
-                            <?php if (	$result_m2['app_study_rate'] == 100) {
+                        <a href="/Edu/class20.php?ls=32" class="class-enter"
+                            style="<?php if (	$result_m2['app_study_rate'] == 100) { echo "background: #5a5ae7;"; }?>"><span>
+                                <?php if (	$result_m2['app_study_rate'] == 100) {
                                 echo '학습완료';
                             } else  {
                                 echo '학습하기';
                             }
                             ?>
-                        </span></a>
-                    <?php
+                            </span></a>
+                        <?php
                             }
                     ?>
+                    </div>
                 </div>
-            </div>
             </div>
         </div>
 
@@ -362,7 +425,8 @@ $result = sql_query($sql);
                     </div>
                     <div class="row">
                         <div class="col">
-                            <label>학습기간</label><span><?php echo $row['lssn_sdate']?> ~ <?php echo $row['lssn_edate']?></span>
+                            <label>학습기간</label><span><?php echo $row['lssn_sdate']?> ~
+                                <?php echo $row['lssn_edate']?></span>
                         </div>
                         <div class="col">
                             <label>학습시간</label><span><?php echo $row['lssn_time']?></span>
@@ -375,18 +439,18 @@ $result = sql_query($sql);
                             if(!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday."+1 day")))
                             {
                         ?>
-                            <a href="#n" class="day-end"><span>학습기간이 아닙니다.</span></a>
-                            <?php
+                        <a href="#n" class="day-end"><span>학습기간이 아닙니다.</span></a>
+                        <?php
                             } else {
                         ?>
-                            <?php 
+                        <?php 
                         if($y > 11) {
                         ?>
-                            <a href="#n" class="day-end"><span>학습완료</span></a>
-                            <?php } else {?>
-                            <a href="#" id="classEnter" class="class-enter"><span class="enterClass3"
-                                    lno="<?php echo $row['lssn_no']?>">학습하기</span></a>
-                            <?php
+                        <a href="#n" class="day-end"><span>학습완료</span></a>
+                        <?php } else {?>
+                        <a href="#" id="classEnter" class="class-enter"><span class="enterClass3"
+                                lno="<?php echo $row['lssn_no']?>">학습하기</span></a>
+                        <?php
                             }}
                         ?>
                     </div>
@@ -436,7 +500,7 @@ $result = sql_query($sql);
 			?> -->
         </div>
 
-       
+
 
         <div class="edu-course">
             <div class="img-wrap">

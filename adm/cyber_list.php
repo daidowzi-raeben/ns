@@ -29,7 +29,7 @@ if (!$sst) {
 
 //사이버 교육 과목 분류에 따른 설정
 if (!$app_lssn_no) {
-	$app_lssn_no = "32";
+	$app_lssn_no = "34";
 }
 
 if($app_lssn_no == "1" || $app_lssn_no == "3")
@@ -56,8 +56,10 @@ else if($app_lssn_no == "16")
 	$strLesson = "미디어팀교육";
 else if($app_lssn_no == "17")
 	$strLesson = "청탁금지법 교육(하반기)";
-else if($app_lssn_no == "32")
-	$strLesson = "윤리경영 교육] 성과를 만드는 힘, 직장윤리!";
+else if($app_lssn_no == "34")
+	$strLesson = "미래를 준비하는 당신의 윤리적 경쟁력";
+else if($app_lssn_no == "33")
+	$strLesson = "[2025] 직장인의 소통 지혜! 비지니스 윤리";
 $sql_order = " order by {$sst} {$sod} ";
 
 $sql = " select count(*) as cnt {$sql_common} {$sql_search} {$sql_order} ";
@@ -95,105 +97,114 @@ $colspan = 16;
     <!--<p>
         회원자료 삭제 시 다른 회원이 기존 회원아이디를 사용하지 못하도록 회원아이디, 이름, 닉네임은 삭제하지 않고 영구 보관합니다.
     </p>-->
-	<form id="fsearch" name="fsearch" class="local_sch01 local_sch" method="get">
-	<table>
-    <caption><?php echo $g5['title']; ?> 검색</caption>
-    <colgroup>
-        <col class="grid_4">
-        <col>
-        <col class="grid_4">
-        <col>
-    </colgroup>
-    <tbody>
-    <tr>
-        <th scope="row"><label for="mb_year">년도</label></th>
-        <td>
-            <?php echo get_blYear_select("bl_year") ?>
-        </td>
-        <th scope="row"><label for="">분류</label></th>
-        <td>
-			<select name="app_lssn_no" class="mb_form">
-				<?=option_selected("11", $app_lssn_no, "준법교육(상반기1)");?>
-				<?=option_selected("13", $app_lssn_no, "준법교육(상반기2)");?>
-				<?=option_selected("2", $app_lssn_no, "유통법이해(상반기)");?>
-				<?=option_selected("3", $app_lssn_no, "준법교육(하반기)");?>
-				<?=option_selected("4", $app_lssn_no, "유통법이해(하반기)");?>
-				<?=option_selected("5", $app_lssn_no, "NS준법교육(하반기)");?>
-				<?=option_selected("6", $app_lssn_no, "윤리경영 및 청탁금지법(하반기)");?>
-				<?=option_selected("7", $app_lssn_no, "전자상거래법(하반기)");?>
-				<?=option_selected("14", $app_lssn_no, "내부회계관리제도");?>
-				<?#=option_selected("15", $app_lssn_no, "지식재산권(하반기)");?>
-				<?=option_selected("16", $app_lssn_no, "미디어팀교육");?>
-				<?=option_selected("17", $app_lssn_no, "청탁금지법 교육(하반기)");?>
-				<?=option_selected("32", $app_lssn_no, "윤리경영 사이버교육(하반기)");?>
-			</select>
-		</td>
-    </tr>
-	<tr>
-        <th scope="row"><label for="">소속</label></th>
-        <td>
-			<?php echo get_blName_select("bl_name") ?>
-		</td>
-		<th scope="row"><label for="mb_4">부서3</label></th>
-        <td>
-            <input type="text" name="mb_4" id="mb_4" <?php echo $required_mb_password ?> class="frm_input <?php echo $required_mb_password ?>" size="15" maxlength="20" value="<?php echo $mb_4; ?>" />
-        </td>
-    </tr>
-	<tr>
-        <th scope="row"><label for="mb_id">사번</label></th>
-        <td>
-			<input type="text" name="mb_id" id="mb_id" value="<?php echo $mb_id ?>" <?php echo $required_mb_password ?> class="frm_input <?php echo $required_mb_password ?>" size="15" maxlength="20" />
-		</td>
-		<th scope="row"><label for="mb_name">이름</label></th>
-        <td>
-            <input type="text" name="mb_name" id="mb_name" value="<?php echo $mb_name ?>" <?php echo $required_mb_password ?> class="frm_input <?php echo $required_mb_password ?>" size="15" maxlength="20" />
-        </td>
-    </tr>
-	</tbody>
-	</table>
-	<br/>
-	<input type="submit" name="act_button" value="검색" class="btn btn_02">
-	</form>
+    <form id="fsearch" name="fsearch" class="local_sch01 local_sch" method="get">
+        <table>
+            <caption><?php echo $g5['title']; ?> 검색</caption>
+            <colgroup>
+                <col class="grid_4">
+                <col>
+                <col class="grid_4">
+                <col>
+            </colgroup>
+            <tbody>
+                <tr>
+                    <th scope="row"><label for="mb_year">년도</label></th>
+                    <td>
+                        <?php echo get_blYear_select("bl_year") ?>
+                    </td>
+                    <th scope="row"><label for="">분류</label></th>
+                    <td>
+                        <select name="app_lssn_no" class="mb_form">
+                            <?=option_selected("11", $app_lssn_no, "준법교육(상반기1)");?>
+                            <?=option_selected("13", $app_lssn_no, "준법교육(상반기2)");?>
+                            <?=option_selected("2", $app_lssn_no, "유통법이해(상반기)");?>
+                            <?=option_selected("3", $app_lssn_no, "준법교육(하반기)");?>
+                            <?=option_selected("4", $app_lssn_no, "유통법이해(하반기)");?>
+                            <?=option_selected("5", $app_lssn_no, "NS준법교육(하반기)");?>
+                            <?=option_selected("6", $app_lssn_no, "윤리경영 및 청탁금지법(하반기)");?>
+                            <?=option_selected("7", $app_lssn_no, "전자상거래법(하반기)");?>
+                            <?=option_selected("14", $app_lssn_no, "내부회계관리제도");?>
+                            <?#=option_selected("15", $app_lssn_no, "지식재산권(하반기)");?>
+                            <?=option_selected("16", $app_lssn_no, "미디어팀교육");?>
+                            <?=option_selected("17", $app_lssn_no, "청탁금지법 교육(하반기)");?>
+                            <?=option_selected("33", $app_lssn_no, "윤리경영 사이버교육(상반기)");?>
+                            <?=option_selected("34", $app_lssn_no, "윤리경영 사이버교육(하반기)");?>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row"><label for="">소속</label></th>
+                    <td>
+                        <?php echo get_blName_select("bl_name") ?>
+                    </td>
+                    <th scope="row"><label for="mb_4">부서3</label></th>
+                    <td>
+                        <input type="text" name="mb_4" id="mb_4" <?php echo $required_mb_password ?>
+                            class="frm_input <?php echo $required_mb_password ?>" size="15" maxlength="20"
+                            value="<?php echo $mb_4; ?>" />
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row"><label for="mb_id">사번</label></th>
+                    <td>
+                        <input type="text" name="mb_id" id="mb_id" value="<?php echo $mb_id ?>"
+                            <?php echo $required_mb_password ?> class="frm_input <?php echo $required_mb_password ?>"
+                            size="15" maxlength="20" />
+                    </td>
+                    <th scope="row"><label for="mb_name">이름</label></th>
+                    <td>
+                        <input type="text" name="mb_name" id="mb_name" value="<?php echo $mb_name ?>"
+                            <?php echo $required_mb_password ?> class="frm_input <?php echo $required_mb_password ?>"
+                            size="15" maxlength="20" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br />
+        <input type="submit" name="act_button" value="검색" class="btn btn_02">
+    </form>
 </div>
 
-<form name="fmemberlist" id="fmemberlist" action="./member_list_update.php" onsubmit="return fmemberlist_submit(this);" method="post">
-<input type="hidden" name="sst" value="<?php echo $sst ?>">
-<input type="hidden" name="sod" value="<?php echo $sod ?>">
-<input type="hidden" name="sfl" value="<?php echo $sfl ?>">
-<input type="hidden" name="stx" value="<?php echo $stx ?>">
-<input type="hidden" name="page" value="<?php echo $page ?>">
-<input type="hidden" name="token" value="">
+<form name="fmemberlist" id="fmemberlist" action="./member_list_update.php" onsubmit="return fmemberlist_submit(this);"
+    method="post">
+    <input type="hidden" name="sst" value="<?php echo $sst ?>">
+    <input type="hidden" name="sod" value="<?php echo $sod ?>">
+    <input type="hidden" name="sfl" value="<?php echo $sfl ?>">
+    <input type="hidden" name="stx" value="<?php echo $stx ?>">
+    <input type="hidden" name="page" value="<?php echo $page ?>">
+    <input type="hidden" name="token" value="">
 
-<div class="local_ov02">
-	<div class="l_div">
-		
-	</div>
-	<div class="r_div">
-		<?php if ($is_admin == 'super' || $is_admin == 'manager') { ?>
-		<a href="./cyber_excel_down.php?lssn=<?php echo $app_lssn_no?>&amp;sfl=<?php echo $sfl ?>&amp;str=1" target="_blank" id="member_add" class="btn btn_04">EXCEL</a>
-		<?php } ?>
-	</div>
-</div>
+    <div class="local_ov02">
+        <div class="l_div">
 
-<div class="tbl_head01 tbl_wrap">
-    <table>
-    <caption><?php echo $g5['title']; ?> 목록</caption>
-    <thead>
-    <tr>
-        <th scope="col" id="mb_list_no">No</th>
-		<th scope="col" id="mb_list_id">과정명</th>
-		<th scope="col" id="mb_list_id">이름</th>
-		<th scope="col" id="mb_list_id">아이디</th>
-		<th scope="col" id="mb_list_id">부서명</th>
-		<th scope="col" id="mb_list_name">학습 시작일</th>
-		<th scope="col" id="mb_list_id">학습 종료일</th>
-		<th scope="col" id="mb_list_id">학습 진도율</th>
-		<th scope="col" id="mb_list_id">시험점수</th>
-		<th scope="col" id="mb_list_id">수료여부</th>
-    </tr>
-    </thead>
-    <tbody>
-    <?php
+        </div>
+        <div class="r_div">
+            <?php if ($is_admin == 'super' || $is_admin == 'manager') { ?>
+            <a href="./cyber_excel_down.php?lssn=<?php echo $app_lssn_no?>&amp;sfl=<?php echo $sfl ?>&amp;str=1"
+                target="_blank" id="member_add" class="btn btn_04">EXCEL</a>
+            <?php } ?>
+        </div>
+    </div>
+
+    <div class="tbl_head01 tbl_wrap">
+        <table>
+            <caption><?php echo $g5['title']; ?> 목록</caption>
+            <thead>
+                <tr>
+                    <th scope="col" id="mb_list_no">No</th>
+                    <th scope="col" id="mb_list_id">과정명</th>
+                    <th scope="col" id="mb_list_id">이름</th>
+                    <th scope="col" id="mb_list_id">아이디</th>
+                    <th scope="col" id="mb_list_id">부서명</th>
+                    <th scope="col" id="mb_list_name">학습 시작일</th>
+                    <th scope="col" id="mb_list_id">학습 종료일</th>
+                    <th scope="col" id="mb_list_id">학습 진도율</th>
+                    <th scope="col" id="mb_list_id">시험점수</th>
+                    <th scope="col" id="mb_list_id">수료여부</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
     for ($i=0; $row=sql_fetch_array($result); $i++) {
         $mb_id = $row['mb_id'];
 		$mb_name = $row['mb_name'];
@@ -250,44 +261,43 @@ $colspan = 16;
 		
     ?>
 
-    <tr class="<?php echo $bg; ?>">
-		<td headers="cb_list"><?php echo $startNum ?></td>
-		<td headers="cb_list"><?php echo $strLesson ?></td>
-		<td headers="cb_list_name" class="td_name2">
-            <?php echo $mb_name ?>
-        </td>  
-		<td headers="cb_list_"><?php echo $mb_id ?></td>
-		<td headers="cb_list_"><?php echo get_text($row['mb_4']); ?></td>
-		<td headers="cb_list_"><?php echo $row2['app_rdate'] ?></td>
-		<td headers="cb_list_"><?php echo $row2['app_edate'] ?></td>
-		<td headers="cb_list_"><?php echo $aRate ?></td>
-		<td headers="cb_list_"><?php echo $testScore ?></td>
-		<td headers="cb_list_"><?php echo $strEval ?></td>
-    </tr>
-    <?php
+                <tr class="<?php echo $bg; ?>">
+                    <td headers="cb_list"><?php echo $startNum ?></td>
+                    <td headers="cb_list"><?php echo $strLesson ?></td>
+                    <td headers="cb_list_name" class="td_name2">
+                        <?php echo $mb_name ?>
+                    </td>
+                    <td headers="cb_list_"><?php echo $mb_id ?></td>
+                    <td headers="cb_list_"><?php echo get_text($row['mb_4']); ?></td>
+                    <td headers="cb_list_"><?php echo $row2['app_rdate'] ?></td>
+                    <td headers="cb_list_"><?php echo $row2['app_edate'] ?></td>
+                    <td headers="cb_list_"><?php echo $aRate ?></td>
+                    <td headers="cb_list_"><?php echo $testScore ?></td>
+                    <td headers="cb_list_"><?php echo $strEval ?></td>
+                </tr>
+                <?php
 		$startNum++;
     }
     if ($i == 0)
         echo "<tr><td colspan=\"".$colspan."\" class=\"empty_table\">자료가 없습니다.</td></tr>";
     ?>
-    </tbody>
-    </table>
-</div>
+            </tbody>
+        </table>
+    </div>
 
 </form>
 
 <?php echo get_paging(G5_IS_MOBILE ? $config['cf_mobile_pages'] : $config['cf_write_pages'], $page, $total_page, '?'.$qstr.'&amp;app_lssn_no='.$app_lssn_no.'&amp;page='); ?>
 
 <script>
-function fmemberlist_submit(f)
-{
+function fmemberlist_submit(f) {
     if (!is_checked("chk[]")) {
-        alert(document.pressed+" 하실 항목을 하나 이상 선택하세요.");
+        alert(document.pressed + " 하실 항목을 하나 이상 선택하세요.");
         return false;
     }
 
-    if(document.pressed == "선택삭제") {
-        if(!confirm("선택한 자료를 정말 삭제하시겠습니까?")) {
+    if (document.pressed == "선택삭제") {
+        if (!confirm("선택한 자료를 정말 삭제하시겠습니까?")) {
             return false;
         }
     }
@@ -296,13 +306,13 @@ function fmemberlist_submit(f)
 }
 
 // 회원 엑셀 다운로드 추가
-function excel_down(f){ 
+function excel_down(f) {
 
-	f.action = "./learnexcel_down.php?str=1";
+    f.action = "./learnexcel_down.php?str=1";
 
-	f.submit();
+    f.submit();
 
-	f.action = "";
+    f.action = "";
 
 }
 </script>

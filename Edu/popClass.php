@@ -44,6 +44,8 @@ else if($l_no == 32)
 	$foldName = "20";
 else if($l_no == 33)
 	$foldName = "21";
+else if($l_no == 34)
+	$foldName = "22";
 else if($l_no != 6)
 	$foldName = "cyber";
 else
@@ -95,6 +97,8 @@ if($l_no == 10 || $l_no == 14)
 	$page_url = G5_URL . "/process/{$foldName}/{$CONTENTS['c_url']}/" . sprintf("%02d",$open_page) . ".html";
 else if($l_no == 19)
 	$page_url = G5_URL . "/process/{$foldName}/{$CONTENTS['c_url']}/{$CONTENTS['c_url']}_" . sprintf("%02d",$open_page) . ".html";
+else if($l_no == 34)
+	$page_url = G5_URL . "/process/{$foldName}/{$CONTENTS['c_url']}/{$CONTENTS['c_url']}_" . sprintf("%02d",$open_page) . ".html";
 else if($l_no == 32)
 	$page_url = G5_URL . "/process/{$foldName}/{$CONTENTS['c_url']}/" . sprintf("%03d",$open_page) . ".htm";
 	// $page_url = "http://nas.sonhojun.com:11000/2024/sejong/02/003.htm";
@@ -125,91 +129,103 @@ if( $LESSON['lssn_controlbar'] == "Y" ) {
 ?>
 <!doctype html>
 <html lang="ko">
+
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="content-type" content="text/html;charset=utf-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title><?php echo $config['cf_title']; ?></title>
-<link type="text/css" rel="stylesheet" media="all" href=" ../_Css/common.css" />
-<link type="text/css" rel="stylesheet" media="all" href=" ../_Css/styleDefault.css" />
-<link type="text/css" rel="stylesheet" media="all" href=" ../_Css/content.css" />
-<script  type="text/javascript" src="../_Js/jquery/jquery-1.11.3.min.js"></script>
-<script  type="text/javascript" src="../_Js/jquery/jquery.easing.1.3.js"></script>
-<script>
-	var urls = 'pop02.php'
+    <meta charset="UTF-8">
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title><?php echo $config['cf_title']; ?></title>
+    <link type="text/css" rel="stylesheet" media="all" href=" ../_Css/common.css" />
+    <link type="text/css" rel="stylesheet" media="all" href=" ../_Css/styleDefault.css" />
+    <link type="text/css" rel="stylesheet" media="all" href=" ../_Css/content.css" />
+    <script type="text/javascript" src="../_Js/jquery/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="../_Js/jquery/jquery.easing.1.3.js"></script>
+    <script>
+    var urls = 'pop02.php'
     var width = 1080;
     var height = 625;
     var tops = (window.screen.height - height) / 2;
     var lefts = (window.screen.width - width) / 2;
 
     var strFeature;
-    strFeature = 'height=' + height + ',width=' + width + ',menubar=no,toolbar=no,location=no,resizable=no,status=no,scrollbars=no,top=' + tops + ', left=' + lefts
-	
-	$(function() {
-		$('.class-regist').click(function(){
-			self.close();
-		});						
-	});
-	
-	function endProc()
-	{
-		location.reload();
-	}
-</script>
-<script src="/js/contents.js?v2212" type="text/javascript"></script>
-<script type="text/javascript">
-		$(function(){
-			$(".con03 dt").click(function(){
-				$(".con03 dt").show();
-				$(".con03 dd").slideUp();
-				$(this).hide();
-				$(this).next("dd").slideDown();
-			});
-		});
-		
-		controlbar_enable = "<?=$controlbar_enable?>";
-</script>
-	<script type="text/javascript">
-			var pp = 0;
-        var control_enable = '';
-			setClass( <?php echo $LESSON['lssn_no']?>, <?php echo $CHAPTER['cpt_no']?>, <?php echo $CONTENTS['c_no']?> );
-			setClassUrl("<?=$page_url?>");
-					function isPage(v) {
-				const n = document.getElementById('pop-dim');
-					n.style="display:block";
-					setTimeout(() => {
-		n.style="display:none";
-	}, 3000);
-			check_contents_wbt(<?php echo $open_page?> + pp)
-			pp++;
+    strFeature = 'height=' + height + ',width=' + width +
+        ',menubar=no,toolbar=no,location=no,resizable=no,status=no,scrollbars=no,top=' + tops + ', left=' + lefts
 
-			console.log(v.src, <?php echo $open_page?>)
-if(v?.src) {
-let a = v.src
-	a= Number(a.split('.')[a.split('.').length -2].split('/')[a.split('.')[a.split('.').length -2].split('/').length-1])
-	
-		}
+    $(function() {
+        $('.class-regist').click(function() {
+            self.close();
+        });
+    });
 
-		}
-		</script>
+    function endProc() {
+        location.reload();
+    }
+    </script>
+    <script src="/js/contents.js?v2212" type="text/javascript"></script>
+    <script type="text/javascript">
+    $(function() {
+        $(".con03 dt").click(function() {
+            $(".con03 dt").show();
+            $(".con03 dd").slideUp();
+            $(this).hide();
+            $(this).next("dd").slideDown();
+        });
+    });
+
+    controlbar_enable = "<?=$controlbar_enable?>";
+    </script>
+    <script type="text/javascript">
+    var pp = 0;
+    var control_enable = '';
+    setClass(<?php echo $LESSON['lssn_no']?>, <?php echo $CHAPTER['cpt_no']?>, <?php echo $CONTENTS['c_no']?>);
+    setClassUrl("<?=$page_url?>");
+
+    function isPage(v) {
+        const n = document.getElementById('pop-dim');
+        n.style = "display:block";
+        setTimeout(() => {
+            n.style = "display:none";
+        }, 3000);
+        check_contents_wbt(<?php echo $open_page?> + pp)
+        pp++;
+
+        console.log(v.src, <?php echo $open_page?>)
+        if (v?.src) {
+            let a = v.src
+            a = Number(a.split('.')[a.split('.').length - 2].split('/')[a.split('.')[a.split('.').length - 2].split('/')
+                .length - 1])
+
+        }
+
+    }
+    </script>
 </head>
+
 <body id="pop">
-<style>
-#pop-dim {position:fixed;width:100%;height:100%;top:0;left:0;z-index:999;}
-</style>
-<div id="pop-dim" style="display:none"></div>
-	<div style="width:100%;height:100%;position:absolute;left:0;top:0;">
-	
-		<iframe src="" name="frm" id="frm" style="width:100%;height:100%;border:0px;" onLoad="isPage(this)"></iframe>
-	
-		<?php
+    <style>
+    #pop-dim {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 999;
+    }
+    </style>
+    <div id="pop-dim" style="display:none"></div>
+    <div style="width:100%;height:100%;position:absolute;left:0;top:0;">
+
+        <iframe src="" name="frm" id="frm" style="width:100%;height:100%;border:0px;" onLoad="isPage(this)"></iframe>
+
+        <?php
 		if( $open_page >= 2 ) {
 		?>
-		<script type="text/javascript">	 
-		//index_move(<?=$open_page?>);
-		</script>
-		<?php
+        <script type="text/javascript">
+        //index_move(<?=$open_page?>);
+        </script>
+        <?php
 		}?>
-	</div>
+    </div>
 </body>
+
 </html>
