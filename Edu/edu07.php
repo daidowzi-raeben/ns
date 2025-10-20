@@ -265,19 +265,19 @@ $result = sql_query($sql);
                         if($member['mb_id'] == 'admin') {
                             $tempSday = "2025-06-01 09:00";
                         }
-                        if($member['mb_id'] == 'ns001') {
+                        if($member['mb_id'] == 'sj001') {
                             $tempSday = "2025-06-01 09:00";
                         }
-                        if($member['mb_id'] == 'ns002') {
+                        if($member['mb_id'] == 'sj002') {
                             $tempSday = "2025-06-01 09:00";
                         }
-                        if($member['mb_id'] == 'ns003') {
+                        if($member['mb_id'] == 'sj003') {
                             $tempSday = "2025-06-01 09:00";
                         }
-                        if($member['mb_id'] == 'ns004') {
+                        if($member['mb_id'] == 'sj004') {
                             $tempSday = "2025-06-01 09:00";
                         }
-                        if($member['mb_id'] == 'ns005') {
+                        if($member['mb_id'] == 'sj005') {
                             $tempSday = "2025-06-01 09:00";
                         }
 
