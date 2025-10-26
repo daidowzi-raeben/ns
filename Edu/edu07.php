@@ -263,7 +263,7 @@ $result = sql_query($sql);
                 </div>
                 <div class="play">
                     <?php
-                        $tempSday = "2025-10-27 09:00";
+                        $tempSday = "2025-10-27 06:00";
                         $tempEday = "2025-10-31 18:00";
                         if($member['mb_id'] == 'admin') {
                             $tempSday = "2025-06-01 09:00";
