@@ -25,7 +25,7 @@ auth_check($auth[$sub_menu], 'r');
 
 $sql_common = " from {$g5['member_table']} as m ";
 $sql_common .= " left join {$g5['survey_data_table']} as sd ";
-$sql_common .= " on m.mb_id = sd.srvd_uid and sd.srvy_type = 'A' and sd.srvy_year='$bl_year' and sd.srvy_semi = '$bl_cate' ";
+$sql_common .= " on m.mb_id = sd.srvd_uid and sd.srvy_type = '{$type}' and sd.srvy_year='$bl_year' and sd.srvy_semi = '$bl_cate' ";
 
 $sql_search = " where (1) and m.mb_level = '1' ";
 
@@ -53,6 +53,7 @@ $row = sql_fetch($sql);
 $total_count = $row['cnt'];
 
 $rows = $config['cf_page_rows'];
+#$rows = 999999;
 $total_page  = ceil($total_count / $rows);  // 전체 페이지 계산
 if ($page < 1) $page = 1; // 페이지가 없으면 첫 페이지 (1 페이지)
 $from_record = ($page - 1) * $rows; // 시작 열을 구함
@@ -66,6 +67,8 @@ $listall = '<a href="'.$_SERVER['SCRIPT_NAME'].'" class="ov_listall">전체목�
 include_once('./admin.head.php');
 
 $sql = " select * {$sql_common} {$sql_search} {$sql_order} limit {$from_record}, {$rows} ";
+
+#echo $sql;
 $result = sql_query($sql);
 
 $colspan = 16;
@@ -83,41 +86,42 @@ $colspan = 16;
 </div>
 
 <div class="local_ov02">
-	<div class="l_div">
-		<a href="srvy_result.php?type=<?php echo $type . $NSqstr?>" class="btn btn_02"><?php echo $btnTitle ?> 진도관리</a>
-		<a href="#" class="btn btn_03"><?php echo $btnTitle ?> 설문데이터</a>
-	</div>
-	<div class="r_div">
-		<?php if ($is_admin == 'super' || $is_admin == 'manager') { ?>
-		<a href="./srvy_excel_down.php?type=<?php echo $type . $NSqstr?>&amp;str=2" target="_blank" id="member_add" class="btn btn_04">EXCEL</a>
-		<?php } ?>
-	</div>
+    <div class="l_div">
+        <a href="srvy_result.php?type=<?php echo $type . $NSqstr?>" class="btn btn_02"><?php echo $btnTitle ?> 진도관리</a>
+        <a href="#" class="btn btn_03"><?php echo $btnTitle ?> 설문데이터</a>
+    </div>
+    <div class="r_div">
+        <?php if ($is_admin == 'super' || $is_admin == 'manager') { ?>
+        <a href="./srvy_excel_down.php?type=<?php echo $type . $NSqstr?>&amp;str=2" target="_blank" id="member_add"
+            class="btn btn_04">EXCEL</a>
+        <?php } ?>
+    </div>
 </div>
 
 <div class="tbl_head01 tbl_wrap">
     <table>
-    <caption><?php echo $g5['title']; ?> 목록</caption>
-    <thead>
-    <tr>
-        <th scope="col" id="mb_list_no" rowspan="2">No</th>
-		<th scope="col" id="mb_list_id" rowspan="2">이름</th>
-		<th scope="col" id="mb_list_id" rowspan="2">아이디</th>
-		<th scope="col" id="mb_list_id" rowspan="2">부서명</th>
-		<th scope="col" id="mb_list_id" rowspan="2">설문조사 작성일</th>
-		<th scope="col" id="mb_list_name" colspan="<?php echo $cntQ?>">조사결과</th>
-    </tr>
-	<tr>
-	<?php
+        <caption><?php echo $g5['title']; ?> 목록</caption>
+        <thead>
+            <tr>
+                <th scope="col" id="mb_list_no" rowspan="2">No</th>
+                <th scope="col" id="mb_list_id" rowspan="2">이름</th>
+                <th scope="col" id="mb_list_id" rowspan="2">아이디</th>
+                <th scope="col" id="mb_list_id" rowspan="2">부서명</th>
+                <th scope="col" id="mb_list_id" rowspan="2">설문조사 작성일</th>
+                <th scope="col" id="mb_list_name" colspan="<?php echo $cntQ?>">조사결과</th>
+            </tr>
+            <tr>
+                <?php
 	for($i=1; $i<=$cntQ;$i++) {
 	?>
-		<th scope="col" id="mb_list_name">Q<?php echo $i?></th>
-	<?php
+                <th scope="col" id="mb_list_name">Q<?php echo $i?></th>
+                <?php
 	}
 	?>
-	</tr>
-    </thead>
-    <tbody>
-    <?php
+            </tr>
+        </thead>
+        <tbody>
+            <?php
     for ($i=0; $row=sql_fetch_array($result); $i++) {
         $mb_id = $row['mb_id'];
 		$mb_name = $row['mb_name'];
@@ -127,38 +131,38 @@ $colspan = 16;
 		$ar_data_text = explode('#', $row['srvd_text']);
     ?>
 
-    <tr class="<?php echo $bg; ?>">
-		<td headers="cb_list"><?php echo $startNum ?></td>
-		<td headers="cb_list_name" class="td_name2">
-            <?php echo $mb_name ?>
-        </td>  
-		<td headers="cb_list_"><?php echo $mb_id ?></td>
-		<td headers="cb_list_"><?php echo get_text($row['mb_4']); ?></td>
-		<td headers="cb_list_"><?php echo substr($row['srvd_rdate'], 0, 10) ?></td>
-		<?php
+            <tr class="<?php echo $bg; ?>">
+                <td headers="cb_list"><?php echo $startNum ?></td>
+                <td headers="cb_list_name" class="td_name2">
+                    <?php echo $mb_name ?>
+                </td>
+                <td headers="cb_list_"><?php echo $mb_id ?></td>
+                <td headers="cb_list_"><?php echo get_text($row['mb_3']); ?></td>
+                <td headers="cb_list_"><?php echo substr($row['srvd_rdate'], 0, 10) ?></td>
+                <?php
 		for($i=0; $i<$cntQ;$i++) {
 		?>
-			<td headers="cb_list_"><?php echo $ar_data[$i] ?>
-		<?php if($ar_data_sub[$i] != '_' && $ar_data_text[$i] == '_') {
+                <td headers="cb_list_"><?php echo $ar_data[$i] ?>
+                    <?php if($ar_data_sub[$i] != '_' && $ar_data_text[$i] == '_') {
 			echo "<br>".$ar_data_sub[$i];
 
 		}?>
-		<?php if($ar_data_text[$i] != '_') {
+                    <?php if($ar_data_text[$i] != '_') {
 			echo "<br>".$ar_data_text[$i];
 
 		}?>
-		</td>
-		<?php
+                </td>
+                <?php
 		}
 		?>
-    </tr>
-    <?php
+            </tr>
+            <?php
 		$startNum++;
     }
     if ($i == 0)
         echo "<tr><td colspan=\"".$colspan."\" class=\"empty_table\">자료가 없습니다.</td></tr>";
     ?>
-    </tbody>
+        </tbody>
     </table>
 </div>
 

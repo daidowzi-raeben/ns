@@ -75,7 +75,8 @@ $total_count = $row['cnt'];
 
 //$sql = " select * {$sql_common} {$sql_search} {$sql_order} limit {$from_record}, {$rows} ";
 //$result = sql_query($sql);
-
+// echo "select * {$sql_common} {$sql_search} {$sql_order}";
+// exit;
 $qry = sql_query("select * {$sql_common} {$sql_search} {$sql_order}");
 
 /*================================================================================
