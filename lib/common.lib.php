@@ -1109,6 +1109,8 @@ function insert_point_ns($mb_id, $point, $content='', $rel_table='', $rel_id='',
     global $g5;
     global $is_admin;
 	global $member;
+    echo '포인트 지급기간이 아닙니다.';
+    return;
 
 	$dd = date("Y-m-d H:i:s", time());
 	$dd2 = substr($dd, 8 , 2);
