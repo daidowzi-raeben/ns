@@ -28,8 +28,8 @@ $sql_common .= " on mp.mb_no = m.mb_no ";
 
 $sql_search = " where (1) and m.mb_level = '1' and mp.mp_year = '$bl_year' and mp.mp_semi = '$bl_cate'";
 
-if ($mb_4)
-	$sql_search .= " and m.mb_4 like '{$mb_4}%' ";
+if ($mb_3)
+	$sql_search .= " and m.mb_3 like '{$mb_3}%' ";
 
 if ($mb_id)
 	$sql_search .= " and m.mb_id like '{$mb_id}%' ";
@@ -55,8 +55,10 @@ $total_count = $row['cnt'];
 
 //$sql = " select * {$sql_common} {$sql_search} {$sql_order} limit {$from_record}, {$rows} ";
 //$result = sql_query($sql);
-
-$qry = sql_query("select * {$sql_common} {$sql_search} {$sql_order}");
+// echo "select * {$sql_common} {$sql_search} {$sql_order}";
+// exit;
+// $qry = sql_query("select * {$sql_common} {$sql_search} {$sql_order}");
+$qry = sql_query("select * from sj_member as m where (1) and m.mb_level = '1'");
 
 /*================================================================================
 php_writeexcel http://www.bettina-attack.de/jonny/view.php/projects/php_writeexcel/
@@ -75,7 +77,7 @@ $num2_format =& $workbook->addformat(array(num_format => '\0#'));
 $data = array(
 "mb_name"=>"이름",
 "mb_id"=>"아이디",
-"mb_4"=>"부서명",
+"mb_3"=>"부서명",
 "point_3"=>"CEO메세지",
 "point_4"=>"자율준수메세지",
 "point_5"=>"윤리자가진단",
