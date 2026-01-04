@@ -30,10 +30,10 @@ if ($mb['mb_leave_date'] && $mb['mb_leave_date'] <= date("Ymd", G5_SERVER_TIME))
 }
 
 // 학습기간 체크
-if ($mb['mb_8'] > date("Ymd", G5_SERVER_TIME) || $mb['mb_9'] < date("Ymd", G5_SERVER_TIME)) {
-    //$date = preg_replace("/([0-9]{4})([0-9]{2})([0-9]{2})/", "\\1년 \\2월 \\3일", $mb['mb_8']);
-    alert('학습기간이 아닙니다.');
-}
+// if ($mb['mb_8'] > date("Ymd", G5_SERVER_TIME) || $mb['mb_9'] < date("Ymd", G5_SERVER_TIME)) {
+//     //$date = preg_replace("/([0-9]{4})([0-9]{2})([0-9]{2})/", "\\1년 \\2월 \\3일", $mb['mb_8']);
+//     alert('학습기간이 아닙니다.');
+// }
 
 
 // 회원아이디 세션 생성
@@ -53,4 +53,3 @@ $link = G5_URL;
 
 goto_url($link);
 ?>
-    
