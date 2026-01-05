@@ -1,6 +1,6 @@
 <?php
 include_once ('../_Inc/subHead.php');
-
+    alert('마일리지 운영제도 개편중입니다.');
 	if(!$is_member) {
 		alert(NS_LOGIN_MSG);
 	}
