@@ -178,7 +178,7 @@ if( $attend_info ) {
 				//진도율 100% => 마일리지 적립
 				if($lesson == 17)
 				{
-					insert_point_ns($member['mb_id'], 30, "2022_청탁금지법 교육", "cyber3", $member['mb_id'], "@1", 1);
+					insert_point_ns($member['mb_id'], 250, "2022_청탁금지법 교육", "cyber3", $member['mb_id'], "@1", 1);
 					
 				}
 			}
@@ -266,7 +266,7 @@ if( $attend_info ) {
 			{
 				$sql_add = ", app_edate = '".G5_TIME_YMDHIS."' ";
 				//진도율 100% => 마일리지 적립
-				insert_point_ns($member['mb_id'], 30, "2022_청탁금지법 교육", "cyber3", $member['mb_id'], "@1", 1);
+				insert_point_ns($member['mb_id'], 250, "2022_청탁금지법 교육", "cyber3", $member['mb_id'], "@1", 1);
 			}
 			else
 			{

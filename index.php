@@ -42,7 +42,7 @@ include_once(G5_PATH.'/head.php');
 
 <h2 class="sound_only">최신글</h2>
 <div class="latest_wr">
-<!-- 최신글 시작 { -->
+    <!-- 최신글 시작 { -->
 
     <?php
     //  최신글

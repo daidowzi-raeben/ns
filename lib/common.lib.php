@@ -1109,8 +1109,8 @@ function insert_point_ns($mb_id, $point, $content='', $rel_table='', $rel_id='',
     global $g5;
     global $is_admin;
 	global $member;
-    echo '포인트 지급기간이 아닙니다.';
-    return;
+    // echo '포인트 지급기간이 아닙니다.';
+    // return;
 
 	$dd = date("Y-m-d H:i:s", time());
 	$dd2 = substr($dd, 8 , 2);
@@ -1118,6 +1118,25 @@ function insert_point_ns($mb_id, $point, $content='', $rel_table='', $rel_id='',
 	if($dd2 > 14 && $dd3 > 17) {
 		// return 1;
 	} 
+
+        // 최대포인트
+    // ===== 최대 적립 포인트 체크 =====
+    $max_point = get_mileage_max_point($rel_table);
+
+    if ($max_point > 0) {
+        $current_point = (int)get_mileage($mb_id, $rel_table);
+        
+        // 이미 최대치 도달
+        if ($current_point >= $max_point) {
+            return 3; // 최대 적립 초과
+        }
+        
+        // 이번 적립으로 초과
+        if (($current_point + $point) > $max_point) {
+            return 3; // 최대 적립 초과
+        }
+    }
+    
 	
 	//echo $mb_id . "/" . $point . "/". $content . "/" . $rel_table . "/" . $rel_id . "/" . $rel_action . "/" . $rel_num;
 	//exit;
@@ -1240,7 +1259,6 @@ function insert_point_ns($mb_id, $point, $content='', $rel_table='', $rel_id='',
 					po_year = '{$config['cf_1']}',
 					po_semi = '{$config['cf_2']}'
 					";
-                   
     sql_query($sql);
 
     // 포인트를 사용한 경우 포인트 내역에 사용금액 기록
@@ -1340,6 +1358,18 @@ function insert_point_ns($mb_id, $point, $content='', $rel_table='', $rel_id='',
 			$mb_col = "point_22";
 			$mp_col = "mp_22";
 			break;
+		case "guide":	//사내 준법 가이드라인
+			$mb_col = "point_23";
+			$mp_col = "mp_23";
+			break;
+		case "info":	//법령정보
+			$mb_col = "point_24";
+			$mp_col = "mp_24";
+			break;
+		case "cns":	//준법상담
+			$mb_col = "point_25";
+			$mp_col = "mp_25";
+			break;
 	}
 
     // 포인트 UPDATE
@@ -1347,10 +1377,11 @@ function insert_point_ns($mb_id, $point, $content='', $rel_table='', $rel_id='',
     sql_query($sql);
 	$mp_check = sql_fetch(" select mb_id from {$g5['member_point_table']} where mb_id = '$mb_id' and mp_year = '{$config['cf_1']}' and mp_semi='{$config['cf_2']}'  ");
 	if ($mp_check['mb_id'])
-		$sql = " update {$g5['member_point_table']} set mp_point = '$po_mb_point', {$mp_col} = {$mp_col} + {$point}{$temp_str} where mb_id = '$mb_id' and mp_year = '{$config['cf_1']}' and mp_semi='{$config['cf_2']}' ";
-	else
-		$sql = " insert into {$g5['member_point_table']} set mp_point = '$po_mb_point', {$mp_col} = {$mp_col} + {$point}{$temp_str}, mb_no = '{$member['mb_no']}', mb_id = '$mb_id' , mp_year = '{$config['cf_1']}' , mp_semi='{$config['cf_2']}' ";
-	sql_query($sql);
+    $sql = " update {$g5['member_point_table']} set mp_point = '$po_mb_point', {$mp_col} = {$mp_col} + {$point}{$temp_str} where mb_id = '$mb_id' and mp_year = '{$config['cf_1']}' and mp_semi='{$config['cf_2']}' ";
+else
+$sql = " insert into {$g5['member_point_table']} set mp_point = '$po_mb_point', {$mp_col} = {$mp_col} + {$point}{$temp_str}, mb_no = '{$member['mb_no']}', mb_id = '$mb_id' , mp_year = '{$config['cf_1']}' , mp_semi='{$config['cf_2']}' ";
+sql_query($sql);
+// echo $sql;
 
     return 1;
 }
@@ -1406,6 +1437,28 @@ function get_mileage_count($mb_id, $rel_table)
 }
 
 
+function get_mileage_max_point($rel_table)
+{
+    switch ($rel_table) {
+        case 'ceo':          return 100;
+        case 'ns_co':        return 100;
+        case 'self1':        return 60;
+        case 'self2':        return 60;
+        case 'e_campaign':   return 125;
+        case 'e_story':      return 60;
+        case 'cyber':        return 40;
+        case 'cyber5':       return 32;
+        case 'guide03':      return 144;
+        case 'guide05':      return 72;
+        case 'guideline':    return 36;
+        case 'guide':        return 18;   // 사내 준법 가이드라인
+        case 'info':         return 75;   // 법령정보
+        case 'cns':          return 75;   // 준법상담
+        default:             return 0;    // 제한 없음
+    }
+}
+
+
 // 포인트 부여
 function insert_point($mb_id, $point, $content='', $rel_table='', $rel_id='', $rel_action='', $expire=0)
 {
@@ -1423,17 +1476,40 @@ function insert_point($mb_id, $point, $content='', $rel_table='', $rel_id='', $r
     // 포인트 사용을 하지 않는다면 return
     if (!$config['cf_use_point']) { return 0; }
 
+    
     // 포인트가 없다면 업데이트 할 필요 없음
     if ($point == 0) { return 0; }
-
+    
     // 회원아이디가 없다면 업데이트 할 필요 없음
     if ($mb_id == '') { return 0; }
     $mb = sql_fetch(" select mb_id from {$g5['member_table']} where mb_id = '$mb_id' ");
     if (!$mb['mb_id']) { return 0; }
-
+    
     // 회원포인트
     $mb_point = get_point_sum($mb_id);
+    
+    
+    // 최대포인트
+    // ===== 최대 적립 포인트 체크 =====
+    $max_point = get_mileage_max_point($rel_table);
 
+    return;
+    
+    if ($max_point > 0) {
+        $current_point = (int)get_mileage($mb_id, $rel_table);
+        
+        // 이미 최대치 도달
+        if ($current_point >= $max_point) {
+            return 3; // 최대 적립 초과
+        }
+        
+        // 이번 적립으로 초과
+        if (($current_point + $point) > $max_point) {
+            return 3; // 최대 적립 초과
+        }
+    }
+    
+    
     // 이미 등록된 내역이라면 건너뜀
     if ($rel_table || $rel_id || $rel_action)
     {

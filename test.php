@@ -1,8 +1,14 @@
 <?php
-$link = mysql_connect('175.126.82.119', 'root', 'Rlxk5273');
-if (!$link) {
-    die('MySQL 접속 실패: ' . mysql_error());
+$conn = mysqli_connect(
+    '127.0.0.1',
+    'root',
+    '비밀번호',
+    'test_g2',
+    3307
+);
+
+if (!$conn) {
+    die(mysqli_connect_error());
 }
-echo 'MySQL 접속 성공!';
-mysql_close($link);
-?>
+
+echo '✅ DB 연결 성공';

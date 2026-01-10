@@ -166,7 +166,7 @@ if( $attend_info ) {
 			{
 				$sql_add = ", app_edate = '".G5_TIME_YMDHIS."' ";
 				//진도율 100% => 마일리지 적립
-				insert_point_ns($member['mb_id'], 30, "한 눈에 보는 NS준법교육 완료", "cyber3", $member['mb_id'], "@1", 1);
+				insert_point_ns($member['mb_id'], 250, "한 눈에 보는 NS준법교육 완료", "cyber3", $member['mb_id'], "@1", 1);
 			}
 			else
 			{

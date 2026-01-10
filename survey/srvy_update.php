@@ -45,18 +45,18 @@ $num = "1";
 if($srvy['srvy_type'] == 'A')
 {
 	$strVal = "CP교육만족도 조사 완료";
-	$point = "10";
+	$point = "200";
 	$conf = "srvy01";
 }
 else
 {
 	$strVal = "윤리CP인식도 조사 완료";
-	$point = "10";
+	$point = "200";
 	$conf = "srvy02";
 }
 insert_point_ns($member['mb_id'], $point, $strVal, $conf, $member['mb_id'], "@".$num, $num);
 ?>
 <script type="text/javascript">
-	alert("설문 조사가 완료되었습니다");
-	window.close();
+alert("설문 조사가 완료되었습니다");
+window.close();
 </script>

@@ -167,13 +167,13 @@ if( $attend_info ) {
 				$sql_add = ", app_edate = '".G5_TIME_YMDHIS."' ";
 				//진도율 100% => 마일리지 적립
 				if($lesson == 5) #2020
-					insert_point_ns($member['mb_id'], 30, "한 눈에 보는 NS준법교육 완료", "cyber3", $member['mb_id'], "@1", 1);
+					insert_point_ns($member['mb_id'], 250, "한 눈에 보는 NS준법교육 완료", "cyber3", $member['mb_id'], "@1", 1);
 				else if($lesson ==6) #2020
-					insert_point_ns($member['mb_id'], 30, "윤리경영 및 청탁금지법 교육 완료", "cyber4", $member['mb_id'], "@1", 1);
+					insert_point_ns($member['mb_id'], 250, "윤리경영 및 청탁금지법 교육 완료", "cyber4", $member['mb_id'], "@1", 1);
 				else if($lesson ==8)
-					insert_point_ns($member['mb_id'], 30, "윤리성품에 기반한 윤리경영 화상특강 완료", "cyber6", $member['mb_id'], "@1", 1);
+					insert_point_ns($member['mb_id'], 250, "윤리성품에 기반한 윤리경영 화상특강 완료", "cyber6", $member['mb_id'], "@1", 1);
 				#else if($lesson ==18) #2022
-				#	insert_point_ns($member['mb_id'], 30, "윤리경영 사이버교육 완료", "cyber6", $member['mb_id'], "@1", 1);
+				#	insert_point_ns($member['mb_id'], 250, "윤리경영 사이버교육 완료", "cyber6", $member['mb_id'], "@1", 1);
 			}
 			else
 			{
