@@ -1439,23 +1439,17 @@ function get_mileage_count($mb_id, $rel_table)
 
 function get_mileage_max_point($rel_table)
 {
-    switch ($rel_table) {
-        case 'ceo':          return 100;
-        case 'ns_co':        return 100;
-        case 'self1':        return 60;
-        case 'self2':        return 60;
-        case 'e_campaign':   return 125;
-        case 'e_story':      return 60;
-        case 'cyber':        return 40;
-        case 'cyber5':       return 32;
-        case 'guide03':      return 144;
-        case 'guide05':      return 72;
-        case 'guideline':    return 36;
-        case 'guide':        return 18;   // 사내 준법 가이드라인
-        case 'info':         return 75;   // 법령정보
-        case 'cns':          return 75;   // 준법상담
-        default:             return 0;    // 제한 없음
-    }
+    global $g5;
+
+    $row = sql_fetch("
+        SELECT max_point
+        FROM sj_mileage_policy
+        WHERE rel_table = '{$rel_table}'
+          AND use_yn = 'Y'
+        LIMIT 1
+    ");
+
+    return isset($row['max_point']) ? (int)$row['max_point'] : 0;
 }
 
 
