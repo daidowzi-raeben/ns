@@ -373,7 +373,7 @@ include_once ('../_Inc/subHead.php');
 	$sum_point += $stMile;
 ?>
                 <tr>
-                    <td>사내 준법 가이드라인</td>
+                    <td style="background:#FAB3AC;">사내 준법 가이드라인</td>
                     <td>2</td>
                     <!-- <td>2</td> -->
                     <!-- <td><?php echo $stCnt ?></td> -->
@@ -389,7 +389,7 @@ include_once ('../_Inc/subHead.php');
 	$sum_point += $stMile;
 ?>
                 <tr>
-                    <td>법령정보</td>
+                    <td style="background:#FAB3AC;">법령정보</td>
                     <td>3</td>
                     <!-- <td>2</td> -->
                     <!-- <td><?php echo $stCnt ?></td> -->
@@ -405,7 +405,7 @@ include_once ('../_Inc/subHead.php');
 	$sum_point += $stMile;
 ?>
                 <tr>
-                    <td>준법상담</td>
+                    <td style="background:#FAB3AC;">준법상담</td>
                     <td>3</td>
                     <!-- <td>2</td> -->
                     <!-- <td><?php echo $stCnt ?></td> -->
