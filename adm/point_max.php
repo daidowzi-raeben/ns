@@ -31,7 +31,24 @@ $listall = '<a href="'.$_SERVER['SCRIPT_NAME'].'" class="ov_listall">전체목�
 
 $g5['title'] = '마일리지적립관리';
 include_once('./admin.head.php');
-
+$sql_order = "
+    order by FIELD(rel_table,
+        'ceo',
+        'ns_co',
+        'self1',
+        'self2',
+        'e_campaign',
+        'e_story',
+        'cyber',
+        'cyber5',
+        'guide03',
+        'guide05',
+        'guide04',
+        'guide',
+        'info',
+        'cns'
+    )
+";
 $sql = " select mp_id, rel_table, title, max_point, use_yn {$sql_common} {$sql_search} {$sql_order} limit {$from_record}, {$rows} ";
 $result = sql_query($sql);
 ?>
