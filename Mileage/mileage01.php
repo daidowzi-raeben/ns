@@ -89,7 +89,7 @@ include_once ('../_Inc/subHead.php');
             style="border:1px solid #ccc; background:#f1f1f1; padding:20px; margin-bottom:10px; border-radius:10px; font-size: 18px; line-height:30px;">
             <strong>[안내사항]</strong>
             <br>
-            1. 마일리지는 열람 또는 시행 후 24시간 이후에 부여됩니다.<br>
+            1. 마일리지는 열람 또는 수행 24시간 이후 재적립 가능합니다.<br>
             2. 당해년도 누적 마일리지 기준 고득점자에게 포상이 실시됩니다.<br>
             3. 다수의 동점자가 발생하는 경우 랜덤추첨으로 포상 대상자가 선정됩니다.
         </p>
@@ -236,7 +236,7 @@ include_once ('../_Inc/subHead.php');
 	$sum_point += $stMile;
 ?>
                 <tr>
-                    <td>CP 교육</td>
+                    <td>CP교육</td>
                     <td>250</td>
                     <!-- <td>학습기간 내 1회</td> -->
                     <!-- <td><?php echo $stCnt ?></td> -->
@@ -252,7 +252,7 @@ include_once ('../_Inc/subHead.php');
 	$sum_point += $stMile;
 ?>
                 <tr>
-                    <td>윤리 교육</td>
+                    <td>윤리교육</td>
                     <td>250</td>
                     <!-- <td>학습기간 내 1회</td> -->
                     <!-- <td><?php echo $stCnt ?></td> -->
@@ -269,7 +269,7 @@ include_once ('../_Inc/subHead.php');
 	$sum_point += $stMile;
 ?>
                 <tr>
-                    <td>윤리톡톡</td>
+                    <td>윤리 톡톡</td>
                     <td>2</td>
                     <!-- <td>제한없음</td> -->
                     <!-- <td><?php echo $stCnt ?></td> -->
@@ -279,10 +279,27 @@ include_once ('../_Inc/subHead.php');
                     <td>시행시 가산<br />(24시간 이후<br />마일리지 축적)</td>
                 </tr>
                 <?php 
-	$strVal = get_mileage_date($member['mb_id'], "guide03", 0); 
-	$stMile = get_mileage($member['mb_id'], "guide03"); 
-	$stCnt = get_mileage_count($member['mb_id'], "guide03"); 
-	$sum_point += $stMile;
+$strVal = "";
+$stMile = 0;
+$stCnt = 0;
+
+for ($i = 1; $i <= 4; $i++) {
+    $code = "guide03_" . $i;
+
+    // 최근 수행일 (가장 최신 날짜)
+    $tmpDate = get_mileage_date($member['mb_id'], $code, 0);
+    if ($tmpDate && (!$strVal || $tmpDate > $strVal)) {
+        $strVal = $tmpDate;
+    }
+
+    // 마일리지 합산
+    $stMile += get_mileage($member['mb_id'], $code);
+
+    // 수행 횟수 합산 (현재 표에는 안 쓰지만 계산은 해둠)
+    $stCnt += get_mileage_count($member['mb_id'], $code);
+}
+
+$sum_point += $stMile;
 ?>
                 <tr>
                     <td>공정거래 가이드라인</td>
@@ -295,10 +312,21 @@ include_once ('../_Inc/subHead.php');
                     <td>열람시 가산<br />(24시간 이후<br />마일리지 축적)</td>
                 </tr>
                 <?php 
-	$strVal = get_mileage_date($member['mb_id'], "guide05", 0); 
-	$stMile = get_mileage($member['mb_id'], "guide05"); 
-	$stCnt = get_mileage_count($member['mb_id'], "guide05"); 
-	$sum_point += $stMile;
+for ($i = 1; $i <= 2; $i++) {
+    $code = "guide05_" . $i;
+
+    // 최근 수행일 (가장 최신 날짜)
+    $tmpDate = get_mileage_date($member['mb_id'], $code, 0);
+    if ($tmpDate && (!$strVal || $tmpDate > $strVal)) {
+        $strVal = $tmpDate;
+    }
+
+    // 마일리지 합산
+    $stMile += get_mileage($member['mb_id'], $code);
+
+    // 수행 횟수 합산 (현재 표에는 안 쓰지만 계산은 해둠)
+    $stCnt += get_mileage_count($member['mb_id'], $code);
+}
 ?>
                 <tr>
                     <td>대규모유통업법 가이드라인</td>

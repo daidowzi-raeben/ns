@@ -49,6 +49,22 @@ switch($conf)
 		$strVal = "공정거래 가이드라인 완료";
 		$point = "3";
 		break;
+	case "guide03_1":
+		$strVal = "공정거래 가이드라인 완료";
+		$point = "3";
+		break;
+	case "guide03_2":
+		$strVal = "공정거래 가이드라인 완료";
+		$point = "3";
+		break;
+	case "guide03_3":
+		$strVal = "공정거래 가이드라인 완료";
+		$point = "3";
+		break;
+	case "guide03_4":
+		$strVal = "공정거래 가이드라인 완료";
+		$point = "3";
+		break;
 	case "guide04":
 		$num = "1";
 		$strVal = "청탁금지법 가이드라인 완료";
