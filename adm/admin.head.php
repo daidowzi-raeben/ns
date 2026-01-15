@@ -125,7 +125,7 @@ function imageview(id, w, h) {
                 </li>
                 <?php 
 			if($is_admin == "super") { ?>
-                <li class="tnb_li"><a href="<?php echo G5_ADMIN_URL ?>/point_list.php" class="tnb_service">마일리지관리</a>
+                <!-- <li class="tnb_li"><a href="<?php echo G5_ADMIN_URL ?>/point_list.php" class="tnb_service">마일리지관리</a> -->
                 </li>
                 <li class="tnb_li"><a href="<?php echo G5_ADMIN_URL ?>/newwinlist.php" class="tnb_service">환경설정</a></li>
                 <?php } ?>
