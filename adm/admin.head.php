@@ -76,8 +76,7 @@ if( ! empty($_COOKIE['g5_admin_btn_gnb']) ){
 var tempX = 0;
 var tempY = 0;
 
-function imageview(id, w, h)
-{
+function imageview(id, w, h) {
 
     menu(id);
 
@@ -85,8 +84,8 @@ function imageview(id, w, h)
 
     //submenu = eval(name+".style");
     submenu = el_id.style;
-    submenu.left = tempX - ( w + 11 );
-    submenu.top  = tempY - ( h / 2 );
+    submenu.left = tempX - (w + 11);
+    submenu.top = tempY - (h / 2);
 
     selectBoxVisible();
 
@@ -101,31 +100,43 @@ function imageview(id, w, h)
     <h1><?php echo $config['cf_title'] ?></h1>
     <div id="hd_top">
         <!--<button type="button" id="btn_gnb" class="btn_gnb_close <?php echo $adm_menu_cookie['btn_gnb'];?>">메뉴</button>-->
-		<div id="logo"><a href="<?php echo G5_ADMIN_URL ?>"><img src="<?php echo G5_ADMIN_URL ?>/img/admin_logo2.png" alt="<?php echo $config['cf_title'] ?> 관리자"></a></div>
+        <div id="logo"><a href="<?php echo G5_ADMIN_URL ?>"><img src="<?php echo G5_ADMIN_URL ?>/img/admin_logo2.png"
+                    alt="<?php echo $config['cf_title'] ?> 관리자"></a></div>
         <div id="tnb2">
-			<ul>
-				<li class="tnb_li"><a href="<?php echo G5_ADMIN_URL ?>/member_list.php" class="tnb_service">회원정보관리</a></li>
-			<?php 
-			if($is_admin == "super") { ?>
-				<li class="tnb_li"><a href="<?php echo G5_ADMIN_URL ?>/change_dept.php" class="tnb_service">회원소속관리</a></li>
-				<li class="tnb_li"><a href="<?php echo G5_ADMIN_URL ?>/process_ce_list.php" class="tnb_service">과정관리</a></li>
-			<?php } ?>
-				<li class="tnb_li"><a href="<?php echo G5_ADMIN_URL ?>/board/board.php?bo_table=e_campaign" class="tnb_service">커뮤니티관리</a></li>
-				<li class="tnb_li"><a href="<?php echo G5_ADMIN_URL ?>/board/board.php?bo_table=schedule" class="tnb_service">일정관리</a></li>
-				<li class="tnb_li"><a href="<?php echo G5_ADMIN_URL ?>/learn_list.php" class="tnb_service">학습진도관리</a></li>
-				<li class="tnb_li"><a href="<?php echo G5_ADMIN_URL ?>/board/board.php?bo_table=notice" class="tnb_service">홈페이지관리</a></li>
-			<?php 
-			if($is_admin == "super") { ?>
-				<li class="tnb_li"><a href="<?php echo G5_ADMIN_URL ?>/point_list.php" class="tnb_service">마일리지관리</a></li>
-				<li class="tnb_li"><a href="<?php echo G5_ADMIN_URL ?>/newwinlist.php" class="tnb_service">환경설정</a></li>
-			<?php } ?>
-			</ul>
-		</div>
-		<div id="tnb">
             <ul>
-                <li class="tnb_li"><a href="<?php echo G5_URL ?>/" class="tnb_community" target="_blank" title="홈페이지 바로가기">홈페이지 바로가기</a></li>
+                <li class="tnb_li"><a href="<?php echo G5_ADMIN_URL ?>/member_list.php" class="tnb_service">회원정보관리</a>
+                </li>
+                <?php 
+			if($is_admin == "super") { ?>
+                <li class="tnb_li"><a href="<?php echo G5_ADMIN_URL ?>/change_dept.php" class="tnb_service">회원소속관리</a>
+                </li>
+                <li class="tnb_li"><a href="<?php echo G5_ADMIN_URL ?>/process_ce_list.php" class="tnb_service">과정관리</a>
+                </li>
+                <?php } ?>
+                <li class="tnb_li"><a href="<?php echo G5_ADMIN_URL ?>/board/board.php?bo_table=e_campaign"
+                        class="tnb_service">커뮤니티관리</a></li>
+                <li class="tnb_li"><a href="<?php echo G5_ADMIN_URL ?>/board/board.php?bo_table=schedule"
+                        class="tnb_service">일정관리</a></li>
+                <li class="tnb_li"><a href="<?php echo G5_ADMIN_URL ?>/learn_list.php" class="tnb_service">학습진도관리</a>
+                </li>
+                <li class="tnb_li"><a href="<?php echo G5_ADMIN_URL ?>/board/board.php?bo_table=notice"
+                        class="tnb_service">홈페이지관리</a></li>
+                <li class="tnb_li"><a href="<?php echo G5_ADMIN_URL ?>/point_list.php" class="tnb_service">마일리지관리</a>
+                </li>
+                <?php 
+			if($is_admin == "super") { ?>
+                <li class="tnb_li"><a href="<?php echo G5_ADMIN_URL ?>/point_list.php" class="tnb_service">마일리지관리</a>
+                </li>
+                <li class="tnb_li"><a href="<?php echo G5_ADMIN_URL ?>/newwinlist.php" class="tnb_service">환경설정</a></li>
+                <?php } ?>
+            </ul>
+        </div>
+        <div id="tnb">
+            <ul>
+                <li class="tnb_li"><a href="<?php echo G5_URL ?>/" class="tnb_community" target="_blank"
+                        title="홈페이지 바로가기">홈페이지 바로가기</a></li>
                 <!--<li class="tnb_li"><a href="<?php echo G5_ADMIN_URL ?>/service.php" class="tnb_service">부가서비스</a></li>-->
-				<li class="tnb_li" id="tnb_logout"><a href="<?php echo G5_BBS_URL ?>/logout.php">로그아웃</a></li>  
+                <li class="tnb_li" id="tnb_logout"><a href="<?php echo G5_BBS_URL ?>/logout.php">로그아웃</a></li>
             </ul>
         </div>
     </div>
@@ -168,27 +179,25 @@ function imageview(id, w, h)
 
 </header>
 <script>
-jQuery(function($){
+jQuery(function($) {
 
     var menu_cookie_key = 'g5_admin_btn_gnb';
 
-    $(".tnb_mb_btn").click(function(){
+    $(".tnb_mb_btn").click(function() {
         $(".tnb_mb_area").toggle();
     });
 
-    $("#btn_gnb").click(function(){
-        
+    $("#btn_gnb").click(function() {
+
         var $this = $(this);
 
         try {
-            if( ! $this.hasClass("btn_gnb_open") ){
-                set_cookie(menu_cookie_key, 1, 60*60*24*365);
+            if (!$this.hasClass("btn_gnb_open")) {
+                set_cookie(menu_cookie_key, 1, 60 * 60 * 24 * 365);
             } else {
                 delete_cookie(menu_cookie_key);
             }
-        }
-        catch(err) {
-        }
+        } catch (err) {}
 
         $("#container").toggleClass("container-small");
         $("#gnb").toggleClass("gnb_small");
@@ -196,7 +205,7 @@ jQuery(function($){
 
     });
 
-    $(".gnb_ul li .btn_op" ).click(function() {
+    $(".gnb_ul li .btn_op").click(function() {
         $(this).parent().addClass("on").siblings().removeClass("on");
     });
 
