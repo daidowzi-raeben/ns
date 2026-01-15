@@ -85,8 +85,10 @@ include_once ('../_Inc/subHead.php');
                 </div>
             </div>
         </div>
-        <p style="border:1px solid #ccc; background:#f1f1f1; padding:20px; margin-bottom:10px; border-radius:10px;">
-            [안내사항]<br>
+        <p
+            style="border:1px solid #ccc; background:#f1f1f1; padding:20px; margin-bottom:10px; border-radius:10px; font-size: 18px; line-height:30px;">
+            <strong>[안내사항]</strong>
+            <br>
             1. 마일리지는 열람 또는 시행 후 24시간 이후에 부여됩니다.<br>
             2. 당해년도 누적 마일리지 기준 고득점자에게 포상이 실시됩니다.<br>
             3. 다수의 동점자가 발생하는 경우 랜덤추첨으로 포상 대상자가 선정됩니다.
@@ -104,7 +106,7 @@ include_once ('../_Inc/subHead.php');
             </colgroup>
             <thead>
                 <tr>
-                    <th>마일리지항목</th>
+                    <th>마일리지 항목</th>
                     <th>기준<br />배점</th>
                     <th>최대적립<br />가능점수</th>
                     <!-- <th>수행<br />가능<br />회차</th> -->
@@ -356,16 +358,6 @@ include_once ('../_Inc/subHead.php');
                     <td><?php echo $stMile ?></td>
                     <td>수행시 가산<br />(상•하반기 각 1회, 연간 총 2회)</td>
                 </tr>
-                <tr>
-                    <td>CP교육 만족도 조사</td>
-                    <td>200</td>
-                    <!-- <td>2</td> -->
-                    <!-- <td><?php echo $stCnt ?></td> -->
-                    <td>-</td>
-                    <td><?php echo $strVal? substr($strVal, 0, 10) : "";?></td>
-                    <td><?php echo $stMile ?></td>
-                    <td>수행시 가산<br />(상•하반기<br />각 1회)</td>
-                </tr>
                 <?php 
 	$strVal = get_mileage_date($member['mb_id'], "guide", 0); 
 	$stMile = get_mileage($member['mb_id'], "guide"); 
@@ -373,14 +365,14 @@ include_once ('../_Inc/subHead.php');
 	$sum_point += $stMile;
 ?>
                 <tr>
-                    <td style="background:#FAB3AC;">사내 준법 가이드라인</td>
+                    <td>사내 준법 가이드라인</td>
                     <td>2</td>
                     <!-- <td>2</td> -->
                     <!-- <td><?php echo $stCnt ?></td> -->
                     <td>18</td>
                     <td><?php echo $strVal? substr($strVal, 0, 10) : "";?></td>
                     <td><?php echo $stMile ?></td>
-                    <td>시행시 가산</td>
+                    <td>열람시 가산<br />(24시간 이후<br />마일리지 축적)</td>
                 </tr>
                 <?php 
 	$strVal = get_mileage_date($member['mb_id'], "info", 0); 
@@ -389,14 +381,14 @@ include_once ('../_Inc/subHead.php');
 	$sum_point += $stMile;
 ?>
                 <tr>
-                    <td style="background:#FAB3AC;">법령정보</td>
+                    <td>법령정보</td>
                     <td>3</td>
                     <!-- <td>2</td> -->
                     <!-- <td><?php echo $stCnt ?></td> -->
                     <td>75</td>
                     <td><?php echo $strVal? substr($strVal, 0, 10) : "";?></td>
                     <td><?php echo $stMile ?></td>
-                    <td>시행시 가산</td>
+                    <td>열람시 가산<br />(24시간 이후<br />마일리지 축적)</td>
                 </tr>
                 <?php 
 	$strVal = get_mileage_date($member['mb_id'], "cns", 0); 
@@ -405,14 +397,14 @@ include_once ('../_Inc/subHead.php');
 	$sum_point += $stMile;
 ?>
                 <tr>
-                    <td style="background:#FAB3AC;">준법상담</td>
+                    <td>준법상담</td>
                     <td>3</td>
                     <!-- <td>2</td> -->
                     <!-- <td><?php echo $stCnt ?></td> -->
                     <td>75</td>
                     <td><?php echo $strVal? substr($strVal, 0, 10) : "";?></td>
                     <td><?php echo $stMile ?></td>
-                    <td>시행시 가산</td>
+                    <td>열람시 가산<br />(24시간 이후<br />마일리지 축적)</td>
                 </tr>
                 <tr>
                     <td colspan="4"><span class="txt pr-0">총 점</span></td>

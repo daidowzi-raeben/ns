@@ -71,7 +71,7 @@ $sql = " select * {$sql_common} {$sql_search} {$sql_order} limit {$from_record},
 // echo $sql;
 $result = sql_query($sql);
 
-$colspan = 15;
+$colspan = 18;
 ?>
 
 <!--<div class="local_ov01 local_ov">
@@ -143,6 +143,9 @@ $colspan = 15;
                     <th scope="col" id="mb_list_name">CP교육만족도조사</th>
                     <th scope="col" id="mb_list_name">윤리CP인식도조사</th>
                     <th scope="col" id="mb_list_name">윤리톡톡</th>
+                    <th scope="col" id="mb_list_name">사내 준법 가이드라인</th>
+                    <th scope="col" id="mb_list_name">법령정보</th>
+                    <th scope="col" id="mb_list_name">준법상담</th>
                 </tr>
             </thead>
             <tbody>
@@ -207,18 +210,21 @@ $colspan = 15;
         }
 		
 		$sum_point = 0;
-		for($i=1; $i<=22; $i++)
+		for($i=1; $i<=25; $i++)
 		{
 			$sum_point += $row['point_' . $i];
 		}
-		$sum_point -= $row['point_9'];
-		$sum_point -= $row['point_8'];
-		$sum_point -= $row['point_15'];
-		$sum_point -= $row['point_17'];
-		$sum_point -= $row['point_18'];
-		$sum_point -= $row['point_20'];
-		$sum_point -= $row['point_21'];
-		$sum_point -= $row['point_22'];
+		// $sum_point -= $row['point_9'];
+		// $sum_point -= $row['point_8'];
+		// $sum_point -= $row['point_15'];
+		// $sum_point -= $row['point_17'];
+		// $sum_point -= $row['point_18'];
+		// $sum_point -= $row['point_20'];
+		// $sum_point -= $row['point_21'];
+		// $sum_point -= $row['point_22'];
+		// $sum_point -= $row['point_23'];
+		// $sum_point -= $row['point_24'];
+		// $sum_point -= $row['point_25'];
     ?>
 
                 <tr class="<?php echo $bg; ?>">
@@ -250,6 +256,9 @@ $colspan = 15;
                     <td headers="mb_list_"><?php echo get_text($row['point_13']); ?></td>
                     <td headers="mb_list_"><?php echo get_text($row['point_14']); ?></td>
                     <td headers="mb_list_"><?php echo get_text($row['point_22']); ?></td>
+                    <td headers="mb_list_"><?php echo get_text($row['point_23']); ?></td>
+                    <td headers="mb_list_"><?php echo get_text($row['point_24']); ?></td>
+                    <td headers="mb_list_"><?php echo get_text($row['point_25']); ?></td>
                     <td headers="mb_list_"><?php echo get_text($sum_point); ?></td>
                     <!--<td headers="mb_list_">0</td>-->
                 </tr>
