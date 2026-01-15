@@ -86,12 +86,13 @@ include_once ('../_Inc/subHead.php');
             </div>
         </div>
         <p
-            style="border:1px solid #ccc; background:#f1f1f1; padding:20px; margin-bottom:10px; border-radius:10px; font-size: 18px; line-height:30px;">
-            <strong>[안내사항]</strong>
+            style="border:1px solid #ccc; color:#000; font-weight:600; background:#f1f1f1; padding:20px; margin-bottom:10px; border-radius:10px; font-size: 18px; line-height:30px;">
+            [안내사항]
             <br>
             1. 마일리지는 열람 또는 수행 24시간 이후 재적립 가능합니다.<br>
             2. 당해년도 누적 마일리지 기준 고득점자에게 포상이 실시됩니다.<br>
             3. 다수의 동점자가 발생하는 경우 랜덤추첨으로 포상 대상자가 선정됩니다.
+
         </p>
         <table class="tbl-type01 mileage">
             <colgroup>
@@ -131,7 +132,7 @@ include_once ('../_Inc/subHead.php');
                     <td>100</td>
                     <td><?php echo $strVal? substr($strVal, 0, 10) : "";?></td>
                     <td><?php echo $stMile ?></td>
-                    <td>열람시 가산<br />(24시간 이후<br />마일리지 축적)</td>
+                    <td>열람시 가산</td>
                 </tr>
                 <?php 
 	$strVal = get_mileage_date($member['mb_id'], "cmp", 0); 
@@ -147,7 +148,7 @@ include_once ('../_Inc/subHead.php');
                     <td>100</td>
                     <td><?php echo $strVal? substr($strVal, 0, 10) : "";?></td>
                     <td><?php echo $stMile ?></td>
-                    <td>열람시 가산<br />(24시간 이후<br />마일리지 축적)</td>
+                    <td>열람시 가산</td>
                 </tr>
                 <?php 
 	$strVal = get_mileage_date($member['mb_id'], "self1", 0); 
@@ -163,7 +164,7 @@ include_once ('../_Inc/subHead.php');
                     <td>60</td>
                     <td><?php echo $strVal? substr($strVal, 0, 10) : "";?></td>
                     <td><?php echo $stMile ?></td>
-                    <td>시행시 가산<br />(24시간 이후<br />마일리지 축적)</td>
+                    <td>수행시 가산</td>
                 </tr>
                 <?php 
 	$strVal = get_mileage_date($member['mb_id'], "self2", 0); 
@@ -179,7 +180,7 @@ include_once ('../_Inc/subHead.php');
                     <td>60</td>
                     <td><?php echo $strVal? substr($strVal, 0, 10) : "";?></td>
                     <td><?php echo $stMile ?></td>
-                    <td>시행시 가산<br />(24시간 이후<br />마일리지 축적)</td>
+                    <td>수행시 가산</td>
                 </tr>
                 <?php 
 	$strVal = get_mileage_date($member['mb_id'], "p_comp", 0); 
@@ -195,7 +196,7 @@ include_once ('../_Inc/subHead.php');
                     <td>125</td>
                     <td><?php echo $strVal? substr($strVal, 0, 10) : "";?></td>
                     <td><?php echo $stMile ?></td>
-                    <td>시행시 가산</td>
+                    <td>수행시 가산</td>
                 </tr>
                 <?php 
 	$strVal = get_mileage_date($member['mb_id'], "e_campaign", 0); 
@@ -211,7 +212,7 @@ include_once ('../_Inc/subHead.php');
                     <td>60</td>
                     <td><?php echo $strVal? substr($strVal, 0, 10) : "";?></td>
                     <td><?php echo $stMile ?></td>
-                    <td>시행시 가산</td>
+                    <td>수행시 가산</td>
                 </tr>
                 <?php 
 	$strVal = get_mileage_date($member['mb_id'], "e_story", 0); 
@@ -227,7 +228,7 @@ include_once ('../_Inc/subHead.php');
                     <td>40</td>
                     <td><?php echo $strVal? substr($strVal, 0, 10) : "";?></td>
                     <td><?php echo $stMile ?></td>
-                    <td>시행시 가산</td>
+                    <td>수행시 가산</td>
                 </tr>
                 <?php 
 	$strVal = get_mileage_date($member['mb_id'], "cyber", 0); 
@@ -276,7 +277,7 @@ include_once ('../_Inc/subHead.php');
                     <td>32</td>
                     <td><?php echo $strVal? substr($strVal, 0, 10) : "";?></td>
                     <td><?php echo $stMile ?></td>
-                    <td>시행시 가산<br />(24시간 이후<br />마일리지 축적)</td>
+                    <td>수행시 가산</td>
                 </tr>
                 <?php 
 $strVal = "";
@@ -309,7 +310,7 @@ $sum_point += $stMile;
                     <td>144</td>
                     <td><?php echo $strVal? substr($strVal, 0, 10) : "";?></td>
                     <td><?php echo $stMile ?></td>
-                    <td>열람시 가산<br />(24시간 이후<br />마일리지 축적)</td>
+                    <td>열람시 가산</td>
                 </tr>
                 <?php 
 for ($i = 1; $i <= 2; $i++) {
@@ -327,6 +328,8 @@ for ($i = 1; $i <= 2; $i++) {
     // 수행 횟수 합산 (현재 표에는 안 쓰지만 계산은 해둠)
     $stCnt += get_mileage_count($member['mb_id'], $code);
 }
+
+$sum_point += $stMile;
 ?>
                 <tr>
                     <td>대규모유통업법 가이드라인</td>
@@ -336,7 +339,7 @@ for ($i = 1; $i <= 2; $i++) {
                     <td>72</td>
                     <td><?php echo $strVal? substr($strVal, 0, 10) : "";?></td>
                     <td><?php echo $stMile ?></td>
-                    <td>열람시 가산<br />(24시간 이후<br />마일리지 축적)</td>
+                    <td>열람시 가산</td>
                 </tr>
                 <?php 
 	$strVal = get_mileage_date($member['mb_id'], "guide04", 0); 
@@ -352,7 +355,7 @@ for ($i = 1; $i <= 2; $i++) {
                     <td>36</td>
                     <td><?php echo $strVal? substr($strVal, 0, 10) : "";?></td>
                     <td><?php echo $stMile ?></td>
-                    <td>열람시 가산<br />(24시간 이후<br />마일리지 축적)</td>
+                    <td>열람시 가산</td>
                 </tr>
                 <?php 
 	$strVal = get_mileage_date($member['mb_id'], "srvy01", 0); 
@@ -368,7 +371,7 @@ for ($i = 1; $i <= 2; $i++) {
                     <td>-</td>
                     <td><?php echo $strVal? substr($strVal, 0, 10) : "";?></td>
                     <td><?php echo $stMile ?></td>
-                    <td>수행시 가산<br />(상•하반기<br />각 1회)</td>
+                    <td>수행시 가산<br />(상•하반기 각 1회, 연간 총 2회)</td>
                 </tr>
                 <?php 
 	$strVal = get_mileage_date($member['mb_id'], "srvy02", 0); 
@@ -400,7 +403,7 @@ for ($i = 1; $i <= 2; $i++) {
                     <td>18</td>
                     <td><?php echo $strVal? substr($strVal, 0, 10) : "";?></td>
                     <td><?php echo $stMile ?></td>
-                    <td>열람시 가산<br />(24시간 이후<br />마일리지 축적)</td>
+                    <td>열람시 가산</td>
                 </tr>
                 <?php 
 	$strVal = get_mileage_date($member['mb_id'], "info", 0); 
@@ -416,7 +419,7 @@ for ($i = 1; $i <= 2; $i++) {
                     <td>75</td>
                     <td><?php echo $strVal? substr($strVal, 0, 10) : "";?></td>
                     <td><?php echo $stMile ?></td>
-                    <td>열람시 가산<br />(24시간 이후<br />마일리지 축적)</td>
+                    <td>열람시 가산</td>
                 </tr>
                 <?php 
 	$strVal = get_mileage_date($member['mb_id'], "cns", 0); 
@@ -432,7 +435,7 @@ for ($i = 1; $i <= 2; $i++) {
                     <td>75</td>
                     <td><?php echo $strVal? substr($strVal, 0, 10) : "";?></td>
                     <td><?php echo $stMile ?></td>
-                    <td>열람시 가산<br />(24시간 이후<br />마일리지 축적)</td>
+                    <td>열람시 가산</td>
                 </tr>
                 <tr>
                     <td colspan="4"><span class="txt pr-0">총 점</span></td>

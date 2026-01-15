@@ -128,10 +128,10 @@ $colspan = 18;
                     <th scope="col" id="mb_list_name">준법캠페인</th>
                     <!--<th scope="col" id="mb_list_name">윤리영상캠페인</th>-->
                     <th scope="col" id="mb_list_name">윤리캠페인</th>
-                    <th scope="col" id="mb_list_name">윤리경영</th>
-                    <th scope="col" id="mb_list_name">사이버교육1</th>
+                    <th scope="col" id="mb_list_name">윤리이야기</th>
+                    <th scope="col" id="mb_list_name">CP교육</th>
                     <!--<th scope="col" id="mb_list_name">사이버교육2</th>-->
-                    <th scope="col" id="mb_list_name">사이버교육3</th>
+                    <th scope="col" id="mb_list_name">윤리교육</th>
                     <!--<th scope="col" id="mb_list_name">사이버교육4</th>
 		<th scope="col" id="mb_list_name">사이버교육5</th>
 		<th scope="col" id="mb_list_name">사이버교육6</th>

@@ -70,7 +70,12 @@ switch($conf)
 		$strVal = "청탁금지법 가이드라인 완료";
 		$point = "3";
 		break;
-	case "guide05":
+	case "guide05_1":
+		//$num = "1";
+		$strVal = "대규모유통업법 가이드라인 완료";
+		$point = "3";
+		break;
+	case "guide05_2":
 		//$num = "1";
 		$strVal = "대규모유통업법 가이드라인 완료";
 		$point = "3";
