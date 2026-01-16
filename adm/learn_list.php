@@ -375,7 +375,7 @@ for ($i = 1; $i <= 2; $i++) {
 $sum_point += $stMile;
 echo $stMile;
 ?>
-                        asd </td>
+                    </td>
                     <td headers="mb_list_">
                         <?php 
 	$strVal = get_mileage_date($row['mb_id'], "guide04", 0); 
