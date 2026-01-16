@@ -313,6 +313,9 @@ $sum_point += $stMile;
                     <td>열람시 가산</td>
                 </tr>
                 <?php 
+                $strVal = "";
+$stMile = 0;
+$stCnt = 0;
 for ($i = 1; $i <= 2; $i++) {
     $code = "guide05_" . $i;
 
@@ -371,7 +374,7 @@ $sum_point += $stMile;
                     <td>-</td>
                     <td><?php echo $strVal? substr($strVal, 0, 10) : "";?></td>
                     <td><?php echo $stMile ?></td>
-                    <td>수행시 가산<br />(상•하반기 각 1회, 연간 총 2회)</td>
+                    <td>수행시 가산<br /><span style="font-size:16px;">(상•하반기 각 1회, 연간 총 2회)</span></td>
                 </tr>
                 <?php 
 	$strVal = get_mileage_date($member['mb_id'], "srvy02", 0); 
@@ -387,7 +390,7 @@ $sum_point += $stMile;
                     <td>-</td>
                     <td><?php echo $strVal? substr($strVal, 0, 10) : "";?></td>
                     <td><?php echo $stMile ?></td>
-                    <td>수행시 가산<br />(상•하반기 각 1회, 연간 총 2회)</td>
+                    <td>수행시 가산<br /><span style="font-size:16px;">(상•하반기 각 1회, 연간 총 2회)</span></td>
                 </tr>
                 <?php 
 	$strVal = get_mileage_date($member['mb_id'], "guide", 0); 

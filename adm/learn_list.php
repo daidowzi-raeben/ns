@@ -210,12 +210,12 @@ $colspan = 18;
         }
 		
 		$sum_point = 0;
-		for($i=1; $i<=25; $i++)
-		{
-			$sum_point += $row['point_' . $i];
-		}
-		// $sum_point -= $row['point_9'];
-		// $sum_point -= $row['point_8'];
+		// for($i=1; $i<=25; $i++)
+		// {
+		// 	$sum_point += $row['point_' . $i];
+		// }
+		// $sum_point -= $row['point_10'];
+		// $sum_point -= $row['point_11'];
 		// $sum_point -= $row['point_15'];
 		// $sum_point -= $row['point_17'];
 		// $sum_point -= $row['point_18'];
@@ -234,32 +234,204 @@ $colspan = 18;
                         <?php echo $mb_id ?>
                     </td>
                     <td headers="mb_list_"><?php echo get_text($row['mb_4']); ?></td>
-                    <td headers="mb_list_"><?php echo get_text($row['point_3']); ?></td>
-                    <td headers="mb_list_"><?php echo get_text($row['point_4']); ?></td>
-                    <td headers="mb_list_"><?php echo get_text($row['point_5']); ?></td>
-                    <td headers="mb_list_"><?php echo get_text($row['point_6']); ?></td>
-                    <td headers="mb_list_"><?php echo get_text($row['point_7']); ?></td>
-                    <!--<td headers="mb_list_"><?php echo get_text($row['point_8']); ?></td>-->
-                    <td headers="mb_list_"><?php echo get_text($row['point_1']); ?></td>
-                    <td headers="mb_list_"><?php echo get_text($row['point_2']); ?></td>
-                    <td headers="mb_list_"><?php echo get_text($row['point_12']); ?></td>
-                    <!--<td headers="mb_list_"><?php echo get_text($row['point_15']); ?></td>-->
-                    <td headers="mb_list_"><?php echo get_text($row['point_16']); ?></td>
-                    <!--<td headers="mb_list_"><?php echo get_text($row['point_17']); ?></td>
-		<td headers="mb_list_"><?php echo get_text($row['point_18']); ?></td>
-		<td headers="mb_list_"><?php echo get_text($row['point_20']); ?></td>
-		<td headers="mb_list_"><?php echo get_text($row['point_21']); ?></td>
-		<td headers="mb_list_"><?php echo get_text($row['point_9']); ?></td>-->
-                    <td headers="mb_list_"><?php echo get_text($row['point_10']); ?></td>
-                    <td headers="mb_list_"><?php echo get_text($row['point_11']); ?></td>
-                    <td headers="mb_list_"><?php echo get_text($row['point_19']); ?></td>
-                    <td headers="mb_list_"><?php echo get_text($row['point_13']); ?></td>
-                    <td headers="mb_list_"><?php echo get_text($row['point_14']); ?></td>
-                    <td headers="mb_list_"><?php echo get_text($row['point_22']); ?></td>
-                    <td headers="mb_list_"><?php echo get_text($row['point_23']); ?></td>
-                    <td headers="mb_list_"><?php echo get_text($row['point_24']); ?></td>
-                    <td headers="mb_list_"><?php echo get_text($row['point_25']); ?></td>
-                    <td headers="mb_list_"><?php echo get_text($sum_point); ?></td>
+                    <td headers="mb_list_">
+                        <?php 
+	$strVal = get_mileage_date($row['mb_id'], "ceo", 0); 
+	$stMile = get_mileage($row['mb_id'], "ceo"); 
+	$stCnt = get_mileage_count($row['mb_id'], "ceo");
+	$sum_point += $stMile;
+    echo $stMile ? $stMile : 0;
+?>
+                    </td>
+                    <td headers="mb_list_">
+                        <?php 
+	$strVal = get_mileage_date($row['mb_id'], "cmp", 0); 
+	$stMile = get_mileage($row['mb_id'], "cmp"); 
+	$stCnt = get_mileage_count($row['mb_id'], "cmp");
+	$sum_point += $stMile;
+    echo $stMile ? $stMile : 0;
+?>
+                    </td>
+                    <td headers="mb_list_">
+                        <?php 
+	$strVal = get_mileage_date($row['mb_id'], "self1", 0); 
+	$stMile = get_mileage($row['mb_id'], "self1"); 
+	$stCnt = get_mileage_count($row['mb_id'], "self1");
+	$sum_point += $stMile;
+    echo $stMile ? $stMile : 0;
+?>
+                    </td>
+                    <td headers="mb_list_">
+                        <?php 
+	$strVal = get_mileage_date($row['mb_id'], "self2", 0); 
+	$stMile = get_mileage($row['mb_id'], "self2"); 
+	$stCnt = get_mileage_count($row['mb_id'], "self2");
+	$sum_point += $stMile;
+    echo $stMile ? $stMile : 0;
+?>
+                    </td>
+                    <td headers="mb_list_">
+                        <?php 
+	$strVal = get_mileage_date($row['mb_id'], "p_comp", 0); 
+	$stMile = get_mileage($row['mb_id'], "p_comp"); 
+	$stCnt = get_mileage_count($row['mb_id'], "p_comp");
+	$sum_point += $stMile;
+    echo $stMile ? $stMile : 0;
+?>
+                    </td>
+                    <td headers="mb_list_">
+                        <?php 
+	$strVal = get_mileage_date($row['mb_id'], "e_campaign", 0); 
+	$stMile = get_mileage($row['mb_id'], "e_campaign"); 
+	$stCnt = get_mileage_count($row['mb_id'], "e_campaign");
+	$sum_point += $stMile;
+    echo $stMile ? $stMile : 0;
+?>
+                    </td>
+                    <td headers="mb_list_">
+                        <?php 
+	$strVal = get_mileage_date($row['mb_id'], "e_story", 0); 
+	$stMile = get_mileage($row['mb_id'], "e_story"); 
+	$stCnt = get_mileage_count($row['mb_id'], "e_story");
+	$sum_point += $stMile;
+    echo $stMile ? $stMile : 0;
+?>
+                    </td>
+                    <td headers="mb_list_">
+                        <?php 
+	$strVal = get_mileage_date($row['mb_id'], "cyber", 0); 
+	$stMile = get_mileage($row['mb_id'], "cyber"); 
+	$stCnt = get_mileage_count($row['mb_id'], "cyber");
+	$sum_point += $stMile;
+    echo $stMile ? $stMile : 0;
+?>
+                    </td>
+                    <td headers="mb_list_">
+                        <?php 
+	$strVal = get_mileage_date($row['mb_id'], "cyber3", 0); 
+	$stMile = get_mileage($row['mb_id'], "cyber3"); 
+	$stCnt = get_mileage_count($row['mb_id'], "cyber3");
+	$sum_point += $stMile;
+    echo $stMile ? $stMile : 0;
+?>
+                    </td>
+                    <td headers="mb_list_">
+                        <?php 
+	$strVal = get_mileage_date($row['mb_id'], "ns_co", 0); 
+	$stMile = get_mileage($row['mb_id'], "ns_co"); 
+	$stCnt = get_mileage_count($row['mb_id'], "ns_co");
+	$sum_point += $stMile;
+    echo $stMile ? $stMile : 0;
+?>
+                    </td>
+                    <td headers="mb_list_">
+                        <?php 
+
+$strVal = "";
+$stMile = 0;
+$stCnt = 0;
+for ($i = 1; $i <= 4; $i++) {
+    $code = "guide03_" . $i;
+
+    // 최근 수행일 (가장 최신 날짜)
+    $tmpDate = get_mileage_date($row['mb_id'], $code, 0);
+    if ($tmpDate && (!$strVal || $tmpDate > $strVal)) {
+        $strVal = $tmpDate;
+    }
+
+    // 마일리지 합산
+    $stMile += get_mileage($row['mb_id'], $code);
+
+    // 수행 횟수 합산 (현재 표에는 안 쓰지만 계산은 해둠)
+    $stCnt += get_mileage_count($row['mb_id'], $code);
+}
+
+$sum_point += $stMile;
+echo $stMile;
+?>
+
+                    </td>
+                    <td headers="mb_list_">
+                        <?php 
+$strVal = "";
+$stMile = 0;
+$stCnt = 0;
+for ($i = 1; $i <= 2; $i++) {
+    $code = "guide05_" . $i;
+
+    // 최근 수행일 (가장 최신 날짜)
+    $tmpDate = get_mileage_date($row['mb_id'], $code, 0);
+    if ($tmpDate && (!$strVal || $tmpDate > $strVal)) {
+        $strVal = $tmpDate;
+    }
+
+    // 마일리지 합산
+    $stMile += get_mileage($row['mb_id'], $code);
+
+    // 수행 횟수 합산 (현재 표에는 안 쓰지만 계산은 해둠)
+    $stCnt += get_mileage_count($row['mb_id'], $code);
+}
+
+$sum_point += $stMile;
+echo $stMile;
+?>
+                        asd </td>
+                    <td headers="mb_list_">
+                        <?php 
+	$strVal = get_mileage_date($row['mb_id'], "guide04", 0); 
+	$stMile = get_mileage($row['mb_id'], "guide04"); 
+	$stCnt = get_mileage_count($row['mb_id'], "guide04");
+	$sum_point += $stMile;
+    echo $stMile ? $stMile : 0;
+?>
+                    </td>
+                    <td headers="mb_list_">
+                        <?php 
+	$strVal = get_mileage_date($row['mb_id'], "srvy01", 0); 
+	$stMile = get_mileage($row['mb_id'], "srvy01"); 
+	$stCnt = get_mileage_count($row['mb_id'], "srvy01");
+	$sum_point += $stMile;
+    echo $stMile ? $stMile : 0;
+?>
+                    </td>
+                    <td headers="mb_list_">
+                        <?php 
+	$strVal = get_mileage_date($row['mb_id'], "srvy02", 0); 
+	$stMile = get_mileage($row['mb_id'], "srvy02"); 
+	$stCnt = get_mileage_count($row['mb_id'], "srvy02");
+	$sum_point += $stMile;
+    echo $stMile ? $stMile : 0;
+?>
+                    </td>
+                    <td headers="mb_list_">
+                        <?php 
+	$strVal = get_mileage_date($row['mb_id'], "guide", 0); 
+	$stMile = get_mileage($row['mb_id'], "guide"); 
+	$stCnt = get_mileage_count($row['mb_id'], "guide");
+	$sum_point += $stMile;
+    echo $stMile ? $stMile : 0;
+?>
+                    </td>
+                    <td headers="mb_list_">
+                        <?php 
+	$strVal = get_mileage_date($row['mb_id'], "info", 0); 
+	$stMile = get_mileage($row['mb_id'], "info"); 
+	$stCnt = get_mileage_count($row['mb_id'], "info");
+	$sum_point += $stMile;
+    echo $stMile ? $stMile : 0;
+?>
+                    </td>
+                    <td headers="mb_list_">
+                        <?php 
+	$strVal = get_mileage_date($row['mb_id'], "cns", 0); 
+	$stMile = get_mileage($row['mb_id'], "cns"); 
+	$stCnt = get_mileage_count($row['mb_id'], "cns");
+	$sum_point += $stMile;
+    echo $stMile ? $stMile : 0;
+?>
+                    </td>
+
+                    <td headers="mb_list_"><?php echo get_text($sum_point ); ?></td>
                     <!--<td headers="mb_list_">0</td>-->
                 </tr>
                 <?php
