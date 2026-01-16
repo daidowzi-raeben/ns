@@ -80,10 +80,10 @@ for($i=1; $res=sql_fetch_array($qry); $i++)
     $mb_id = $res['mb_id'];
 
     // mileage01.php 와 동일한 코드들
-    $codes = [
-        'ceo','cmp','self1','self2','p_comp','e_campaign','e_story',
-        'cyber','cyber3','ns_co','guide04','srvy01','srvy02','guide','info','cns'
-    ];
+$codes = array(
+    'ceo','cmp','self1','self2','p_comp','e_campaign','e_story',
+    'cyber','cyber3','ns_co','guide04','srvy01','srvy02','guide','info','cns'
+);
 
     foreach ($codes as $code) {
         $mile = get_mileage($mb_id, $code);
