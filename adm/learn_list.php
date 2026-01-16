@@ -132,6 +132,7 @@ $colspan = 18;
                     <th scope="col" id="mb_list_name">CP교육</th>
                     <!--<th scope="col" id="mb_list_name">사이버교육2</th>-->
                     <th scope="col" id="mb_list_name">윤리교육</th>
+                    <th scope="col" id="mb_list_name">윤리톡톡</th>
                     <!--<th scope="col" id="mb_list_name">사이버교육4</th>
 		<th scope="col" id="mb_list_name">사이버교육5</th>
 		<th scope="col" id="mb_list_name">사이버교육6</th>
@@ -142,7 +143,6 @@ $colspan = 18;
                     <th scope="col" id="mb_list_name">대규모유통법가이드라인</th>
                     <th scope="col" id="mb_list_name">CP교육만족도조사</th>
                     <th scope="col" id="mb_list_name">윤리CP인식도조사</th>
-                    <th scope="col" id="mb_list_name">윤리톡톡</th>
                     <th scope="col" id="mb_list_name">사내 준법 가이드라인</th>
                     <th scope="col" id="mb_list_name">법령정보</th>
                     <th scope="col" id="mb_list_name">준법상담</th>
