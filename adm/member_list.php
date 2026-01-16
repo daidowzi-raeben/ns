@@ -82,65 +82,65 @@ $colspan = 16;
     <!--<p>
         회원자료 삭제 시 다른 회원이 기존 회원아이디를 사용하지 못하도록 회원아이디, 이름, 닉네임은 삭제하지 않고 영구 보관합니다.
     </p>-->
-	<form id="fsearch" name="fsearch" class="local_sch01 local_sch" method="get">
-	<table>
-    <caption><?php echo $g5['title']; ?> 검색</caption>
-    <colgroup>
-        <col class="grid_4">
-        <col>
-        <col class="grid_4">
-        <col>
-    </colgroup>
-    <tbody>
-    <tr>
-        <th scope="row"><label for="mb_year">년도</label></th>
-        <td>
-            <?php echo get_blYear_select("bl_year") ?>
-        </td>
-		<th scope="row"><label for="">소속</label></th>
-        <td>
-			<?php echo get_blName_select("bl_name") ?>
-		</td>
-        <!--<th scope="row"><label for="">분류</label></th>
+    <form id="fsearch" name="fsearch" class="local_sch01 local_sch" method="get">
+        <table>
+            <caption><?php echo $g5['title']; ?> 검색</caption>
+            <colgroup>
+                <col class="grid_4">
+                <col>
+                <col class="grid_4">
+                <col>
+            </colgroup>
+            <tbody>
+                <tr>
+                    <th scope="row"><label for="mb_year">년도</label></th>
+                    <td>
+                        <?php echo get_blYear_select("bl_year") ?>
+                    </td>
+                    <th scope="row"><label for="">소속</label></th>
+                    <td>
+                        <?php echo get_blName_select("bl_name") ?>
+                    </td>
+                    <!--<th scope="row"><label for="">분류</label></th>
         <td>
 			<?php echo get_blCate_select("bl_cate") ?>
 		</td>-->
-    </tr>
-	<tr>
-        <th scope="row"><label for="mb_year">회원유형</label></th>
-        <td colspan="3">
-            <input type="radio" name="mb_1" value="" id="mb_1" <?php echo $mb_1_all; ?>>
-            <label for="mb_1_all">전체</label>
-			<input type="radio" name="mb_1" value="C" id="mb_1" <?php echo $mb_1_c; ?>>
-            <label for="mb_1_c">기업</label>
-            <input type="radio" name="mb_1" value="N" id="mb_1" <?php echo $mb_1_n; ?>>
-            <label for="mb_1_n">일반</label>
-        </td>
-    </tr>
-	<tr>
-		<th scope="row"><label for="mb_stat">상태</label></th>
-		<td colspan="3">
-			<input type="radio" name="mb_stat" value="" id="mb_stat" <?php echo $mb_1_all; ?>>
-            <label for="mb_stat_all">전체</label>
-			<input type="radio" name="mb_stat" value="N" id="mb_stat" <?php echo $mb_1_c; ?>>
-            <label for="mb_stat_n">정상</label>
-            <input type="radio" name="mb_stat" value="S" id="mb_stat" <?php echo $mb_1_n; ?>>
-            <label for="mb_stat_s">중지</label>
-			<input type="radio" name="mb_stat" value="L" id="mb_stat" <?php echo $mb_1_n; ?>>
-            <label for="mb_stat_l">탈퇴</label>
-		</td>
-	</tr>
-	<tr>
-		<th scope="row"><label for="mb_year">검색</label></th>
-		<td colspan="3">
-			<label for="sfl" class="sound_only">검색대상</label>
-			<select name="sfl" id="sfl">
-				<option value="mb_id"<?php echo get_selected($_GET['sfl'], "mb_id"); ?>>회원아이디</option>
-				<option value="mb_name"<?php echo get_selected($_GET['sfl'], "mb_name"); ?>>이름</option>
-				<option value="mb_2"<?php echo get_selected($_GET['sfl'], "mb_2"); ?>>부서1</option>
-				<option value="mb_3"<?php echo get_selected($_GET['sfl'], "mb_3"); ?>>부서2</option>
-				<option value="mb_4"<?php echo get_selected($_GET['sfl'], "mb_4"); ?>>부서3</option>
-				<!--<option value="mb_nick"<?php echo get_selected($_GET['sfl'], "mb_nick"); ?>>닉네임</option>
+                </tr>
+                <tr>
+                    <th scope="row"><label for="mb_year">회원유형</label></th>
+                    <td colspan="3">
+                        <input type="radio" name="mb_1" value="" id="mb_1" <?php echo $mb_1_all; ?>>
+                        <label for="mb_1_all">전체</label>
+                        <input type="radio" name="mb_1" value="C" id="mb_1" <?php echo $mb_1_c; ?>>
+                        <label for="mb_1_c">기업</label>
+                        <input type="radio" name="mb_1" value="N" id="mb_1" <?php echo $mb_1_n; ?>>
+                        <label for="mb_1_n">일반</label>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row"><label for="mb_stat">상태</label></th>
+                    <td colspan="3">
+                        <input type="radio" name="mb_stat" value="" id="mb_stat" <?php echo $mb_1_all; ?>>
+                        <label for="mb_stat_all">전체</label>
+                        <input type="radio" name="mb_stat" value="N" id="mb_stat" <?php echo $mb_1_c; ?>>
+                        <label for="mb_stat_n">정상</label>
+                        <input type="radio" name="mb_stat" value="S" id="mb_stat" <?php echo $mb_1_n; ?>>
+                        <label for="mb_stat_s">중지</label>
+                        <input type="radio" name="mb_stat" value="L" id="mb_stat" <?php echo $mb_1_n; ?>>
+                        <label for="mb_stat_l">탈퇴</label>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row"><label for="mb_year">검색</label></th>
+                    <td colspan="3">
+                        <label for="sfl" class="sound_only">검색대상</label>
+                        <select name="sfl" id="sfl">
+                            <option value="mb_id" <?php echo get_selected($_GET['sfl'], "mb_id"); ?>>회원아이디</option>
+                            <option value="mb_name" <?php echo get_selected($_GET['sfl'], "mb_name"); ?>>이름</option>
+                            <option value="mb_2" <?php echo get_selected($_GET['sfl'], "mb_2"); ?>>부서1</option>
+                            <option value="mb_3" <?php echo get_selected($_GET['sfl'], "mb_3"); ?>>부서2</option>
+                            <option value="mb_4" <?php echo get_selected($_GET['sfl'], "mb_4"); ?>>부서3</option>
+                            <!--<option value="mb_nick"<?php echo get_selected($_GET['sfl'], "mb_nick"); ?>>닉네임</option>
 				<option value="mb_level"<?php echo get_selected($_GET['sfl'], "mb_level"); ?>>권한</option>
 				<option value="mb_email"<?php echo get_selected($_GET['sfl'], "mb_email"); ?>>E-MAIL</option>
 				<option value="mb_tel"<?php echo get_selected($_GET['sfl'], "mb_tel"); ?>>전화번호</option>
@@ -149,68 +149,76 @@ $colspan = 16;
 				<option value="mb_datetime"<?php echo get_selected($_GET['sfl'], "mb_datetime"); ?>>가입일시</option>
 				<option value="mb_ip"<?php echo get_selected($_GET['sfl'], "mb_ip"); ?>>IP</option>
 				<option value="mb_recommend"<?php echo get_selected($_GET['sfl'], "mb_recommend"); ?>>추천인</option>-->
-			</select>
-			<label for="stx" class="sound_only">검색어<strong class="sound_only"> 필수</strong></label>
-			<input type="text" name="stx" value="<?php echo $stx ?>" id="stx" required class="required frm_input">
-			<input type="submit" class="btn_submit" value="검색">
-		</td>
-	</tr>
-	</tbody>
-	</table>
-	</form>
+                        </select>
+                        <label for="stx" class="sound_only">검색어<strong class="sound_only"> 필수</strong></label>
+                        <input type="text" name="stx" value="<?php echo $stx ?>" id="stx" required
+                            class="required frm_input">
+                        <input type="submit" class="btn_submit" value="검색">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
 </div>
 
-<form name="fmemberlist" id="fmemberlist" action="./member_list_update.php" onsubmit="return fmemberlist_submit(this);" method="post">
-<input type="hidden" name="sst" value="<?php echo $sst ?>">
-<input type="hidden" name="sod" value="<?php echo $sod ?>">
-<input type="hidden" name="sfl" value="<?php echo $sfl ?>">
-<input type="hidden" name="stx" value="<?php echo $stx ?>">
-<input type="hidden" name="page" value="<?php echo $page ?>">
-<input type="hidden" name="token" value="">
+<form name="fmemberlist" id="fmemberlist" action="./member_list_update.php" onsubmit="return fmemberlist_submit(this);"
+    method="post">
+    <input type="hidden" name="sst" value="<?php echo $sst ?>">
+    <input type="hidden" name="sod" value="<?php echo $sod ?>">
+    <input type="hidden" name="sfl" value="<?php echo $sfl ?>">
+    <input type="hidden" name="stx" value="<?php echo $stx ?>">
+    <input type="hidden" name="page" value="<?php echo $page ?>">
+    <input type="hidden" name="token" value="">
 
-<div class="local_ov02">
-	<div class="l_div">
-		<span class="btn_ov01"><span class="ov_txt">Total </span><span class="ov_num"> <?php echo number_format($total_count) ?> 건 </span></span>
-	</div>
-	<div class="r_div">
-		<?php if ($is_admin == 'super') { ?>
-		<input type="submit" name="act_button" value="선택삭제" onclick="document.pressed=this.value" class="btn btn_02">
-		<a href="./memberexcel_down.php?sfl=<?php echo $sfl ?>&amp;stx=<?php echo $stx ?>&amp;year=<?php echo get_text($bl_year); ?>" onclick="return excel_down(f);" target="_blank" id="member_add" class="btn btn_04">전체EXCEL</a>
-		<a href="./member_excel_form.php" id="member_add" class="btn btn_01">회원일괄등록</a>
-		<a href="./member_form.php" id="member_add" class="btn btn_03">회원추가</a>
-		<?php } ?>
-	</div>
-</div>
+    <div class="local_ov02">
+        <div class="l_div">
+            <span class="btn_ov01"><span class="ov_txt">Total </span><span class="ov_num">
+                    <?php echo number_format($total_count) ?> 건 </span></span>
+        </div>
+        <div class="r_div">
+            <?php if ($is_admin == 'super') { ?>
+            <input type="submit" name="act_button" value="선택삭제" onclick="document.pressed=this.value"
+                class="btn btn_02">
+            <a href="./memberexcel_down.php?sfl=<?php echo $sfl ?>&amp;stx=<?php echo $stx ?>&amp;year=<?php echo get_text($bl_year); ?>"
+                onclick="return excel_down(f);" target="_blank" id="member_add" class="btn btn_04">전체EXCEL</a>
+            <a href="./member_excel_form.php" id="member_add" class="btn btn_01">회원일괄등록</a>
+            <a href="./member_form.php" id="member_add" class="btn btn_03">회원추가</a>
+            <?php } ?>
+        </div>
+    </div>
 
-<div class="tbl_head01 tbl_wrap">
-    <table>
-    <caption><?php echo $g5['title']; ?> 목록</caption>
-    <thead>
-    <tr>
-        <th scope="col" id="mb_list_chk">
-            <label for="chkall" class="sound_only">회원 전체</label>
-            <input type="checkbox" name="chkall" value="1" id="chkall" onclick="check_all(this.form)">
-        </th>
-        <th scope="col" id="mb_list_no">No</a></th>
-		<th scope="col" id="mb_list_id"><?php echo subject_sort_link('bl_year') ?>년도</a></th>
-		<th scope="col" id="mb_list_id">분류</a></th>
-		<th scope="col" id="mb_list_id">소속</a></th>
-		<th scope="col" id="mb_list_name"><?php echo subject_sort_link('mb_name') ?>이름</a></th>
-		<th scope="col" id="mb_list_id"><?php echo subject_sort_link('mb_id') ?>아이디</a></th>
-		<th scope="col" id="mb_list_id"><?php echo subject_sort_link('mb_2') ?>부서1</a></th>
-		<th scope="col" id="mb_list_id"><?php echo subject_sort_link('mb_3') ?>부서2</a></th>
-		<th scope="col" id="mb_list_id"><?php echo subject_sort_link('mb_4') ?>부서3</a></th>
-		<th scope="col" id="mb_list_join"><?php echo subject_sort_link('mb_datetime', '', 'desc') ?>가입일</a></th>
-		<th scope="col" id="mb_list_lastcall"><?php echo subject_sort_link('mb_today_login', '', 'desc') ?>최종접속</a></th>
-		<th scope="col" id="mb_list_id">학습기간</a></th>
-		<th scope="col" id="mb_list_point"><?php echo subject_sort_link('mb_point', '', 'desc') ?> 마일리지</a></th>
-		<th scope="col" id="mb_list_id"><?php echo subject_sort_link('mb_id') ?>수료유무</a></th>
-		<th scope="col" id="mb_list_id"><?php echo subject_sort_link('mb_id') ?>상태</a></th>
-        <th scope="col" id="mb_list_mng">관리</th>
-    </tr>
-    </thead>
-    <tbody>
-    <?php
+    <div class="tbl_head01 tbl_wrap">
+        <table>
+            <caption><?php echo $g5['title']; ?> 목록</caption>
+            <thead>
+                <tr>
+                    <th scope="col" id="mb_list_chk">
+                        <label for="chkall" class="sound_only">회원 전체</label>
+                        <input type="checkbox" name="chkall" value="1" id="chkall" onclick="check_all(this.form)">
+                    </th>
+                    <th scope="col" id="mb_list_no">No</a></th>
+                    <th scope="col" id="mb_list_id"><?php echo subject_sort_link('bl_year') ?>년도</a></th>
+                    <th scope="col" id="mb_list_id">분류</a></th>
+                    <th scope="col" id="mb_list_id">소속</a></th>
+                    <th scope="col" id="mb_list_name"><?php echo subject_sort_link('mb_name') ?>이름</a></th>
+                    <th scope="col" id="mb_list_id"><?php echo subject_sort_link('mb_id') ?>아이디</a></th>
+                    <th scope="col" id="mb_list_id"><?php echo subject_sort_link('mb_2') ?>부서1</a></th>
+                    <th scope="col" id="mb_list_id"><?php echo subject_sort_link('mb_3') ?>부서2</a></th>
+                    <th scope="col" id="mb_list_id"><?php echo subject_sort_link('mb_4') ?>부서3</a></th>
+                    <th scope="col" id="mb_list_join"><?php echo subject_sort_link('mb_datetime', '', 'desc') ?>가입일</a>
+                    </th>
+                    <th scope="col" id="mb_list_lastcall">
+                        <?php echo subject_sort_link('mb_today_login', '', 'desc') ?>최종접속</a></th>
+                    <th scope="col" id="mb_list_id">학습기간</a></th>
+                    <th scope="col" id="mb_list_point"><?php echo subject_sort_link('mb_point', '', 'desc') ?> 마일리지</a>
+                    </th>
+                    <th scope="col" id="mb_list_id"><?php echo subject_sort_link('mb_id') ?>수료유무</a></th>
+                    <th scope="col" id="mb_list_id"><?php echo subject_sort_link('mb_id') ?>상태</a></th>
+                    <th scope="col" id="mb_list_mng">관리</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
     for ($i=0; $row=sql_fetch_array($result); $i++) {
         // 접근가능한 그룹수
         $sql2 = " select count(*) as cnt from {$g5['group_member_table']} where mb_id = '{$row['mb_id']}' ";
@@ -271,55 +279,89 @@ $colspan = 16;
         }
     ?>
 
-    <tr class="<?php echo $bg; ?>">
-        <td headers="mb_list_chk" class="td_chk">
-            <input type="hidden" name="mb_id[<?php echo $i ?>]" value="<?php echo $row['mb_id'] ?>" id="mb_id_<?php echo $i ?>">
-            <label for="chk_<?php echo $i; ?>" class="sound_only"><?php echo get_text($row['mb_name']); ?> <?php echo get_text($row['mb_nick']); ?>님</label>
-            <input type="checkbox" name="chk[]" value="<?php echo $i ?>" id="chk_<?php echo $i ?>">
-        </td>
-		<td headers="mb_list_"><?php echo $startNum ?></td>
-		<td headers="mb_list_"><?php echo get_text($bl_year); ?></td>
-		<td headers="mb_list_"><?php echo get_text($row['bl_cate']); ?></td>
-		<td headers="mb_list_"><?php echo get_text($row['bl_name']); ?></td>
-        <td headers="mb_list_name" class="td_mbname2"><?php echo get_text($row['mb_name']); ?></td>
-		<td headers="mb_list_id" class="td_name2">
-            <?php echo $mb_id ?>
-        </td>
-		<td headers="mb_list_"><?php echo get_text($row['mb_2']); ?></td>
-		<td headers="mb_list_"><?php echo get_text($row['mb_3']); ?></td>
-		<td headers="mb_list_"><?php echo get_text($row['mb_4']); ?></td>
-		<td headers="mb_list_join" class="td_date"><?php echo substr($row['mb_datetime'],2,8); ?></td>
-		<td headers="mb_list_lastcall" class="td_date"><?php echo substr($row['mb_today_login'],2,8); ?></td>
-		<td headers="mb_list_"><?php echo date("y-m-d", strtotime($row['mb_8'])); ?> ~ <?php echo date("y-m-d", strtotime($row['mb_9'])); ?></td>
-		<td headers="mb_list_point" class="td_num"><a href="point_list.php?sfl=mb_id&amp;stx=<?php echo $row['mb_id'] ?>"><?php echo number_format($row['mb_point']) ?></a></td>
-		<td headers="mb_list_"></td>
-		<td headers="mb_list_"></td>
-		<td headers="mb_list_mng" class="td_mng td_mng_s"><?php echo $s_mod ?></td>
-    </tr>
-    <?php
+                <tr class="<?php echo $bg; ?>">
+                    <td headers="mb_list_chk" class="td_chk">
+                        <input type="hidden" name="mb_id[<?php echo $i ?>]" value="<?php echo $row['mb_id'] ?>"
+                            id="mb_id_<?php echo $i ?>">
+                        <label for="chk_<?php echo $i; ?>" class="sound_only"><?php echo get_text($row['mb_name']); ?>
+                            <?php echo get_text($row['mb_nick']); ?>님</label>
+                        <input type="checkbox" name="chk[]" value="<?php echo $i ?>" id="chk_<?php echo $i ?>">
+                    </td>
+                    <td headers="mb_list_"><?php echo $startNum ?></td>
+                    <td headers="mb_list_"><?php echo get_text($bl_year); ?></td>
+                    <td headers="mb_list_"><?php echo get_text($row['bl_cate']); ?></td>
+                    <td headers="mb_list_"><?php echo get_text($row['bl_name']); ?></td>
+                    <td headers="mb_list_name" class="td_mbname2"><?php echo get_text($row['mb_name']); ?></td>
+                    <td headers="mb_list_id" class="td_name2">
+                        <?php echo $mb_id ?>
+                    </td>
+                    <td headers="mb_list_"><?php echo get_text($row['mb_2']); ?></td>
+                    <td headers="mb_list_"><?php echo get_text($row['mb_3']); ?></td>
+                    <td headers="mb_list_"><?php echo get_text($row['mb_4']); ?></td>
+                    <td headers="mb_list_join" class="td_date"><?php echo substr($row['mb_datetime'],2,8); ?></td>
+                    <td headers="mb_list_lastcall" class="td_date"><?php echo substr($row['mb_today_login'],2,8); ?>
+                    </td>
+                    <td headers="mb_list_"><?php echo date("y-m-d", strtotime($row['mb_8'])); ?> ~
+                        <?php echo date("y-m-d", strtotime($row['mb_9'])); ?></td>
+                    <td headers="mb_list_point" class="td_num"><a
+                            href="point_list.php?sfl=mb_id&amp;stx=<?php echo $row['mb_id'] ?>">
+
+
+
+                            <?php 
+        $sum_point = 0;
+$mb_id = $row['mb_id']; // 또는 사용 중인 회원 ID 변수
+
+// 단일 항목들
+$codes = array(
+    'ceo','cmp','self1','self2','p_comp','e_campaign','e_story',
+    'cyber','cyber3','ns_co','guide04','srvy01','srvy02','guide','info','cns'
+);
+
+foreach ($codes as $code) {
+    $sum_point += get_mileage($mb_id, $code);
+}
+
+// guide03_1 ~ guide03_4 묶음
+for ($i = 1; $i <= 4; $i++) {
+    $sum_point += get_mileage($mb_id, 'guide03_' . $i);
+}
+
+// guide05_1 ~ guide05_2 묶음
+for ($i = 1; $i <= 2; $i++) {
+    $sum_point += get_mileage($mb_id, 'guide05_' . $i);
+}
+
+// 결과
+echo $sum_point;
+        ?></a></td>
+                    <td headers="mb_list_"></td>
+                    <td headers="mb_list_"></td>
+                    <td headers="mb_list_mng" class="td_mng td_mng_s"><?php echo $s_mod ?></td>
+                </tr>
+                <?php
 		$startNum++;
     }
     if ($i == 0)
         echo "<tr><td colspan=\"".$colspan."\" class=\"empty_table\">자료가 없습니다.</td></tr>";
     ?>
-    </tbody>
-    </table>
-</div>
+            </tbody>
+        </table>
+    </div>
 
 </form>
 
 <?php echo get_paging(G5_IS_MOBILE ? $config['cf_mobile_pages'] : $config['cf_write_pages'], $page, $total_page, '?'.$qstr.'&amp;page='); ?>
 
 <script>
-function fmemberlist_submit(f)
-{
+function fmemberlist_submit(f) {
     if (!is_checked("chk[]")) {
-        alert(document.pressed+" 하실 항목을 하나 이상 선택하세요.");
+        alert(document.pressed + " 하실 항목을 하나 이상 선택하세요.");
         return false;
     }
 
-    if(document.pressed == "선택삭제") {
-        if(!confirm("선택한 자료를 정말 삭제하시겠습니까?")) {
+    if (document.pressed == "선택삭제") {
+        if (!confirm("선택한 자료를 정말 삭제하시겠습니까?")) {
             return false;
         }
     }
@@ -328,13 +370,13 @@ function fmemberlist_submit(f)
 }
 
 // 회원 엑셀 다운로드 추가
-function excel_down(f){ 
+function excel_down(f) {
 
-	f.action = "./memberexcel_down.php";
+    f.action = "./memberexcel_down.php";
 
-	f.submit();
+    f.submit();
 
-	f.action = "";
+    f.action = "";
 
 }
 </script>
