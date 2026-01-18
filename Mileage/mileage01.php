@@ -131,7 +131,7 @@ include_once ('../_Inc/subHead.php');
                     <!-- <td><?php echo $stCnt ?></td> -->
                     <td>100</td>
                     <td><?php echo $strVal? substr($strVal, 0, 10) : "";?></td>
-                    <td><?php echo $stMile ?></td>
+                    <td><?php if($stMile > 0 ) echo $stMile; ?></td>
                     <td>열람시 가산</td>
                 </tr>
                 <?php 
@@ -147,7 +147,7 @@ include_once ('../_Inc/subHead.php');
                     <!-- <td><?php echo $stCnt ?></td> -->
                     <td>100</td>
                     <td><?php echo $strVal? substr($strVal, 0, 10) : "";?></td>
-                    <td><?php echo $stMile ?></td>
+                    <td><?php if($stMile > 0 ) echo $stMile; ?></td>
                     <td>열람시 가산</td>
                 </tr>
                 <?php 
@@ -163,7 +163,7 @@ include_once ('../_Inc/subHead.php');
                     <!-- <td><?php echo $stCnt ?></td> -->
                     <td>60</td>
                     <td><?php echo $strVal? substr($strVal, 0, 10) : "";?></td>
-                    <td><?php echo $stMile ?></td>
+                    <td><?php if($stMile > 0 ) echo $stMile; ?></td>
                     <td>수행시 가산</td>
                 </tr>
                 <?php 
@@ -179,7 +179,7 @@ include_once ('../_Inc/subHead.php');
                     <!-- <td><?php echo $stCnt ?></td> -->
                     <td>60</td>
                     <td><?php echo $strVal? substr($strVal, 0, 10) : "";?></td>
-                    <td><?php echo $stMile ?></td>
+                    <td><?php if($stMile > 0 ) echo $stMile; ?></td>
                     <td>수행시 가산</td>
                 </tr>
                 <?php 
@@ -195,7 +195,7 @@ include_once ('../_Inc/subHead.php');
                     <!-- <td><?php echo $stCnt ?></td> -->
                     <td>125</td>
                     <td><?php echo $strVal? substr($strVal, 0, 10) : "";?></td>
-                    <td><?php echo $stMile ?></td>
+                    <td><?php if($stMile > 0 ) echo $stMile; ?></td>
                     <td>수행시 가산</td>
                 </tr>
                 <?php 
@@ -211,7 +211,7 @@ include_once ('../_Inc/subHead.php');
                     <!-- <td><?php echo $stCnt ?></td> -->
                     <td>60</td>
                     <td><?php echo $strVal? substr($strVal, 0, 10) : "";?></td>
-                    <td><?php echo $stMile ?></td>
+                    <td><?php if($stMile > 0 ) echo $stMile; ?></td>
                     <td>수행시 가산</td>
                 </tr>
                 <?php 
@@ -227,7 +227,7 @@ include_once ('../_Inc/subHead.php');
                     <!-- <td><?php echo $stCnt ?></td> -->
                     <td>40</td>
                     <td><?php echo $strVal? substr($strVal, 0, 10) : "";?></td>
-                    <td><?php echo $stMile ?></td>
+                    <td><?php if($stMile > 0 ) echo $stMile; ?></td>
                     <td>수행시 가산</td>
                 </tr>
                 <?php 
@@ -243,7 +243,7 @@ include_once ('../_Inc/subHead.php');
                     <!-- <td><?php echo $stCnt ?></td> -->
                     <td>-</td>
                     <td><?php echo $strVal? substr($strVal, 0, 10) : "";?></td>
-                    <td><?php echo $stMile ?></td>
+                    <td><?php if($stMile > 0 ) echo $stMile; ?></td>
                     <td>수료시 가산</td>
                 </tr>
                 <?php 
@@ -259,7 +259,7 @@ include_once ('../_Inc/subHead.php');
                     <!-- <td><?php echo $stCnt ?></td> -->
                     <td>-</td>
                     <td><?php echo $strVal? substr($strVal, 0, 10) : "";?></td>
-                    <td><?php echo $stMile ?></td>
+                    <td><?php if($stMile > 0 ) echo $stMile; ?></td>
                     <td>수료시 가산</td>
                 </tr>
 
@@ -276,7 +276,7 @@ include_once ('../_Inc/subHead.php');
                     <!-- <td><?php echo $stCnt ?></td> -->
                     <td>32</td>
                     <td><?php echo $strVal? substr($strVal, 0, 10) : "";?></td>
-                    <td><?php echo $stMile ?></td>
+                    <td><?php if($stMile > 0 ) echo $stMile; ?></td>
                     <td>수행시 가산</td>
                 </tr>
                 <?php 
@@ -309,7 +309,7 @@ $sum_point += $stMile;
                     <!-- <td><?php echo $stCnt ?></td> -->
                     <td>144</td>
                     <td><?php echo $strVal? substr($strVal, 0, 10) : "";?></td>
-                    <td><?php echo $stMile ?></td>
+                    <td><?php if($stMile > 0 ) echo $stMile; ?></td>
                     <td>열람시 가산</td>
                 </tr>
                 <?php 
@@ -341,7 +341,7 @@ $sum_point += $stMile;
                     <!-- <td><?php echo $stCnt ?></td> -->
                     <td>72</td>
                     <td><?php echo $strVal? substr($strVal, 0, 10) : "";?></td>
-                    <td><?php echo $stMile ?></td>
+                    <td><?php if($stMile > 0 ) echo $stMile; ?></td>
                     <td>열람시 가산</td>
                 </tr>
                 <?php 
@@ -357,7 +357,7 @@ $sum_point += $stMile;
                     <!-- <td><?php echo $stCnt ?></td> -->
                     <td>36</td>
                     <td><?php echo $strVal? substr($strVal, 0, 10) : "";?></td>
-                    <td><?php echo $stMile ?></td>
+                    <td><?php if($stMile > 0 ) echo $stMile; ?></td>
                     <td>열람시 가산</td>
                 </tr>
                 <?php 
@@ -373,7 +373,7 @@ $sum_point += $stMile;
                     <!-- <td><?php echo $stCnt ?></td> -->
                     <td>-</td>
                     <td><?php echo $strVal? substr($strVal, 0, 10) : "";?></td>
-                    <td><?php echo $stMile ?></td>
+                    <td><?php if($stMile > 0 ) echo $stMile; ?></td>
                     <td>수행시 가산<br /><span style="font-size:16px;">(상•하반기 각 1회, 연간 총 2회)</span></td>
                 </tr>
                 <?php 
@@ -389,7 +389,7 @@ $sum_point += $stMile;
                     <!-- <td><?php echo $stCnt ?></td> -->
                     <td>-</td>
                     <td><?php echo $strVal? substr($strVal, 0, 10) : "";?></td>
-                    <td><?php echo $stMile ?></td>
+                    <td><?php if($stMile > 0 ) echo $stMile; ?></td>
                     <td>수행시 가산<br /><span style="font-size:16px;">(상•하반기 각 1회, 연간 총 2회)</span></td>
                 </tr>
                 <?php 
@@ -405,7 +405,7 @@ $sum_point += $stMile;
                     <!-- <td><?php echo $stCnt ?></td> -->
                     <td>18</td>
                     <td><?php echo $strVal? substr($strVal, 0, 10) : "";?></td>
-                    <td><?php echo $stMile ?></td>
+                    <td><?php if($stMile > 0 ) echo $stMile; ?></td>
                     <td>열람시 가산</td>
                 </tr>
                 <?php 
@@ -421,7 +421,7 @@ $sum_point += $stMile;
                     <!-- <td><?php echo $stCnt ?></td> -->
                     <td>75</td>
                     <td><?php echo $strVal? substr($strVal, 0, 10) : "";?></td>
-                    <td><?php echo $stMile ?></td>
+                    <td><?php if($stMile > 0 ) echo $stMile; ?></td>
                     <td>열람시 가산</td>
                 </tr>
                 <?php 
@@ -437,7 +437,7 @@ $sum_point += $stMile;
                     <!-- <td><?php echo $stCnt ?></td> -->
                     <td>75</td>
                     <td><?php echo $strVal? substr($strVal, 0, 10) : "";?></td>
-                    <td><?php echo $stMile ?></td>
+                    <td><?php if($stMile > 0 ) echo $stMile; ?></td>
                     <td>열람시 가산</td>
                 </tr>
                 <tr>
