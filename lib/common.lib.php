@@ -1119,6 +1119,10 @@ function insert_point_ns($mb_id, $point, $content='', $rel_table='', $rel_id='',
 		// return 1;
 	} 
 
+        if (date('Y-m-d') < '2026-01-20') {
+        return 0;
+    }
+
         // 최대포인트
     // ===== 최대 적립 포인트 체크 =====
     $max_point = get_mileage_max_point($rel_table);
