@@ -14,10 +14,10 @@
 	if(!$res['cnt'] && $member['mb_id']) 
 	{
   ?>
-    <a target="_blank" href="<?php echo G5_URL ?>/survey/form/survey4.html" class="quick-menu">
+    <!-- <a target="_blank" href="<?php echo G5_URL ?>/survey/form/survey4.html" class="quick-menu">
 
         CP인식도<br>조사
-    </a>
+    </a> -->
     <?php } ?>
 
     <?php
@@ -27,10 +27,10 @@
 	if(!$res['cnt'] && $member['mb_id']) 
 	{
   ?>
-    <a target="_blank" href="<?php echo G5_URL ?>/survey/form/survey1.html" class="quick-menu">
+    <!-- <a target="_blank" href="<?php echo G5_URL ?>/survey/form/survey1.html" class="quick-menu">
 
         CP교육<br>만족도 조사
-    </a>
+    </a> -->
     <?php } ?>
     <a href="<?php echo G5_URL ?>/bbs/board.php?bo_table=notice" class="quick-menu">
         <div class="icon icon-1"></div>
