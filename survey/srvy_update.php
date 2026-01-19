@@ -29,7 +29,7 @@ $sql_common = "
 				srvy_name 		= '{$srvy['srvy_name']}',
 				srvy_point 		= '{$srvy['srvy_point']}',
 				srvy_type 		= '{$srvy['srvy_type']}',
-				srvy_year 		= '2025',
+				srvy_year 		= '2026',
 				srvy_semi 		= '{$srvy['srvy_semi']}',
 				srvd_ex 		= '{$srvy_data}',
 				srvd_sub 		= '{$srvy_data_sub}',
@@ -44,15 +44,15 @@ sql_query(" insert into {$g5['survey_data_table']} set srvd_uid = '{$member['mb_
 $num = "1";
 if($srvy['srvy_type'] == 'A')
 {
-	$strVal = "CP교육만족도 조사 완료";
-	$point = "200";
-	$conf = "srvy01";
-}
-else
-{
 	$strVal = "윤리CP인식도 조사 완료";
 	$point = "200";
 	$conf = "srvy02";
+}
+else
+{
+	$strVal = "CP교육만족도 조사 완료";
+	$point = "200";
+	$conf = "srvy01";
 }
 insert_point_ns($member['mb_id'], $point, $strVal, $conf, $member['mb_id'], "@".$num, $num);
 ?>
