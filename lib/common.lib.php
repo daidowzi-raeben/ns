@@ -1467,6 +1467,10 @@ function insert_point($mb_id, $point, $content='', $rel_table='', $rel_id='', $r
 #		return 1;
 #	} 
 
+    if (date('Y-m-d') < '2026-01-20') {
+        return 0;
+    }
+
     // 포인트 사용을 하지 않는다면 return
     if (!$config['cf_use_point']) { return 0; }
 
