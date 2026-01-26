@@ -37,7 +37,8 @@ if ($wr_subject == '') {
 
 $wr_content = '';
 if (isset($_POST['wr_content'])) {
-    $wr_content = substr(trim($_POST['wr_content']),0,65536);
+    // 내용 길이 제한 제거 (DB LONGTEXT 사용 시 자르지 않음)
+    $wr_content = trim($_POST['wr_content']);
     $wr_content = preg_replace("#[\\\]+$#", "", $wr_content);
 }
 if ($wr_content == '') {
