@@ -41,6 +41,8 @@ if (isset($_POST['wr_content'])) {
     $wr_content = trim($_POST['wr_content']);
     $wr_content = preg_replace("#[\\\]+$#", "", $wr_content);
 }
+error_log('WR_CONTENT_POST_LEN=' . (isset($_POST['wr_content']) ? strlen($_POST['wr_content']) : 0));
+error_log('WR_CONTENT_AFTER_LEN=' . strlen($wr_content));
 if ($wr_content == '') {
     $msg[] = '<strong>내용</strong>을 입력하세요.';
 }
@@ -258,6 +260,7 @@ if ($w == '' || $w == 'r') {
         $wr_reply = '';
     }
 
+    error_log('WR_CONTENT_BEFORE_INSERT_LEN=' . strlen($wr_content));
     $sql = " insert into $write_table
                 set wr_num = '$wr_num',
                      wr_reply = '$wr_reply',
