@@ -199,9 +199,9 @@ include_once ('../_Inc/subHead.php');
                     <td>수행시 가산</td>
                 </tr>
                 <?php 
-	$strVal = get_mileage_date($member['mb_id'], "e_campaign", 0); 
-	$stMile = get_mileage($member['mb_id'], "e_campaign"); 
-	$stCnt = get_mileage_count($member['mb_id'], "e_campaign"); 
+	$strVal = get_mileage_date($member['mb_id'], "e_story", 0); 
+	$stMile = get_mileage($member['mb_id'], "e_story"); 
+	$stCnt = get_mileage_count($member['mb_id'], "e_story"); 
 	$sum_point += $stMile;
 ?>
                 <tr>
