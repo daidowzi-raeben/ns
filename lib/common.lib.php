@@ -1440,31 +1440,45 @@ function get_mileage($mb_id, $rel_table)
 
     $sum_point = (int)$res['sum_point'];
 
-    // 최대 모금 가능 점수 제한 로직 추가
-    $max_limits = array(
-        'ceo' => 100, // CEO 메시지
-        'cmp' => 100, // 자율준수관리자 메시지
-        'self1' => 60, // 윤리실천 자가진단
-        'self2' => 60, // 준법실천 자가진단
-        'p_comp' => 125, // e-준법교육 캠페인
-        'e_campaign' => 60, // 윤리캠페인
-        'e_story' => 40, // 윤리이야기
-        'ns_co' => 32, // 윤리 톡톡
-        'guide03_1' => 36, // 공정거래 가이드라인 1
-        'guide03_2' => 36, // 공정거래 가이드라인 2
-        'guide03_3' => 36, // 공정거래 가이드라인 3
-        'guide03_4' => 36, // 공정거래 가이드라인 4
-        'guide05_1' => 36, // 대규모유통업법 가이드라인 1
-        'guide05_2' => 36, // 대규모유통업법 가이드라인 2
-        'guide04' => 36, // 청탁금지법 가이드라인
-        'guide' => 18, // 사내 준법 가이드라인
-        'info' => 75, // 법령정보
-        'cns' => 75 // 준법상담
-    );
+    // CP교육 만족도 조사(srvy01), 윤리/CP 인식도 조사(srvy02), 윤리교육(cyber3), CP교육(cyber) 제외
+    $exclude_rel_tables = array('srvy01', 'srvy02', 'cyber3', 'cyber');
 
-    if (array_key_exists($rel_table, $max_limits)) {
-        if ($sum_point > $max_limits[$rel_table]) {
-            return $max_limits[$rel_table];
+    if (!in_array($rel_table, $exclude_rel_tables)) {
+
+        $policy_rel_table = $rel_table;
+        $divide_by = 1;
+
+        // mapping sj_point rel_table to sj_mileage_policy rel_table
+        if ($rel_table === 'cmp')
+            $policy_rel_table = 'ns_co';
+        else if ($rel_table === 'p_comp')
+            $policy_rel_table = 'e_campaign';
+        else if ($rel_table === 'e_campaign')
+            $policy_rel_table = 'e_story';
+        else if ($rel_table === 'e_story')
+            $policy_rel_table = 'cyber';
+        else if ($rel_table === 'ns_co')
+            $policy_rel_table = 'cyber5';
+        else if ($rel_table === 'guide04')
+            $policy_rel_table = 'guideline';
+        else if (strpos($rel_table, 'guide03_') === 0) {
+            $policy_rel_table = 'guide03';
+            $divide_by = 4;
+        }
+        else if (strpos($rel_table, 'guide05_') === 0) {
+            $policy_rel_table = 'guide05';
+            $divide_by = 2;
+        }
+
+        $row = sql_fetch(" SELECT max_point FROM sj_mileage_policy WHERE rel_table = '{$policy_rel_table}' AND use_yn = 'Y' ");
+        if ($row && isset($row['max_point'])) {
+            $max_point = (int)$row['max_point'];
+            if ($divide_by > 1) {
+                $max_point = floor($max_point / $divide_by);
+            }
+            if ($sum_point > $max_point) {
+                return $max_point;
+            }
         }
     }
 

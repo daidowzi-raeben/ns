@@ -128,8 +128,9 @@ $sum_point += $stMile;
                     <td>CEO 메시지</td>
                     <td>5</td>
                     <!-- <td>제한없음</td> -->
-                    <!-- <td><?php echo $stCnt?></td> -->
-                    <td>100</td>
+                    <td>
+                        <?php echo get_mileage_max_point("ceo"); ?>
+                    </td>
                     <td>
                         <?php echo $strVal ? substr($strVal, 0, 10) : ""; ?>
                     </td>
@@ -149,8 +150,9 @@ $sum_point += $stMile;
                     <td>자율준수관리자 메시지</td>
                     <td>5</td>
                     <!-- <td>제한없음</td> -->
-                    <!-- <td><?php echo $stCnt?></td> -->
-                    <td>100</td>
+                    <td>
+                        <?php echo get_mileage_max_point("ns_co"); ?>
+                    </td>
                     <td>
                         <?php echo $strVal ? substr($strVal, 0, 10) : ""; ?>
                     </td>
@@ -170,8 +172,9 @@ $sum_point += $stMile;
                     <td>윤리실천 자가진단</td>
                     <td>5</td>
                     <!-- <td>제한없음</td> -->
-                    <!-- <td><?php echo $stCnt?></td> -->
-                    <td>60</td>
+                    <td>
+                        <?php echo get_mileage_max_point("self1"); ?>
+                    </td>
                     <td>
                         <?php echo $strVal ? substr($strVal, 0, 10) : ""; ?>
                     </td>
@@ -191,8 +194,9 @@ $sum_point += $stMile;
                     <td>준법실천 자가진단</td>
                     <td>5</td>
                     <!-- <td>제한없음</td> -->
-                    <!-- <td><?php echo $stCnt?></td> -->
-                    <td>60</td>
+                    <td>
+                        <?php echo get_mileage_max_point("self2"); ?>
+                    </td>
                     <td>
                         <?php echo $strVal ? substr($strVal, 0, 10) : ""; ?>
                     </td>
@@ -212,8 +216,9 @@ $sum_point += $stMile;
                     <td>e-준법교육 캠페인</td>
                     <td>5</td>
                     <!-- <td>52</td> -->
-                    <!-- <td><?php echo $stCnt?></td> -->
-                    <td>125</td>
+                    <td>
+                        <?php echo get_mileage_max_point("e_campaign"); ?>
+                    </td>
                     <td>
                         <?php echo $strVal ? substr($strVal, 0, 10) : ""; ?>
                     </td>
@@ -233,8 +238,9 @@ $sum_point += $stMile;
                     <td>윤리캠페인</td>
                     <td>2</td>
                     <!-- <td>62</td> -->
-                    <!-- <td><?php echo $stCnt?></td> -->
-                    <td>60</td>
+                    <td>
+                        <?php echo get_mileage_max_point("e_story"); ?>
+                    </td>
                     <td>
                         <?php echo $strVal ? substr($strVal, 0, 10) : ""; ?>
                     </td>
@@ -254,8 +260,9 @@ $sum_point += $stMile;
                     <td>윤리이야기</td>
                     <td>2</td>
                     <!-- <td>41</td> -->
-                    <!-- <td><?php echo $stCnt?></td> -->
-                    <td>40</td>
+                    <td>
+                        <?php echo get_mileage_max_point("cyber"); ?>
+                    </td>
                     <td>
                         <?php echo $strVal ? substr($strVal, 0, 10) : ""; ?>
                     </td>
@@ -318,8 +325,9 @@ $sum_point += $stMile;
                     <td>윤리 톡톡</td>
                     <td>2</td>
                     <!-- <td>제한없음</td> -->
-                    <!-- <td><?php echo $stCnt?></td> -->
-                    <td>32</td>
+                    <td>
+                        <?php echo get_mileage_max_point("cyber5"); ?>
+                    </td>
                     <td>
                         <?php echo $strVal ? substr($strVal, 0, 10) : ""; ?>
                     </td>
@@ -356,8 +364,9 @@ $sum_point += $stMile;
                     <td>공정거래 가이드라인</td>
                     <td>3</td>
                     <!-- <td>제한없음</td> -->
-                    <!-- <td><?php echo $stCnt?></td> -->
-                    <td>144</td>
+                    <td>
+                        <?php echo get_mileage_max_point("guide03"); ?>
+                    </td>
                     <td>
                         <?php echo $strVal ? substr($strVal, 0, 10) : ""; ?>
                     </td>
@@ -393,8 +402,9 @@ $sum_point += $stMile;
                     <td>대규모유통업법 가이드라인</td>
                     <td>3</td>
                     <!-- <td>제한없음</td> -->
-                    <!-- <td><?php echo $stCnt?></td> -->
-                    <td>72</td>
+                    <td>
+                        <?php echo get_mileage_max_point("guide05"); ?>
+                    </td>
                     <td>
                         <?php echo $strVal ? substr($strVal, 0, 10) : ""; ?>
                     </td>
@@ -414,8 +424,9 @@ $sum_point += $stMile;
                     <td>청탁금지법 가이드라인</td>
                     <td>3</td>
                     <!-- <td>제한없음</td> -->
-                    <!-- <td><?php echo $stCnt?></td> -->
-                    <td>36</td>
+                    <td>
+                        <?php echo get_mileage_max_point("guideline"); ?>
+                    </td>
                     <td>
                         <?php echo $strVal ? substr($strVal, 0, 10) : ""; ?>
                     </td>
@@ -477,8 +488,9 @@ $sum_point += $stMile;
                     <td>사내 준법 가이드라인</td>
                     <td>2</td>
                     <!-- <td>2</td> -->
-                    <!-- <td><?php echo $stCnt?></td> -->
-                    <td>18</td>
+                    <td>
+                        <?php echo get_mileage_max_point("guide"); ?>
+                    </td>
                     <td>
                         <?php echo $strVal ? substr($strVal, 0, 10) : ""; ?>
                     </td>
