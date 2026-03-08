@@ -25,10 +25,23 @@ else {
 
 $g5['title'] = $html_title;
 include_once('./admin.head.php');
+include_once(G5_PLUGIN_PATH . '/jquery-ui/datepicker.php');
 
 // Get Lessons for select box
-$sql_lssn = " SELECT lssn_no, lssn_title FROM {$g5['lesson_table']} ORDER BY lssn_no DESC ";
+$sql_lssn = " SELECT lssn_no, lssn_title, lssn_status FROM {$g5['lesson_table']} ORDER BY lssn_no DESC ";
 $res_lssn = sql_query($sql_lssn);
+
+// If new, find first ongoing lesson to select by default
+$ongoing_lssn_no = 0;
+if ($w != 'u') {
+    $res_ongoing = sql_query($sql_lssn); // Re-run or reset pointer
+    while ($temp = sql_fetch_array($res_ongoing)) {
+        if ($temp['lssn_status'] == 'D') {
+            $ongoing_lssn_no = $temp['lssn_no'];
+            break;
+        }
+    }
+}
 ?>
 
 <div class="local_desc">
@@ -57,9 +70,16 @@ $res_lssn = sql_query($sql_lssn);
                     <td>
                         <select name="emq_target_lesson" id="emq_target_lesson" required>
                             <option value="">과정을 선택하세요</option>
-                            <?php while ($l = sql_fetch_array($res_lssn)) { ?>
-                            <option value="<?php echo $l['lssn_no']?>" <?php echo
-        $emq['emq_target_lesson'] == $l['lssn_no'] ? 'selected' : '' ?>>
+                            <?php 
+                            while ($l = sql_fetch_array($res_lssn)) { 
+                                $selected = "";
+                                if ($w == "u") {
+                                    if ($emq["emq_target_lesson"] == $l["lssn_no"]) $selected = "selected";
+                                } else {
+                                    if ($ongoing_lssn_no == $l["lssn_no"]) $selected = "selected";
+                                }
+                            ?>
+                            <option value="<?php echo $l['lssn_no']?>" <?php echo $selected ?>>
                                 <?php echo $l['lssn_title']?>
                             </option>
                             <?php
@@ -119,6 +139,19 @@ $res_lssn = sql_query($sql_lssn);
 </form>
 
 <script>
+    $(function () {
+        $("#emq_reserve_time").datepicker({
+            dateFormat: "yy-mm-dd",
+            onSelect: function (dateText, inst) {
+                // If it's a date only, append current time pattern if needed
+                var currentVal = $(this).val();
+                if (currentVal.indexOf(' ') == -1) {
+                    $(this).val(currentVal + " 10:00:00");
+                }
+            }
+        });
+    });
+
     function feduform_check(f) { 
     <?php echo get_editor_js("emq_content"); ?>
     return true;
