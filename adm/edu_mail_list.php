@@ -113,6 +113,11 @@ for ($i = 0; $row = sql_fetch_array($result); $i++) {
                     </td>
                     <td class="td_mng">
                         <a href="./edu_mail_log_list.php?emq_id=<?php echo $row['emq_id']?>" class="btn btn_01">확인</a>
+                        <?php if (in_array($row['emq_status'], array('WAIT', 'FAIL'))) { ?>
+                        <a href="./edu_mail_send_now.php?emq_id=<?php echo $row['emq_id']?>" class="btn btn_02"
+                            onclick="return confirm('지금 바로 발송하시겠습니까?');">즉시발송</a>
+                        <?php
+    }?>
                     </td>
                 </tr>
                 <?php
@@ -130,16 +135,16 @@ if ($i == 0)
 </form>
 
 <script>
-    function fedu_maillist_submit(f) {
-        if (!is_checked("chk[]")) {
-            alert(document.pressed + " 하실 항목을 하나 이상 선택하세요.");
-            return false;
+    function fedu_maillist_s bm        ) {
+        if (!is_checked(            ) {
+            alert( d ocument.pressed + " 하실 항목            선택하세요.");
+                       ur n false;
         }
 
-        if (document.pressed == "삭제") {
-            if (!confirm("선택한 자료를 정말 삭제하시겠습니까?")) {
-                return false;
-            }
+        i            en t.pressed == "삭제") {
+            if (                한 자료를 정말 삭제하시겠            {
+                        return f    alse;
+          }
         }
 
         return true;
