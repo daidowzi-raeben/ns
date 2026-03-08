@@ -27,25 +27,32 @@ $result = sql_query($sql);
     <a href="./edu_mail_unsubscribe_list.php" class="btn btn_02">수신거부 명단</a>
 </div>
 
-<div class="tbl_head01 tbl_wrap">
-    <table>
-        <caption>
-            <?php echo $g5['title']; ?> 목록
-        </caption>
-        <thead>
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">제목</th>
-                <th scope="col">대상 교육</th>
-                <th scope="col">발송 조건</th>
-                <th scope="col">예약 일시</th>
-                <th scope="col">상태</th>
-                <th scope="col">등록일</th>
-                <th scope="col">관리</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
+<form name="fedu_maillist" id="fedu_maillist" method="post" action="./edu_mail_list_delete.php"
+    onsubmit="return fedu_maillist_submit(this);">
+    <div class="tbl_head01 tbl_wrap">
+        <table>
+            <caption>
+                <?php echo $g5['title']; ?> 목록
+            </caption>
+            <thead>
+                <tr>
+                    <th scope="col">
+                        <label for="chkall" class="sound_only">전체선택</label>
+                        <input type="checkbox" name="chkall" value="1" id="chkall" onclick="check_all(this.form)">
+                    </th>
+                    <th scope="col">ID</th>
+                    <th scope="col">이메일 제목</th>
+                    <th scope="col">교육 과정명</th>
+                    <th scope="col">발송조건</th>
+                    <th scope="col">예약일시</th>
+                    <th scope="col">상태</th>
+                    <th scope="col">등록일</th>
+                    <th scope="col">수정</th>
+                    <th scope="col">발송현황</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
 for ($i = 0; $row = sql_fetch_array($result); $i++) {
     // Get Lesson Name
     $lssn = sql_fetch(" SELECT lssn_title FROM {$g5['lesson_table']} WHERE lssn_no = '{$row['emq_target_lesson']}' ");
@@ -64,42 +71,80 @@ for ($i = 0; $row = sql_fetch_array($result); $i++) {
         'FAIL' => '#dc3545'
     );
     $status_color = $status_color_arr[$row['emq_status']];
+    $status_text_arr = array(
+        'WAIT' => '대기',
+        'SENDING' => '진행중',
+        'DONE' => '완료',
+        'FAIL' => '실패'
+    );
 ?>
-            <tr>
-                <td class="td_num_c">
-                    <?php echo $row['emq_id']?>
-                </td>
-                <td class="td_left">
-                    <?php echo get_text($row['emq_subject'])?>
-                </td>
-                <td class="td_left">
-                    <?php echo $lssn['lssn_title']?>
-                </td>
-                <td class="td_mng">
-                    <?php echo $target_type_str?>
-                </td>
-                <td class="td_datetime">
-                    <?php echo $row['emq_reserve_time']?>
-                </td>
-                <td class="td_mng" style="color:<?php echo $status_color?>; font-weight:bold;">
-                    <?php echo $row['emq_status']?>
-                </td>
-                <td class="td_datetime">
-                    <?php echo $row['emq_reg_date']?>
-                </td>
-                <td class="td_mng">
-                    <a href="./edu_mail_form.php?w=u&amp;emq_id=<?php echo $row['emq_id']?>" class="btn btn_03">수정</a>
-                    <a href="./edu_mail_log_list.php?emq_id=<?php echo $row['emq_id']?>" class="btn btn_02">로그</a>
-                </td>
-            </tr>
-            <?php
+                <tr>
+                    <td class="td_chk">
+                        <label for="chk_<?php echo $i; ?>" class="sound_only">
+                            <?php echo get_text($row['emq_subject'])?> 선택
+                        </label>
+                        <input type="checkbox" name="chk[]" value="<?php echo $row['emq_id']?>"
+                            id="chk_<?php echo $i; ?>">
+                    </td>
+                    <td class="td_num_c">
+                        <?php echo $row['emq_id']?>
+                    </td>
+                    <td class="td_left">
+                        <?php echo get_text($row['emq_subject'])?>
+                    </td>
+                    <td class="td_left">
+                        <?php echo $lssn['lssn_title']?>
+                    </td>
+                    <td class="td_mng">
+                        <?php echo $target_type_str?>
+                    </td>
+                    <td class="td_datetime">
+                        <?php echo $row['emq_reserve_time']?>
+                    </td>
+                    <td class="td_mng" style="color:<?php echo $status_color?>; font-weight:bold;">
+                        <?php echo $status_text_arr[$row['emq_status']]?>
+                    </td>
+                    <td class="td_datetime">
+                        <?php echo $row['emq_reg_date']?>
+                    </td>
+                    <td class="td_mng">
+                        <a href="./edu_mail_form.php?w=u&amp;emq_id=<?php echo $row['emq_id']?>"
+                            class="btn btn_03">수정</a>
+                    </td>
+                    <td class="td_mng">
+                        <a href="./edu_mail_log_list.php?emq_id=<?php echo $row['emq_id']?>" class="btn btn_01">확인</a>
+                    </td>
+                </tr>
+                <?php
 }
 if ($i == 0)
-    echo "<tr><td colspan='8' class='empty_table'>자료가 없습니다.</td></tr>";
+    echo "<tr><td colspan='10' class='empty_table'>자료가 없습니다.</td></tr>";
 ?>
-        </tbody>
-    </table>
-</div>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="btn_list01 btn_list">
+        <input type="submit" name="act_button" value="삭제" onclick="document.pressed=this.value" class="btn btn_01">
+    </div>
+</form>
+
+<script>
+    function fedu_maillist_submit(f) {
+        if (!is_checked("chk[]")) {
+            alert(document.pressed + " 하실 항목을 하나 이상 선택하세요.");
+            return false;
+        }
+
+        if (document.pressed == "삭제") {
+            if (!confirm("선택한 자료를 정말 삭제하시겠습니까?")) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+</script>
 
 <?php
 include_once('./admin.tail.php');

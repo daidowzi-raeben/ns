@@ -22,7 +22,7 @@ $total_count = $row['cnt'];
 $sql = " SELECT l.*, q.emq_subject, m.mb_name {$sql_common} {$sql_search} ORDER BY l.eml_id DESC ";
 $result = sql_query($sql);
 
-$g5['title'] = '교육 메일 발송 로그';
+$g5['title'] = '학습 독려 이메일 발송 현황';
 include_once('./admin.head.php');
 ?>
 
@@ -40,13 +40,13 @@ include_once('./admin.head.php');
         <thead>
             <tr>
                 <th scope="col">번호</th>
-                <th scope="col">캠페인명</th>
+                <th scope="col">이메일 제목</th>
                 <th scope="col">수신인(아이디)</th>
                 <th scope="col">이메일</th>
                 <th scope="col">상태</th>
                 <th scope="col">발송일시</th>
-                <th scope="col">수신확인일시</th>
-                <th scope="col">조회수</th>
+                <?php /* <th scope="col">수신확인일시</th>
+  <th scope="col">조회수</th> */?>
             </tr>
         </thead>
         <tbody>
@@ -77,12 +77,12 @@ for ($i = 0; $row = sql_fetch_array($result); $i++) {
                 <td class="td_datetime">
                     <?php echo $row['eml_send_time']?>
                 </td>
-                <td class="td_datetime">
-                    <?php echo $read_text?>
-                </td>
-                <td class="td_num_c">
-                    <?php echo $row['eml_open_count']?>
-                </td>
+                <?php /* <td class="td_datetime">
+  <?php echo $read_text?>
+  </td>
+  <td class="td_num_c">
+  <?php echo $row['eml_open_count']?>
+  </td> */?>
             </tr>
             <?php
 }

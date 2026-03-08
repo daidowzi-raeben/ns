@@ -18,10 +18,19 @@ if (!isset($is_admin) || $is_admin != 'super') {
 $now = G5_TIME_YMDHIS;
 
 // 1. Find WAIT jobs that are due
-$sql = " SELECT * FROM sj_edu_mail_queue 
-         WHERE emq_status = 'WAIT' 
-         AND emq_reserve_time <= '{$now}' 
-         ORDER BY emq_reserve_time ASC LIMIT 1 ";
+$target_emq_id = isset($_REQUEST['emq_id']) ? (int)$_REQUEST['emq_id'] : 0;
+
+if ($target_emq_id) {
+    $sql = " SELECT * FROM sj_edu_mail_queue 
+             WHERE emq_id = '{$target_emq_id}' 
+             AND emq_status IN ('WAIT', 'FAIL') ";
+}
+else {
+    $sql = " SELECT * FROM sj_edu_mail_queue 
+             WHERE emq_status = 'WAIT' 
+             AND emq_reserve_time <= '{$now}' 
+             ORDER BY emq_reserve_time ASC LIMIT 1 ";
+}
 $queue = sql_fetch($sql);
 
 if (!$queue) {
@@ -71,9 +80,11 @@ foreach ($targets as $target) {
     $sender_email = 'cs@' . $domain;
     $sender_name = $config['cf_admin_email_name'] . '(발신전용)';
 
-    // Add Tracking Pixel
-    $tracking_url = G5_URL . "/edu_mail_read.php?eml_id=" . $eml_id;
-    $content .= "<img src='{$tracking_url}' width='1' height='1' style='display:none;'>";
+    /*
+     // Add Tracking Pixel
+     $tracking_url = G5_URL . "/edu_mail_read.php?eml_id=" . $eml_id;
+     $content .= "<img src='{$tracking_url}' width='1' height='1' style='display:none;'>";
+     */
 
     // Append sending-only notice to content
     $content .= "<br><br><div style='font-size:12px; color:#888; border-top:1px solid #eee; padding-top:10px;'>본 메일은 발신전용으로 회신이 되지 않습니다. 관련 문의사항은 고객센터를 이용해 주시기 바랍니다.</div>";

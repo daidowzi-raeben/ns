@@ -20,7 +20,8 @@ $sql_common = " emq_subject = '{$emq_subject}',
                 emq_target_lesson = '{$emq_target_lesson}',
                 emq_target_type = '{$emq_target_type}',
                 emq_reserve_time = '{$emq_reserve_time}',
-                emq_use_unsubscribe = '{$emq_use_unsubscribe}' ";
+                emq_use_unsubscribe = '{$emq_use_unsubscribe}',
+                mb_id = '{$member['mb_id']}' ";
 
 if ($w == 'u') {
     $sql = " update sj_edu_mail_queue set {$sql_common} where emq_id = '{$emq_id}' ";
