@@ -46,6 +46,15 @@ foreach ($targets as $target) {
     $mb_id = $target['mb_id'];
     $to_email = $target['mb_email'];
 
+    // 4. Create Log Entry first to get eml_id for tracking pixel
+    sql_query(" INSERT INTO sj_edu_mail_log SET 
+                emq_id = '{$emq_id}',
+                mb_id = '{$mb_id}',
+                eml_email = '{$to_email}',
+                eml_status = '0',
+                eml_send_time = '{$now}' ");
+    $eml_id = sql_insert_id();
+
     // Replace placeholders
     $subject = replace_edu_placeholders($queue['emq_subject'], $mb_id, $queue['emq_target_lesson']);
     $content = replace_edu_placeholders($queue['emq_content'], $mb_id, $queue['emq_target_lesson']);
@@ -57,10 +66,14 @@ foreach ($targets as $target) {
 
     // Sender Setup
     $domain = parse_url(G5_URL, PHP_URL_HOST);
-    if ($domain == 'localhost')
+    if ($domain == 'localhost' || !$domain)
         $domain = 'yourdomain.com'; // Fallback for local testing
     $sender_email = 'cs@' . $domain;
     $sender_name = $config['cf_admin_email_name'] . '(발신전용)';
+
+    // Add Tracking Pixel
+    $tracking_url = G5_URL . "/edu_mail_read.php?eml_id=" . $eml_id;
+    $content .= "<img src='{$tracking_url}' width='1' height='1' style='display:none;'>";
 
     // Append sending-only notice to content
     $content .= "<br><br><div style='font-size:12px; color:#888; border-top:1px solid #eee; padding-top:10px;'>본 메일은 발신전용으로 회신이 되지 않습니다. 관련 문의사항은 고객센터를 이용해 주시기 바랍니다.</div>";
@@ -78,25 +91,12 @@ foreach ($targets as $target) {
         $status = 0;
     }
 
-    // Log
-    sql_query(" INSERT INTO sj_edu_mail_log SET 
-                emq_id = '{$emq_id}',
-                mb_id = '{$mb_id}',
-                eml_email = '{$to_email}',
-                eml_status = '{$status}',
-                eml_send_time = '{$now}' ");
+    // Update Log
+    sql_query(" UPDATE sj_edu_mail_log SET eml_status = '{$status}' WHERE eml_id = '{$eml_id}' ");
 }
 
 // 4. Mark as DONE
 sql_query(" UPDATE sj_edu_mail_queue SET emq_status = 'DONE' WHERE emq_id = '{$emq_id}' ");
 
 echo "Job Finished. Success: $success, Fail: $fail\n";
-?> // Send Mail
-// mailer($fname, $fmail, $to, $subject, $content, $type=0, $file="", $cc="", $bcc="")
-$res = mailer($sender_name, $sender_email, $to_email, $subject, $content, 1);
-
-if ($res) {
-$success++;
-$status = 1;
-}
-el
+?>
