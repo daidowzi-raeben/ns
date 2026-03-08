@@ -1,101 +1,101 @@
 <?php
-include_once ('../_Inc/subHead.php');
+include_once('../_Inc/subHead.php');
 
-if(!$is_member) {
-	alert(NS_LOGIN_MSG);
+if (!$is_member) {
+    alert(NS_LOGIN_MSG);
 }
 
 //print_r(!get_lessonApply($member['mb_id']));
 
 //2022 상반기 전사 CP교육(1)] 공정거래법에 대한 이해 / 첫 학습자 로그 insert
-if( !get_lessonApply2($member['mb_id'], 12) ) {
-	$sql = "insert into {$g5['less_apply_table']} set
+if (!get_lessonApply2($member['mb_id'], 12)) {
+    $sql = "insert into {$g5['less_apply_table']} set
 			app_lssn_no = '12',
 			app_uid = '{$member['mb_id']}',
 			app_rdate = now()";
-	sql_query($sql);
+    sql_query($sql);
 }
 
 //2022 상반기 전사 CP교육(1)] 대규모유통업법에 대한 이해 / 첫 학습자 로그 insert
-if( !get_lessonApply2($member['mb_id'], 13) ) {
-	$sql = "insert into {$g5['less_apply_table']} set
+if (!get_lessonApply2($member['mb_id'], 13)) {
+    $sql = "insert into {$g5['less_apply_table']} set
 			app_lssn_no = '13',
 			app_uid = '{$member['mb_id']}',
 			app_rdate = now()";
-	sql_query($sql);
+    sql_query($sql);
 }
 
 //2022년 내부회계교육 첫 학습자 로그 insert
-if( !get_lessonApply2($member['mb_id'], 14) ) {
-	$sql = "insert into {$g5['less_apply_table']} set
+if (!get_lessonApply2($member['mb_id'], 14)) {
+    $sql = "insert into {$g5['less_apply_table']} set
 			app_lssn_no = '14',
 			app_uid = '{$member['mb_id']}',
 			app_rdate = now()";
-	sql_query($sql);
+    sql_query($sql);
 }
 
 //2022년 사례로 보는 지식재산권 첫 학습자 로그 insert
-if( !get_lessonApply2($member['mb_id'], 15) ) {
-	$sql = "insert into {$g5['less_apply_table']} set
+if (!get_lessonApply2($member['mb_id'], 15)) {
+    $sql = "insert into {$g5['less_apply_table']} set
 			app_lssn_no = '15',
 			app_uid = '{$member['mb_id']}',
 			app_rdate = now()";
-	sql_query($sql);
+    sql_query($sql);
 }
 
 //2022 - 나외 조직을 지키는 윤리경영 가이드라인 >> 첫 학습자 로그 insert
-if( !get_lessonApply2($member['mb_id'], 16) ) {
-	$sql = "insert into {$g5['less_apply_table']} set
+if (!get_lessonApply2($member['mb_id'], 16)) {
+    $sql = "insert into {$g5['less_apply_table']} set
 			app_lssn_no = '16',
 			app_uid = '{$member['mb_id']}',
 			app_rdate = now()";
-	sql_query($sql);
+    sql_query($sql);
 }
 
 //2022 - 청탁금지법 교육 >> 첫 학습자 로그 insert
-if( !get_lessonApply2($member['mb_id'], 17) ) {
-	$sql = "insert into {$g5['less_apply_table']} set
+if (!get_lessonApply2($member['mb_id'], 17)) {
+    $sql = "insert into {$g5['less_apply_table']} set
 			app_lssn_no = '17',
 			app_uid = '{$member['mb_id']}',
 			app_rdate = now()";
-	sql_query($sql);
+    sql_query($sql);
 }
 
 //2022 - 윤리경영 교육 >> 첫 학습자 로그 insert
-if( !get_lessonApply2($member['mb_id'], 18) ) {
-	$sql = "insert into {$g5['less_apply_table']} set
+if (!get_lessonApply2($member['mb_id'], 18)) {
+    $sql = "insert into {$g5['less_apply_table']} set
 			app_lssn_no = '18',
 			app_uid = '{$member['mb_id']}',
 			app_rdate = now()";
-	sql_query($sql);
+    sql_query($sql);
 }
 
 
-if( !get_lessonApply2($member['mb_id'], 19) ) {
-	$sql = "insert into {$g5['less_apply_table']} set
+if (!get_lessonApply2($member['mb_id'], 19)) {
+    $sql = "insert into {$g5['less_apply_table']} set
 			app_lssn_no = '19',
 			app_uid = '{$member['mb_id']}',
 			app_rdate = now()";
-	sql_query($sql);
+    sql_query($sql);
 }
 
 
 
-if( !get_lessonApply2($member['mb_id'], 32) ) {
-	$sql = "insert into {$g5['less_apply_table']} set
+if (!get_lessonApply2($member['mb_id'], 32)) {
+    $sql = "insert into {$g5['less_apply_table']} set
 			app_lssn_no = '32',
 			app_uid = '{$member['mb_id']}',
 			app_rdate = now()";
-	sql_query($sql);
+    sql_query($sql);
 }
 
 
-if( !get_lessonApply2($member['mb_id'], 34) ) {
-	$sql = "insert into {$g5['less_apply_table']} set
+if (!get_lessonApply2($member['mb_id'], 34)) {
+    $sql = "insert into {$g5['less_apply_table']} set
 			app_lssn_no = '34',
 			app_uid = '{$member['mb_id']}',
 			app_rdate = now()";
-	sql_query($sql);
+    sql_query($sql);
 }
 
 
@@ -130,10 +130,11 @@ if (!$sst) {
 }
 
 $page = 1;
-if(!isset($_GET['page'])) {
-	$page = 1;
-} else {
-	$page = $_GET['page'];
+if (!isset($_GET['page'])) {
+    $page = 1;
+}
+else {
+    $page = $_GET['page'];
 }
 
 $rows = $page - 1;
@@ -168,11 +169,11 @@ $result = sql_query($sql);
                 </div>
             </div>
             <?php
-				$eduOver5 = ' over';
-				include_once 'edu_left.php';
-				?>
+$eduOver5 = ' over';
+include_once 'edu_left.php';
+?>
         </div>
-        <?php include_once ('../_Inc/helpInc.php');?>
+        <?php include_once('../_Inc/helpInc.php'); ?>
     </div>
     <div id="contents">
         <div class="cont-top">
@@ -191,50 +192,59 @@ $result = sql_query($sql);
 
 
 
-            <?php 
-						$y = 0;
+            <?php
+$y = 0;
 
-				$sql2 = "select * from sj_lms_lesson where lssn_kind = 'LS00' ";
-				// echo $sql;
-				$result2 = sql_query($sql2);
+$sql2 = "select * from sj_lms_lesson where lssn_kind = 'LS00' ";
+// echo $sql;
+$result2 = sql_query($sql2);
 
 
-				for ($j=0; $row2=sql_fetch_array($result2); $j++) {
-				$p = $j;
-				$is = '';
-				if($j== 8) {
-				$row2['lssn_no'] = '29';
-				}
-				if($j== 9) {
-				$row2['lssn_no'] = '30';
-				}
-				if($j== 10) {
-				$row2['lssn_no'] = '31';
-				}
-				if($j== 11) {
-				$row2['lssn_no'] = '28';
-				}
-				$sql_cnt = "
+for ($j = 0; $row2 = sql_fetch_array($result2); $j++) {
+    $p = $j;
+    $is = '';
+    if ($j == 8) {
+        $row2['lssn_no'] = '29';
+    }
+    if ($j == 9) {
+        $row2['lssn_no'] = '30';
+    }
+    if ($j == 10) {
+        $row2['lssn_no'] = '31';
+    }
+    if ($j == 11) {
+        $row2['lssn_no'] = '28';
+    }
+    $sql_cnt = "
 				
-				select * from cd_lms_lesson_result where lssn_no = '".$row2['lssn_no']."'
-				 AND mb_id = '".$member['mb_id']."' LIMIT 1  ";
-				//  echo $sql_cnt;
-				$result_cnt = sql_fetch($sql_cnt);
+				select * from cd_lms_lesson_result where lssn_no = '" . $row2['lssn_no'] . "'
+				 AND mb_id = '" . $member['mb_id'] . "' LIMIT 1  ";
+    //  echo $sql_cnt;
+    $result_cnt = sql_fetch($sql_cnt);
 
-				// SELECT COUNT(*) AS cnt FROM cd_lms_lesson_result WHERE mb_id = 'test03'
+    // SELECT COUNT(*) AS cnt FROM cd_lms_lesson_result WHERE mb_id = 'test03'
 // echo $row2['lssn_no'];
-				if(isset($result_cnt['lssn_no']) && $row2['lssn_no'] == $result_cnt['lssn_no']) {
-					$is = 'done';
-					$y++;
-				}
-				// echo $row2['lssn_no'];
+    if (isset($result_cnt['lssn_no']) && $row2['lssn_no'] == $result_cnt['lssn_no']) {
+        $is = 'done';
+        $y++;
+    }
+    // echo $row2['lssn_no'];
 #				$is = '';
 #				echo $result_cnt['idx'];
-				?>
+?>
             <button type="button" style="display:none" onclick="location.href='?page=<?php echo $j + 1?>';"
-                class="btn <?php if($j + 1 == $page) echo 'active' ?> <?php if($j + 1 != $page) {echo $is; } else {echo $is; } ?>"><?php echo $j + 1?></button>
-            <?php } 
-				?>
+                class="btn <?php if ($j + 1 == $page)
+        echo 'active'?> <?php if ($j + 1 != $page) {
+        echo $is;
+    }
+    else {
+        echo $is;
+    }?>">
+                <?php echo $j + 1?>
+            </button>
+            <?php
+}
+?>
         </div>
 
 
@@ -263,48 +273,49 @@ $result = sql_query($sql);
                 </div>
                 <div class="play">
                     <?php
-                        $tempSday = "2025-10-27 06:00";
-                        $tempEday = "2025-11-05 18:00";
-                        if($member['mb_id'] == 'admin') {
-                            $tempSday = "2025-06-01 09:00";
-                        }
-                        if($member['mb_id'] == 'sj001') {
-                            $tempSday = "2025-06-01 09:00";
-                        }
-                        if($member['mb_id'] == 'sj002') {
-                            $tempSday = "2025-06-01 09:00";
-                        }
-                        if($member['mb_id'] == 'sj003') {
-                            $tempSday = "2025-06-01 09:00";
-                        }
-                        if($member['mb_id'] == 'sj004') {
-                            $tempSday = "2025-06-01 09:00";
-                        }
-                        if($member['mb_id'] == 'sj005') {
-                            $tempSday = "2025-06-01 09:00";
-                        }
+$tempSday = "2025-10-27 06:00";
+$tempEday = "2026-11-05 18:00";
+if ($member['mb_id'] == 'admin') {
+    $tempSday = "2025-06-01 09:00";
+}
+if ($member['mb_id'] == 'sj001') {
+    $tempSday = "2025-06-01 09:00";
+}
+if ($member['mb_id'] == 'sj002') {
+    $tempSday = "2025-06-01 09:00";
+}
+if ($member['mb_id'] == 'sj003') {
+    $tempSday = "2025-06-01 09:00";
+}
+if ($member['mb_id'] == 'sj004') {
+    $tempSday = "2025-06-01 09:00";
+}
+if ($member['mb_id'] == 'sj005') {
+    $tempSday = "2025-06-01 09:00";
+}
 
-                        if(!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday."+1 day")))
-                        {
-                    ?>
+if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
+?>
                     <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
                     <?php
-                            }
-                            else
-                            {
-                    ?>
+}
+else {
+?>
                     <a href="/Edu/class21.php?ls=34" class="class-enter"
-                        style="<?php if (	$result_m3['app_study_rate'] == 100) { echo "background: #5a5ae7;"; }?>"><span>
-                            <?php if (	$result_m3['app_study_rate'] == 100) {
-                                echo '학습완료';
-                            } else  {
-                                echo '학습하기';
-                            }
-                            ?>
+                        style="<?php if ($result_m3['app_study_rate'] == 100) {
+        echo " background: #5a5ae7;";
+    }?>"><span>
+                            <?php if ($result_m3['app_study_rate'] == 100) {
+        echo '학습완료';
+    }
+    else {
+        echo '학습하기';
+    }
+?>
                         </span></a>
                     <?php
-                            }
-                    ?>
+}
+?>
                 </div>
             </div>
         </div>
@@ -333,29 +344,30 @@ $result = sql_query($sql);
                 </div>
                 <div class="play">
                     <?php
-                        $tempSday = "2025-06-01 09:00";
-                        $tempEday = "2025-06-19 18:00";
-                        if(!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday."+1 day")))
-                        {
-                    ?>
+$tempSday = "2025-06-01 09:00";
+$tempEday = "2025-06-19 18:00";
+if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
+?>
                     <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
                     <?php
-                            }
-                            else
-                            {
-                    ?>
+}
+else {
+?>
                     <a href="/Edu/class21.php?ls=33" class="class-enter"
-                        style="<?php if (	$result_m2['app_study_rate'] == 100) { echo "background: #5a5ae7;"; }?>"><span>
-                            <?php if (	$result_m2['app_study_rate'] == 100) {
-                                echo '학습완료';
-                            } else  {
-                                echo '학습하기';
-                            }
-                            ?>
+                        style="<?php if ($result_m2['app_study_rate'] == 100) {
+        echo " background: #5a5ae7;";
+    }?>"><span>
+                            <?php if ($result_m2['app_study_rate'] == 100) {
+        echo '학습완료';
+    }
+    else {
+        echo '학습하기';
+    }
+?>
                         </span></a>
                     <?php
-                            }
-                    ?>
+}
+?>
                 </div>
             </div>
         </div>
@@ -386,29 +398,30 @@ $result = sql_query($sql);
                     </div>
                     <div class="play">
                         <?php
-                        $tempSday = "2024-11-19 09:00";
-                        $tempEday = "2024-11-30 18:00";
-                        if(!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday."+1 day")))
-                        {
-                    ?>
+$tempSday = "2024-11-19 09:00";
+$tempEday = "2024-11-30 18:00";
+if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
+?>
                         <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
                         <?php
-                            }
-                            else
-                            {
-                    ?>
+}
+else {
+?>
                         <a href="/Edu/class20.php?ls=32" class="class-enter"
-                            style="<?php if (	$result_m2['app_study_rate'] == 100) { echo "background: #5a5ae7;"; }?>"><span>
-                                <?php if (	$result_m2['app_study_rate'] == 100) {
-                                echo '학습완료';
-                            } else  {
-                                echo '학습하기';
-                            }
-                            ?>
+                            style="<?php if ($result_m2['app_study_rate'] == 100) {
+        echo " background: #5a5ae7;";
+    }?>"><span>
+                                <?php if ($result_m2['app_study_rate'] == 100) {
+        echo '학습완료';
+    }
+    else {
+        echo '학습하기';
+    }
+?>
                             </span></a>
                         <?php
-                            }
-                    ?>
+}
+?>
                     </div>
                 </div>
             </div>
@@ -417,61 +430,72 @@ $result = sql_query($sql);
 
 
         <div class="edu-course--wrap">
-            <?php 
-			for ($i=0; $row=sql_fetch_array($result); $i++) {
-					if( !get_lessonApply2($member['mb_id'], $row['lssn_no']) ) {
-					$sql = "insert into {$g5['less_apply_table']} set
-							app_lssn_no = '".$row['lssn_no']."',
+            <?php
+for ($i = 0; $row = sql_fetch_array($result); $i++) {
+    if (!get_lessonApply2($member['mb_id'], $row['lssn_no'])) {
+        $sql = "insert into {$g5['less_apply_table']} set
+							app_lssn_no = '" . $row['lssn_no'] . "',
 							app_uid = '{$member['mb_id']}',
 							app_rdate = now()";
-					sql_query($sql);
-				}
-			?>
+        sql_query($sql);
+    }
+?>
 
             <div class="edu-course">
                 <div class="img-wrap">
                     <img src="/_Img/lssn_img/<?php echo $row['lssn_rimg']?>">
                 </div>
                 <div class="txt-wrap">
-                    <div class="tit"><?php echo $row['lssn_title']?></div>
+                    <div class="tit">
+                        <?php echo $row['lssn_title']?>
+                    </div>
                     <div class="row">
                         <div class="col">
                             <label>수료조건</label><span>학습 100% 진행</span>
                         </div>
                         <div class="col">
-                            <label>마일리지</label><span><?php echo $row['lssn_point']?></span>
+                            <label>마일리지</label><span>
+                                <?php echo $row['lssn_point']?>
+                            </span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
-                            <label>학습기간</label><span><?php echo $row['lssn_sdate']?> ~
-                                <?php echo $row['lssn_edate']?></span>
+                            <label>학습기간</label><span>
+                                <?php echo $row['lssn_sdate']?> ~
+                                <?php echo $row['lssn_edate']?>
+                            </span>
                         </div>
                         <div class="col">
-                            <label>학습시간</label><span><?php echo $row['lssn_time']?></span>
+                            <label>학습시간</label><span>
+                                <?php echo $row['lssn_time']?>
+                            </span>
                         </div>
                     </div>
                     <div class="play">
                         <?php
-                            $tempSday = $row['lssn_sdate'];
-                            $tempEday = $row['lssn_edate'];
-                            if(!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday."+1 day")))
-                            {
-                        ?>
+    $tempSday = $row['lssn_sdate'];
+    $tempEday = $row['lssn_edate'];
+    if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
+?>
                         <a href="#n" class="day-end"><span>학습기간이 아닙니다.</span></a>
                         <?php
-                            } else {
-                        ?>
-                        <?php 
-                        if($y > 11) {
-                        ?>
+    }
+    else {
+?>
+                        <?php
+        if ($y > 11) {
+?>
                         <a href="#n" class="day-end"><span>학습완료</span></a>
-                        <?php } else {?>
+                        <?php
+        }
+        else { ?>
                         <a href="#" id="classEnter" class="class-enter"><span class="enterClass3"
                                 lno="<?php echo $row['lssn_no']?>">학습하기</span></a>
                         <?php
-                            }}
-                        ?>
+        }
+    }
+?>
                     </div>
                 </div>
             </div>
@@ -492,31 +516,34 @@ $result = sql_query($sql);
 
             <!-- <p class="btn">
                 <?php
-				$tempSday = $row['lssn_sdate'];
-				$tempEday = $row['lssn_edate'];
-				if(!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday."+1 day")))
-				{
-			?>
+    $tempSday = $row['lssn_sdate'];
+    $tempEday = $row['lssn_edate'];
+    if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
+?>
                 <a href="#n" class="day-end"><span>학습기간이 아닙니다. </span></a>
                 <?php
-				} else {
-			?>
-                <?php 
-			if($y > 11) {
-			?>
+    }
+    else {
+?>
+                <?php
+        if ($y > 11) {
+?>
                 <a href="#n" class="day-end"><span>학습완료</span></a>
 
-                <?php } else {?>
+                <?php
+        }
+        else { ?>
                 <a href="#" id="classEnter" class="class-enter"><span class="enterClass3"
                         lno="<?php echo $row['lssn_no']?>">학습하기</span></a>
                 <?php
-				}}
-			?>
+        }
+    }
+?>
             </p>
             <div class="sgap"></div>
-            <?php 
-			}
-			?> -->
+            <?php
+}
+?> -->
         </div>
 
 
@@ -545,29 +572,30 @@ $result = sql_query($sql);
                 </div>
                 <div class="play">
                     <?php
-                        $tempSday = "2023-10-16 09:00";
-                        $tempEday = "2023-11-10 18:00";
-                        if(!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday."+1 day")))
-                        {
-                    ?>
+$tempSday = "2023-10-16 09:00";
+$tempEday = "2023-11-10 18:00";
+if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
+?>
                     <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
                     <?php
-                            }
-                            else
-                            {
-                    ?>
+}
+else {
+?>
                     <a href="/Edu/class19.php?ls=19" class="class-enter"
-                        style="<?php if (	$result_m['app_study_rate'] == 100) { echo "background: #5a5ae7;"; }?>"><span>
-                            <?php if (	$result_m['app_study_rate'] == 100) {
-                                echo '학습완료';
-                            } else  {
-                                echo '학습하기';
-                            }
-                            ?>
+                        style="<?php if ($result_m['app_study_rate'] == 100) {
+        echo " background: #5a5ae7;";
+    }?>"><span>
+                            <?php if ($result_m['app_study_rate'] == 100) {
+        echo '학습완료';
+    }
+    else {
+        echo '학습하기';
+    }
+?>
                         </span></a>
                     <?php
-                            }
-                    ?>
+}
+?>
                 </div>
             </div>
         </div>
@@ -586,22 +614,20 @@ $result = sql_query($sql);
         </div>
         <p class="btn">
             <?php
-					$tempSday = "2024-05-20 09:00";
-					$tempEday = "2024-05-31 18:00";
-					if(!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday."+1 day")))
-					{
-			?>
+$tempSday = "2024-05-20 09:00";
+$tempEday = "2024-05-31 18:00";
+if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
+?>
             <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
             <?php
-					}
-					else
-					{
-			?>
-            <a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?=$member['mb_id']?>" class="class-enter"
+}
+else {
+?>
+            <a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?= $member['mb_id']?>" class="class-enter"
                 target="_blank"><span>학습하기</span></a>
             <?php
-					}
-			?>
+}
+?>
 
         </p> -->
 
@@ -618,22 +644,20 @@ $result = sql_query($sql);
         </div>
         <p class="btn">
             <?php
-					$tempSday = "2023-11-20 09:00";
-					$tempEday = "2023-11-29 18:00";
-					if(!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday."+1 day")))
-					{
-			?>
+$tempSday = "2023-11-20 09:00";
+$tempEday = "2023-11-29 18:00";
+if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
+?>
             <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
             <?php
-					}
-					else
-					{
-			?>
-            <a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?=$member['mb_id']?>" class="class-enter"
+}
+else {
+?>
+            <a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?= $member['mb_id']?>" class="class-enter"
                 target="_blank"><span>학습하기</span></a>
             <?php
-					}
-			?>
+}
+?>
 
         </p> -->
 
@@ -650,31 +674,32 @@ $result = sql_query($sql);
         </div>
         <p class="btn">
             <?php
-					$tempSday = "2023-10-16 09:00";
-					$tempEday = "2023-11-10 18:00";
-					if(!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday."+1 day")))
-					{
-			?>
+$tempSday = "2023-10-16 09:00";
+$tempEday = "2023-11-10 18:00";
+if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
+?>
             <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
             <?php
-					}
-					else
-					{
-			?>
+}
+else {
+?>
 
 
             <a href="/Edu/class19.php?ls=19" class="class-enter"
-                style="<?php if (	$result_m['app_study_rate'] == 100) { echo "background: #5a5ae7;"; }?>"><span>
-                    <?php if (	$result_m['app_study_rate'] == 100) {
-						echo '학습완료';
-					} else  {
-						echo '학습하기';
-					}
-					?>
+                style="<?php if ($result_m['app_study_rate'] == 100) {
+        echo "background: #5a5ae7;";
+    }?>"><span>
+                    <?php if ($result_m['app_study_rate'] == 100) {
+        echo '학습완료';
+    }
+    else {
+        echo '학습하기';
+    }
+?>
                 </span></a>
             <?php
-					}
-			?>
+}
+?>
 
         </p> -->
 
@@ -691,22 +716,20 @@ $result = sql_query($sql);
         </div>
         <p class="btn">
             <?php
-					$tempSday = "2023-06-19 09:00";
-					$tempEday = "2023-06-30 18:00";
-					if(!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday."+1 day")))
-					{
-			?>
+$tempSday = "2023-06-19 09:00";
+$tempEday = "2023-06-30 18:00";
+if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
+?>
             <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
             <?php
-					}
-					else
-					{
-			?>
-            <a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?=$member['mb_id']?>" class="class-enter"
+}
+else {
+?>
+            <a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?= $member['mb_id']?>" class="class-enter"
                 target="_blank"><span>학습하기</span></a>
             <?php
-					}
-			?>
+}
+?>
 
         </p> -->
 
@@ -723,22 +746,20 @@ $result = sql_query($sql);
         </div>
         <p class="btn">
             <?php
-					$tempSday = "2023-04-17 08:00";
-					$tempEday = "2023-04-28 18:00";
-					if(!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday."+1 day")))
-					{
-			?>
+$tempSday = "2023-04-17 08:00";
+$tempEday = "2023-04-28 18:00";
+if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
+?>
             <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
             <?php
-					}
-					else
-					{
-			?>
-            <a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?=$member['mb_id']?>" class="class-enter"
+}
+else {
+?>
+            <a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?= $member['mb_id']?>" class="class-enter"
                 target="_blank"><span>학습하기</span></a>
             <?php
-					}
-			?>
+}
+?>
 
         </p> -->
 
@@ -749,41 +770,42 @@ $result = sql_query($sql);
 <script src="/_Js/jquery.bpopup.min.js"></script>
 <script src="/_Js/lms.js"></script>
 <style>
-.popup_container {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 500;
-    background: #fff;
-}
+    .popup_container {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 500;
+        background: #fff;
+    }
 
-.new__pop-close {
-    position: absolute;
-    right: 1em;
-    top: 1em;
-    z-index: 600;
-    background: url('/_Img/Sub/close-x.png') no-repeat center;
-    width: 45px;
-    height: 45px;
-    border: none;
-}
+    .new__pop-close {
+        position: absolute;
+        right: 1em;
+        top: 1em;
+        z-index: 600;
+        background: url('/_Img/Sub/close-x.png') no-repeat center;
+        width: 45px;
+        height: 45px;
+        border: none;
+    }
 </style>
-<?php if($_GET['auto'] == 'on') { ?>
+<?php if ($_GET['auto'] == 'on') { ?>
 <script>
-$(function() {
-    setTimeout(() => {
-        $("body").css("overflow", "hidden");
-        enter_class3($('.enterClass3').attr("lno"), $('.enterClass3').attr("cno"));
-    }, 1000);
-});
+    $(function () {
+        setTimeout(() => {
+            $("body").css("overflow", "hidden");
+            enter_class3($('.enterClass3').attr("lno"), $('.enterClass3').attr("cno"));
+        }, 1000);
+    });
 </script>
 
-<?php }?>
+<?php
+}?>
 
 
-<?php include_once ('../_Inc/subTail.php');?>
+<?php include_once('../_Inc/subTail.php'); ?>
 
 <!--s: layer-movie(학습 영상) -->
 <div id="popup_win" class="layer-wrap movie" style="left:50%; top:50%;">

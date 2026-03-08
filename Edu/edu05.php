@@ -1,82 +1,82 @@
 <?php
-include_once ('../_Inc/subHead.php');
+include_once('../_Inc/subHead.php');
 
-if(!$is_member) {
-	alert(NS_LOGIN_MSG);
+if (!$is_member) {
+    alert(NS_LOGIN_MSG);
 }
 
 //print_r(!get_lessonApply($member['mb_id']));
 
 //2022 상반기 전사 CP교육(1)] 공정거래법에 대한 이해 / 첫 학습자 로그 insert
-if( !get_lessonApply2($member['mb_id'], 12) ) {
-	$sql = "insert into {$g5['less_apply_table']} set
+if (!get_lessonApply2($member['mb_id'], 12)) {
+    $sql = "insert into {$g5['less_apply_table']} set
 			app_lssn_no = '12',
 			app_uid = '{$member['mb_id']}',
 			app_rdate = now()";
-	sql_query($sql);
+    sql_query($sql);
 }
 
 //2022 상반기 전사 CP교육(1)] 대규모유통업법에 대한 이해 / 첫 학습자 로그 insert
-if( !get_lessonApply2($member['mb_id'], 13) ) {
-	$sql = "insert into {$g5['less_apply_table']} set
+if (!get_lessonApply2($member['mb_id'], 13)) {
+    $sql = "insert into {$g5['less_apply_table']} set
 			app_lssn_no = '13',
 			app_uid = '{$member['mb_id']}',
 			app_rdate = now()";
-	sql_query($sql);
+    sql_query($sql);
 }
 
 //2022년 내부회계교육 첫 학습자 로그 insert
-if( !get_lessonApply2($member['mb_id'], 14) ) {
-	$sql = "insert into {$g5['less_apply_table']} set
+if (!get_lessonApply2($member['mb_id'], 14)) {
+    $sql = "insert into {$g5['less_apply_table']} set
 			app_lssn_no = '14',
 			app_uid = '{$member['mb_id']}',
 			app_rdate = now()";
-	sql_query($sql);
+    sql_query($sql);
 }
 
 //2022년 사례로 보는 지식재산권 첫 학습자 로그 insert
-if( !get_lessonApply2($member['mb_id'], 15) ) {
-	$sql = "insert into {$g5['less_apply_table']} set
+if (!get_lessonApply2($member['mb_id'], 15)) {
+    $sql = "insert into {$g5['less_apply_table']} set
 			app_lssn_no = '15',
 			app_uid = '{$member['mb_id']}',
 			app_rdate = now()";
-	sql_query($sql);
+    sql_query($sql);
 }
 
 //2022 - 나외 조직을 지키는 윤리경영 가이드라인 >> 첫 학습자 로그 insert
-if( !get_lessonApply2($member['mb_id'], 16) ) {
-	$sql = "insert into {$g5['less_apply_table']} set
+if (!get_lessonApply2($member['mb_id'], 16)) {
+    $sql = "insert into {$g5['less_apply_table']} set
 			app_lssn_no = '16',
 			app_uid = '{$member['mb_id']}',
 			app_rdate = now()";
-	sql_query($sql);
+    sql_query($sql);
 }
 
 //2022 - 청탁금지법 교육 >> 첫 학습자 로그 insert
-if( !get_lessonApply2($member['mb_id'], 17) ) {
-	$sql = "insert into {$g5['less_apply_table']} set
+if (!get_lessonApply2($member['mb_id'], 17)) {
+    $sql = "insert into {$g5['less_apply_table']} set
 			app_lssn_no = '17',
 			app_uid = '{$member['mb_id']}',
 			app_rdate = now()";
-	sql_query($sql);
+    sql_query($sql);
 }
 
 //2022 - 윤리경영 교육 >> 첫 학습자 로그 insert
-if( !get_lessonApply2($member['mb_id'], 18) ) {
-	$sql = "insert into {$g5['less_apply_table']} set
+if (!get_lessonApply2($member['mb_id'], 18)) {
+    $sql = "insert into {$g5['less_apply_table']} set
 			app_lssn_no = '18',
 			app_uid = '{$member['mb_id']}',
 			app_rdate = now()";
-	sql_query($sql);
+    sql_query($sql);
 }
 
 
-if( !get_lessonApply2($member['mb_id'], 19) ) {
-	$sql = "insert into {$g5['less_apply_table']} set
+if (!get_lessonApply2($member['mb_id'], 19)) {
+    $sql = "insert into {$g5['less_apply_table']} set
 			app_lssn_no = '19',
 			app_uid = '{$member['mb_id']}',
 			app_rdate = now()";
-	sql_query($sql);
+    sql_query($sql);
 }
 
 
@@ -104,10 +104,11 @@ if (!$sst) {
 }
 
 $page = 1;
-if(!isset($_GET['page'])) {
-	$page = 1;
-} else {
-	$page = $_GET['page'];
+if (!isset($_GET['page'])) {
+    $page = 1;
+}
+else {
+    $page = $_GET['page'];
 }
 
 $rows = $page - 1;
@@ -125,9 +126,9 @@ $result = sql_query($sql);
     <div class="vistxt" data-aos="fade-up" data-aos-duration="1000">
         <p class="btxt"><span>CP교육</span></p>
         <div class="content-top--right">
-          <span><img src="../_Img/Icon/home.png" width="25" height="24"></span>
-          <span>교육/컨텐츠</span>
-          <span>CP교육</span>
+            <span><img src="../_Img/Icon/home.png" width="25" height="24"></span>
+            <span>교육/컨텐츠</span>
+            <span>CP교육</span>
         </div>
     </div>
     <div class="visimg vis04"></div>
@@ -142,11 +143,11 @@ $result = sql_query($sql);
                 </div>
             </div>
             <?php
-				$eduOver5 = ' over';
-				include_once 'edu_left.php';
-				?>
+$eduOver5 = ' over';
+include_once 'edu_left.php';
+?>
         </div>
-        <?php include_once ('../_Inc/helpInc.php');?>
+        <?php include_once('../_Inc/helpInc.php'); ?>
     </div>
     <div id="contents">
         <div class="cont-top">
@@ -185,22 +186,20 @@ $result = sql_query($sql);
                 </div>
                 <div class="play">
                     <?php
-                        $tempSday = "2024-07-22 09:00";
-                        $tempEday = "2024-07-29 18:00";
-                        if(!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday."+1 day")))
-                        {
-                    ?>
+$tempSday = "2024-07-22 09:00";
+$tempEday = "2024-07-29 18:00";
+if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
+?>
                     <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
                     <?php
-                        }
-                        else
-                        {
-                    ?>
-                    <a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?=$member['mb_id']?>" class="class-enter"
-                        target="_blank"><span>학습하기</span></a>
+}
+else {
+?>
+                    <a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?= $member['mb_id']?>"
+                        class="class-enter" target="_blank"><span>학습하기</span></a>
                     <?php
-                        }
-                    ?>
+}
+?>
                 </div>
             </div>
         </div>
@@ -234,22 +233,20 @@ $result = sql_query($sql);
                 </div>
                 <div class="play">
                     <?php
-                        $tempSday = "2024-05-20 09:00";
-                        $tempEday = "2024-05-31 18:00";
-                        if(!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday."+1 day")))
-                        {
-                    ?>
+$tempSday = "2024-05-20 09:00";
+$tempEday = "2024-05-31 18:00";
+if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
+?>
                     <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
                     <?php
-                            }
-                            else
-                            {
-                    ?>
-                    <a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?=$member['mb_id']?>" class="class-enter"
-                        target="_blank"><span>학습하기</span></a>
+}
+else {
+?>
+                    <a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?= $member['mb_id']?>"
+                        class="class-enter" target="_blank"><span>학습하기</span></a>
                     <?php
-                            }
-                    ?>
+}
+?>
                 </div>
             </div>
         </div>
@@ -278,22 +275,20 @@ $result = sql_query($sql);
                 </div>
                 <div class="play">
                     <?php
-                        $tempSday = "2023-11-20 09:00";
-                        $tempEday = "2023-11-29 18:00";
-                        if(!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday."+1 day")))
-                        {
-                    ?>
+$tempSday = "2023-11-20 09:00";
+$tempEday = "2023-11-29 18:00";
+if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
+?>
                     <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
                     <?php
-                            }
-                            else
-                            {
-                    ?>
-                    <a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?=$member['mb_id']?>" class="class-enter"
-                        target="_blank"><span>학습하기</span></a>
+}
+else {
+?>
+                    <a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?= $member['mb_id']?>"
+                        class="class-enter" target="_blank"><span>학습하기</span></a>
                     <?php
-                            }
-                    ?>
+}
+?>
                 </div>
             </div>
         </div>
@@ -322,22 +317,20 @@ $result = sql_query($sql);
                 </div>
                 <div class="play">
                     <?php
-                        $tempSday = "2023-06-19 09:00";
-                        $tempEday = "2023-06-30 18:00";
-                        if(!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday."+1 day")))
-                        {
-                    ?>
+$tempSday = "2023-06-19 09:00";
+$tempEday = "2023-06-30 18:00";
+if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
+?>
                     <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
                     <?php
-                            }
-                            else
-                            {
-                    ?>
-                    <a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?=$member['mb_id']?>" class="class-enter"
-                        target="_blank"><span>학습하기</span></a>
+}
+else {
+?>
+                    <a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?= $member['mb_id']?>"
+                        class="class-enter" target="_blank"><span>학습하기</span></a>
                     <?php
-                            }
-                    ?>
+}
+?>
                 </div>
             </div>
         </div>
@@ -366,22 +359,20 @@ $result = sql_query($sql);
                 </div>
                 <div class="play">
                     <?php
-                        $tempSday = "2023-04-17 08:00";
-                        $tempEday = "2023-04-28 18:00";
-                        if(!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday."+1 day")))
-                        {
-                    ?>
+$tempSday = "2023-04-17 08:00";
+$tempEday = "2023-04-28 18:00";
+if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
+?>
                     <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
                     <?php
-                            }
-                            else
-                            {
-                    ?>
-                    <a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?=$member['mb_id']?>" class="class-enter"
-                        target="_blank"><span>학습하기</span></a>
+}
+else {
+?>
+                    <a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?= $member['mb_id']?>"
+                        class="class-enter" target="_blank"><span>학습하기</span></a>
                     <?php
-                            }
-                    ?>
+}
+?>
                 </div>
             </div>
         </div>
@@ -400,22 +391,20 @@ $result = sql_query($sql);
         </div>
         <p class="btn">
             <?php
-					$tempSday = "2024-05-20 09:00";
-					$tempEday = "2024-05-31 18:00";
-					if(!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday."+1 day")))
-					{
-			?>
+$tempSday = "2024-05-20 09:00";
+$tempEday = "2024-05-31 18:00";
+if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
+?>
             <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
             <?php
-					}
-					else
-					{
-			?>
-            <a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?=$member['mb_id']?>" class="class-enter"
+}
+else {
+?>
+            <a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?= $member['mb_id']?>" class="class-enter"
                 target="_blank"><span>학습하기</span></a>
             <?php
-					}
-			?>
+}
+?>
 
         </p> -->
 
@@ -432,22 +421,20 @@ $result = sql_query($sql);
         </div>
         <p class="btn">
             <?php
-					$tempSday = "2023-11-20 09:00";
-					$tempEday = "2023-11-29 18:00";
-					if(!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday."+1 day")))
-					{
-			?>
+$tempSday = "2023-11-20 09:00";
+$tempEday = "2023-11-29 18:00";
+if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
+?>
             <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
             <?php
-					}
-					else
-					{
-			?>
-            <a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?=$member['mb_id']?>" class="class-enter"
+}
+else {
+?>
+            <a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?= $member['mb_id']?>" class="class-enter"
                 target="_blank"><span>학습하기</span></a>
             <?php
-					}
-			?>
+}
+?>
 
         </p> -->
 
@@ -464,31 +451,32 @@ $result = sql_query($sql);
         </div>
         <p class="btn">
             <?php
-					$tempSday = "2023-10-16 09:00";
-					$tempEday = "2023-11-10 18:00";
-					if(!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday."+1 day")))
-					{
-			?>
+$tempSday = "2023-10-16 09:00";
+$tempEday = "2023-11-10 18:00";
+if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
+?>
             <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
             <?php
-					}
-					else
-					{
-			?>
+}
+else {
+?>
 
 
             <a href="/Edu/class19.php?ls=19" class="class-enter"
-                style="<?php if (	$result_m['app_study_rate'] == 100) { echo "background: #5a5ae7;"; }?>"><span>
-                    <?php if (	$result_m['app_study_rate'] == 100) {
-						echo '학습완료';
-					} else  {
-						echo '학습하기';
-					}
-					?>
+                style="<?php if ($result_m['app_study_rate'] == 100) {
+        echo "background: #5a5ae7;";
+    }?>"><span>
+                    <?php if ($result_m['app_study_rate'] == 100) {
+        echo '학습완료';
+    }
+    else {
+        echo '학습하기';
+    }
+?>
                 </span></a>
             <?php
-					}
-			?>
+}
+?>
 
         </p> -->
 
@@ -505,22 +493,20 @@ $result = sql_query($sql);
         </div>
         <p class="btn">
             <?php
-					$tempSday = "2023-06-19 09:00";
-					$tempEday = "2023-06-30 18:00";
-					if(!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday."+1 day")))
-					{
-			?>
+$tempSday = "2023-06-19 09:00";
+$tempEday = "2023-06-30 18:00";
+if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
+?>
             <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
             <?php
-					}
-					else
-					{
-			?>
-            <a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?=$member['mb_id']?>" class="class-enter"
+}
+else {
+?>
+            <a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?= $member['mb_id']?>" class="class-enter"
                 target="_blank"><span>학습하기</span></a>
             <?php
-					}
-			?>
+}
+?>
 
         </p> -->
 
@@ -537,22 +523,20 @@ $result = sql_query($sql);
         </div>
         <p class="btn">
             <?php
-					$tempSday = "2023-04-17 08:00";
-					$tempEday = "2023-04-28 18:00";
-					if(!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday."+1 day")))
-					{
-			?>
+$tempSday = "2023-04-17 08:00";
+$tempEday = "2023-04-28 18:00";
+if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
+?>
             <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
             <?php
-					}
-					else
-					{
-			?>
-            <a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?=$member['mb_id']?>" class="class-enter"
+}
+else {
+?>
+            <a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?= $member['mb_id']?>" class="class-enter"
                 target="_blank"><span>학습하기</span></a>
             <?php
-					}
-			?>
+}
+?>
 
         </p> -->
 
@@ -563,41 +547,42 @@ $result = sql_query($sql);
 <script src="/_Js/jquery.bpopup.min.js"></script>
 <script src="/_Js/lms.js"></script>
 <style>
-.popup_container {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 500;
-    background: #fff;
-}
+    .popup_container {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 500;
+        background: #fff;
+    }
 
-.new__pop-close {
-    position: absolute;
-    right: 1em;
-    top: 1em;
-    z-index: 600;
-    background: url('/_Img/Sub/close-x.png') no-repeat center;
-    width: 45px;
-    height: 45px;
-    border: none;
-}
+    .new__pop-close {
+        position: absolute;
+        right: 1em;
+        top: 1em;
+        z-index: 600;
+        background: url('/_Img/Sub/close-x.png') no-repeat center;
+        width: 45px;
+        height: 45px;
+        border: none;
+    }
 </style>
-<?php if($_GET['auto'] == 'on') { ?>
+<?php if ($_GET['auto'] == 'on') { ?>
 <script>
-$(function() {
-    setTimeout(() => {
-        $("body").css("overflow", "hidden");
-        enter_class3($('.enterClass3').attr("lno"), $('.enterClass3').attr("cno"));
-    }, 1000);
-});
+    $(function () {
+        setTimeout(() => {
+            $("body").css("overflow", "hidden");
+            enter_class3($('.enterClass3').attr("lno"), $('.enterClass3').attr("cno"));
+        }, 1000);
+    });
 </script>
 
-<?php }?>
+<?php
+}?>
 
 
-<?php include_once ('../_Inc/subTail.php');?>
+<?php include_once('../_Inc/subTail.php'); ?>
 
 <!--s: layer-movie(학습 영상) -->
 <div id="popup_win" class="layer-wrap movie" style="left:50%; top:50%;">
