@@ -90,4 +90,25 @@ foreach ($targets as $target) {
 sql_query(" UPDATE sj_edu_mail_queue SET emq_status = 'DONE' WHERE emq_id = '{$emq_id}' ");
 
 echo "Job Finished. Success: $success, Fail: $fail\n";
+?>  // Send Mail
+    // mailer($fname, $fmail, $to, $subject, $content, $type=0, $file="", $cc="", $bcc="")
+    $res = mailer($sender_name, $sender_email, $to_email, $subject, $content, 1);
+
+    if ($res) {
+        $success++;
+        $status = 1;
+    }
+    else {
+        $fail++;
+        $status = 0;
+    }
+
+    // Update Log
+    sql_query(" UPDATE sj_edu_mail_log SET eml_status = '{$status}' WHERE eml_id = '{$eml_id}' ");
+}
+
+// 4. Mark as DONE
+sql_query(" UPDATE sj_edu_mail_queue SET emq_status = 'DONE' WHERE emq_id = '{$emq_id}' ");
+
+echo "Job Finished. Success: $success, Fail: $fail\n";
 ?>

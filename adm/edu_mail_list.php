@@ -48,7 +48,7 @@ $result = sql_query($sql);
             <?php
 for ($i = 0; $row = sql_fetch_array($result); $i++) {
     // Get Lesson Name
-    $lssn = sql_fetch(" SELECT lssn_name FROM {$g5['lesson_table']} WHERE lssn_no = '{$row['emq_target_lesson']}' ");
+    $lssn = sql_fetch(" SELECT lssn_title FROM {$g5['lesson_table']} WHERE lssn_no = '{$row['emq_target_lesson']}' ");
 
     $target_type_str = [
         'non-complete' => '미수료자',
@@ -71,7 +71,7 @@ for ($i = 0; $row = sql_fetch_array($result); $i++) {
                     <?php echo get_text($row['emq_subject'])?>
                 </td>
                 <td class="td_left">
-                    <?php echo $lssn['lssn_name']?>
+                    <?php echo $lssn['lssn_title']?>
                 </td>
                 <td class="td_mng">
                     <?php echo $target_type_str?>
@@ -86,8 +86,8 @@ for ($i = 0; $row = sql_fetch_array($result); $i++) {
                     <?php echo $row['emq_reg_date']?>
                 </td>
                 <td class="td_mng">
-                    <a href="./edu_mail_form.php?w=u&amp;emq_id=<?php echo $row['emq_id']?>"
-                        class="btn btn_03">수정/상세</a>
+                    <a href="./edu_mail_form.php?w=u&amp;emq_id=<?php echo $row['emq_id']?>" class="btn btn_03">수정</a>
+                    <a href="./edu_mail_log_list.php?emq_id=<?php echo $row['emq_id']?>" class="btn btn_02">로그</a>
                 </td>
             </tr>
             <?php
