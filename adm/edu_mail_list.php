@@ -50,18 +50,20 @@ for ($i = 0; $row = sql_fetch_array($result); $i++) {
     // Get Lesson Name
     $lssn = sql_fetch(" SELECT lssn_title FROM {$g5['lesson_table']} WHERE lssn_no = '{$row['emq_target_lesson']}' ");
 
-    $target_type_str = [
+    $target_type_str_arr = array(
         'non-complete' => '미수료자',
         'under50' => '진도율 50% 미만',
         'all' => '전체 대상자'
-    ][$row['emq_target_type']];
+    );
+    $target_type_str = $target_type_str_arr[$row['emq_target_type']];
 
-    $status_color = [
+    $status_color_arr = array(
         'WAIT' => '#007bff',
         'SENDING' => '#ffc107',
         'DONE' => '#28a745',
         'FAIL' => '#dc3545'
-    ][$row['emq_status']];
+    );
+    $status_color = $status_color_arr[$row['emq_status']];
 ?>
             <tr>
                 <td class="td_num_c">

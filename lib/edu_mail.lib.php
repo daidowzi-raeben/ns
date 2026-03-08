@@ -18,14 +18,14 @@ function replace_edu_placeholders($content, $mb_id, $lssn_no)
     $sql_lssn = "SELECT * FROM {$g5['lesson_table']} WHERE lssn_no = '{$lssn_no}'";
     $lssn = sql_fetch($sql_lssn);
     if (!$lssn)
-        $lssn = ['lssn_title' => '알 수 없는 과정'];
+        $lssn = array('lssn_title' => '알 수 없는 과정');
 
     // Get Learning Status
     $sql_app = "SELECT * FROM {$g5['less_apply_table']} WHERE app_lssn_no = '{$lssn_no}' AND app_uid = '{$mb_id}'";
     $app = sql_fetch($sql_app);
     $rate = isset($app['app_study_rate']) ? $app['app_study_rate'] : 0;
 
-    $placeholders = [
+    $placeholders = array(
         '{이름}' => $mb['mb_name'],
         '{닉네임}' => $mb['mb_nick'],
         '{회원아이디}' => $mb['mb_id'],
@@ -33,7 +33,7 @@ function replace_edu_placeholders($content, $mb_id, $lssn_no)
         '{과정명}' => $lssn['lssn_title'],
         '{진도율}' => $rate . '%',
         '{발송안내}' => '본 메일은 발신전용입니다.'
-    ];
+    );
 
     foreach ($placeholders as $key => $val) {
         $content = str_replace($key, $val, $content);
@@ -49,11 +49,11 @@ function get_edu_mail_targets($lssn_no, $target_type)
 {
     global $g5;
 
-    $targets = [];
+    $targets = array();
 
     // Join with unsubscribe table to exclude those who opted out
     $sql_unsub = "SELECT mb_id FROM sj_edu_mail_unsubscribe";
-    $unsubs = [];
+    $unsubs = array();
     $res_unsub = sql_query($sql_unsub);
     while ($row = sql_fetch_array($res_unsub)) {
         $unsubs[] = $row['mb_id'];
