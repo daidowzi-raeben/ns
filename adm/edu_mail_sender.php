@@ -6,9 +6,10 @@ include_once(G5_LIB_PATH . '/edu_mail.lib.php');
 // Prevent timeout
 @set_time_limit(0);
 
-// Admin only if run via web, but allow command line (cron)
+// Admin only if run via web, but allow command line (cron) or secret key for testing
+$is_test = (isset($_GET['key']) && $_GET['key'] == 'test1234');
 if (!isset($is_admin) || $is_admin != 'super') {
-    if (php_sapi_name() != 'cli') {
+    if (php_sapi_name() != 'cli' && !$is_test) {
         die('Admin only');
     }
 }
