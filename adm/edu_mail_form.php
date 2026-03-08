@@ -5,6 +5,9 @@ include_once(G5_EDITOR_LIB);
 
 auth_check($auth[$sub_menu], 'w');
 
+$w = $_GET['w'];
+$emq_id = (int)$_GET['emq_id'];
+
 $html_title = '교육 메일 발송 예약';
 
 if ($w == 'u') {
@@ -70,16 +73,19 @@ if ($w != 'u') {
                     <td>
                         <select name="emq_target_lesson" id="emq_target_lesson" required>
                             <option value="">과정을 선택하세요</option>
-                            <?php 
-                            while ($l = sql_fetch_array($res_lssn)) { 
-                                $selected = "";
-                                if ($w == "u") {
-                                    if ($emq["emq_target_lesson"] == $l["lssn_no"]) $selected = "selected";
-                                } else {
-                                    if ($ongoing_lssn_no == $l["lssn_no"]) $selected = "selected";
-                                }
-                            ?>
-                            <option value="<?php echo $l['lssn_no']?>" <?php echo $selected ?>>
+                            <?php
+while ($l = sql_fetch_array($res_lssn)) {
+    $selected = "";
+    if ($w == "u") {
+        if ($emq["emq_target_lesson"] == $l["lssn_no"])
+            $selected = "selected";
+    }
+    else {
+        if ($ongoing_lssn_no == $l["lssn_no"])
+            $selected = "selected";
+    }
+?>
+                            <option value="<?php echo $l['lssn_no']?>" <?php echo $selected?>>
                                 <?php echo $l['lssn_title']?>
                             </option>
                             <?php
@@ -91,13 +97,13 @@ if ($w != 'u') {
                     <th scope="row">발송 대상 (타겟팅)</th>
                     <td>
                         <input type="radio" name="emq_target_type" value="non-complete" id="type_nc" <?php echo
-    $emq['emq_target_type'] == 'non-complete' ? 'checked' : '' ?>> <label for="type_nc">미수료자 (진도율
+                            $emq['emq_target_type']=='non-complete' ? 'checked' : ''?>> <label for="type_nc">미수료자 (진도율
                             100% 미만)</label> &nbsp;
                         <input type="radio" name="emq_target_type" value="under50" id="type_50" <?php echo
-    $emq['emq_target_type'] == 'under50' ? 'checked' : '' ?>> <label for="type_50">진도율 50%
+                            $emq['emq_target_type']=='under50' ? 'checked' : ''?>> <label for="type_50">진도율 50%
                             미만</label> &nbsp;
                         <input type="radio" name="emq_target_type" value="all" id="type_all" <?php echo
-    $emq['emq_target_type'] == 'all' ? 'checked' : '' ?>> <label for="type_all">전체 학습자</label>
+                            $emq['emq_target_type']=='all' ? 'checked' : ''?>> <label for="type_all">전체 학습자</label>
                     </td>
                 </tr>
                 <tr>
@@ -112,7 +118,7 @@ if ($w != 'u') {
                     <th scope="row">수신거부 링크 포함</th>
                     <td>
                         <input type="checkbox" name="emq_use_unsubscribe" value="1" id="use_unsub" <?php echo
-    $emq['emq_use_unsubscribe'] ? 'checked' : '' ?>>
+                            $emq['emq_use_unsubscribe'] ? 'checked' : ''?>>
                         <label for="use_unsub">메일 하단에 수신거부 링크를 포함합니다.</label>
                     </td>
                 </tr>
@@ -133,7 +139,9 @@ if ($w != 'u') {
 
     <div class="btn_fixed_top">
         <a href="./edu_mail_list.php" class="btn btn_02">목록</a>
-        <input type="submit" value="발송 예약 저장" class="btn btn_submit" accesskey="s">
+        <input type="submit" name="act_button" value="발송 예약 저장" class="btn btn_submit" accesskey="s">
+        <input type="submit" name="act_button" value="즉시 발송" class="btn btn_01" style="background:#ff5722; color:#fff;"
+            onclick="return confirm('저장 후 즉시 발송하시겠습니까?');">
     </div>
 
 </form>

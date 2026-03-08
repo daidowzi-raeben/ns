@@ -33,7 +33,16 @@ else {
                 emq_status = 'WAIT',
                 emq_reg_date = '" . G5_TIME_YMDHIS . "' ";
     sql_query($sql);
+    $emq_id = sql_insert_id();
 }
 
-goto_url('./edu_mail_list.php');
+if (trim($_POST['act_button']) == '즉시 발송') {
+    goto_url('./edu_mail_send_now.php?emq_id=' . (int)$emq_id);
+}
+else {
+    goto_url('./edu_mail_list.php');
+}
+?>else {
+    goto_url('./edu_mail_list.php');
+}
 ?>
