@@ -24,7 +24,7 @@ $sql_common = " emq_subject = '{$emq_subject}',
                 mb_id = '{$member['mb_id']}' ";
 
 if ($w == 'u') {
-    $sql = " update sj_edu_mail_queue set {$sql_common} where emq_id = '{$emq_id}' ";
+    $sql = " update sj_edu_mail_queue set {$sql_common}, emq_status = 'WAIT' where emq_id = '{$emq_id}' ";
     sql_query($sql);
 }
 else {
@@ -40,9 +40,6 @@ if (trim($_POST['act_button']) == '즉시 발송') {
     goto_url('./edu_mail_send_now.php?emq_id=' . (int)$emq_id);
 }
 else {
-    goto_url('./edu_mail_list.php');
-}
-?>else {
     goto_url('./edu_mail_list.php');
 }
 ?>

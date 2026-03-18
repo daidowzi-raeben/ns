@@ -73,7 +73,7 @@ function get_edu_mail_targets($lssn_no, $target_type)
         $sql_common .= " AND (a.app_study_rate IS NULL OR a.app_study_rate < 50) ";
     }
 
-    $sql = " SELECT m.mb_id, m.mb_name, m.mb_email, IFNULL(a.app_study_rate, 0) as rate " . $sql_common;
+    $sql = " SELECT m.mb_id, m.mb_name, m.mb_email, MAX(IFNULL(a.app_study_rate, 0)) as rate " . $sql_common . " GROUP BY m.mb_id ";
     $result = sql_query($sql);
 
     // Fetch lesson title if lssn_no is set

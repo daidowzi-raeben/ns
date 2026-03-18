@@ -17,8 +17,8 @@ $menu['menu600'] = array(
 		array('600600', 'CP교육만족도조사관리', '' . G5_ADMIN_URL . '/srvy_result.php?type=B', 'srvy_result'),
 		array('600610', '윤리CP인식도조사관리', '' . G5_ADMIN_URL . '/srvy_result.php?type=A', 'srvy_result'),
 		array('600700', '윤리/준법/정보보호서약관리', '' . G5_ADMIN_URL . '/pdf_list.php', 'pdf_test'),
-		array('600800', '학습 미수료 메일 발송 관리', '' . G5_ADMIN_URL . '/edu_mail_list.php', 'edu_mail'),
-		array('600810', '학습자별 진도 현황 리스트', '' . G5_ADMIN_URL . '/edu_learner_list.php', 'edu_learner'),
+		array('600800', '학습 미수료 메일 관리', '' . G5_ADMIN_URL . '/edu_mail_list.php', 'edu_mail'),
+		array('600810', '학습자 메일 발송 리스트', '' . G5_ADMIN_URL . '/edu_learner_list.php', 'edu_learner'),
 	//array('600300', '과정별진도관리', ''.G5_ADMIN_URL.'/learn_proc_list.php', 'ln_proclist'),
 	//array('600500', '사이버교육수행관리', ''.G5_ADMIN_URL.'/cyber_perform.php', 'cb_perform'),
 

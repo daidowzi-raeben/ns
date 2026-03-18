@@ -106,8 +106,8 @@ foreach ($targets as $target) {
     sql_query(" UPDATE sj_edu_mail_log SET eml_status = '{$status}' WHERE eml_id = '{$eml_id}' ");
 }
 
-// 4. Mark as DONE
-sql_query(" UPDATE sj_edu_mail_queue SET emq_status = 'DONE' WHERE emq_id = '{$emq_id}' ");
+// 4. Mark as DONE and increment send count
+sql_query(" UPDATE sj_edu_mail_queue SET emq_status = 'DONE', emq_send_count = emq_send_count + 1 WHERE emq_id = '{$emq_id}' ");
 
 echo "Job Finished. Success: $success, Fail: $fail\n";
 ?>

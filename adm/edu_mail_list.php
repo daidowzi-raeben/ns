@@ -4,7 +4,7 @@ include_once('./_common.php');
 
 auth_check($auth[$sub_menu], 'r');
 
-$g5['title'] = '교육 미수료자 메일 발송 관리';
+$g5['title'] = '학습 미수료 메일 관리';
 include_once('./admin.head.php');
 
 $sql_common = " from sj_edu_mail_queue ";
@@ -36,16 +36,17 @@ $result = sql_query($sql);
             </caption>
             <thead>
                 <tr>
-                    <th scope="col">
+                    <!-- <th scope="col">
                         <label for="chkall" class="sound_only">전체선택</label>
                         <input type="checkbox" name="chkall" value="1" id="chkall" onclick="check_all(this.form)">
-                    </th>
+                    </th> -->
                     <th scope="col">ID</th>
                     <th scope="col">이메일 제목</th>
                     <th scope="col">교육 과정명</th>
                     <th scope="col">발송조건</th>
                     <th scope="col">예약일시</th>
                     <th scope="col">상태</th>
+                    <th scope="col">발송횟수</th>
                     <th scope="col">등록일</th>
                     <th scope="col">수정</th>
                     <th scope="col">발송현황</th>
@@ -79,13 +80,13 @@ for ($i = 0; $row = sql_fetch_array($result); $i++) {
     );
 ?>
                 <tr>
-                    <td class="td_chk">
+                    <!-- <td class="td_chk">
                         <label for="chk_<?php echo $i; ?>" class="sound_only">
                             <?php echo get_text($row['emq_subject'])?> 선택
                         </label>
                         <input type="checkbox" name="chk[]" value="<?php echo $row['emq_id']?>"
                             id="chk_<?php echo $i; ?>">
-                    </td>
+                    </td> -->
                     <td class="td_num_c">
                         <?php echo $row['emq_id']?>
                     </td>
@@ -103,6 +104,9 @@ for ($i = 0; $row = sql_fetch_array($result); $i++) {
                     </td>
                     <td class="td_mng" style="color:<?php echo $status_color?>; font-weight:bold;">
                         <?php echo $status_text_arr[$row['emq_status']]?>
+                    </td>
+                    <td class="td_num_c">
+                        <?php echo (int)$row['emq_send_count']; ?>회
                     </td>
                     <td class="td_datetime">
                         <?php echo $row['emq_reg_date']?>
@@ -123,28 +127,28 @@ for ($i = 0; $row = sql_fetch_array($result); $i++) {
                 <?php
 }
 if ($i == 0)
-    echo "<tr><td colspan='10' class='empty_table'>자료가 없습니다.</td></tr>";
+    echo "<tr><td colspan='11' class='empty_table'>자료가 없습니다.</td></tr>";
 ?>
             </tbody>
         </table>
     </div>
 
     <div class="btn_list01 btn_list">
-        <input type="submit" name="act_button" value="삭제" onclick="document.pressed=this.value" class="btn btn_01">
+        <!-- <input type="submit" name="act_button" value="삭제" onclick="document.pressed=this.value" class="btn btn_01"> -->
     </div>
 </form>
 
 <script>
     function fedu_maillist_s bm        ) {
-        if (!is_checked(            ) {
-            alert( d ocument.pressed + " 하실 항목            선택하세요.");
+        if (!is_checked() {
+            alert(d ocument.pressed + " 하실 항목            선택하세요.");
                        ur n false;
         }
 
         i            en t.pressed == "삭제") {
-            if (                한 자료를 정말 삭제하시겠            {
-                        return f    alse;
-          }
+            if (한 자료를 정말 삭제하시겠            {
+                return f    alse;
+            }
         }
 
         return true;
