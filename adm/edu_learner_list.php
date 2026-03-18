@@ -35,11 +35,11 @@ else if ($target_type == 'under50') {
 $sql_common = " FROM {$g5['member_table']} m 
                 LEFT JOIN {$g5['less_apply_table']} a ON m.mb_id = a.app_uid AND a.app_lssn_no = '{$lssn_no}' ";
 
-$sql = " SELECT count(*) as cnt {$sql_common} {$sql_search} ";
+$sql = " SELECT count(DISTINCT m.mb_id) as cnt {$sql_common} {$sql_search} ";
 $row = sql_fetch($sql);
 $total_count = $row['cnt'];
 
-$sql = " SELECT a.*, m.mb_id, m.mb_name, m.mb_email, IFNULL(a.app_study_rate, 0) as rate_display {$sql_common} {$sql_search} ORDER BY m.mb_id ASC ";
+$sql = " SELECT a.*, m.mb_id, m.mb_name, m.mb_email, IFNULL(a.app_study_rate, 0) as rate_display {$sql_common} {$sql_search} GROUP BY m.mb_id ORDER BY m.mb_id ASC ";
 $result = sql_query($sql);
 ?>
 
