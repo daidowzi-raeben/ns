@@ -36,10 +36,10 @@ $result = sql_query($sql);
             </caption>
             <thead>
                 <tr>
-                    <!-- <th scope="col">
+                    <th scope="col">
                         <label for="chkall" class="sound_only">전체선택</label>
                         <input type="checkbox" name="chkall" value="1" id="chkall" onclick="check_all(this.form)">
-                    </th> -->
+                    </th>
                     <th scope="col">ID</th>
                     <th scope="col">이메일 제목</th>
                     <th scope="col">교육 과정명</th>
@@ -80,13 +80,13 @@ for ($i = 0; $row = sql_fetch_array($result); $i++) {
     );
 ?>
                 <tr>
-                    <!-- <td class="td_chk">
+                    <td class="td_chk">
                         <label for="chk_<?php echo $i; ?>" class="sound_only">
                             <?php echo get_text($row['emq_subject'])?> 선택
                         </label>
                         <input type="checkbox" name="chk[]" value="<?php echo $row['emq_id']?>"
                             id="chk_<?php echo $i; ?>">
-                    </td> -->
+                    </td>
                     <td class="td_num_c">
                         <?php echo $row['emq_id']?>
                     </td>
@@ -134,7 +134,7 @@ if ($i == 0)
     </div>
 
     <div class="btn_list01 btn_list">
-        <!-- <input type="submit" name="act_button" value="삭제" onclick="document.pressed=this.value" class="btn btn_01"> -->
+        <input type="submit" name="act_button" value="삭제" onclick="document.pressed=this.value" class="btn btn_01">
     </div>
 </form>
 
