@@ -1,7 +1,7 @@
 <?php
 include_once('./_common.php');
 
-$pld_year = '2025';
+$pld_year = '2026';
 $pld_semi = 'A';
 
 $pld_month  = trim($_POST['month']);
@@ -34,6 +34,6 @@ $sql = " insert into sj_prs_pledge
 sql_query($sql);
 ?>
 <script>
-	alert("서약이 완료되었습니다.");
-	window.close();
+alert("서약이 완료되었습니다.");
+window.close();
 </script>
