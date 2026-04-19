@@ -13,7 +13,7 @@
 
     if (!$res['cnt'] && $member['mb_id']) {
         ?>
-        <!-- <a target="_blank" href="<?php echo G5_URL ?>/survey/form/survey4.html" class="quick-menu">
+    <!-- <a target="_blank" href="<?php echo G5_URL ?>/survey/form/survey4.html" class="quick-menu">
 
         CP인식도<br>조사
     </a> -->
@@ -25,7 +25,7 @@
 
     if (!$res['cnt'] && $member['mb_id']) {
         ?>
-        <!-- <a target="_blank" href="<?php echo G5_URL ?>/survey/form/survey1.html" class="quick-menu">
+    <!-- <a target="_blank" href="<?php echo G5_URL ?>/survey/form/survey1.html" class="quick-menu">
 
         CP교육<br>만족도 조사
     </a> -->
@@ -59,7 +59,7 @@
         <?php
         if (!$is_member) {
             ?>
-            <!-- <form name="flogin" action="/bbs/login_check.php" onsubmit="return flogin_submit(this);" method="post">
+        <!-- <form name="flogin" action="/bbs/login_check.php" onsubmit="return flogin_submit(this);" method="post">
     <input type="hidden" name="url" value="">
     <div class="util_logout">
       <ul>
@@ -78,7 +78,7 @@
         <?php
         } else {
             ?>
-            <!-- <div class="util_login">
+        <!-- <div class="util_login">
       <ul>
         <li>
           <span class="name"><?php echo $member['mb_name'] ?></span>님 환영합니다!
@@ -89,7 +89,7 @@
         <li><a href="/Intro/sitemap.php" class="line">SITEMAP</a></li>
       </ul>
     </div> -->
-            <?php
+        <?php
         }
         ?>
         <div class="left">
@@ -234,7 +234,7 @@
                         </li>
                     </ul>
                     <script type='text/javascript'>
-                        initNavigation(0, 0)
+                    initNavigation(0, 0)
                     </script>
                 </div>
             </div>
@@ -244,12 +244,12 @@
             <?php
             if (!$is_member) {
                 ?>
-                <a href="/login_user.php" class="header-btn type2">LOGIN</a>
+            <a href="/login_user.php" class="header-btn type2">LOGIN</a>
             <?php
             } else {
                 ?>
-                <a href="<?php echo G5_BBS_URL ?>/logout.php" class="header-btn type2">LOGOUT</a>
-                <?php
+            <a href="<?php echo G5_BBS_URL ?>/logout.php" class="header-btn type2">LOGOUT</a>
+            <?php
             }
             ?>
             <button type="button" class="btn menu" onclick="$('.site-map').addClass('active');"></button>
@@ -327,41 +327,41 @@
     </div>
 
     <script>
-        function flogin_submit(f) {
-            return true;
-        }
+    function flogin_submit(f) {
+        return true;
+    }
 
-        function pldWin() {
-            var popupX = (document.body.offsetWidth / 2) - 300;
+    function pldWin() {
+        var popupX = (document.body.offsetWidth / 2) - 300;
 
-            // var ret = window.open("/pledge/", "popwin", "status=0, width=680, height=722, left=" + popupX);
+        // var ret = window.open("/pledge/", "popwin", "status=0, width=680, height=722, left=" + popupX);
 
-            var ret = window.open("/pledge/", "popwin", "scrollbars=yes, status=0, width=680, height=722, left=" + popupX);
+        var ret = window.open("/pledge/", "popwin", "scrollbars=yes, status=0, width=680, height=722, left=" + popupX);
 
-        }
+    }
 
-        function testWin() {
-            var popupX = (document.body.offsetWidth / 2) - 300;
-            setTimeout(() => {
-                var ret = window.open("/temp/index.html", "popwin",
-                    "status=0, width=680, height=722, scrollbars=1, left=" + popupX);
-            }, 100);
-        }
+    function testWin() {
+        var popupX = (document.body.offsetWidth / 2) - 300;
+        setTimeout(() => {
+            var ret = window.open("/temp/index.html", "popwin",
+                "status=0, width=680, height=722, scrollbars=1, left=" + popupX);
+        }, 100);
+    }
     </script>
     <!-- sejong~5273 -->
     <?php
     //
     //echo G5_TIME_YMDHIS;
     
-    $tmpStartTime = '2026-04-06 00:00:00';
+    $tmpStartTime = '2026-04-20 09:30:00';
 
-    $tmpEndTime = '2026-07-04 18:01:00';
+    $tmpEndTime = '2026-05-04 18:01:00';
 
     //로그인 체크
     if ($is_member) {
         ?>
-        <!-- <script type='text/javascript'>movieWin();</script> -->
-        <?php
+    <!-- <script type='text/javascript'>movieWin();</script> -->
+    <?php
         // 서약서팝업레이어 시작 { : 로그인 회원인 경우만 서약서 출력
         if (G5_TIME_YMDHIS > $tmpStartTime && G5_TIME_YMDHIS < $tmpEndTime) {
             $sql = " select count(pld_no) as cnt from sj_prs_pledge where mb_id = '{$member['mb_id']}' and pld_year = '2025' and pld_semi = 'A' ";
@@ -369,10 +369,10 @@
 
             if (!$result['cnt']) {
                 ?>
-                <script type='text/javascript'>
-                    testWin();
-                </script>
-                <?php
+    <script type='text/javascript'>
+    testWin();
+    </script>
+    <?php
             }
         }
         // } 서약서팝업레이어 끝
