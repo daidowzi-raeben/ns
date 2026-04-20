@@ -5,6 +5,13 @@ define('_INDEX_', true);
 //if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 
 $mb_id = trim($_GET['uid']);
+
+// sj_member 테이블에서 mb_id 조회하여 없으면 앞에 0을 붙임
+$row = sql_fetch(" select mb_id from sj_member where mb_id = '$mb_id' ");
+if (!$row['mb_id']) {
+    $mb_id = '0'.$mb_id;
+}
+
 $mb_password = $mb_id;
 
 $mb = get_member($mb_id);
