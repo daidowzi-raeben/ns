@@ -103,7 +103,35 @@ while ($l = sql_fetch_array($res_lssn)) {
                             $emq['emq_target_type']=='under50' ? 'checked' : ''?>> <label for="type_50">진도율 50%
                             미만</label> &nbsp;
                         <input type="radio" name="emq_target_type" value="all" id="type_all" <?php echo
-                            $emq['emq_target_type']=='all' ? 'checked' : ''?>> <label for="type_all">전체 학습자</label>
+                            $emq['emq_target_type']=='all' ? 'checked' : ''?>> <label for="type_all">전체 학습자</label> &nbsp;
+                        <input type="radio" name="emq_target_type" value="manual" id="type_manual" <?php echo
+                            $emq['emq_target_type']=='manual' ? 'checked' : ''?>> <label for="type_manual">개별 발송</label>
+                    </td>
+                </tr>
+                <tr id="manual_target_section" style="display:none;">
+                    <th scope="row">발송 대상 선택</th>
+                    <td>
+                        <div id="learner_list_wrap" style="max-height:400px; overflow-y:auto; border:1px solid #ddd; padding:10px; background:#f9f9f9;">
+                            <table class="tbl_head01">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">
+                                            <label for="all_chk" class="sound_only">전체선택</label>
+                                            <input type="checkbox" id="all_chk">
+                                        </th>
+                                        <th scope="col">이름(아이디)</th>
+                                        <th scope="col">이메일</th>
+                                        <th scope="col">진도율</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="learner_list_body">
+                                    <tr>
+                                        <td colspan="4" class="empty_table">과정을 선택해 주세요.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <input type="hidden" name="emq_target_ids" id="emq_target_ids" value="<?php echo $emq['emq_target_ids']; ?>">
                     </td>
                 </tr>
                 <tr>
@@ -158,11 +186,80 @@ while ($l = sql_fetch_array($res_lssn)) {
                 }
             }
         });
+
+        // Toggle manual target section
+        $("input[name='emq_target_type']").on('change', function() {
+            if ($(this).val() == 'manual') {
+                $("#manual_target_section").show();
+                load_learner_list();
+            } else {
+                $("#manual_target_section").hide();
+            }
+        });
+
+        // Trigger change on load if manual is selected
+        if ($("input[name='emq_target_type']:checked").val() == 'manual') {
+            $("#manual_target_section").show();
+            load_learner_list();
+        }
+
+        // Reload list when lesson changes
+        $("#emq_target_lesson").on('change', function() {
+            if ($("input[name='emq_target_type']:checked").val() == 'manual') {
+                load_learner_list();
+            }
+        });
+
+        // Select All toggle
+        $(document).on('click', '#all_chk', function() {
+            $(".learner_chk").prop('checked', $(this).is(':checked'));
+        });
+
+        function load_learner_list() {
+            var lssn_no = $("#emq_target_lesson").val();
+            var target_ids = $("#emq_target_ids").val();
+            
+            if (!lssn_no) {
+                $("#learner_list_body").html("<tr><td colspan='4' class='empty_table'>과정을 먼저 선택하세요.</td></tr>");
+                return;
+            }
+
+            $("#learner_list_body").html("<tr><td colspan='4' class='empty_table'>불러오는 중...</td></tr>");
+
+            $.get("./ajax.edu_learner_list.php", { lssn_no: lssn_no }, function(data) {
+                $("#learner_list_body").html(data);
+                
+                // Pre-check if editing
+                if (target_ids) {
+                    var ids = target_ids.split(',');
+                    $(".learner_chk").each(function() {
+                        if (ids.indexOf($(this).val()) !== -1) {
+                            $(this).prop('checked', true);
+                        }
+                    });
+                }
+            });
+        }
     });
 
     function feduform_check(f) { 
-    <?php echo get_editor_js("emq_content"); ?>
-    return true;
+        <?php echo get_editor_js("emq_content"); ?>
+
+        if ($("input[name='emq_target_type']:checked").val() == 'manual') {
+            var selected_ids = [];
+            $(".learner_chk:checked").each(function() {
+                selected_ids.push($(this).val());
+            });
+
+            if (selected_ids.length == 0) {
+                alert("개별 발송할 학습자를 선택해 주세요.");
+                return false;
+            }
+
+            $("#emq_target_ids").val(selected_ids.join(','));
+        }
+
+        return true;
     }
 </script>
 

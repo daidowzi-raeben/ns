@@ -44,7 +44,7 @@ $emq_id = $queue['emq_id'];
 sql_query(" UPDATE sj_edu_mail_queue SET emq_status = 'SENDING' WHERE emq_id = '{$emq_id}' ");
 
 // 3. Get Targets
-$targets = get_edu_mail_targets($queue['emq_target_lesson'], $queue['emq_target_type']);
+$targets = get_edu_mail_targets($queue['emq_target_lesson'], $queue['emq_target_type'], $queue['emq_target_ids']);
 $total = count($targets);
 $success = 0;
 $fail = 0;

@@ -10,6 +10,7 @@ $emq_target_lesson = (int)$_POST['emq_target_lesson'];
 $emq_target_type = $_POST['emq_target_type'];
 $emq_reserve_time = $_POST['emq_reserve_time'];
 $emq_use_unsubscribe = (int)$_POST['emq_use_unsubscribe'];
+$emq_target_ids = trim($_POST['emq_target_ids']);
 
 if (!$emq_subject || !$emq_content || !$emq_target_lesson || !$emq_reserve_time) {
     alert('모든 필수 항목을 입력해 주세요.');
@@ -19,6 +20,7 @@ $sql_common = " emq_subject = '{$emq_subject}',
                 emq_content = '{$emq_content}',
                 emq_target_lesson = '{$emq_target_lesson}',
                 emq_target_type = '{$emq_target_type}',
+                emq_target_ids = '{$emq_target_ids}',
                 emq_reserve_time = '{$emq_reserve_time}',
                 emq_use_unsubscribe = '{$emq_use_unsubscribe}',
                 mb_id = '{$member['mb_id']}' ";

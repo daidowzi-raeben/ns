@@ -45,7 +45,7 @@ function replace_edu_placeholders($content, $mb_id, $lssn_no)
 /**
  * Get target members for email sending
  */
-function get_edu_mail_targets($lssn_no, $target_type)
+function get_edu_mail_targets($lssn_no, $target_type, $target_ids = '')
 {
     global $g5;
 
@@ -71,6 +71,17 @@ function get_edu_mail_targets($lssn_no, $target_type)
     }
     else if ($target_type == 'under50') {
         $sql_common .= " AND (a.app_study_rate IS NULL OR a.app_study_rate < 50) ";
+    }
+    else if ($target_type == 'manual' && $target_ids) {
+        $ids = explode(',', $target_ids);
+        $clean_ids = array();
+        foreach($ids as $id) {
+            $clean_ids[] = sql_real_escape_string(trim($id));
+        }
+        $sql_common .= " AND m.mb_id IN ('" . implode("','", $clean_ids) . "') ";
+    }
+    else if ($target_type == 'manual' && !$target_ids) {
+        return array(); // No targets for manual if no IDs provided
     }
 
     $sql = " SELECT m.mb_id, m.mb_name, m.mb_email, MAX(IFNULL(a.app_study_rate, 0)) as rate " . $sql_common . " GROUP BY m.mb_id ";

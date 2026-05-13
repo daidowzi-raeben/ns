@@ -61,7 +61,8 @@ for ($i = 0; $row = sql_fetch_array($result); $i++) {
     $target_type_str_arr = array(
         'non-complete' => '미수료자',
         'under50' => '진도율 50% 미만',
-        'all' => '전체 대상자'
+        'all' => '전체 대상자',
+        'manual' => '개별 발송'
     );
     $target_type_str = $target_type_str_arr[$row['emq_target_type']];
 
@@ -139,15 +140,15 @@ if ($i == 0)
 </form>
 
 <script>
-    function fedu_maillist_s bm        ) {
-        if (!is_checked() {
-            alert(d ocument.pressed + " 하실 항목            선택하세요.");
-                       ur n false;
+    function fedu_maillist_submit(f) {
+        if (!is_checked("chk[]")) {
+            alert(document.pressed + " 하실 항목을 하나 이상 선택하세요.");
+            return false;
         }
 
-        i            en t.pressed == "삭제") {
-            if (한 자료를 정말 삭제하시겠            {
-                return f    alse;
+        if (document.pressed == "삭제") {
+            if (!confirm("선택한 자료를 정말 삭제하시겠습니까?")) {
+                return false;
             }
         }
 
