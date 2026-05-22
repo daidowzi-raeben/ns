@@ -49,11 +49,19 @@ $total_count = $row['cnt'];
 //$sql = " select * {$sql_common} {$sql_search} {$sql_order} limit {$from_record}, {$rows} ";
 //$result = sql_query($sql);
 
+$pledge_map = array();
+$pledge_qry = sql_query(" select * from sj_prs_pledge where pld_flag = '2' and pld_year = '{$pld_year}' and pld_semi = '{$pld_semi}' ");
+while($prow = sql_fetch_array($pledge_qry)) {
+    if (!isset($pledge_map[$prow['mb_id']])) {
+        $pledge_map[$prow['mb_id']] = $prow;
+    }
+}
+
 $qry = sql_query("select * {$sql_common} {$sql_search} {$sql_order}");
 
 /*================================================================================
 php_writeexcel http://www.bettina-attack.de/jonny/view.php/projects/php_writeexcel/
-=================================================================================*/
+================================================================================*/
 
 include_once(G5_LIB_PATH.'/Excel/php_writeexcel/class.writeexcel_workbook.inc.php');
 include_once(G5_LIB_PATH.'/Excel/php_writeexcel/class.writeexcel_worksheet.inc.php');
@@ -84,18 +92,21 @@ for($i=1; $res=sql_fetch_array($qry); $i++)
 {
     $res = array_map('iconv_euckr', $res);
 	
-	$sql2 = " select * from sj_prs_pledge where mb_id = '{$res['mb_id']}' and pld_flag = '2' and pld_year = '{$pld_year}' and pld_semi = '{$pld_semi}' limit 0, 1 ";
-	$row2 = sql_fetch($sql2);
-	
-	$row2 = array_map('iconv_euckr', $row2);
-	
-	$strWrite = $row2['pld_no'] ? "작성" : "미작성";
+    $row2 = isset($pledge_map[$res['mb_id']]) ? $pledge_map[$res['mb_id']] : null;
+    if ($row2) {
+        $row2 = array_map('iconv_euckr', $row2);
+        $strWrite = $row2['pld_no'] ? "작성" : "미작성";
+        $pld_regdate = substr($row2['pld_regdate'], 0, 10);
+    } else {
+        $strWrite = "미작성";
+        $pld_regdate = "";
+    }
 	$strWrite = iconv_euckr($strWrite);
 
 	$worksheet->write($i, 0, $res['mb_name']);
 	$worksheet->write($i, 1, $res['mb_id']);
 	$worksheet->write($i, 2, $res['mb_3']);
-	$worksheet->write($i, 3, substr($row2['pld_regdate'], 0, 10));
+	$worksheet->write($i, 3, $pld_regdate);
 	$worksheet->write($i, 4, $strWrite);
 }
 
