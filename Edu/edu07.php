@@ -251,6 +251,76 @@ for ($j = 0; $row2 = sql_fetch_array($result2); $j++) {
 
         <div class="edu-course">
             <div class="img-wrap">
+                <img src="../_Img/Sub/edu/cyber_img32.png">
+            </div>
+            <div class="txt-wrap">
+                <div class="tit">금석위개(金石爲開), 실행으로 증명하는 신뢰</div>
+                <div class="row">
+                    <div class="col">
+                        <label>수료조건</label><span>학습 100% 진행</span>
+                    </div>
+                    <div class="col">
+                        <label>마일리지</label><span>없음</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label>학습기간</label><span>2025.06.15(월) ~ 2025.06.19(금)</span>
+                    </div>
+                    <div class="col">
+                        <label>학습시간</label><span>90분</span>
+                    </div>
+                </div>
+                <div class="play">
+                    <?php
+$tempSday = "2026-06-15 06:00";
+$tempEday = "2026-06-19 18:00";
+if ($member['mb_id'] == 'admin') {
+    $tempSday = "2025-06-01 09:00";
+}
+if ($member['mb_id'] == 'sj001') {
+    $tempSday = "2025-06-01 09:00";
+}
+if ($member['mb_id'] == 'sj002') {
+    $tempSday = "2025-06-01 09:00";
+}
+if ($member['mb_id'] == 'sj003') {
+    $tempSday = "2025-06-01 09:00";
+}
+if ($member['mb_id'] == 'sj004') {
+    $tempSday = "2025-06-01 09:00";
+}
+if ($member['mb_id'] == 'sj005') {
+    $tempSday = "2025-06-01 09:00";
+}
+
+if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
+?>
+                    <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
+                    <?php
+}
+else {
+?>
+                    <a href="/Edu/class21.php?ls=35" class="class-enter"
+                        style="<?php if ($result_m3['app_study_rate'] == 100) {
+        echo " background: #5a5ae7;";
+    }?>"><span>
+                            <?php if ($result_m3['app_study_rate'] == 100) {
+        echo '학습완료';
+    }
+    else {
+        echo '학습하기';
+    }
+?>
+                        </span></a>
+                    <?php
+}
+?>
+                </div>
+            </div>
+        </div>
+        <div class="edu-course">
+            <div class="img-wrap">
                 <img src="../_Img/Sub/edu/cyber_img31.png">
             </div>
             <div class="txt-wrap">

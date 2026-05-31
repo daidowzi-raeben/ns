@@ -46,6 +46,8 @@ else if($l_no == 33)
 	$foldName = "21";
 else if($l_no == 34)
 	$foldName = "22";
+else if($l_no == 35)
+	$foldName = "35";
 else if($l_no != 6)
 	$foldName = "cyber";
 else
@@ -97,7 +99,7 @@ if($l_no == 10 || $l_no == 14)
 	$page_url = G5_URL . "/process/{$foldName}/{$CONTENTS['c_url']}/" . sprintf("%02d",$open_page) . ".html";
 else if($l_no == 19)
 	$page_url = G5_URL . "/process/{$foldName}/{$CONTENTS['c_url']}/{$CONTENTS['c_url']}_" . sprintf("%02d",$open_page) . ".html";
-else if($l_no == 34)
+else if($l_no == 34 || $l_no == 35)
 	$page_url = G5_URL . "/process/{$foldName}/{$CONTENTS['c_url']}/{$CONTENTS['c_url']}_" . sprintf("%02d",$open_page) . ".html";
 else if($l_no == 32)
 	$page_url = G5_URL . "/process/{$foldName}/{$CONTENTS['c_url']}/" . sprintf("%03d",$open_page) . ".htm";

@@ -355,7 +355,7 @@
     
     $tmpStartTime = '2026-04-20 09:30:00';
 
-    $tmpEndTime = '2026-05-22 18:01:00';
+    $tmpEndTime = '2026-07-03 18:01:00';
 
     //로그인 체크
     if ($is_member) {
@@ -370,7 +370,7 @@
             if (!$result['cnt']) {
                 ?>
     <script type='text/javascript'>
-    testWin();
+    // testWin();
     </script>
     <?php
             }
