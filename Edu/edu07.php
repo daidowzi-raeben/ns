@@ -132,8 +132,7 @@ if (!$sst) {
 $page = 1;
 if (!isset($_GET['page'])) {
     $page = 1;
-}
-else {
+} else {
     $page = $_GET['page'];
 }
 
@@ -169,9 +168,9 @@ $result = sql_query($sql);
                 </div>
             </div>
             <?php
-$eduOver5 = ' over';
-include_once 'edu_left.php';
-?>
+            $eduOver5 = ' over';
+            include_once 'edu_left.php';
+            ?>
         </div>
         <?php include_once('../_Inc/helpInc.php'); ?>
     </div>
@@ -193,58 +192,56 @@ include_once 'edu_left.php';
 
 
             <?php
-$y = 0;
+            $y = 0;
 
-$sql2 = "select * from sj_lms_lesson where lssn_kind = 'LS00' ";
-// echo $sql;
-$result2 = sql_query($sql2);
+            $sql2 = "select * from sj_lms_lesson where lssn_kind = 'LS00' ";
+            // echo $sql;
+            $result2 = sql_query($sql2);
 
 
-for ($j = 0; $row2 = sql_fetch_array($result2); $j++) {
-    $p = $j;
-    $is = '';
-    if ($j == 8) {
-        $row2['lssn_no'] = '29';
-    }
-    if ($j == 9) {
-        $row2['lssn_no'] = '30';
-    }
-    if ($j == 10) {
-        $row2['lssn_no'] = '31';
-    }
-    if ($j == 11) {
-        $row2['lssn_no'] = '28';
-    }
-    $sql_cnt = "
+            for ($j = 0; $row2 = sql_fetch_array($result2); $j++) {
+                $p = $j;
+                $is = '';
+                if ($j == 8) {
+                    $row2['lssn_no'] = '29';
+                }
+                if ($j == 9) {
+                    $row2['lssn_no'] = '30';
+                }
+                if ($j == 10) {
+                    $row2['lssn_no'] = '31';
+                }
+                if ($j == 11) {
+                    $row2['lssn_no'] = '28';
+                }
+                $sql_cnt = "
 				
 				select * from cd_lms_lesson_result where lssn_no = '" . $row2['lssn_no'] . "'
 				 AND mb_id = '" . $member['mb_id'] . "' LIMIT 1  ";
-    //  echo $sql_cnt;
-    $result_cnt = sql_fetch($sql_cnt);
+                //  echo $sql_cnt;
+                $result_cnt = sql_fetch($sql_cnt);
 
-    // SELECT COUNT(*) AS cnt FROM cd_lms_lesson_result WHERE mb_id = 'test03'
+                // SELECT COUNT(*) AS cnt FROM cd_lms_lesson_result WHERE mb_id = 'test03'
 // echo $row2['lssn_no'];
-    if (isset($result_cnt['lssn_no']) && $row2['lssn_no'] == $result_cnt['lssn_no']) {
-        $is = 'done';
-        $y++;
-    }
-    // echo $row2['lssn_no'];
+                if (isset($result_cnt['lssn_no']) && $row2['lssn_no'] == $result_cnt['lssn_no']) {
+                    $is = 'done';
+                    $y++;
+                }
+                // echo $row2['lssn_no'];
 #				$is = '';
 #				echo $result_cnt['idx'];
-?>
-            <button type="button" style="display:none" onclick="location.href='?page=<?php echo $j + 1?>';"
-                class="btn <?php if ($j + 1 == $page)
-        echo 'active'?> <?php if ($j + 1 != $page) {
-        echo $is;
-    }
-    else {
-        echo $is;
-    }?>">
-                <?php echo $j + 1?>
-            </button>
-            <?php
-}
-?>
+                ?>
+                <button type="button" style="display:none" onclick="location.href='?page=<?php echo $j + 1 ?>';" class="btn <?php if ($j + 1 == $page)
+                        echo 'active' ?> <?php if ($j + 1 != $page) {
+                        echo $is;
+                    } else {
+                        echo $is;
+                    } ?>">
+                    <?php echo $j + 1 ?>
+                </button>
+                <?php
+            }
+            ?>
         </div>
 
 
@@ -265,7 +262,7 @@ for ($j = 0; $row2 = sql_fetch_array($result2); $j++) {
                 </div>
                 <div class="row">
                     <div class="col">
-                        <label>학습기간</label><span>2025.06.15(월) ~ 2025.06.19(금)</span>
+                        <label>학습기간</label><span>2026.06.15(월) ~ 2026.06.19(금)</span>
                     </div>
                     <div class="col">
                         <label>학습시간</label><span>90분</span>
@@ -273,49 +270,46 @@ for ($j = 0; $row2 = sql_fetch_array($result2); $j++) {
                 </div>
                 <div class="play">
                     <?php
-$tempSday = "2026-06-15 06:00";
-$tempEday = "2026-06-19 18:00";
-if ($member['mb_id'] == 'admin') {
-    $tempSday = "2025-06-01 09:00";
-}
-if ($member['mb_id'] == 'sj001') {
-    $tempSday = "2025-06-01 09:00";
-}
-if ($member['mb_id'] == 'sj002') {
-    $tempSday = "2025-06-01 09:00";
-}
-if ($member['mb_id'] == 'sj003') {
-    $tempSday = "2025-06-01 09:00";
-}
-if ($member['mb_id'] == 'sj004') {
-    $tempSday = "2025-06-01 09:00";
-}
-if ($member['mb_id'] == 'sj005') {
-    $tempSday = "2025-06-01 09:00";
-}
+                    $tempSday = "2026-06-15 06:00";
+                    $tempEday = "2026-06-19 18:00";
+                    if ($member['mb_id'] == 'admin') {
+                        $tempSday = "2025-06-01 09:00";
+                    }
+                    if ($member['mb_id'] == 'sj001') {
+                        $tempSday = "2025-06-01 09:00";
+                    }
+                    if ($member['mb_id'] == 'sj002') {
+                        $tempSday = "2025-06-01 09:00";
+                    }
+                    if ($member['mb_id'] == 'sj003') {
+                        $tempSday = "2025-06-01 09:00";
+                    }
+                    if ($member['mb_id'] == 'sj004') {
+                        $tempSday = "2025-06-01 09:00";
+                    }
+                    if ($member['mb_id'] == 'sj005') {
+                        $tempSday = "2025-06-01 09:00";
+                    }
 
-if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
-?>
-                    <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
-                    <?php
-}
-else {
-?>
-                    <a href="/Edu/class21.php?ls=35" class="class-enter"
-                        style="<?php if ($result_m3['app_study_rate'] == 100) {
-        echo " background: #5a5ae7;";
-    }?>"><span>
-                            <?php if ($result_m3['app_study_rate'] == 100) {
-        echo '학습완료';
-    }
-    else {
-        echo '학습하기';
-    }
-?>
-                        </span></a>
-                    <?php
-}
-?>
+                    if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
+                        ?>
+                        <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
+                        <?php
+                    } else {
+                        ?>
+                        <a href="/Edu/class21.php?ls=35" class="class-enter" style="<?php if ($result_m3['app_study_rate'] == 100) {
+                            echo " background: #5a5ae7;";
+                        } ?>"><span>
+                                <?php if ($result_m3['app_study_rate'] == 100) {
+                                    echo '학습완료';
+                                } else {
+                                    echo '학습하기';
+                                }
+                                ?>
+                            </span></a>
+                        <?php
+                    }
+                    ?>
                 </div>
             </div>
         </div>
@@ -343,49 +337,46 @@ else {
                 </div>
                 <div class="play">
                     <?php
-$tempSday = "2025-10-27 06:00";
-$tempEday = "2026-11-05 18:00";
-if ($member['mb_id'] == 'admin') {
-    $tempSday = "2025-06-01 09:00";
-}
-if ($member['mb_id'] == 'sj001') {
-    $tempSday = "2025-06-01 09:00";
-}
-if ($member['mb_id'] == 'sj002') {
-    $tempSday = "2025-06-01 09:00";
-}
-if ($member['mb_id'] == 'sj003') {
-    $tempSday = "2025-06-01 09:00";
-}
-if ($member['mb_id'] == 'sj004') {
-    $tempSday = "2025-06-01 09:00";
-}
-if ($member['mb_id'] == 'sj005') {
-    $tempSday = "2025-06-01 09:00";
-}
+                    $tempSday = "2025-10-27 06:00";
+                    $tempEday = "2026-11-05 18:00";
+                    if ($member['mb_id'] == 'admin') {
+                        $tempSday = "2025-06-01 09:00";
+                    }
+                    if ($member['mb_id'] == 'sj001') {
+                        $tempSday = "2025-06-01 09:00";
+                    }
+                    if ($member['mb_id'] == 'sj002') {
+                        $tempSday = "2025-06-01 09:00";
+                    }
+                    if ($member['mb_id'] == 'sj003') {
+                        $tempSday = "2025-06-01 09:00";
+                    }
+                    if ($member['mb_id'] == 'sj004') {
+                        $tempSday = "2025-06-01 09:00";
+                    }
+                    if ($member['mb_id'] == 'sj005') {
+                        $tempSday = "2025-06-01 09:00";
+                    }
 
-if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
-?>
-                    <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
-                    <?php
-}
-else {
-?>
-                    <a href="/Edu/class21.php?ls=34" class="class-enter"
-                        style="<?php if ($result_m3['app_study_rate'] == 100) {
-        echo " background: #5a5ae7;";
-    }?>"><span>
-                            <?php if ($result_m3['app_study_rate'] == 100) {
-        echo '학습완료';
-    }
-    else {
-        echo '학습하기';
-    }
-?>
-                        </span></a>
-                    <?php
-}
-?>
+                    if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
+                        ?>
+                        <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
+                        <?php
+                    } else {
+                        ?>
+                        <a href="/Edu/class21.php?ls=34" class="class-enter" style="<?php if ($result_m3['app_study_rate'] == 100) {
+                            echo " background: #5a5ae7;";
+                        } ?>"><span>
+                                <?php if ($result_m3['app_study_rate'] == 100) {
+                                    echo '학습완료';
+                                } else {
+                                    echo '학습하기';
+                                }
+                                ?>
+                            </span></a>
+                        <?php
+                    }
+                    ?>
                 </div>
             </div>
         </div>
@@ -414,30 +405,27 @@ else {
                 </div>
                 <div class="play">
                     <?php
-$tempSday = "2025-06-01 09:00";
-$tempEday = "2025-06-19 18:00";
-if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
-?>
-                    <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
-                    <?php
-}
-else {
-?>
-                    <a href="/Edu/class21.php?ls=33" class="class-enter"
-                        style="<?php if ($result_m2['app_study_rate'] == 100) {
-        echo " background: #5a5ae7;";
-    }?>"><span>
-                            <?php if ($result_m2['app_study_rate'] == 100) {
-        echo '학습완료';
-    }
-    else {
-        echo '학습하기';
-    }
-?>
-                        </span></a>
-                    <?php
-}
-?>
+                    $tempSday = "2025-06-01 09:00";
+                    $tempEday = "2025-06-19 18:00";
+                    if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
+                        ?>
+                        <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
+                        <?php
+                    } else {
+                        ?>
+                        <a href="/Edu/class21.php?ls=33" class="class-enter" style="<?php if ($result_m2['app_study_rate'] == 100) {
+                            echo " background: #5a5ae7;";
+                        } ?>"><span>
+                                <?php if ($result_m2['app_study_rate'] == 100) {
+                                    echo '학습완료';
+                                } else {
+                                    echo '학습하기';
+                                }
+                                ?>
+                            </span></a>
+                        <?php
+                    }
+                    ?>
                 </div>
             </div>
         </div>
@@ -468,30 +456,27 @@ else {
                     </div>
                     <div class="play">
                         <?php
-$tempSday = "2024-11-19 09:00";
-$tempEday = "2024-11-30 18:00";
-if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
-?>
-                        <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
-                        <?php
-}
-else {
-?>
-                        <a href="/Edu/class20.php?ls=32" class="class-enter"
-                            style="<?php if ($result_m2['app_study_rate'] == 100) {
-        echo " background: #5a5ae7;";
-    }?>"><span>
-                                <?php if ($result_m2['app_study_rate'] == 100) {
-        echo '학습완료';
-    }
-    else {
-        echo '학습하기';
-    }
-?>
-                            </span></a>
-                        <?php
-}
-?>
+                        $tempSday = "2024-11-19 09:00";
+                        $tempEday = "2024-11-30 18:00";
+                        if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
+                            ?>
+                            <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
+                            <?php
+                        } else {
+                            ?>
+                            <a href="/Edu/class20.php?ls=32" class="class-enter" style="<?php if ($result_m2['app_study_rate'] == 100) {
+                                echo " background: #5a5ae7;";
+                            } ?>"><span>
+                                    <?php if ($result_m2['app_study_rate'] == 100) {
+                                        echo '학습완료';
+                                    } else {
+                                        echo '학습하기';
+                                    }
+                                    ?>
+                                </span></a>
+                            <?php
+                        }
+                        ?>
                     </div>
                 </div>
             </div>
@@ -501,119 +486,115 @@ else {
 
         <div class="edu-course--wrap">
             <?php
-for ($i = 0; $row = sql_fetch_array($result); $i++) {
-    if (!get_lessonApply2($member['mb_id'], $row['lssn_no'])) {
-        $sql = "insert into {$g5['less_apply_table']} set
+            for ($i = 0; $row = sql_fetch_array($result); $i++) {
+                if (!get_lessonApply2($member['mb_id'], $row['lssn_no'])) {
+                    $sql = "insert into {$g5['less_apply_table']} set
 							app_lssn_no = '" . $row['lssn_no'] . "',
 							app_uid = '{$member['mb_id']}',
 							app_rdate = now()";
-        sql_query($sql);
-    }
-?>
+                    sql_query($sql);
+                }
+                ?>
 
-            <div class="edu-course">
-                <div class="img-wrap">
-                    <img src="/_Img/lssn_img/<?php echo $row['lssn_rimg']?>">
+                <div class="edu-course">
+                    <div class="img-wrap">
+                        <img src="/_Img/lssn_img/<?php echo $row['lssn_rimg'] ?>">
+                    </div>
+                    <div class="txt-wrap">
+                        <div class="tit">
+                            <?php echo $row['lssn_title'] ?>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label>수료조건</label><span>학습 100% 진행</span>
+                            </div>
+                            <div class="col">
+                                <label>마일리지</label><span>
+                                    <?php echo $row['lssn_point'] ?>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label>학습기간</label><span>
+                                    <?php echo $row['lssn_sdate'] ?> ~
+                                    <?php echo $row['lssn_edate'] ?>
+                                </span>
+                            </div>
+                            <div class="col">
+                                <label>학습시간</label><span>
+                                    <?php echo $row['lssn_time'] ?>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="play">
+                            <?php
+                            $tempSday = $row['lssn_sdate'];
+                            $tempEday = $row['lssn_edate'];
+                            if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
+                                ?>
+                                <a href="#n" class="day-end"><span>학습기간이 아닙니다.</span></a>
+                                <?php
+                            } else {
+                                ?>
+                                <?php
+                                if ($y > 11) {
+                                    ?>
+                                    <a href="#n" class="day-end"><span>학습완료</span></a>
+                                    <?php
+                                } else { ?>
+                                    <a href="#" id="classEnter" class="class-enter"><span class="enterClass3"
+                                            lno="<?php echo $row['lssn_no'] ?>">학습하기</span></a>
+                                    <?php
+                                }
+                            }
+                            ?>
+                        </div>
+                    </div>
                 </div>
-                <div class="txt-wrap">
-                    <div class="tit">
-                        <?php echo $row['lssn_title']?>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <label>수료조건</label><span>학습 100% 진행</span>
-                        </div>
-                        <div class="col">
-                            <label>마일리지</label><span>
-                                <?php echo $row['lssn_point']?>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <label>학습기간</label><span>
-                                <?php echo $row['lssn_sdate']?> ~
-                                <?php echo $row['lssn_edate']?>
-                            </span>
-                        </div>
-                        <div class="col">
-                            <label>학습시간</label><span>
-                                <?php echo $row['lssn_time']?>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="play">
-                        <?php
-    $tempSday = $row['lssn_sdate'];
-    $tempEday = $row['lssn_edate'];
-    if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
-?>
-                        <a href="#n" class="day-end"><span>학습기간이 아닙니다.</span></a>
-                        <?php
-    }
-    else {
-?>
-                        <?php
-        if ($y > 11) {
-?>
-                        <a href="#n" class="day-end"><span>학습완료</span></a>
-                        <?php
-        }
-        else { ?>
-                        <a href="#" id="classEnter" class="class-enter"><span class="enterClass3"
-                                lno="<?php echo $row['lssn_no']?>">학습하기</span></a>
-                        <?php
-        }
-    }
-?>
-                    </div>
-                </div>
-            </div>
 
-            <!-- <div class="course2" style="margin-top:30px">
+                <!-- <div class="course2" style="margin-top:30px">
                 <p class="c_img2" style="margin-top:7px">
-                    <img src="/_Img/lssn_img/<?php echo $row['lssn_rimg']?>" width="264">
+                    <img src="/_Img/lssn_img/<?php echo $row['lssn_rimg'] ?>" width="264">
                 </p>
                 <ul class="edu_gap10">
-                    <li><span class="title2">과정명</span><span class="sub"><?php echo $row['lssn_title']?></span></li>
+                    <li><span class="title2">과정명</span><span class="sub"><?php echo $row['lssn_title'] ?></span></li>
                     <li><span class="title">수료조건</span>학습 100% 진행</li>
-                    <li><span class="title">학습기간</span><?php echo $row['lssn_sdate']?> ~ <?php echo $row['lssn_edate']?>
+                    <li><span class="title">학습기간</span><?php echo $row['lssn_sdate'] ?> ~ <?php echo $row['lssn_edate'] ?>
                     </li>
-                    <li><span class="title">마일리지</span><?php echo $row['lssn_point']?>점</li>
-                    <li><span class="title">학습시간</span><?php echo $row['lssn_time']?></li>
+                    <li><span class="title">마일리지</span><?php echo $row['lssn_point'] ?>점</li>
+                    <li><span class="title">학습시간</span><?php echo $row['lssn_time'] ?></li>
                 </ul>
             </div> -->
 
-            <!-- <p class="btn">
+                <!-- <p class="btn">
                 <?php
-    $tempSday = $row['lssn_sdate'];
-    $tempEday = $row['lssn_edate'];
-    if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
-?>
+                $tempSday = $row['lssn_sdate'];
+                $tempEday = $row['lssn_edate'];
+                if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
+                    ?>
                 <a href="#n" class="day-end"><span>학습기간이 아닙니다. </span></a>
                 <?php
-    }
-    else {
-?>
+                } else {
+                    ?>
                 <?php
-        if ($y > 11) {
-?>
+                if ($y > 11) {
+                    ?>
                 <a href="#n" class="day-end"><span>학습완료</span></a>
 
                 <?php
-        }
-        else { ?>
+                } else { ?>
                 <a href="#" id="classEnter" class="class-enter"><span class="enterClass3"
-                        lno="<?php echo $row['lssn_no']?>">학습하기</span></a>
+                        lno="<?php echo $row['lssn_no'] ?>">학습하기</span></a>
                 <?php
-        }
-    }
-?>
+                }
+                }
+                ?>
             </p>
             <div class="sgap"></div>
             <?php
-}
-?> -->
+            }
+            ?> -->
         </div>
 
 
@@ -642,30 +623,27 @@ for ($i = 0; $row = sql_fetch_array($result); $i++) {
                 </div>
                 <div class="play">
                     <?php
-$tempSday = "2023-10-16 09:00";
-$tempEday = "2023-11-10 18:00";
-if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
-?>
-                    <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
-                    <?php
-}
-else {
-?>
-                    <a href="/Edu/class19.php?ls=19" class="class-enter"
-                        style="<?php if ($result_m['app_study_rate'] == 100) {
-        echo " background: #5a5ae7;";
-    }?>"><span>
-                            <?php if ($result_m['app_study_rate'] == 100) {
-        echo '학습완료';
-    }
-    else {
-        echo '학습하기';
-    }
-?>
-                        </span></a>
-                    <?php
-}
-?>
+                    $tempSday = "2023-10-16 09:00";
+                    $tempEday = "2023-11-10 18:00";
+                    if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
+                        ?>
+                        <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
+                        <?php
+                    } else {
+                        ?>
+                        <a href="/Edu/class19.php?ls=19" class="class-enter" style="<?php if ($result_m['app_study_rate'] == 100) {
+                            echo " background: #5a5ae7;";
+                        } ?>"><span>
+                                <?php if ($result_m['app_study_rate'] == 100) {
+                                    echo '학습완료';
+                                } else {
+                                    echo '학습하기';
+                                }
+                                ?>
+                            </span></a>
+                        <?php
+                    }
+                    ?>
                 </div>
             </div>
         </div>
@@ -684,20 +662,19 @@ else {
         </div>
         <p class="btn">
             <?php
-$tempSday = "2024-05-20 09:00";
-$tempEday = "2024-05-31 18:00";
-if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
-?>
+            $tempSday = "2024-05-20 09:00";
+            $tempEday = "2024-05-31 18:00";
+            if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
+                ?>
             <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
             <?php
-}
-else {
-?>
-            <a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?= $member['mb_id']?>" class="class-enter"
+            } else {
+                ?>
+            <a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?= $member['mb_id'] ?>" class="class-enter"
                 target="_blank"><span>학습하기</span></a>
             <?php
-}
-?>
+            }
+            ?>
 
         </p> -->
 
@@ -714,20 +691,19 @@ else {
         </div>
         <p class="btn">
             <?php
-$tempSday = "2023-11-20 09:00";
-$tempEday = "2023-11-29 18:00";
-if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
-?>
+            $tempSday = "2023-11-20 09:00";
+            $tempEday = "2023-11-29 18:00";
+            if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
+                ?>
             <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
             <?php
-}
-else {
-?>
-            <a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?= $member['mb_id']?>" class="class-enter"
+            } else {
+                ?>
+            <a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?= $member['mb_id'] ?>" class="class-enter"
                 target="_blank"><span>학습하기</span></a>
             <?php
-}
-?>
+            }
+            ?>
 
         </p> -->
 
@@ -744,32 +720,30 @@ else {
         </div>
         <p class="btn">
             <?php
-$tempSday = "2023-10-16 09:00";
-$tempEday = "2023-11-10 18:00";
-if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
-?>
+            $tempSday = "2023-10-16 09:00";
+            $tempEday = "2023-11-10 18:00";
+            if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
+                ?>
             <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
             <?php
-}
-else {
-?>
+            } else {
+                ?>
 
 
             <a href="/Edu/class19.php?ls=19" class="class-enter"
                 style="<?php if ($result_m['app_study_rate'] == 100) {
-        echo "background: #5a5ae7;";
-    }?>"><span>
+                    echo "background: #5a5ae7;";
+                } ?>"><span>
                     <?php if ($result_m['app_study_rate'] == 100) {
-        echo '학습완료';
-    }
-    else {
-        echo '학습하기';
-    }
-?>
+                        echo '학습완료';
+                    } else {
+                        echo '학습하기';
+                    }
+                    ?>
                 </span></a>
             <?php
-}
-?>
+            }
+            ?>
 
         </p> -->
 
@@ -786,20 +760,19 @@ else {
         </div>
         <p class="btn">
             <?php
-$tempSday = "2023-06-19 09:00";
-$tempEday = "2023-06-30 18:00";
-if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
-?>
+            $tempSday = "2023-06-19 09:00";
+            $tempEday = "2023-06-30 18:00";
+            if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
+                ?>
             <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
             <?php
-}
-else {
-?>
-            <a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?= $member['mb_id']?>" class="class-enter"
+            } else {
+                ?>
+            <a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?= $member['mb_id'] ?>" class="class-enter"
                 target="_blank"><span>학습하기</span></a>
             <?php
-}
-?>
+            }
+            ?>
 
         </p> -->
 
@@ -816,20 +789,19 @@ else {
         </div>
         <p class="btn">
             <?php
-$tempSday = "2023-04-17 08:00";
-$tempEday = "2023-04-28 18:00";
-if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
-?>
+            $tempSday = "2023-04-17 08:00";
+            $tempEday = "2023-04-28 18:00";
+            if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
+                ?>
             <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
             <?php
-}
-else {
-?>
-            <a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?= $member['mb_id']?>" class="class-enter"
+            } else {
+                ?>
+            <a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?= $member['mb_id'] ?>" class="class-enter"
                 target="_blank"><span>학습하기</span></a>
             <?php
-}
-?>
+            }
+            ?>
 
         </p> -->
 
@@ -862,17 +834,17 @@ else {
     }
 </style>
 <?php if ($_GET['auto'] == 'on') { ?>
-<script>
-    $(function () {
-        setTimeout(() => {
-            $("body").css("overflow", "hidden");
-            enter_class3($('.enterClass3').attr("lno"), $('.enterClass3').attr("cno"));
-        }, 1000);
-    });
-</script>
+    <script>
+        $(function () {
+            setTimeout(() => {
+                $("body").css("overflow", "hidden");
+                enter_class3($('.enterClass3').attr("lno"), $('.enterClass3').attr("cno"));
+            }, 1000);
+        });
+    </script>
 
-<?php
-}?>
+    <?php
+} ?>
 
 
 <?php include_once('../_Inc/subTail.php'); ?>
