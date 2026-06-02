@@ -131,6 +131,7 @@ $colspan = 16;
                             <?=option_selected("17", $app_lssn_no, "청탁금지법 교육(하반기)");?>
                             <?=option_selected("33", $app_lssn_no, "윤리경영 사이버교육(상반기)");?>
                             <?=option_selected("34", $app_lssn_no, "윤리경영 사이버교육(하반기)");?>
+                            <?=option_selected("35", $app_lssn_no, "금석위개(金石爲開), 실행으로 증명하는 신뢰");?>
                         </select>
                     </td>
                 </tr>
