@@ -29,7 +29,7 @@ if (!$sst) {
 
 //사이버 교육 과목 분류에 따른 설정
 if (!$app_lssn_no) {
-	$app_lssn_no = "34";
+	$app_lssn_no = "35";
 }
 
 if($app_lssn_no == "1" || $app_lssn_no == "3")
@@ -58,6 +58,8 @@ else if($app_lssn_no == "17")
 	$strLesson = "청탁금지법 교육(하반기)";
 else if($app_lssn_no == "34")
 	$strLesson = "미래를 준비하는 당신의 윤리적 경쟁력";
+else if($app_lssn_no == "35")
+	$strLesson = "금석위개(金石爲開), 실행으로 증명하는 신뢰";
 else if($app_lssn_no == "33")
 	$strLesson = "[2025] 직장인의 소통 지혜! 비지니스 윤리";
 $sql_order = " order by {$sst} {$sod} ";
