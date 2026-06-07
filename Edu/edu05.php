@@ -106,8 +106,7 @@ if (!$sst) {
 $page = 1;
 if (!isset($_GET['page'])) {
     $page = 1;
-}
-else {
+} else {
     $page = $_GET['page'];
 }
 
@@ -143,9 +142,9 @@ $result = sql_query($sql);
                 </div>
             </div>
             <?php
-$eduOver5 = ' over';
-include_once 'edu_left.php';
-?>
+            $eduOver5 = ' over';
+            include_once 'edu_left.php';
+            ?>
         </div>
         <?php include_once('../_Inc/helpInc.php'); ?>
     </div>
@@ -161,7 +160,51 @@ include_once 'edu_left.php';
 
 
         <!-- page-start // -->
+        <div class="edu-course--wrap">
 
+        </div>
+
+
+        <div class="edu-course">
+            <div class="img-wrap">
+                <img src="../_Img/Sub/edu/cyber_img33.png">
+            </div>
+            <div class="txt-wrap">
+                <div class="tit">다크패턴과 AI워싱</div>
+                <div class="row">
+                    <div class="col">
+                        <label>수료조건</label><span>학습 100% 진행</span>
+                    </div>
+                    <div class="col">
+                        <label>마일리지</label><span>250</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label>학습기간</label><span>2026.06.29(월) ~ 2026.07.03(금)</span>
+                    </div>
+                    <div class="col">
+                        <label>학습시간</label><span>2시간</span>
+                    </div>
+                </div>
+                <div class="play">
+                    <?php
+                    $tempSday = "2024-07-22 09:00";
+                    $tempEday = "2024-07-29 18:00";
+                    if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
+                        ?>
+                        <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
+                        <?php
+                    } else {
+                        ?>
+                        <a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?= $member['mb_id'] ?>"
+                            class="class-enter" target="_blank"><span>학습하기</span></a>
+                        <?php
+                    }
+                    ?>
+                </div>
+            </div>
+        </div>
         <div class="edu-course">
             <div class="img-wrap">
                 <img src="../_Img/Sub/edu/cyber_img29.png">
@@ -186,28 +229,25 @@ include_once 'edu_left.php';
                 </div>
                 <div class="play">
                     <?php
-$tempSday = "2024-07-22 09:00";
-$tempEday = "2024-07-29 18:00";
-if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
-?>
-                    <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
-                    <?php
-}
-else {
-?>
-                    <a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?= $member['mb_id']?>"
-                        class="class-enter" target="_blank"><span>학습하기</span></a>
-                    <?php
-}
-?>
+                    $tempSday = "2024-07-22 09:00";
+                    $tempEday = "2024-07-29 18:00";
+                    if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
+                        ?>
+                        <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
+                        <?php
+                    } else {
+                        ?>
+                        <a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?= $member['mb_id'] ?>"
+                            class="class-enter" target="_blank"><span>학습하기</span></a>
+                        <?php
+                    }
+                    ?>
                 </div>
             </div>
         </div>
 
 
-        <div class="edu-course--wrap">
 
-        </div>
 
         <div class="edu-course">
             <div class="img-wrap">
@@ -233,20 +273,19 @@ else {
                 </div>
                 <div class="play">
                     <?php
-$tempSday = "2024-05-20 09:00";
-$tempEday = "2024-05-31 18:00";
-if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
-?>
-                    <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
-                    <?php
-}
-else {
-?>
-                    <a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?= $member['mb_id']?>"
-                        class="class-enter" target="_blank"><span>학습하기</span></a>
-                    <?php
-}
-?>
+                    $tempSday = "2024-05-20 09:00";
+                    $tempEday = "2024-05-31 18:00";
+                    if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
+                        ?>
+                        <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
+                        <?php
+                    } else {
+                        ?>
+                        <a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?= $member['mb_id'] ?>"
+                            class="class-enter" target="_blank"><span>학습하기</span></a>
+                        <?php
+                    }
+                    ?>
                 </div>
             </div>
         </div>
@@ -275,20 +314,19 @@ else {
                 </div>
                 <div class="play">
                     <?php
-$tempSday = "2023-11-20 09:00";
-$tempEday = "2023-11-29 18:00";
-if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
-?>
-                    <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
-                    <?php
-}
-else {
-?>
-                    <a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?= $member['mb_id']?>"
-                        class="class-enter" target="_blank"><span>학습하기</span></a>
-                    <?php
-}
-?>
+                    $tempSday = "2023-11-20 09:00";
+                    $tempEday = "2023-11-29 18:00";
+                    if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
+                        ?>
+                        <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
+                        <?php
+                    } else {
+                        ?>
+                        <a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?= $member['mb_id'] ?>"
+                            class="class-enter" target="_blank"><span>학습하기</span></a>
+                        <?php
+                    }
+                    ?>
                 </div>
             </div>
         </div>
@@ -317,20 +355,19 @@ else {
                 </div>
                 <div class="play">
                     <?php
-$tempSday = "2023-06-19 09:00";
-$tempEday = "2023-06-30 18:00";
-if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
-?>
-                    <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
-                    <?php
-}
-else {
-?>
-                    <a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?= $member['mb_id']?>"
-                        class="class-enter" target="_blank"><span>학습하기</span></a>
-                    <?php
-}
-?>
+                    $tempSday = "2023-06-19 09:00";
+                    $tempEday = "2023-06-30 18:00";
+                    if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
+                        ?>
+                        <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
+                        <?php
+                    } else {
+                        ?>
+                        <a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?= $member['mb_id'] ?>"
+                            class="class-enter" target="_blank"><span>학습하기</span></a>
+                        <?php
+                    }
+                    ?>
                 </div>
             </div>
         </div>
@@ -359,20 +396,19 @@ else {
                 </div>
                 <div class="play">
                     <?php
-$tempSday = "2023-04-17 08:00";
-$tempEday = "2023-04-28 18:00";
-if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
-?>
-                    <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
-                    <?php
-}
-else {
-?>
-                    <a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?= $member['mb_id']?>"
-                        class="class-enter" target="_blank"><span>학습하기</span></a>
-                    <?php
-}
-?>
+                    $tempSday = "2023-04-17 08:00";
+                    $tempEday = "2023-04-28 18:00";
+                    if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
+                        ?>
+                        <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
+                        <?php
+                    } else {
+                        ?>
+                        <a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?= $member['mb_id'] ?>"
+                            class="class-enter" target="_blank"><span>학습하기</span></a>
+                        <?php
+                    }
+                    ?>
                 </div>
             </div>
         </div>
@@ -391,20 +427,19 @@ else {
         </div>
         <p class="btn">
             <?php
-$tempSday = "2024-05-20 09:00";
-$tempEday = "2024-05-31 18:00";
-if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
-?>
+            $tempSday = "2024-05-20 09:00";
+            $tempEday = "2024-05-31 18:00";
+            if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
+                ?>
             <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
             <?php
-}
-else {
-?>
-            <a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?= $member['mb_id']?>" class="class-enter"
+            } else {
+                ?>
+            <a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?= $member['mb_id'] ?>" class="class-enter"
                 target="_blank"><span>학습하기</span></a>
             <?php
-}
-?>
+            }
+            ?>
 
         </p> -->
 
@@ -421,20 +456,19 @@ else {
         </div>
         <p class="btn">
             <?php
-$tempSday = "2023-11-20 09:00";
-$tempEday = "2023-11-29 18:00";
-if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
-?>
+            $tempSday = "2023-11-20 09:00";
+            $tempEday = "2023-11-29 18:00";
+            if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
+                ?>
             <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
             <?php
-}
-else {
-?>
-            <a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?= $member['mb_id']?>" class="class-enter"
+            } else {
+                ?>
+            <a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?= $member['mb_id'] ?>" class="class-enter"
                 target="_blank"><span>학습하기</span></a>
             <?php
-}
-?>
+            }
+            ?>
 
         </p> -->
 
@@ -451,32 +485,30 @@ else {
         </div>
         <p class="btn">
             <?php
-$tempSday = "2023-10-16 09:00";
-$tempEday = "2023-11-10 18:00";
-if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
-?>
+            $tempSday = "2023-10-16 09:00";
+            $tempEday = "2023-11-10 18:00";
+            if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
+                ?>
             <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
             <?php
-}
-else {
-?>
+            } else {
+                ?>
 
 
             <a href="/Edu/class19.php?ls=19" class="class-enter"
                 style="<?php if ($result_m['app_study_rate'] == 100) {
-        echo "background: #5a5ae7;";
-    }?>"><span>
+                    echo "background: #5a5ae7;";
+                } ?>"><span>
                     <?php if ($result_m['app_study_rate'] == 100) {
-        echo '학습완료';
-    }
-    else {
-        echo '학습하기';
-    }
-?>
+                        echo '학습완료';
+                    } else {
+                        echo '학습하기';
+                    }
+                    ?>
                 </span></a>
             <?php
-}
-?>
+            }
+            ?>
 
         </p> -->
 
@@ -493,20 +525,19 @@ else {
         </div>
         <p class="btn">
             <?php
-$tempSday = "2023-06-19 09:00";
-$tempEday = "2023-06-30 18:00";
-if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
-?>
+            $tempSday = "2023-06-19 09:00";
+            $tempEday = "2023-06-30 18:00";
+            if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
+                ?>
             <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
             <?php
-}
-else {
-?>
-            <a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?= $member['mb_id']?>" class="class-enter"
+            } else {
+                ?>
+            <a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?= $member['mb_id'] ?>" class="class-enter"
                 target="_blank"><span>학습하기</span></a>
             <?php
-}
-?>
+            }
+            ?>
 
         </p> -->
 
@@ -523,20 +554,19 @@ else {
         </div>
         <p class="btn">
             <?php
-$tempSday = "2023-04-17 08:00";
-$tempEday = "2023-04-28 18:00";
-if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
-?>
+            $tempSday = "2023-04-17 08:00";
+            $tempEday = "2023-04-28 18:00";
+            if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
+                ?>
             <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
             <?php
-}
-else {
-?>
-            <a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?= $member['mb_id']?>" class="class-enter"
+            } else {
+                ?>
+            <a href="https://edu.kfcf.or.kr/Open/KFCFLOGINAUTH?userid=ns<?= $member['mb_id'] ?>" class="class-enter"
                 target="_blank"><span>학습하기</span></a>
             <?php
-}
-?>
+            }
+            ?>
 
         </p> -->
 
@@ -569,17 +599,17 @@ else {
     }
 </style>
 <?php if ($_GET['auto'] == 'on') { ?>
-<script>
-    $(function () {
-        setTimeout(() => {
-            $("body").css("overflow", "hidden");
-            enter_class3($('.enterClass3').attr("lno"), $('.enterClass3').attr("cno"));
-        }, 1000);
-    });
-</script>
+    <script>
+        $(function () {
+            setTimeout(() => {
+                $("body").css("overflow", "hidden");
+                enter_class3($('.enterClass3').attr("lno"), $('.enterClass3').attr("cno"));
+            }, 1000);
+        });
+    </script>
 
-<?php
-}?>
+    <?php
+} ?>
 
 
 <?php include_once('../_Inc/subTail.php'); ?>
