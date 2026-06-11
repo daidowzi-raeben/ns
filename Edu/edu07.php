@@ -232,11 +232,11 @@ $result = sql_query($sql);
 #				echo $result_cnt['idx'];
                 ?>
                 <button type="button" style="display:none" onclick="location.href='?page=<?php echo $j + 1 ?>';" class="btn <?php if ($j + 1 == $page)
-                        echo 'active' ?> <?php if ($j + 1 != $page) {
-                        echo $is;
-                    } else {
-                        echo $is;
-                    } ?>">
+                         echo 'active' ?> <?php if ($j + 1 != $page) {
+                         echo $is;
+                     } else {
+                         echo $is;
+                     } ?>">
                     <?php echo $j + 1 ?>
                 </button>
                 <?php
@@ -273,6 +273,9 @@ $result = sql_query($sql);
                     $tempSday = "2026-06-15 06:00";
                     $tempEday = "2026-06-19 18:00";
                     if ($member['mb_id'] == 'admin') {
+                        $tempSday = "2025-06-01 09:00";
+                    }
+                    if ($member['mb_id'] == '12587') {
                         $tempSday = "2025-06-01 09:00";
                     }
                     if ($member['mb_id'] == 'sj001') {
