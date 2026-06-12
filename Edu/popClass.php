@@ -14,6 +14,10 @@ if( !$l_no ) {
 $LESSON = get_lesson2($l_no);
 $CHAPTER = get_chapter($c_no);
 
+$sql_next = "select cpt_no from {$g5['chapter_table']} where cpt_lesson='{$l_no}' and cpt_seq > '{$CHAPTER['cpt_seq']}' order by cpt_seq asc limit 1";
+$next_cpt = sql_fetch($sql_next);
+$next_c_no = $next_cpt ? $next_cpt['cpt_no'] : '';
+
 $userLessData = get_lessonApply($member['mb_id'], $l_no);
 //�н� ������ ���ٸ�, ���� ����
 if( !$userLessData ) {
@@ -181,6 +185,16 @@ if( $LESSON['lssn_controlbar'] == "Y" ) {
     var control_enable = '';
     setClass(<?php echo $LESSON['lssn_no']?>, <?php echo $CHAPTER['cpt_no']?>, <?php echo $CONTENTS['c_no']?>);
     setClassUrl("<?=$page_url?>");
+
+    function goNextChapter() {
+        var next_c_no = '<?php echo $next_c_no; ?>';
+        if (next_c_no) {
+            location.href = "popClass.php?l_no=<?php echo $l_no; ?>&c_no=" + next_c_no;
+        } else {
+            alert("모든 과정을 마치셨습니다.");
+            self.close();
+        }
+    }
 
     function isPage(v) {
         const n = document.getElementById('pop-dim');
