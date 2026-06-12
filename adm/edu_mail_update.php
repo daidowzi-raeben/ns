@@ -4,6 +4,9 @@ include_once('./_common.php');
 
 auth_check($auth[$sub_menu], 'w');
 
+$w = isset($_POST['w']) ? trim($_POST['w']) : '';
+$emq_id = isset($_POST['emq_id']) ? (int)$_POST['emq_id'] : 0;
+
 $emq_subject = trim($_POST['emq_subject']);
 $emq_content = trim($_POST['emq_content']);
 $emq_target_lesson = (int)$_POST['emq_target_lesson'];
