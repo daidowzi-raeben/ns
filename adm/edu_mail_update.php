@@ -41,6 +41,10 @@ else {
     $emq_id = sql_insert_id();
 }
 
+// Debugging log
+$log_msg = "[" . date('Y-m-d H:i:s') . "] w: " . $w . ", emq_id_post: " . (isset($_POST['emq_id']) ? $_POST['emq_id'] : 'NOT_SET') . ", emq_id_final: " . $emq_id . ", act_button: " . (isset($_POST['act_button']) ? $_POST['act_button'] : 'NOT_SET') . "\n";
+@file_put_contents(G5_DATA_PATH . '/edu_mail_debug.log', $log_msg, FILE_APPEND);
+
 if (trim($_POST['act_button']) == '즉시 발송') {
     goto_url('./edu_mail_send_now.php?emq_id=' . (int)$emq_id);
 }
