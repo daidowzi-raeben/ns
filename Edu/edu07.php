@@ -123,6 +123,9 @@ $result_m2 = sql_fetch($sql_m2);
 $sql_m3 = "SELECT *  FROM sj_lesson_apply where app_uid = '{$member['mb_id']}' and app_lssn_no = '34' limit 0, 1 ";
 $result_m3 = sql_fetch($sql_m3);
 
+$sql_m4 = "SELECT *  FROM sj_lesson_apply where app_uid = '{$member['mb_id']}' and app_lssn_no = '35' limit 0, 1 ";
+$result_m4 = sql_fetch($sql_m4);
+
 
 if (!$sst) {
     $sst = "ls.lssn_no";
@@ -300,10 +303,10 @@ $result = sql_query($sql);
                         <?php
                     } else {
                         ?>
-                        <a href="/Edu/class21.php?ls=35" class="class-enter" style="<?php if ($result_m3['app_study_rate'] == 100) {
+                        <a href="/Edu/class21.php?ls=35" class="class-enter" style="<?php if ($result_m4['app_study_rate'] == 100) {
                             echo " background: #5a5ae7;";
                         } ?>"><span>
-                                <?php if ($result_m3['app_study_rate'] == 100) {
+                                <?php if ($result_m4['app_study_rate'] == 100) {
                                     echo '학습완료';
                                 } else {
                                     echo '학습하기';
