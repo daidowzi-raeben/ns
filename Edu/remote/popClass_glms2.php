@@ -222,40 +222,66 @@ if( $LESSON['lssn_controlbar'] == "Y" ) {
     }
 
     function isPage(v) {
-        const n = document.getElementById('pop-dim');
-        n.style = "display:block";
-        setTimeout(() => {
-            n.style = "display:none";
-        }, 3000);
-        
-        if (v && v.src) {
-            var matches = v.src.match(/\/process\/\d+\/([a-zA-Z0-9_-]+)\//);
-            var folder = matches ? matches[1] : '';
-            
-            if (folder && folder !== current_chasi_folder) {
-                $.ajax({
-                    type: "POST",
-                    url: "/Edu/contents_wbt_check_json.php",
-                    data: { action: "get_chapter_info", lesson: <?php echo $l_no; ?>, cpt_folder: folder },
-                    success: function(res) {
-                        var data = JSON.parse(res);
-                        if (data.res) {
-                            setClass(<?php echo $l_no; ?>, data.cpt_no, data.c_no);
-                            current_chasi_folder = folder;
-                            current_open_page = 1;
-                            pp = 0;
-                            
-                            check_contents_wbt(1);
-                            pp++;
-                        }
-                    }
-                });
-                return;
+        var iframeUrl = "";
+        try {
+            if (v && v.contentWindow && v.contentWindow.location && v.contentWindow.location.href) {
+                iframeUrl = v.contentWindow.location.href;
             }
+        } catch (e) {
+            console.error("Cannot access iframe contentWindow location:", e);
+        }
+        if (!iframeUrl || iframeUrl === "about:blank") {
+            iframeUrl = (v && v.src) ? v.src : "";
         }
 
-        check_contents_wbt(current_open_page + pp);
-        pp++;
+        if (!iframeUrl) return;
+
+        // 1. Extract folder name to ensure it's a valid content URL
+        var matches = iframeUrl.match(/\/process\/\d+\/([a-zA-Z0-9_-]+)\//);
+        var folder = matches ? matches[1] : '';
+        if (!folder) {
+            // Ignore empty src, about:blank, or non-content URLs (e.g. parent popup URL)
+            return;
+        }
+
+        // 2. Parse actual page number from the iframe URL
+        var filename = iframeUrl.substring(iframeUrl.lastIndexOf('/') + 1);
+        var nameWithoutExt = filename.split('.')[0];
+        var pageMatches = nameWithoutExt.match(/\d+$/);
+        var actualPage = pageMatches ? parseInt(pageMatches[0], 10) : 1;
+
+        // Dim background to prevent rapid double clicking
+        const n = document.getElementById('pop-dim');
+        if (n) {
+            n.style = "display:block";
+            setTimeout(() => {
+                n.style = "display:none";
+            }, 3000);
+        }
+
+        // 3. Handle folder/chapter transition
+        if (folder !== current_chasi_folder) {
+            $.ajax({
+                type: "POST",
+                url: "/Edu/contents_wbt_check_json.php",
+                data: { action: "get_chapter_info", lesson: <?php echo $l_no; ?>, cpt_folder: folder },
+                success: function(res) {
+                    var data = JSON.parse(res);
+                    if (data.res) {
+                        setClass(<?php echo $l_no; ?>, data.cpt_no, data.c_no);
+                        current_chasi_folder = folder;
+                        current_open_page = actualPage;
+                        pp = 0;
+                        
+                        check_contents_wbt(actualPage);
+                    }
+                }
+            });
+            return;
+        }
+
+        // 4. Update progress for the current chapter
+        check_contents_wbt(actualPage);
     }
     </script>
 </head>

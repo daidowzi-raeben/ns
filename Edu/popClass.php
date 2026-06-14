@@ -222,10 +222,22 @@ if( $LESSON['lssn_controlbar'] == "Y" ) {
     }
 
     function isPage(v) {
-        if (!v || !v.src) return;
+        var iframeUrl = "";
+        try {
+            if (v && v.contentWindow && v.contentWindow.location && v.contentWindow.location.href) {
+                iframeUrl = v.contentWindow.location.href;
+            }
+        } catch (e) {
+            console.error("Cannot access iframe contentWindow location:", e);
+        }
+        if (!iframeUrl || iframeUrl === "about:blank") {
+            iframeUrl = (v && v.src) ? v.src : "";
+        }
+
+        if (!iframeUrl) return;
 
         // 1. Extract folder name to ensure it's a valid content URL
-        var matches = v.src.match(/\/process\/\d+\/([a-zA-Z0-9_-]+)\//);
+        var matches = iframeUrl.match(/\/process\/\d+\/([a-zA-Z0-9_-]+)\//);
         var folder = matches ? matches[1] : '';
         if (!folder) {
             // Ignore empty src, about:blank, or non-content URLs (e.g. parent popup URL)
@@ -233,7 +245,7 @@ if( $LESSON['lssn_controlbar'] == "Y" ) {
         }
 
         // 2. Parse actual page number from the iframe URL
-        var filename = v.src.substring(v.src.lastIndexOf('/') + 1);
+        var filename = iframeUrl.substring(iframeUrl.lastIndexOf('/') + 1);
         var nameWithoutExt = filename.split('.')[0];
         var pageMatches = nameWithoutExt.match(/\d+$/);
         var actualPage = pageMatches ? parseInt(pageMatches[0], 10) : 1;
