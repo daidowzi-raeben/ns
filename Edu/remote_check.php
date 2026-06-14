@@ -19,6 +19,36 @@ echo "=== LS parent directory ===\n";
 $output = shell_exec("ls -la ../ 2>&1");
 echo $output . "\n";
 
+if (isset($_GET['action']) && $_GET['action'] === 'restore') {
+    echo "=== RUNNING RESTORATION ===\n";
+    
+    $commands = [
+        "cp -rp ../../gLms2/config.php ../config.php",
+        "cp -r ../../gLms2/contents ../contents",
+        "cp -r ../../gLms2/cyber ../cyber",
+        "cp -r ../../gLms2/data ../data",
+        "cp -r ../../gLms2/ebook ../ebook",
+        "cp -r ../../gLms2/extend ../extend",
+        "cp -r ../../gLms2/install ../install",
+        "cp -r ../../gLms2/mobile ../mobile",
+        "cp -r ../../gLms2/ns_view ../ns_view",
+        "cp -r ../../gLms2/plugin ../plugin",
+        "mkdir -p ../process",
+        "cp -rn ../../gLms2/process/* ../process/"
+    ];
+    
+    foreach ($commands as $cmd) {
+        echo "Running: $cmd\n";
+        $out = shell_exec($cmd . " 2>&1");
+        echo "Result: " . ($out ? trim($out) : "Success") . "\n\n";
+    }
+    
+    echo "=== POST-RESTORE PARENT DIRECTORY ===\n";
+    $output = shell_exec("ls -la ../ 2>&1");
+    echo $output . "\n";
+    exit;
+}
+
 echo "=== LS SEJONG HOME DIRECTORY ===\n";
 $output = shell_exec("ls -la ../../ 2>&1");
 echo $output . "\n";
