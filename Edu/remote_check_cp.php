@@ -8,6 +8,21 @@ echo "=== ACTIVE CP PROCESSES ===\n";
 $output = shell_exec("ps aux | grep cp 2>&1");
 echo $output . "\n";
 
+if (isset($_GET['action']) && $_GET['action'] === 'copy_videos') {
+    echo "=== COPYING MISSING VIDEO FILES FOR CHAPTER 35 ===\n";
+    $cmd = "cp -rn ../../gLms2/process/35/* ../process/35/";
+    echo "Running: $cmd\n";
+    $out = shell_exec($cmd . " 2>&1");
+    echo "Result: " . ($out ? trim($out) : "Success") . "\n\n";
+    
+    echo "=== POST-COPY FILE COUNT ===\n";
+    $output1 = shell_exec("find ../process/35 -type f | wc -l 2>&1");
+    $output2 = shell_exec("find ../../gLms2/process/35 -type f | wc -l 2>&1");
+    echo "gLms/process/35: " . trim($output1) . " files\n";
+    echo "gLms2/process/35: " . trim($output2) . " files\n\n";
+    exit;
+}
+
 echo "=== SIZE OF process/35 DIRECTORY ===\n";
 $output = shell_exec("du -sh ../process/35 2>&1");
 echo $output . "\n";
