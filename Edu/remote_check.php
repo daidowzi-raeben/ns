@@ -4,6 +4,10 @@ if (!isset($_GET['token']) || $_GET['token'] !== 'secret_raeben_2026') {
 }
 header('Content-Type: text/plain; charset=utf-8');
 
+echo "=== GET PARAMS ===\n";
+print_r($_GET);
+echo "\n";
+
 echo "=== CURRENT DIRECTORY ===\n";
 echo getcwd() . "\n\n";
 
