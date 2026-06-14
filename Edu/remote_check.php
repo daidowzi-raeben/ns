@@ -15,6 +15,10 @@ echo "=== DEVIATIONS / DIFF ===\n";
 $output = shell_exec("git diff 2>&1");
 echo $output . "\n";
 
+echo "=== LS parent directory ===\n";
+$output = shell_exec("ls -la ../ 2>&1");
+echo $output . "\n";
+
 echo "=== LS PROCESS/35/COMMON ===\n";
 $output = shell_exec("ls -la ../process/35/common/ 2>&1");
 echo $output . "\n";
