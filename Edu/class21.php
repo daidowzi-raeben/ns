@@ -32,7 +32,7 @@ if (!$userLessData) {
 
 ?>
 <script src="/js/jquery.bpopup.min.js"></script>
-<script src="/js/lms.js"></script>
+<script src="/js/lms.js?v=<?php echo time(); ?>"></script>
 
 <div id="svisual-wrap">
     <div class="vistxt" data-aos="fade-up" data-aos-duration="1000">

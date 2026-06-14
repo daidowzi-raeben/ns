@@ -12,7 +12,7 @@ function enter_class(l_no, c_no) {
     modalClose: false,
     //closeClass:'closePop',
     contentContainer: ".popup_container",
-    loadUrl: "popClass.php?l_no=" + l_no + "&c_no=" + c_no,
+    loadUrl: "/Edu/popClass.php?l_no=" + l_no + "&c_no=" + c_no + "&t=" + new Date().getTime(),
     //loadUrl:'/Edu/popClass.php?l_no='+l_no+'&c_no='+c_no,
     onClose: function () {
       location.reload();
