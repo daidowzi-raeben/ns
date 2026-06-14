@@ -19,6 +19,14 @@ echo "=== LS parent directory ===\n";
 $output = shell_exec("ls -la ../ 2>&1");
 echo $output . "\n";
 
+echo "=== LS SEJONG HOME DIRECTORY ===\n";
+$output = shell_exec("ls -la ../../ 2>&1");
+echo $output . "\n";
+
+echo "=== LS GLMS2 DIRECTORY ===\n";
+$output = shell_exec("ls -la ../../gLms2/ 2>&1");
+echo $output . "\n";
+
 echo "=== LS PROCESS/35/COMMON ===\n";
 $output = shell_exec("ls -la ../process/35/common/ 2>&1");
 echo $output . "\n";
