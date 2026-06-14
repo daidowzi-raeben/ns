@@ -53,19 +53,9 @@ if (isset($_GET['action']) && $_GET['action'] === 'restore') {
     exit;
 }
 
-echo "=== LS SEJONG HOME DIRECTORY ===\n";
-$output = shell_exec("ls -la ../../ 2>&1");
-echo $output . "\n";
-
-echo "=== LS GLMS2 DIRECTORY ===\n";
-$output = shell_exec("ls -la ../../gLms2/ 2>&1");
-echo $output . "\n";
-
-echo "=== LS PROCESS/35/COMMON ===\n";
-$output = shell_exec("ls -la ../process/35/common/ 2>&1");
-echo $output . "\n";
-
-echo "=== LS PROCESS/35/COMMON/JS ===\n";
-$output = shell_exec("ls -la ../process/35/common/js/ 2>&1");
-echo $output . "\n";
+echo "=== VERIFYING EXISTENCE ===\n";
+foreach (array('config.php', 'data/dbconfig.php', 'contents', 'cyber', 'ebook', 'extend', 'install', 'mobile', 'ns_view', 'plugin', 'process') as $f) {
+    $path = "../" . $f;
+    echo "$f: " . (file_exists($path) ? "Exists (" . (is_dir($path) ? "Directory" : "File, Size: " . filesize($path)) . ")" : "MISSING") . "\n";
+}
 ?>
