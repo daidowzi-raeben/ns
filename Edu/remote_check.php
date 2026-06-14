@@ -26,7 +26,7 @@ echo $output . "\n";
 if (isset($_GET['action']) && $_GET['action'] === 'restore') {
     echo "=== RUNNING RESTORATION ===\n";
     
-    $commands = [
+    $commands = array(
         "cp -rp ../../gLms2/config.php ../config.php",
         "cp -r ../../gLms2/contents ../contents",
         "cp -r ../../gLms2/cyber ../cyber",
@@ -39,7 +39,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'restore') {
         "cp -r ../../gLms2/plugin ../plugin",
         "mkdir -p ../process",
         "cp -rn ../../gLms2/process/* ../process/"
-    ];
+    );
     
     foreach ($commands as $cmd) {
         echo "Running: $cmd\n";
