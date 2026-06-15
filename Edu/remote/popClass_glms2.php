@@ -29,7 +29,7 @@ if ($next_cpt) {
     }
 }
 
-$userLessData = get_lessonApply($member['mb_id'], $l_no);
+$userLessData = get_lessonApply2($member['mb_id'], $l_no);
 //�н� ������ ���ٸ�, ���� ����
 if( !$userLessData ) {
 	$sql = "insert into {$g5['less_apply_table']} set

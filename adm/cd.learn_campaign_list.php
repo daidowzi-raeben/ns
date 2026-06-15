@@ -128,7 +128,7 @@ $colspan = $result_cnt['cnt'];
 					$lssn_data2 = sql_fetch("SELECT * from sj_lesson_apply AS a WHERE a.app_lssn_no = '".$lssn_data['lssn_no']."' 
 					and app_uid = '".$mb_id."'
 					");
-					$cyber[$i][$k] = get_lessonApply($mb_id, $lssn_data['lssn_no']);
+					$cyber[$i][$k] = get_lessonApply2($mb_id, $lssn_data['lssn_no']);
 					$str_cyber[$i][$k] = "미완료";
 					$str_cyber_list[$i][$k] = $cyber[$i][$k]['app_study_rate'] ? $cyber[$i][$k]['app_study_rate'] : '0';
 
@@ -146,11 +146,11 @@ $colspan = $result_cnt['cnt'];
 
 
 				//사이버교육 정보 가져오기
-				$cyber1 = get_lessonApply($mb_id, 0);
-				$cyber2 = get_lessonApply($mb_id, 0);
-				$cyber3 = get_lessonApply($mb_id, 0);
+				$cyber1 = get_lessonApply2($mb_id, 0);
+				$cyber2 = get_lessonApply2($mb_id, 0);
+				$cyber3 = get_lessonApply2($mb_id, 0);
 				//사이버 윤리교육1
-				$cyber4 = get_lessonApply($mb_id, 13);
+				$cyber4 = get_lessonApply2($mb_id, 13);
 				
 
 				$str_cyber1 = "미완료";
