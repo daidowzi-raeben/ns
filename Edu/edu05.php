@@ -191,6 +191,28 @@ $result = sql_query($sql);
                     <?php
                     $tempSday = "2026-06-29 09:00";
                     $tempEday = "2026-07-03 18:00";
+                    if ($member['mb_id'] == 'admin') {
+                        $tempSday = "2025-06-01 09:00";
+                    }
+                    if ($member['mb_id'] == '12587') {
+                        $tempSday = "2025-06-01 09:00";
+                    }
+                    if ($member['mb_id'] == 'sj001') {
+                        $tempSday = "2025-06-01 09:00";
+                    }
+                    if ($member['mb_id'] == 'sj002') {
+                        $tempSday = "2025-06-01 09:00";
+                    }
+                    if ($member['mb_id'] == 'sj003') {
+                        $tempSday = "2025-06-01 09:00";
+                    }
+                    if ($member['mb_id'] == 'sj004') {
+                        $tempSday = "2025-06-01 09:00";
+                    }
+                    if ($member['mb_id'] == 'sj005') {
+                        $tempSday = "2025-06-01 09:00";
+                    }
+
                     if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
                         ?>
                         <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
