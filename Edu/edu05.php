@@ -194,7 +194,10 @@ $result = sql_query($sql);
                     if ($member['mb_id'] == 'admin') {
                         $tempSday = "2025-06-01 09:00";
                     }
-                    if ($member['mb_id'] == '12587') {
+                    if ($member['mb_id'] == '12493') {
+                        $tempSday = "2025-06-01 09:00";
+                    }
+                    if ($member['mb_id'] == '11794') {
                         $tempSday = "2025-06-01 09:00";
                     }
                     if ($member['mb_id'] == 'sj001') {
@@ -210,6 +213,12 @@ $result = sql_query($sql);
                         $tempSday = "2025-06-01 09:00";
                     }
                     if ($member['mb_id'] == 'sj005') {
+                        $tempSday = "2025-06-01 09:00";
+                    }
+                    if ($member['mb_id'] == 'sj006') {
+                        $tempSday = "2025-06-01 09:00";
+                    }
+                    if ($member['mb_id'] == 'sj007') {
                         $tempSday = "2025-06-01 09:00";
                     }
 
