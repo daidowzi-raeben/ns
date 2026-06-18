@@ -58,6 +58,39 @@ if (!$app_lssn_no) {
 	$app_lssn_no = "3";
 }
 
+$strWrite = "";
+if($app_lssn_no == "1" || $app_lssn_no == "3")
+	$strWrite = "NS윤리준법 시스템 사이버 교육";
+else if($app_lssn_no == "2" || $app_lssn_no == "4")
+	$strWrite = "대규모유통업법의 이해";
+else if($app_lssn_no == "5")
+	$strWrite = "한 눈에 보는 NS 준법교육";
+else if($app_lssn_no == "6")
+	$strWrite = "윤리경영 및 청탁금지법";
+else if($app_lssn_no == "10")
+	$strWrite = "2021 내부 회계교육";
+else if($app_lssn_no == "11")
+	$strWrite = "2021 하반기 전사 CP교육(2)";
+else if($app_lssn_no == "12")
+	$strWrite = "준법교육(상반기1)";
+else if($app_lssn_no == "13")
+	$strWrite = "준법교육(상반기2)";
+else if($app_lssn_no == "14")
+	$strWrite = "내부회계관리제도";
+else if($app_lssn_no == "15")
+	$strWrite = "2022 지식재산권(하반기)";
+else if($app_lssn_no == "16")
+	$strWrite = "미디어팀교육";
+else if($app_lssn_no == "17")
+	$strWrite = "청탁금지법 교육(하반기)";
+else if($app_lssn_no == "18")
+	$strWrite = "윤리경영 사이버교육(하반기)";
+else {
+	$lssn_row = sql_fetch(" select lssn_title from {$g5['lesson_table']} where lssn_no = '{$app_lssn_no}' ");
+	$strWrite = $lssn_row['lssn_title'];
+}
+$strWrite_encoded = iconv_euckr($strWrite);
+
 // Put Excel data
 $data = array(
 "과정명",
@@ -81,6 +114,7 @@ foreach($data as $cell) {
 for($i=1; $res=sql_fetch_array($qry); $i++)
 {
 	$mb_id = $res['mb_id'];
+	$testScore = "";
 	
 	if($app_lssn_no == "1")
 	{
@@ -127,40 +161,18 @@ for($i=1; $res=sql_fetch_array($qry); $i++)
 			$strEval = "미수료";
 	}
 	
-    $res = array_map('iconv_euckr', $res);
-	$res2 = array_map('iconv_euckr', $res2);
+	if ($res) {
+		$res = array_map('iconv_euckr', $res);
+	}
+	if ($res2) {
+		$res2 = array_map('iconv_euckr', $res2);
+	} else {
+		$res2 = array();
+	}
 	
-	if($app_lssn_no == "1" || $app_lssn_no == "3")
-		$strWrite = "NS윤리준법 시스템 사이버 교육";
-	else if($app_lssn_no == "2" || $app_lssn_no == "4")
-		$strWrite = "대규모유통업법의 이해";
-	else if($app_lssn_no == "5")
-		$strWrite = "한 눈에 보는 NS 준법교육";
-	else if($app_lssn_no == "6")
-		$strWrite = "윤리경영 및 청탁금지법";
-	else if($app_lssn_no == "10")
-		$strWrite = "2021 내부 회계교육";
-	else if($app_lssn_no == "11")
-		$strWrite = "2021 하반기 전사 CP교육(2)";
-	else if($app_lssn_no == "12")
-		$strLesson = "준법교육(상반기1)";
-	else if($app_lssn_no == "13")
-		$strLesson = "준법교육(상반기2)";
-	else if($app_lssn_no == "14")
-		$strLesson = "내부회계관리제도";
-	else if($app_lssn_no == "15")
-		$strLesson = "2022 지식재산권(하반기)";
-	else if($app_lssn_no == "16")
-		$strLesson = "미디어팀교육";
-	else if($app_lssn_no == "17")
-		$strLesson = "청탁금지법 교육(하반기)";
-	else if($app_lssn_no == "18")
-		$strLesson = "윤리경영 사이버교육(하반기)";
-	
-	$strWrite = iconv_euckr($strWrite);
 	$strEval = iconv_euckr($strEval);
 	
-	$worksheet->write($i, 0, $strWrite);
+	$worksheet->write($i, 0, $strWrite_encoded);
 	$worksheet->write($i, 1, $res['mb_name']);
 	$worksheet->write($i, 2, $res['mb_id']);
 	$worksheet->write($i, 3, $res['mb_4']);
