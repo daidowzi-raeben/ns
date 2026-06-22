@@ -274,7 +274,7 @@ $result = sql_query($sql);
                 <div class="play">
                     <?php
                     $tempSday = "2026-06-15 06:00";
-                    $tempEday = "2026-06-19 18:00";
+                    $tempEday = "2026-07-03 18:00";
                     if ($member['mb_id'] == 'admin') {
                         $tempSday = "2025-06-01 09:00";
                     }
