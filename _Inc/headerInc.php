@@ -353,7 +353,7 @@
     //
     //echo G5_TIME_YMDHIS;
     
-    $tmpStartTime = '2026-06-29 08:30:00';
+    $tmpStartTime = '2026-06-29 09:30:00';
 
     $tmpEndTime = '2026-07-03 18:01:00';
 
