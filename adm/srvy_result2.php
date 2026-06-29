@@ -46,9 +46,7 @@ if (!$sst) {
 $sql_order = " order by {$sst} {$sod} ";
 
 $sql = " select count(*) as cnt {$sql_common} {$sql_search} {$sql_order} ";
-if ($member['mb_id'] == 'admin') {
-    echo $sql;
-}
+
 $row = sql_fetch($sql);
 $total_count = $row['cnt'];
 
@@ -102,6 +100,10 @@ $colspan = 16;
 <div class="tbl_head01 tbl_wrap">
     <table>
         <caption><?php echo $g5['title']; ?> 목록</caption>
+        <?php
+        if ($member['mb_id'] == 'admin') {
+            echo $sql;
+        } ?>
         <thead>
             <tr>
                 <th scope="col" id="mb_list_no" rowspan="2">No</th>
