@@ -100,10 +100,6 @@ $colspan = 16;
 <div class="tbl_head01 tbl_wrap">
     <table>
         <caption><?php echo $g5['title']; ?> 목록</caption>
-        <?php
-        if ($member['mb_id'] == 'admin') {
-            echo $sql;
-        } ?>
         <thead>
             <tr>
                 <th scope="col" id="mb_list_no" rowspan="2">No</th>
