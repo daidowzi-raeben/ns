@@ -1,8 +1,5 @@
 <?php
 include_once('./_common.php');
-include_once(G5_PATH . '/vendor/autoload.php');
-
-use PhpOffice\PhpSpreadsheet\IOFactory;
 
 // Access control check
 auth_check($auth[$sub_menu], 'w');
@@ -16,26 +13,109 @@ if (!isset($_FILES['cp_excel_file']) || $_FILES['cp_excel_file']['error'] !== UP
 
 $file_path = $_FILES['cp_excel_file']['tmp_name'];
 
+// Lightweight XML-based XLSX parser to support old PHP versions (PHP 5.3.3+)
+function parse_xlsx_lightweight($file_path) {
+    if (!class_exists('ZipArchive')) {
+        return false;
+    }
+    
+    $zip = new ZipArchive();
+    if ($zip->open($file_path) !== TRUE) {
+        return false;
+    }
+
+    // 1. Read shared strings
+    $shared_strings = array();
+    $shared_strings_xml_data = $zip->getFromName('xl/sharedStrings.xml');
+    if ($shared_strings_xml_data) {
+        $xml = simplexml_load_string($shared_strings_xml_data);
+        if ($xml) {
+            foreach ($xml->si as $si) {
+                if (isset($si->t)) {
+                    $shared_strings[] = (string)$si->t;
+                } else if (isset($si->r)) {
+                    $text = '';
+                    foreach ($si->r as $r) {
+                        $text .= (string)$r->t;
+                    }
+                    $shared_strings[] = $text;
+                } else {
+                    $shared_strings[] = '';
+                }
+            }
+        }
+    }
+
+    // 2. Read sheet1
+    $sheet_xml_data = $zip->getFromName('xl/worksheets/sheet1.xml');
+    if (!$sheet_xml_data) {
+        $zip->close();
+        return false;
+    }
+
+    $xml = simplexml_load_string($sheet_xml_data);
+    $zip->close();
+    
+    if (!$xml) {
+        return false;
+    }
+
+    $rows = array();
+    foreach ($xml->sheetData->row as $row) {
+        $row_index = (int)$row['r'];
+        $row_cells = array();
+        
+        foreach ($row->c as $c) {
+            $cell_ref = (string)$c['r']; // e.g. "F3"
+            
+            // Extract column letters (A, B, C...) from reference
+            preg_match('/^[A-Z]+/i', $cell_ref, $matches);
+            if (!empty($matches)) {
+                $col_letter = $matches[0];
+                
+                $val = isset($c->v) ? (string)$c->v : '';
+                $type = isset($c['t']) ? (string)$c['t'] : '';
+                
+                if ($type === 's' && $val !== '') {
+                    $idx = (int)$val;
+                    $val = isset($shared_strings[$idx]) ? $shared_strings[$idx] : '';
+                }
+                
+                $row_cells[$col_letter] = $val;
+            }
+        }
+        
+        $rows[$row_index] = $row_cells;
+    }
+
+    return $rows;
+}
+
 try {
-    $spreadsheet = IOFactory::load($file_path);
-    $sheet = $spreadsheet->getActiveSheet();
-    $highestRow = $sheet->getHighestRow();
+    $rows = parse_xlsx_lightweight($file_path);
+    if ($rows === false) {
+        echo json_encode(array('error' => '엑셀 파일의 압축을 풀거나 XML을 로드하는 데 실패했습니다.'));
+        exit;
+    }
     
     $list = array();
     $target_ids = array();
     
-    // Loop through data rows starting from row 3
-    for ($row = 3; $row <= $highestRow; $row++) {
-        $excel_id = $sheet->getCellByColumnAndRow(6, $row)->getValue(); // Column F is 6
-        $excel_name = $sheet->getCellByColumnAndRow(5, $row)->getValue(); // Column E is 5
-        $status = $sheet->getCellByColumnAndRow(9, $row)->getValue(); // Column I is 9
+    // Loop through parsed rows
+    foreach ($rows as $row_index => $row_cells) {
+        // Skip header rows (1 and 2)
+        if ($row_index < 3) {
+            continue;
+        }
         
-        $excel_id = trim($excel_id);
+        $excel_id = isset($row_cells['F']) ? trim($row_cells['F']) : '';
+        $excel_name = isset($row_cells['E']) ? trim($row_cells['E']) : '';
+        $status = isset($row_cells['I']) ? trim($row_cells['I']) : '';
+        
         if (!$excel_id) {
             continue;
         }
         
-        $status = trim($status);
         if ($status !== '미수료') {
             continue;
         }
