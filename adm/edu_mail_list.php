@@ -56,7 +56,12 @@ $result = sql_query($sql);
                 <?php
 for ($i = 0; $row = sql_fetch_array($result); $i++) {
     // Get Lesson Name
-    $lssn = sql_fetch(" SELECT lssn_title FROM {$g5['lesson_table']} WHERE lssn_no = '{$row['emq_target_lesson']}' ");
+    if ($row['emq_target_lesson'] == 0) {
+        $lssn_title = 'CP 독려';
+    } else {
+        $lssn = sql_fetch(" SELECT lssn_title FROM {$g5['lesson_table']} WHERE lssn_no = '{$row['emq_target_lesson']}' ");
+        $lssn_title = isset($lssn['lssn_title']) ? $lssn['lssn_title'] : '';
+    }
 
     $target_type_str_arr = array(
         'non-complete' => '미수료자',
@@ -96,7 +101,7 @@ for ($i = 0; $row = sql_fetch_array($result); $i++) {
                         <?php echo get_text($row['emq_subject'])?>
                     </td>
                     <td class="td_left">
-                        <?php echo $lssn['lssn_title']?>
+                        <?php echo $lssn_title?>
                     </td>
                     <td class="td_mng">
                         <?php echo $target_type_str?>

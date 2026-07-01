@@ -15,10 +15,14 @@ function replace_edu_placeholders($content, $mb_id, $lssn_no)
         return $content;
 
     // Get Lesson Info
-    $sql_lssn = "SELECT * FROM {$g5['lesson_table']} WHERE lssn_no = '{$lssn_no}'";
-    $lssn = sql_fetch($sql_lssn);
-    if (!$lssn)
-        $lssn = array('lssn_title' => '알 수 없는 과정');
+    if ($lssn_no == 0) {
+        $lssn = array('lssn_title' => 'CP 독려');
+    } else {
+        $sql_lssn = "SELECT * FROM {$g5['lesson_table']} WHERE lssn_no = '{$lssn_no}'";
+        $lssn = sql_fetch($sql_lssn);
+        if (!$lssn)
+            $lssn = array('lssn_title' => '알 수 없는 과정');
+    }
 
     // Get Learning Status
     $sql_app = "SELECT * FROM {$g5['less_apply_table']} WHERE app_lssn_no = '{$lssn_no}' AND app_uid = '{$mb_id}'";

@@ -101,6 +101,9 @@ if (empty($cp_list_html)) {
                     <td>
                         <select name="emq_target_lesson" id="emq_target_lesson" required>
                             <option value="">과정을 선택하세요</option>
+                            <?php if ($w == 'u' && $emq['emq_target_lesson'] == 0) { ?>
+                                <option value="0" selected>CP 독려</option>
+                            <?php } ?>
                             <?php
 while ($l = sql_fetch_array($res_lssn)) {
     $selected = "";
@@ -119,6 +122,7 @@ while ($l = sql_fetch_array($res_lssn)) {
                             <?php
 }?>
                         </select>
+                        <input type="hidden" name="emq_target_lesson" id="emq_target_lesson_hidden" value="0" <?php echo ($w == 'u' && $emq['emq_target_lesson'] == 0) ? '' : 'disabled'; ?>>
                     </td>
                 </tr>
                 <tr>
@@ -277,6 +281,13 @@ while ($l = sql_fetch_array($res_lssn)) {
                 $("input[name='emq_target_type']").prop('disabled', false);
                 $("#emq_target_type_hidden").prop('disabled', true);
                 
+                // For lesson
+                $("#emq_target_lesson").prop('disabled', false);
+                $("#emq_target_lesson_hidden").prop('disabled', true);
+                <?php if ($w != 'u' || $emq['emq_target_lesson'] != 0) { ?>
+                    $("#emq_target_lesson option[value='0']").remove();
+                <?php } ?>
+                
                 if ($("input[name='emq_target_type']:checked").val() == 'manual') {
                     $("#manual_target_section").show();
                 } else {
@@ -290,6 +301,13 @@ while ($l = sql_fetch_array($res_lssn)) {
                 
                 $("input[name='emq_target_type']").prop('disabled', true);
                 $("#emq_target_type_hidden").val('cp').prop('disabled', false);
+                
+                // For lesson
+                if ($("#emq_target_lesson option[value='0']").length == 0) {
+                    $("#emq_target_lesson").append('<option value="0">CP 독려</option>');
+                }
+                $("#emq_target_lesson").val('0').prop('disabled', true);
+                $("#emq_target_lesson_hidden").val('0').prop('disabled', false);
             }
         }
 
