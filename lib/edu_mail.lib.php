@@ -72,7 +72,7 @@ function get_edu_mail_targets($lssn_no, $target_type, $target_ids = '')
     else if ($target_type == 'under50') {
         $sql_common .= " AND (a.app_study_rate IS NULL OR a.app_study_rate < 50) ";
     }
-    else if ($target_type == 'manual' && $target_ids) {
+    else if (($target_type == 'manual' || $target_type == 'cp') && $target_ids) {
         $ids = explode(',', $target_ids);
         $clean_ids = array();
         foreach($ids as $id) {
@@ -80,8 +80,8 @@ function get_edu_mail_targets($lssn_no, $target_type, $target_ids = '')
         }
         $sql_common .= " AND m.mb_id IN ('" . implode("','", $clean_ids) . "') ";
     }
-    else if ($target_type == 'manual' && !$target_ids) {
-        return array(); // No targets for manual if no IDs provided
+    else if (($target_type == 'manual' || $target_type == 'cp') && !$target_ids) {
+        return array(); // No targets if no IDs provided
     }
 
     $sql = " SELECT m.mb_id, m.mb_name, m.mb_email, MAX(IFNULL(a.app_study_rate, 0)) as rate " . $sql_common . " GROUP BY m.mb_id ";

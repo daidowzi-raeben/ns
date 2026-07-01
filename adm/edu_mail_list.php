@@ -62,7 +62,8 @@ for ($i = 0; $row = sql_fetch_array($result); $i++) {
         'non-complete' => '미수료자',
         'under50' => '진도율 50% 미만',
         'all' => '전체 대상자',
-        'manual' => '개별 발송'
+        'manual' => '개별 발송',
+        'cp' => 'CP 독려(엑셀)'
     );
     $target_type_str = $target_type_str_arr[$row['emq_target_type']];
 

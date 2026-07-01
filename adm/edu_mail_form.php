@@ -45,6 +45,34 @@ if ($w != 'u') {
         }
     }
 }
+
+// CP Learner preloading for edit mode
+$cp_list_html = '';
+if ($w == 'u' && $emq['emq_target_type'] == 'cp' && $emq['emq_target_ids']) {
+    $ids = explode(',', $emq['emq_target_ids']);
+    $clean_ids = array();
+    foreach($ids as $id) {
+        $clean_ids[] = sql_real_escape_string(trim($id));
+    }
+    $sql_cp = " SELECT mb_id, mb_name, mb_email FROM {$g5['member_table']} WHERE mb_id IN ('" . implode("','", $clean_ids) . "') ";
+    $res_cp = sql_query($sql_cp);
+    $idx = 1;
+    while($row = sql_fetch_array($res_cp)) {
+        $cp_list_html .= "<tr>";
+        $cp_list_html .= "<td class='td_num_c'>{$idx}</td>";
+        $cp_list_html .= "<td>ns{$row['mb_id']}</td>";
+        $cp_list_html .= "<td>{$row['mb_id']}</td>";
+        $cp_list_html .= "<td>" . get_text($row['mb_name']) . "</td>";
+        $cp_list_html .= "<td>{$row['mb_email']}</td>";
+        $cp_list_html .= "<td class='td_mng'>미수료</td>";
+        $cp_list_html .= "<td class='td_mng' style='color:#28a745; font-weight:bold;'>매칭 성공</td>";
+        $cp_list_html .= "</tr>";
+        $idx++;
+    }
+}
+if (empty($cp_list_html)) {
+    $cp_list_html = "<tr id='cp_empty_row'><td colspan='7' class='empty_table'>엑셀 파일을 업로드해 주세요.</td></tr>";
+}
 ?>
 
 <div class="local_desc">
@@ -94,10 +122,20 @@ while ($l = sql_fetch_array($res_lssn)) {
                     </td>
                 </tr>
                 <tr>
+                    <th scope="row">독려 유형</th>
+                    <td>
+                        <input type="radio" name="edu_type" value="cyber" id="edu_type_cyber" <?php echo ($w != 'u' || $emq['emq_target_type'] != 'cp') ? 'checked' : ''; ?>>
+                        <label for="edu_type_cyber">사이버교육독려</label>
+                        &nbsp;&nbsp;
+                        <input type="radio" name="edu_type" value="cp" id="edu_type_cp" <?php echo ($w == 'u' && $emq['emq_target_type'] == 'cp') ? 'checked' : ''; ?>>
+                        <label for="edu_type_cp">CP독려</label>
+                    </td>
+                </tr>
+                <tr id="cyber_target_section">
                     <th scope="row">발송 대상 (타겟팅)</th>
                     <td>
                         <input type="radio" name="emq_target_type" value="non-complete" id="type_nc" <?php echo
-                            $emq['emq_target_type']=='non-complete' ? 'checked' : ''?>> <label for="type_nc">미수료자 (진도율
+                            ($w != 'u' || $emq['emq_target_type']=='non-complete') ? 'checked' : ''?>> <label for="type_nc">미수료자 (진도율
                             100% 미만)</label> &nbsp;
                         <input type="radio" name="emq_target_type" value="under50" id="type_50" <?php echo
                             $emq['emq_target_type']=='under50' ? 'checked' : ''?>> <label for="type_50">진도율 50%
@@ -106,6 +144,37 @@ while ($l = sql_fetch_array($res_lssn)) {
                             $emq['emq_target_type']=='all' ? 'checked' : ''?>> <label for="type_all">전체 학습자</label> &nbsp;
                         <input type="radio" name="emq_target_type" value="manual" id="type_manual" <?php echo
                             $emq['emq_target_type']=='manual' ? 'checked' : ''?>> <label for="type_manual">개별 발송</label>
+                    </td>
+                </tr>
+                <input type="hidden" name="emq_target_type" id="emq_target_type_hidden" value="cp" <?php echo ($w == 'u' && $emq['emq_target_type'] == 'cp') ? '' : 'disabled'; ?>>
+                <tr id="cp_excel_section" style="display:none;">
+                    <th scope="row">엑셀 파일 업로드</th>
+                    <td>
+                        <input type="file" id="cp_excel_file" accept=".xlsx, .xls" class="frm_input">
+                        <span class="frm_info">NS쇼핑 교육이수현황 엑셀 파일을 업로드해 주세요. (.xlsx, .xls)</span>
+                    </td>
+                </tr>
+                <tr id="cp_target_section" style="display:none;">
+                    <th scope="row">발송 대상 명단</th>
+                    <td>
+                        <div id="cp_list_wrap" style="max-height:400px; overflow-y:auto; border:1px solid #ddd; padding:10px; background:#f9f9f9;">
+                            <table class="tbl_head01">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">No</th>
+                                        <th scope="col">엑셀 ID</th>
+                                        <th scope="col">매칭 ID</th>
+                                        <th scope="col">이름</th>
+                                        <th scope="col">이메일</th>
+                                        <th scope="col">이수 상태</th>
+                                        <th scope="col">결과</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="cp_list_body">
+                                    <?php echo $cp_list_html; ?>
+                                </tbody>
+                            </table>
+                        </div>
                     </td>
                 </tr>
                 <tr id="manual_target_section" style="display:none;">
@@ -197,15 +266,39 @@ while ($l = sql_fetch_array($res_lssn)) {
             }
         });
 
-        // Trigger change on load if manual is selected
-        if ($("input[name='emq_target_type']:checked").val() == 'manual') {
-            $("#manual_target_section").show();
-            load_learner_list();
+        // Toggle cyber/cp types
+        function toggle_edu_type() {
+            var type = $("input[name='edu_type']:checked").val();
+            if (type == 'cyber') {
+                $("#cyber_target_section").show();
+                $("#cp_excel_section").hide();
+                $("#cp_target_section").hide();
+                
+                $("input[name='emq_target_type']").prop('disabled', false);
+                $("#emq_target_type_hidden").prop('disabled', true);
+                
+                if ($("input[name='emq_target_type']:checked").val() == 'manual') {
+                    $("#manual_target_section").show();
+                } else {
+                    $("#manual_target_section").hide();
+                }
+            } else {
+                $("#cyber_target_section").hide();
+                $("#manual_target_section").hide();
+                $("#cp_excel_section").show();
+                $("#cp_target_section").show();
+                
+                $("input[name='emq_target_type']").prop('disabled', true);
+                $("#emq_target_type_hidden").val('cp').prop('disabled', false);
+            }
         }
+
+        $("input[name='edu_type']").on('change', toggle_edu_type);
+        toggle_edu_type(); // Initialize on load
 
         // Reload list when lesson changes
         $("#emq_target_lesson").on('change', function() {
-            if ($("input[name='emq_target_type']:checked").val() == 'manual') {
+            if ($("input[name='edu_type']:checked").val() == 'cyber' && $("input[name='emq_target_type']:checked").val() == 'manual') {
                 load_learner_list();
             }
         });
@@ -240,23 +333,92 @@ while ($l = sql_fetch_array($res_lssn)) {
                 }
             });
         }
+
+        // Excel file upload & processing
+        $("#cp_excel_file").on('change', function() {
+            var file = this.files[0];
+            if (!file) return;
+            
+            var formData = new FormData();
+            formData.append('cp_excel_file', file);
+            
+            $("#cp_list_body").html("<tr><td colspan='7' class='empty_table'>엑셀 분석 중...</td></tr>");
+            
+            $.ajax({
+                url: "./ajax.process_cp_excel.php",
+                type: "POST",
+                data: formData,
+                processData: false,
+                contentType: false,
+                dataType: "json",
+                success: function(res) {
+                    if (res.error) {
+                        alert(res.error);
+                        $("#cp_list_body").html("<tr><td colspan='7' class='empty_table' style='color:#dc3545;'>오류: " + res.error + "</td></tr>");
+                        $("#emq_target_ids").val('');
+                    } else {
+                        var html = '';
+                        if (res.list && res.list.length > 0) {
+                            $.each(res.list, function(idx, item) {
+                                html += '<tr>';
+                                html += '<td class="td_num_c">' + (idx + 1) + '</td>';
+                                html += '<td>' + item.excel_id + '</td>';
+                                html += '<td>' + (item.db_id ? item.db_id : '-') + '</td>';
+                                html += '<td>' + (item.db_name ? item.db_name : (item.excel_name ? item.excel_name : '-')) + '</td>';
+                                html += '<td>' + (item.db_email ? item.db_email : '<span style="color:#dc3545;">이메일 없음</span>') + '</td>';
+                                html += '<td class="td_mng">' + item.status + '</td>';
+                                if (item.matched) {
+                                    if (item.db_email) {
+                                        html += '<td class="td_mng" style="color:#28a745; font-weight:bold;">매칭 성공</td>';
+                                    } else {
+                                        html += '<td class="td_mng" style="color:#ffc107; font-weight:bold;">매칭성공 (이메일누락)</td>';
+                                    }
+                                } else {
+                                    html += '<td class="td_mng" style="color:#dc3545; font-weight:bold;">매칭 실패</td>';
+                                }
+                                html += '</tr>';
+                            });
+                            $("#emq_target_ids").val(res.target_ids);
+                        } else {
+                            html = "<tr><td colspan='7' class='empty_table'>미수료 대상 학습자가 없습니다.</td></tr>";
+                            $("#emq_target_ids").val('');
+                        }
+                        $("#cp_list_body").html(html);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    alert("서버 통신 오류가 발생했습니다.");
+                    $("#cp_list_body").html("<tr><td colspan='7' class='empty_table' style='color:#dc3545;'>서버 오류</td></tr>");
+                    $("#emq_target_ids").val('');
+                }
+            });
+        });
     });
 
     function feduform_check(f) { 
         <?php echo get_editor_js("emq_content"); ?>
 
-        if ($("input[name='emq_target_type']:checked").val() == 'manual') {
-            var selected_ids = [];
-            $(".learner_chk:checked").each(function() {
-                selected_ids.push($(this).val());
-            });
-
-            if (selected_ids.length == 0) {
-                alert("개별 발송할 학습자를 선택해 주세요.");
+        var type = $("input[name='edu_type']:checked").val();
+        if (type == 'cp') {
+            var target_ids = $("#emq_target_ids").val();
+            if (!target_ids) {
+                alert("엑셀 파일을 업로드하여 발송 대상자를 지정해 주세요.");
                 return false;
             }
+        } else {
+            if ($("input[name='emq_target_type']:checked").val() == 'manual') {
+                var selected_ids = [];
+                $(".learner_chk:checked").each(function() {
+                    selected_ids.push($(this).val());
+                });
 
-            $("#emq_target_ids").val(selected_ids.join(','));
+                if (selected_ids.length == 0) {
+                    alert("개별 발송할 학습자를 선택해 주세요.");
+                    return false;
+                }
+
+                $("#emq_target_ids").val(selected_ids.join(','));
+            }
         }
 
         return true;
