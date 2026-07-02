@@ -57,7 +57,15 @@ $result = sql_query($sql);
 for ($i = 0; $row = sql_fetch_array($result); $i++) {
     // Get Lesson Name
     if ($row['emq_target_lesson'] == 0) {
-        $lssn_title = 'CP 독려';
+        if ($row['emq_target_type'] == 'cp_satisfaction') {
+            $lssn_title = 'CP교육만족도조사';
+        } else if ($row['emq_target_type'] == 'cp_ethics') {
+            $lssn_title = '윤리CP인식도조사';
+        } else if ($row['emq_target_type'] == 'cp_pledge') {
+            $lssn_title = '공정거래자율준수서약';
+        } else {
+            $lssn_title = 'CP 독려';
+        }
     } else {
         $lssn = sql_fetch(" SELECT lssn_title FROM {$g5['lesson_table']} WHERE lssn_no = '{$row['emq_target_lesson']}' ");
         $lssn_title = isset($lssn['lssn_title']) ? $lssn['lssn_title'] : '';
@@ -68,9 +76,12 @@ for ($i = 0; $row = sql_fetch_array($result); $i++) {
         'under50' => '진도율 50% 미만',
         'all' => '전체 대상자',
         'manual' => '개별 발송',
-        'cp' => 'CP 독려(엑셀)'
+        'cp' => 'CP 독려(엑셀)',
+        'cp_satisfaction' => 'CP교육만족도조사 독려',
+        'cp_ethics' => '윤리CP인식도조사 독려',
+        'cp_pledge' => '공정거래자율준수서약 독려'
     );
-    $target_type_str = $target_type_str_arr[$row['emq_target_type']];
+    $target_type_str = isset($target_type_str_arr[$row['emq_target_type']]) ? $target_type_str_arr[$row['emq_target_type']] : $row['emq_target_type'];
 
     $status_color_arr = array(
         'WAIT' => '#007bff',

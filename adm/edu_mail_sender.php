@@ -65,8 +65,8 @@ foreach ($targets as $target) {
     $eml_id = sql_insert_id();
 
     // Replace placeholders
-    $subject = replace_edu_placeholders($queue['emq_subject'], $mb_id, $queue['emq_target_lesson']);
-    $content = replace_edu_placeholders($queue['emq_content'], $mb_id, $queue['emq_target_lesson']);
+    $subject = replace_edu_placeholders($queue['emq_subject'], $mb_id, $queue['emq_target_lesson'], $queue['emq_target_type']);
+    $content = replace_edu_placeholders($queue['emq_content'], $mb_id, $queue['emq_target_lesson'], $queue['emq_target_type']);
 
     // Add Unsubscribe Link if enabled
     if ($queue['emq_use_unsubscribe']) {

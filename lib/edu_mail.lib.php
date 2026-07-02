@@ -5,7 +5,7 @@ if (!defined('_GNUBOARD_'))
 /**
  * Replace placeholders in email content
  */
-function replace_edu_placeholders($content, $mb_id, $lssn_no)
+function replace_edu_placeholders($content, $mb_id, $lssn_no, $target_type = '')
 {
     global $g5;
 
@@ -16,7 +16,15 @@ function replace_edu_placeholders($content, $mb_id, $lssn_no)
 
     // Get Lesson Info
     if ($lssn_no == 0) {
-        $lssn = array('lssn_title' => 'CP 독려');
+        if ($target_type == 'cp_satisfaction') {
+            $lssn = array('lssn_title' => 'CP교육만족도조사');
+        } else if ($target_type == 'cp_ethics') {
+            $lssn = array('lssn_title' => '윤리CP인식도조사');
+        } else if ($target_type == 'cp_pledge') {
+            $lssn = array('lssn_title' => '공정거래자율준수서약');
+        } else {
+            $lssn = array('lssn_title' => 'CP 독려');
+        }
     } else {
         $sql_lssn = "SELECT * FROM {$g5['lesson_table']} WHERE lssn_no = '{$lssn_no}'";
         $lssn = sql_fetch($sql_lssn);
@@ -63,40 +71,96 @@ function get_edu_mail_targets($lssn_no, $target_type, $target_ids = '')
         $unsubs[] = $row['mb_id'];
     }
 
-    // Base target: members with mb_level = 1
-    $sql_common = " FROM {$g5['member_table']} m 
-                    LEFT JOIN {$g5['less_apply_table']} a 
-                    ON m.mb_id = a.app_uid AND a.app_lssn_no = '{$lssn_no}' 
-                    WHERE m.mb_level = '1' AND m.mb_leave_date = '' AND m.mb_intercept_date = '' ";
-
-    if ($target_type == 'non-complete') {
-        // If no application record (null), they haven't started (0%), so they are non-complete
-        $sql_common .= " AND (a.app_study_rate IS NULL OR a.app_study_rate < 100) ";
-    }
-    else if ($target_type == 'under50') {
-        $sql_common .= " AND (a.app_study_rate IS NULL OR a.app_study_rate < 50) ";
-    }
-    else if (($target_type == 'manual' || $target_type == 'cp') && $target_ids) {
-        $ids = explode(',', $target_ids);
-        $clean_ids = array();
-        foreach($ids as $id) {
-            $clean_ids[] = sql_real_escape_string(trim($id));
-        }
-        $sql_common .= " AND m.mb_id IN ('" . implode("','", $clean_ids) . "') ";
-    }
-    else if (($target_type == 'manual' || $target_type == 'cp') && !$target_ids) {
-        return array(); // No targets if no IDs provided
-    }
-
-    $sql = " SELECT m.mb_id, m.mb_name, m.mb_email, MAX(IFNULL(a.app_study_rate, 0)) as rate " . $sql_common . " GROUP BY m.mb_id ";
-    $result = sql_query($sql);
-
     // Fetch lesson title if lssn_no is set
     $lssn_title = "";
     if ($lssn_no) {
         $lssn = sql_fetch(" SELECT lssn_title FROM {$g5['lesson_table']} WHERE lssn_no = '{$lssn_no}' ");
         $lssn_title = $lssn['lssn_title'];
+    } else {
+        if ($target_type == 'cp_satisfaction') {
+            $lssn_title = 'CP교육만족도조사';
+        } else if ($target_type == 'cp_ethics') {
+            $lssn_title = '윤리CP인식도조사';
+        } else if ($target_type == 'cp_pledge') {
+            $lssn_title = '공정거래자율준수서약';
+        } else if ($target_type == 'cp') {
+            $lssn_title = 'CP 독려';
+        }
     }
+
+    if (in_array($target_type, array('cp_satisfaction', 'cp_ethics', 'cp_pledge'))) {
+        if (!$target_ids) return array();
+        list($bl_year, $bl_semi) = explode('|', $target_ids);
+        $bl_year = sql_real_escape_string(trim($bl_year));
+        $bl_semi = sql_real_escape_string(trim($bl_semi));
+
+        if ($target_type == 'cp_satisfaction') {
+            $sql = " SELECT m.mb_id, m.mb_name, m.mb_email, 0 as rate 
+                     FROM {$g5['member_table']} m
+                     LEFT JOIN {$g5['survey_data_table']} sd
+                       ON m.mb_id = sd.srvd_uid 
+                       AND sd.srvy_type = 'B' 
+                       AND sd.srvy_year = '{$bl_year}' 
+                       AND sd.srvy_semi = '{$bl_semi}'
+                     WHERE m.mb_level = '1' 
+                       AND m.mb_leave_date = '' 
+                       AND m.mb_intercept_date = ''
+                       AND sd.srvd_uid IS NULL ";
+        } else if ($target_type == 'cp_ethics') {
+            $sql = " SELECT m.mb_id, m.mb_name, m.mb_email, 0 as rate 
+                     FROM {$g5['member_table']} m
+                     LEFT JOIN {$g5['survey_data_table']} sd
+                       ON m.mb_id = sd.srvd_uid 
+                       AND sd.srvy_type = 'A' 
+                       AND sd.srvy_year = '{$bl_year}' 
+                       AND sd.srvy_semi = '{$bl_semi}'
+                     WHERE m.mb_level = '1' 
+                       AND m.mb_leave_date = '' 
+                       AND m.mb_intercept_date = ''
+                       AND sd.srvd_uid IS NULL ";
+        } else if ($target_type == 'cp_pledge') {
+            $sql = " SELECT m.mb_id, m.mb_name, m.mb_email, 0 as rate 
+                     FROM {$g5['member_table']} m
+                     LEFT JOIN sj_prs_pledge pledge
+                       ON m.mb_id = pledge.mb_id
+                       AND pledge.pld_flag = '2' 
+                       AND pledge.pld_year = '{$bl_year}' 
+                       AND pledge.pld_semi = '{$bl_semi}'
+                     WHERE m.mb_level = '1' 
+                       AND m.mb_leave_date = '' 
+                       AND m.mb_intercept_date = ''
+                       AND pledge.pld_no IS NULL ";
+        }
+    } else {
+        // Base target: members with mb_level = 1
+        $sql_common = " FROM {$g5['member_table']} m 
+                        LEFT JOIN {$g5['less_apply_table']} a 
+                        ON m.mb_id = a.app_uid AND a.app_lssn_no = '{$lssn_no}' 
+                        WHERE m.mb_level = '1' AND m.mb_leave_date = '' AND m.mb_intercept_date = '' ";
+
+        if ($target_type == 'non-complete') {
+            // If no application record (null), they haven't started (0%), so they are non-complete
+            $sql_common .= " AND (a.app_study_rate IS NULL OR a.app_study_rate < 100) ";
+        }
+        else if ($target_type == 'under50') {
+            $sql_common .= " AND (a.app_study_rate IS NULL OR a.app_study_rate < 50) ";
+        }
+        else if (($target_type == 'manual' || $target_type == 'cp') && $target_ids) {
+            $ids = explode(',', $target_ids);
+            $clean_ids = array();
+            foreach($ids as $id) {
+                $clean_ids[] = sql_real_escape_string(trim($id));
+            }
+            $sql_common .= " AND m.mb_id IN ('" . implode("','", $clean_ids) . "') ";
+        }
+        else if (($target_type == 'manual' || $target_type == 'cp') && !$target_ids) {
+            return array(); // No targets if no IDs provided
+        }
+
+        $sql = " SELECT m.mb_id, m.mb_name, m.mb_email, MAX(IFNULL(a.app_study_rate, 0)) as rate " . $sql_common . " GROUP BY m.mb_id ";
+    }
+
+    $result = sql_query($sql);
 
     while ($row = sql_fetch_array($result)) {
         if (in_array($row['mb_id'], $unsubs))

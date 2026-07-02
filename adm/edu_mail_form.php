@@ -46,32 +46,56 @@ if ($w != 'u') {
     }
 }
 
-// CP Learner preloading for edit mode
+// CP / Survey Learner preloading for edit mode
 $cp_list_html = '';
-if ($w == 'u' && $emq['emq_target_type'] == 'cp' && $emq['emq_target_ids']) {
-    $ids = explode(',', $emq['emq_target_ids']);
-    $clean_ids = array();
-    foreach($ids as $id) {
-        $clean_ids[] = sql_real_escape_string(trim($id));
-    }
-    $sql_cp = " SELECT mb_id, mb_name, mb_email FROM {$g5['member_table']} WHERE mb_id IN ('" . implode("','", $clean_ids) . "') ";
-    $res_cp = sql_query($sql_cp);
-    $idx = 1;
-    while($row = sql_fetch_array($res_cp)) {
-        $cp_list_html .= "<tr>";
-        $cp_list_html .= "<td class='td_num_c'>{$idx}</td>";
-        $cp_list_html .= "<td>ns{$row['mb_id']}</td>";
-        $cp_list_html .= "<td>{$row['mb_id']}</td>";
-        $cp_list_html .= "<td>" . get_text($row['mb_name']) . "</td>";
-        $cp_list_html .= "<td>{$row['mb_email']}</td>";
-        $cp_list_html .= "<td class='td_mng'>미수료</td>";
-        $cp_list_html .= "<td class='td_mng' style='color:#28a745; font-weight:bold;'>매칭 성공</td>";
-        $cp_list_html .= "</tr>";
-        $idx++;
+$survey_list_html = '';
+if ($w == 'u' && $emq['emq_target_ids']) {
+    if ($emq['emq_target_type'] == 'cp') {
+        $ids = explode(',', $emq['emq_target_ids']);
+        $clean_ids = array();
+        foreach($ids as $id) {
+            $clean_ids[] = sql_real_escape_string(trim($id));
+        }
+        $sql_cp = " SELECT mb_id, mb_name, mb_email FROM {$g5['member_table']} WHERE mb_id IN ('" . implode("','", $clean_ids) . "') ";
+        $res_cp = sql_query($sql_cp);
+        $idx = 1;
+        while($row = sql_fetch_array($res_cp)) {
+            $cp_list_html .= "<tr>";
+            $cp_list_html .= "<td class='td_num_c'>{$idx}</td>";
+            $cp_list_html .= "<td>ns{$row['mb_id']}</td>";
+            $cp_list_html .= "<td>{$row['mb_id']}</td>";
+            $cp_list_html .= "<td>" . get_text($row['mb_name']) . "</td>";
+            $cp_list_html .= "<td>{$row['mb_email']}</td>";
+            $cp_list_html .= "<td class='td_mng'>미수료</td>";
+            $cp_list_html .= "<td class='td_mng' style='color:#28a745; font-weight:bold;'>매칭 성공</td>";
+            $cp_list_html .= "</tr>";
+            $idx++;
+        }
+    } else if (in_array($emq['emq_target_type'], array('cp_satisfaction', 'cp_ethics', 'cp_pledge'))) {
+        include_once(G5_LIB_PATH . '/edu_mail.lib.php');
+        $targets = get_edu_mail_targets(0, $emq['emq_target_type'], $emq['emq_target_ids']);
+        $idx = 1;
+        foreach($targets as $row) {
+            $status_str = '미작성';
+            if ($emq['emq_target_type'] == 'cp_satisfaction' || $emq['emq_target_type'] == 'cp_ethics') {
+                $status_str = '미참여';
+            }
+            $survey_list_html .= "<tr>";
+            $survey_list_html .= "<td class='td_num_c'>{$idx}</td>";
+            $survey_list_html .= "<td>{$row['mb_id']}</td>";
+            $survey_list_html .= "<td>" . get_text($row['mb_name']) . "</td>";
+            $survey_list_html .= "<td>" . ($row['mb_email'] ? $row['mb_email'] : '<span style="color:#dc3545;">이메일 없음</span>') . "</td>";
+            $survey_list_html .= "<td>{$status_str}</td>";
+            $survey_list_html .= "</tr>";
+            $idx++;
+        }
     }
 }
 if (empty($cp_list_html)) {
     $cp_list_html = "<tr id='cp_empty_row'><td colspan='7' class='empty_table'>엑셀 파일을 업로드해 주세요.</td></tr>";
+}
+if (empty($survey_list_html)) {
+    $survey_list_html = "<tr id='survey_empty_row'><td colspan='5' class='empty_table'>대상자 조회를 해주세요.</td></tr>";
 }
 ?>
 
@@ -101,8 +125,13 @@ if (empty($cp_list_html)) {
                     <td>
                         <select name="emq_target_lesson" id="emq_target_lesson" required>
                             <option value="">과정을 선택하세요</option>
-                            <?php if ($w == 'u' && $emq['emq_target_lesson'] == 0) { ?>
-                                <option value="0" selected>CP 독려</option>
+                            <?php if ($w == 'u' && $emq['emq_target_lesson'] == 0) { 
+                                $fixed_title = 'CP 독려';
+                                if ($emq['emq_target_type'] == 'cp_satisfaction') $fixed_title = 'CP교육만족도조사';
+                                else if ($emq['emq_target_type'] == 'cp_ethics') $fixed_title = '윤리CP인식도조사';
+                                else if ($emq['emq_target_type'] == 'cp_pledge') $fixed_title = '공정거래자율준수서약';
+                            ?>
+                                <option value="0" selected><?php echo $fixed_title; ?></option>
                             <?php } ?>
                             <?php
 while ($l = sql_fetch_array($res_lssn)) {
@@ -128,11 +157,20 @@ while ($l = sql_fetch_array($res_lssn)) {
                 <tr>
                     <th scope="row">독려 유형</th>
                     <td>
-                        <input type="radio" name="edu_type" value="cyber" id="edu_type_cyber" <?php echo ($w != 'u' || $emq['emq_target_type'] != 'cp') ? 'checked' : ''; ?>>
+                        <input type="radio" name="edu_type" value="cyber" id="edu_type_cyber" <?php echo ($w != 'u' || !in_array($emq['emq_target_type'], array('cp', 'cp_satisfaction', 'cp_ethics', 'cp_pledge'))) ? 'checked' : ''; ?>>
                         <label for="edu_type_cyber">사이버교육독려</label>
                         &nbsp;&nbsp;
                         <input type="radio" name="edu_type" value="cp" id="edu_type_cp" <?php echo ($w == 'u' && $emq['emq_target_type'] == 'cp') ? 'checked' : ''; ?>>
                         <label for="edu_type_cp">CP독려</label>
+                        &nbsp;&nbsp;
+                        <input type="radio" name="edu_type" value="cp_satisfaction" id="edu_type_cp_satisfaction" <?php echo ($w == 'u' && $emq['emq_target_type'] == 'cp_satisfaction') ? 'checked' : ''; ?>>
+                        <label for="edu_type_cp_satisfaction">CP교육만족도조사</label>
+                        &nbsp;&nbsp;
+                        <input type="radio" name="edu_type" value="cp_ethics" id="edu_type_cp_ethics" <?php echo ($w == 'u' && $emq['emq_target_type'] == 'cp_ethics') ? 'checked' : ''; ?>>
+                        <label for="edu_type_cp_ethics">윤리CP인식도조사</label>
+                        &nbsp;&nbsp;
+                        <input type="radio" name="edu_type" value="cp_pledge" id="edu_type_cp_pledge" <?php echo ($w == 'u' && $emq['emq_target_type'] == 'cp_pledge') ? 'checked' : ''; ?>>
+                        <label for="edu_type_cp_pledge">공정거래자율준수서약</label>
                     </td>
                 </tr>
                 <tr id="cyber_target_section">
@@ -150,7 +188,7 @@ while ($l = sql_fetch_array($res_lssn)) {
                             $emq['emq_target_type']=='manual' ? 'checked' : ''?>> <label for="type_manual">개별 발송</label>
                     </td>
                 </tr>
-                <input type="hidden" name="emq_target_type" id="emq_target_type_hidden" value="cp" <?php echo ($w == 'u' && $emq['emq_target_type'] == 'cp') ? '' : 'disabled'; ?>>
+                <input type="hidden" name="emq_target_type" id="emq_target_type_hidden" value="<?php echo in_array($emq['emq_target_type'], array('cp', 'cp_satisfaction', 'cp_ethics', 'cp_pledge')) ? $emq['emq_target_type'] : 'cp'; ?>" <?php echo ($w == 'u' && in_array($emq['emq_target_type'], array('cp', 'cp_satisfaction', 'cp_ethics', 'cp_pledge'))) ? '' : 'disabled'; ?>>
                 <tr id="cp_excel_section" style="display:none;">
                     <th scope="row">엑셀 파일 업로드</th>
                     <td>
@@ -176,6 +214,46 @@ while ($l = sql_fetch_array($res_lssn)) {
                                 </thead>
                                 <tbody id="cp_list_body">
                                     <?php echo $cp_list_html; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+                <tr id="survey_select_section" style="display:none;">
+                    <th scope="row">대상 조사/서약 구분</th>
+                    <td>
+                        <label for="survey_year">년도</label>
+                        <?php 
+                        $selected_year = '';
+                        $selected_semi = 'A';
+                        if ($w == 'u' && in_array($emq['emq_target_type'], array('cp_satisfaction', 'cp_ethics', 'cp_pledge')) && $emq['emq_target_ids']) {
+                            list($selected_year, $selected_semi) = explode('|', $emq['emq_target_ids']);
+                        }
+                        echo get_blYear_select("survey_year", $selected_year);
+                        ?>
+                        &nbsp;&nbsp;
+                        <label for="survey_semi">분류</label>
+                        <?php echo get_blCate_select("survey_semi", $selected_semi); ?>
+                        &nbsp;&nbsp;
+                        <button type="button" id="btn_load_survey_targets" class="btn btn_03" style="vertical-align:middle;">대상자 조회</button>
+                    </td>
+                </tr>
+                <tr id="survey_target_section" style="display:none;">
+                    <th scope="row">발송 대상 명단</th>
+                    <td>
+                        <div id="survey_list_wrap" style="max-height:400px; overflow-y:auto; border:1px solid #ddd; padding:10px; background:#f9f9f9;">
+                            <table class="tbl_head01">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">No</th>
+                                        <th scope="col">아이디</th>
+                                        <th scope="col">이름</th>
+                                        <th scope="col">이메일</th>
+                                        <th scope="col">상태</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="survey_list_body">
+                                    <?php echo $survey_list_html; ?>
                                 </tbody>
                             </table>
                         </div>
@@ -277,6 +355,8 @@ while ($l = sql_fetch_array($res_lssn)) {
                 $("#cyber_target_section").show();
                 $("#cp_excel_section").hide();
                 $("#cp_target_section").hide();
+                $("#survey_select_section").hide();
+                $("#survey_target_section").hide();
                 
                 $("input[name='emq_target_type']").prop('disabled', false);
                 $("#emq_target_type_hidden").prop('disabled', true);
@@ -293,19 +373,41 @@ while ($l = sql_fetch_array($res_lssn)) {
                 } else {
                     $("#manual_target_section").hide();
                 }
-            } else {
+            } else if (type == 'cp') {
                 $("#cyber_target_section").hide();
                 $("#manual_target_section").hide();
                 $("#cp_excel_section").show();
                 $("#cp_target_section").show();
+                $("#survey_select_section").hide();
+                $("#survey_target_section").hide();
                 
                 $("input[name='emq_target_type']").prop('disabled', true);
                 $("#emq_target_type_hidden").val('cp').prop('disabled', false);
                 
                 // For lesson
-                if ($("#emq_target_lesson option[value='0']").length == 0) {
-                    $("#emq_target_lesson").append('<option value="0">CP 독려</option>');
-                }
+                $("#emq_target_lesson option[value='0']").remove();
+                $("#emq_target_lesson").append('<option value="0" selected>CP 독려</option>');
+                $("#emq_target_lesson").val('0').prop('disabled', true);
+                $("#emq_target_lesson_hidden").val('0').prop('disabled', false);
+            } else if (type == 'cp_satisfaction' || type == 'cp_ethics' || type == 'cp_pledge') {
+                $("#cyber_target_section").hide();
+                $("#manual_target_section").hide();
+                $("#cp_excel_section").hide();
+                $("#cp_target_section").hide();
+                $("#survey_select_section").show();
+                $("#survey_target_section").show();
+                
+                $("input[name='emq_target_type']").prop('disabled', true);
+                $("#emq_target_type_hidden").val(type).prop('disabled', false);
+                
+                // For lesson
+                var opt_title = 'CP 독려';
+                if (type == 'cp_satisfaction') opt_title = 'CP교육만족도조사';
+                else if (type == 'cp_ethics') opt_title = '윤리CP인식도조사';
+                else if (type == 'cp_pledge') opt_title = '공정거래자율준수서약';
+                
+                $("#emq_target_lesson option[value='0']").remove();
+                $("#emq_target_lesson").append('<option value="0" selected>' + opt_title + '</option>');
                 $("#emq_target_lesson").val('0').prop('disabled', true);
                 $("#emq_target_lesson_hidden").val('0').prop('disabled', false);
             }
@@ -413,6 +515,52 @@ while ($l = sql_fetch_array($res_lssn)) {
         });
     });
 
+        $("#btn_load_survey_targets").on('click', load_survey_targets);
+        $("#survey_year, #survey_semi").on('change', load_survey_targets);
+
+        function load_survey_targets() {
+            var type = $("input[name='edu_type']:checked").val();
+            if (type !== 'cp_satisfaction' && type !== 'cp_ethics' && type !== 'cp_pledge') {
+                return;
+            }
+            var year = $("#survey_year").val();
+            var semi = $("#survey_semi").val();
+            
+            if (!year || !semi) {
+                $("#survey_list_body").html("<tr><td colspan='5' class='empty_table'>년도와 분류를 선택하세요.</td></tr>");
+                return;
+            }
+
+            $("#survey_list_body").html("<tr><td colspan='5' class='empty_table'>불러오는 중...</td></tr>");
+
+            $.get("./ajax.edu_survey_targets.php", { type: type, year: year, semi: semi }, function(res) {
+                if (res.error) {
+                    alert(res.error);
+                    $("#survey_list_body").html("<tr><td colspan='5' class='empty_table' style='color:#dc3545;'>오류: " + res.error + "</td></tr>");
+                    $("#emq_target_ids").val('');
+                } else {
+                    var html = '';
+                    if (res.list && res.list.length > 0) {
+                        $.each(res.list, function(idx, item) {
+                            html += '<tr>';
+                            html += '<td class="td_num_c">' + (idx + 1) + '</td>';
+                            html += '<td>' + item.mb_id + '</td>';
+                            html += '<td>' + item.mb_name + '</td>';
+                            html += '<td>' + (item.mb_email ? item.mb_email : '<span style="color:#dc3545;">이메일 없음</span>') + '</td>';
+                            html += '<td>' + item.status + '</td>';
+                            html += '</tr>';
+                        });
+                        $("#emq_target_ids").val(year + '|' + semi);
+                    } else {
+                        html = "<tr><td colspan='5' class='empty_table'>대상자가 없습니다.</td></tr>";
+                        $("#emq_target_ids").val(year + '|' + semi);
+                    }
+                    $("#survey_list_body").html(html);
+                }
+            }, "json");
+        }
+    });
+
     function feduform_check(f) { 
         <?php echo get_editor_js("emq_content"); ?>
 
@@ -421,6 +569,12 @@ while ($l = sql_fetch_array($res_lssn)) {
             var target_ids = $("#emq_target_ids").val();
             if (!target_ids) {
                 alert("엑셀 파일을 업로드하여 발송 대상자를 지정해 주세요.");
+                return false;
+            }
+        } else if (type == 'cp_satisfaction' || type == 'cp_ethics' || type == 'cp_pledge') {
+            var target_ids = $("#emq_target_ids").val();
+            if (!target_ids || target_ids.indexOf('|') === -1) {
+                alert("대상자를 조회하여 발송 조건을 지정해 주세요.");
                 return false;
             }
         } else {
