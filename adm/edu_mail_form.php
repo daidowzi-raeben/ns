@@ -510,7 +510,6 @@ while ($l = sql_fetch_array($res_lssn)) {
                 }
             });
         });
-    });
 
         $("#btn_load_survey_targets").on('click', load_survey_targets);
         $("#survey_year, #survey_semi").on('change', load_survey_targets);
