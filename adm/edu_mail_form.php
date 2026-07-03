@@ -76,10 +76,7 @@ if ($w == 'u' && $emq['emq_target_ids']) {
         $targets = get_edu_mail_targets(0, $emq['emq_target_type'], $emq['emq_target_ids']);
         $idx = 1;
         foreach($targets as $row) {
-            $status_str = '미작성';
-            if ($emq['emq_target_type'] == 'cp_satisfaction' || $emq['emq_target_type'] == 'cp_ethics') {
-                $status_str = '미참여';
-            }
+            $status_str = '미수료';
             $survey_list_html .= "<tr>";
             $survey_list_html .= "<td class='td_num_c'>{$idx}</td>";
             $survey_list_html .= "<td>{$row['mb_id']}</td>";
@@ -249,7 +246,7 @@ while ($l = sql_fetch_array($res_lssn)) {
                                         <th scope="col">아이디</th>
                                         <th scope="col">이름</th>
                                         <th scope="col">이메일</th>
-                                        <th scope="col">상태</th>
+                                        <th scope="col">이수 상태</th>
                                     </tr>
                                 </thead>
                                 <tbody id="survey_list_body">

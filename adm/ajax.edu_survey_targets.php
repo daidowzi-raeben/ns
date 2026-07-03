@@ -34,7 +34,7 @@ if ($type === 'cp_satisfaction') {
                AND m.mb_intercept_date = ''
                AND sd.srvd_uid IS NULL
              ORDER BY m.mb_id ASC ";
-    $status_str = '미참여';
+    $status_str = '미수료';
 } else if ($type === 'cp_ethics') {
     $sql = " SELECT m.mb_id, m.mb_name, m.mb_email 
              FROM {$g5['member_table']} m
@@ -48,7 +48,7 @@ if ($type === 'cp_satisfaction') {
                AND m.mb_intercept_date = ''
                AND sd.srvd_uid IS NULL
              ORDER BY m.mb_id ASC ";
-    $status_str = '미참여';
+    $status_str = '미수료';
 } else if ($type === 'cp_pledge') {
     $sql = " SELECT m.mb_id, m.mb_name, m.mb_email 
              FROM {$g5['member_table']} m
@@ -62,7 +62,7 @@ if ($type === 'cp_satisfaction') {
                AND m.mb_intercept_date = ''
                AND pledge.pld_no IS NULL
              ORDER BY m.mb_id ASC ";
-    $status_str = '미작성';
+    $status_str = '미수료';
 } else {
     echo json_encode(array('error' => '잘못된 독려 유형입니다.'));
     exit;
