@@ -181,7 +181,7 @@ $result = sql_query($sql);
                 </div>
                 <div class="row">
                     <div class="col">
-                        <label>학습기간</label><span>2026.06.29(월) ~ 2026.07.03(금)</span>
+                        <label>학습기간</label><span>2026.06.29(월) ~ 2026.07.10(금)</span>
                     </div>
                     <div class="col">
                         <label>학습시간</label><span>2시간</span>
@@ -190,7 +190,7 @@ $result = sql_query($sql);
                 <div class="play">
                     <?php
                     $tempSday = "2026-06-29 09:00";
-                    $tempEday = "2026-07-03 18:00";
+                    $tempEday = "2026-07-10 18:00";
                     if ($member['mb_id'] == 'admin') {
                         $tempSday = "2025-06-01 09:00";
                     }
