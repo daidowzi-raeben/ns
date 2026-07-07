@@ -15,7 +15,7 @@ $emq_reserve_time = $_POST['emq_reserve_time'];
 $emq_use_unsubscribe = (int)$_POST['emq_use_unsubscribe'];
 $emq_target_ids = trim($_POST['emq_target_ids']);
 
-$lesson_check = ($emq_target_type === 'cp') ? true : ($emq_target_lesson > 0);
+$lesson_check = in_array($emq_target_type, array('cp', 'cp_satisfaction', 'cp_ethics', 'cp_pledge')) ? true : ($emq_target_lesson > 0);
 
 if (!$emq_subject || !$emq_content || !$lesson_check || !$emq_reserve_time) {
     alert('모든 필수 항목을 입력해 주세요.');
