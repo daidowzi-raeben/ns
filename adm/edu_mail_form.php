@@ -73,11 +73,18 @@ if ($w == 'u' && $emq['emq_target_ids']) {
         }
     } else if (in_array($emq['emq_target_type'], array('cp_satisfaction', 'cp_ethics', 'cp_pledge'))) {
         include_once(G5_LIB_PATH . '/edu_mail.lib.php');
-        $targets = get_edu_mail_targets(0, $emq['emq_target_type'], $emq['emq_target_ids']);
+        $parts = explode('|', $emq['emq_target_ids']);
+        $year_semi = (isset($parts[0]) && isset($parts[1])) ? $parts[0] . '|' . $parts[1] : '';
+        $selected_ids = (isset($parts[2]) && $parts[2]) ? explode(',', $parts[2]) : array();
+        $has_selection = isset($parts[2]);
+
+        $targets = get_edu_mail_targets(0, $emq['emq_target_type'], $year_semi);
         $idx = 1;
         foreach($targets as $row) {
             $status_str = '미수료';
+            $checked = (!$has_selection || in_array($row['mb_id'], $selected_ids)) ? 'checked' : '';
             $survey_list_html .= "<tr>";
+            $survey_list_html .= "<td class='td_chk'><input type='checkbox' name='survey_chk[]' value='{$row['mb_id']}' class='survey_chk' {$checked}></td>";
             $survey_list_html .= "<td class='td_num_c'>{$idx}</td>";
             $survey_list_html .= "<td>{$row['mb_id']}</td>";
             $survey_list_html .= "<td>" . get_text($row['mb_name']) . "</td>";
@@ -92,7 +99,7 @@ if (empty($cp_list_html)) {
     $cp_list_html = "<tr id='cp_empty_row'><td colspan='7' class='empty_table'>엑셀 파일을 업로드해 주세요.</td></tr>";
 }
 if (empty($survey_list_html)) {
-    $survey_list_html = "<tr id='survey_empty_row'><td colspan='5' class='empty_table'>대상자 조회를 해주세요.</td></tr>";
+    $survey_list_html = "<tr id='survey_empty_row'><td colspan='6' class='empty_table'>대상자 조회를 해주세요.</td></tr>";
 }
 ?>
 
@@ -224,7 +231,9 @@ while ($l = sql_fetch_array($res_lssn)) {
                         $selected_year = '';
                         $selected_semi = 'A';
                         if ($w == 'u' && in_array($emq['emq_target_type'], array('cp_satisfaction', 'cp_ethics', 'cp_pledge')) && $emq['emq_target_ids']) {
-                            list($selected_year, $selected_semi) = explode('|', $emq['emq_target_ids']);
+                            $parts = explode('|', $emq['emq_target_ids']);
+                            $selected_year = isset($parts[0]) ? $parts[0] : '';
+                            $selected_semi = isset($parts[1]) ? $parts[1] : 'A';
                         }
                         echo get_blYear_select("survey_year", $selected_year);
                         ?>
@@ -242,6 +251,10 @@ while ($l = sql_fetch_array($res_lssn)) {
                             <table class="tbl_head01">
                                 <thead>
                                     <tr>
+                                        <th scope="col">
+                                            <label for="survey_all_chk" class="sound_only">전체선택</label>
+                                            <input type="checkbox" id="survey_all_chk" checked>
+                                        </th>
                                         <th scope="col">No</th>
                                         <th scope="col">아이디</th>
                                         <th scope="col">이름</th>
@@ -425,6 +438,10 @@ while ($l = sql_fetch_array($res_lssn)) {
             $(".learner_chk").prop('checked', $(this).is(':checked'));
         });
 
+        $(document).on('click', '#survey_all_chk', function() {
+            $(".survey_chk").prop('checked', $(this).is(':checked'));
+        });
+
         function load_learner_list() {
             var lssn_no = $("#emq_target_lesson").val();
             var target_ids = $("#emq_target_ids").val();
@@ -523,22 +540,23 @@ while ($l = sql_fetch_array($res_lssn)) {
             var semi = $("#survey_semi").val();
             
             if (!year || !semi) {
-                $("#survey_list_body").html("<tr><td colspan='5' class='empty_table'>년도와 분류를 선택하세요.</td></tr>");
+                $("#survey_list_body").html("<tr><td colspan='6' class='empty_table'>년도와 분류를 선택하세요.</td></tr>");
                 return;
             }
 
-            $("#survey_list_body").html("<tr><td colspan='5' class='empty_table'>불러오는 중...</td></tr>");
+            $("#survey_list_body").html("<tr><td colspan='6' class='empty_table'>불러오는 중...</td></tr>");
 
             $.get("./ajax.edu_survey_targets.php", { type: type, year: year, semi: semi }, function(res) {
                 if (res.error) {
                     alert(res.error);
-                    $("#survey_list_body").html("<tr><td colspan='5' class='empty_table' style='color:#dc3545;'>오류: " + res.error + "</td></tr>");
+                    $("#survey_list_body").html("<tr><td colspan='6' class='empty_table' style='color:#dc3545;'>오류: " + res.error + "</td></tr>");
                     $("#emq_target_ids").val('');
                 } else {
                     var html = '';
                     if (res.list && res.list.length > 0) {
                         $.each(res.list, function(idx, item) {
                             html += '<tr>';
+                            html += '<td class="td_chk"><input type="checkbox" name="survey_chk[]" value="' + item.mb_id + '" class="survey_chk" checked></td>';
                             html += '<td class="td_num_c">' + (idx + 1) + '</td>';
                             html += '<td>' + item.mb_id + '</td>';
                             html += '<td>' + item.mb_name + '</td>';
@@ -546,9 +564,10 @@ while ($l = sql_fetch_array($res_lssn)) {
                             html += '<td>' + item.status + '</td>';
                             html += '</tr>';
                         });
+                        $("#survey_all_chk").prop('checked', true);
                         $("#emq_target_ids").val(year + '|' + semi);
                     } else {
-                        html = "<tr><td colspan='5' class='empty_table'>대상자가 없습니다.</td></tr>";
+                        html = "<tr><td colspan='6' class='empty_table'>대상자가 없습니다.</td></tr>";
                         $("#emq_target_ids").val(year + '|' + semi);
                     }
                     $("#survey_list_body").html(html);
@@ -568,11 +587,21 @@ while ($l = sql_fetch_array($res_lssn)) {
                 return false;
             }
         } else if (type == 'cp_satisfaction' || type == 'cp_ethics' || type == 'cp_pledge') {
-            var target_ids = $("#emq_target_ids").val();
-            if (!target_ids || target_ids.indexOf('|') === -1) {
+            var year = $("#survey_year").val();
+            var semi = $("#survey_semi").val();
+            if (!year || !semi) {
                 alert("대상자를 조회하여 발송 조건을 지정해 주세요.");
                 return false;
             }
+            var selected_ids = [];
+            $(".survey_chk:checked").each(function() {
+                selected_ids.push($(this).val());
+            });
+            if (selected_ids.length == 0) {
+                alert("발송할 대상자를 한 명 이상 선택해 주세요.");
+                return false;
+            }
+            $("#emq_target_ids").val(year + '|' + semi + '|' + selected_ids.join(','));
         } else {
             if ($("input[name='emq_target_type']:checked").val() == 'manual') {
                 var selected_ids = [];

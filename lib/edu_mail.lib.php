@@ -90,9 +90,24 @@ function get_edu_mail_targets($lssn_no, $target_type, $target_ids = '')
 
     if (in_array($target_type, array('cp_satisfaction', 'cp_ethics', 'cp_pledge'))) {
         if (!$target_ids) return array();
-        list($bl_year, $bl_semi) = explode('|', $target_ids);
-        $bl_year = sql_real_escape_string(trim($bl_year));
-        $bl_semi = sql_real_escape_string(trim($bl_semi));
+        $parts = explode('|', $target_ids);
+        $bl_year = isset($parts[0]) ? sql_real_escape_string(trim($parts[0])) : '';
+        $bl_semi = isset($parts[1]) ? sql_real_escape_string(trim($parts[1])) : '';
+        
+        $id_filter = "";
+        if (isset($parts[2])) {
+            $selected_member_ids = trim($parts[2]);
+            if ($selected_member_ids) {
+                $ids = explode(',', $selected_member_ids);
+                $clean_ids = array();
+                foreach($ids as $id) {
+                    $clean_ids[] = sql_real_escape_string(trim($id));
+                }
+                $id_filter = " AND m.mb_id IN ('" . implode("','", $clean_ids) . "') ";
+            } else {
+                $id_filter = " AND 1=0 "; // Nothing selected
+            }
+        }
 
         if ($target_type == 'cp_satisfaction') {
             $sql = " SELECT m.mb_id, m.mb_name, m.mb_email, 0 as rate 
@@ -105,7 +120,8 @@ function get_edu_mail_targets($lssn_no, $target_type, $target_ids = '')
                      WHERE m.mb_level = '1' 
                        AND m.mb_leave_date = '' 
                        AND m.mb_intercept_date = ''
-                       AND sd.srvd_uid IS NULL ";
+                       AND sd.srvd_uid IS NULL
+                       {$id_filter} ";
         } else if ($target_type == 'cp_ethics') {
             $sql = " SELECT m.mb_id, m.mb_name, m.mb_email, 0 as rate 
                      FROM {$g5['member_table']} m
@@ -117,7 +133,8 @@ function get_edu_mail_targets($lssn_no, $target_type, $target_ids = '')
                      WHERE m.mb_level = '1' 
                        AND m.mb_leave_date = '' 
                        AND m.mb_intercept_date = ''
-                       AND sd.srvd_uid IS NULL ";
+                       AND sd.srvd_uid IS NULL
+                       {$id_filter} ";
         } else if ($target_type == 'cp_pledge') {
             $sql = " SELECT m.mb_id, m.mb_name, m.mb_email, 0 as rate 
                      FROM {$g5['member_table']} m
@@ -129,7 +146,8 @@ function get_edu_mail_targets($lssn_no, $target_type, $target_ids = '')
                      WHERE m.mb_level = '1' 
                        AND m.mb_leave_date = '' 
                        AND m.mb_intercept_date = ''
-                       AND pledge.pld_no IS NULL ";
+                       AND pledge.pld_no IS NULL
+                       {$id_filter} ";
         }
     } else {
         // Base target: members with mb_level = 1
