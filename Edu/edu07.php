@@ -98,6 +98,13 @@ if (!get_lessonApply2($member['mb_id'], 34)) {
     sql_query($sql);
 }
 
+if (!get_lessonApply2($member['mb_id'], 36)) {
+    $sql = "insert into {$g5['less_apply_table']} set
+			app_lssn_no = '36',
+			app_uid = '{$member['mb_id']}',
+			app_rdate = now()";
+    sql_query($sql);
+}
 
 
 if (!$sst) {
@@ -126,6 +133,8 @@ $result_m3 = sql_fetch($sql_m3);
 $sql_m4 = "SELECT *  FROM sj_lesson_apply where app_uid = '{$member['mb_id']}' and app_lssn_no = '35' limit 0, 1 ";
 $result_m4 = sql_fetch($sql_m4);
 
+$sql_m36 = "SELECT *  FROM sj_lesson_apply where app_uid = '{$member['mb_id']}' and app_lssn_no = '36' limit 0, 1 ";
+$result_m36 = sql_fetch($sql_m36);
 
 if (!$sst) {
     $sst = "ls.lssn_no";
@@ -247,6 +256,57 @@ $result = sql_query($sql);
             ?>
         </div>
 
+
+
+        <div class="edu-course">
+            <div class="img-wrap">
+                <img src="../_Img/Sub/edu/cyber_img35.png">
+            </div>
+            <div class="txt-wrap">
+                <div class="tit">[2026 10월_하반기 윤리경영 사이버 교육] 책임감 있는 기업의 롱런메이트, 윤리경영</div>
+                <div class="row">
+                    <div class="col">
+                        <label>수료조건</label><span>학습 100% 진행</span>
+                    </div>
+                    <div class="col">
+                        <label>마일리지</label><span>없음</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label>학습기간</label><span>2026.10.01(목) ~ 2026.10.31(토)</span>
+                    </div>
+                    <div class="col">
+                        <label>학습시간</label><span>2시간</span>
+                    </div>
+                </div>
+                <div class="play">
+                    <?php
+                    $tempSday = "2026-10-01 09:00";
+                    $tempEday = "2026-10-31 18:00";
+                    if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
+                        ?>
+                        <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>
+                        <?php
+                    } else {
+                        ?>
+                        <a href="/Edu/class36.php?ls=36" class="class-enter"
+                            style="<?php if ($result_m36['app_study_rate'] == 100) {
+                                echo "background: #5a5ae7;";
+                            } ?>"><span>
+                                <?php if ($result_m36['app_study_rate'] == 100) {
+                                    echo '학습완료';
+                                } else {
+                                    echo '학습하기';
+                                }
+                                ?>
+                            </span></a>
+                        <?php
+                    }
+                    ?>
+                </div>
+            </div>
+        </div>
 
 
         <div class="edu-course">
