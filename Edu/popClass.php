@@ -63,6 +63,8 @@ else if($l_no == 34)
 	$foldName = "22";
 else if($l_no == 35)
 	$foldName = "35";
+else if($l_no == 36)
+	$foldName = "ethics/11";
 else if($l_no != 6)
 	$foldName = "cyber";
 else
