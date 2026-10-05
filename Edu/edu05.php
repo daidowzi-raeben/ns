@@ -174,7 +174,7 @@ $result = sql_query($sql);
 
         </div>
 
-        <div class="edu-course">
+        <!-- <div class="edu-course">
             <div class="img-wrap">
                 <img src="../_Img/Sub/edu/cyber_img35.png">
             </div>
@@ -222,7 +222,7 @@ $result = sql_query($sql);
                     ?>
                 </div>
             </div>
-        </div>
+        </div> -->
 
 
         <div class="edu-course">
