@@ -1,0 +1,34 @@
+/*
+ * NanumBarunGothic
+ */
+
+@font-face {
+    font-family: NanumBarunGothic;
+    src: url(../font/NanumBarunGothic.eot);
+    src: local(¡Ø), url(../font/NanumBarunGothic.woff) format('woff')
+}
+
+@font-face {
+    font-family: NanumBarunGothicBold;
+    src: url(../font/NanumBarunGothicBold.eot);
+    src: local(¡Ø), url(../font/NanumBarunGothicBold.woff) format('woff')
+}
+
+@font-face {
+    font-family: NanumBarunGothicLight;
+    src: url(../font/NanumBarunGothicLight.eot);
+    src: local(¡Ø), url(../font/NanumBarunGothicLight.woff) format('woff')
+}
+
+
+
+/*
+ * GmarketSansMedium
+ */
+
+@font-face {
+	font-family: 'S-CoreDream-4Regular';
+	font-weight: normal;
+	font-style: normal;
+	src: url('../font/S-CoreDream-4Regular.woff') format('woff')
+}

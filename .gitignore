@@ -1,12 +1,9 @@
-/process/
 /contents/
 /cyber/
 /data/
 /ebook/
 /gLms/
 /ns_view/
-/process/
-/data/
 /extend/
 /install/
 config.php
@@ -15,3 +12,22 @@ config.php
 
 **ttttt**
 **oooo**
+
+# /process/ 기본 무시
+/process/*
+
+# 예외: /process/ethics 폴더 진입 허용
+!/process/ethics/
+
+# /process/ethics/ 내부 모두 무시하되 11 폴더 진입 허용
+/process/ethics/*
+!/process/ethics/11/
+
+# /process/ethics/11/ 내부 모두 무시하되 하위 폴더 진입 허용
+/process/ethics/11/**
+!/process/ethics/11/**/
+
+# 실제 허용할 확장자 파일들
+!/process/ethics/11/**/*.html
+!/process/ethics/11/**/*.js
+!/process/ethics/11/**/*.css

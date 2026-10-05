@@ -1,0 +1,58 @@
+<div id="navigation">
+	<ul>
+		<li><a href="javascript:;" id="topNavi01"></a></li>
+		<li><a href="javascript:;" id="topNavi02"></a></li>
+		<li><a href="javascript:;" id="topNavi03"></a></li>
+		<li><a href="javascript:;" id="topNavi04"></a></li>
+		<li><a href="javascript:;" id="topNavi05"></a></li>
+		<li><a href="javascript:;" id="topNavi06"></a></li>
+		<li><a href="javascript:;" id="topNavi07"></a></li>
+	</ul>
+</div>
+
+
+<script type="text/javascript">
+var porting = false;//포팅여부
+
+$(function(){
+	var menuClear = function (){
+		$('a[id^=topNavi]').removeClass('hover');
+	}
+
+	var menuBlock = function (){
+		var depId = this.id;
+		var depClass = depId.substr(0,7);
+		var depNum = depId.substr(7,8);
+		if (depClass == 'topNavi') {
+			$(this).addClass('hover');
+		} else if (depClass == 'topSubm') {
+			targetDiv = $(this);
+			$(this).siblings('a').addClass('hover');
+		} else {
+		}
+	}
+
+	var menuEvent = function () {
+		$('a[id^=topNavi]').each(function() {
+			$(this).mouseenter(menuBlock)
+				   .focus(menuBlock)
+				   .mouseleave(menuClear);
+		});
+
+		$('ul[id^=topSubm]').each(function() {
+			$(this).mouseenter(menuBlock)
+				   .focus(menuBlock)
+				   .mouseleave(menuClear);
+		});
+	}
+
+	//menuEvent();
+});
+
+
+//페이지이동
+$("li").click(function(){
+	  var movePageNum = parseInt($(this).index()) + 1;
+	  movepage(Number(_this.$curChapter), movePageNum); //navi.js 함수호출
+ });
+</script>

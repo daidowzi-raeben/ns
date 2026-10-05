@@ -239,7 +239,9 @@ if( $LESSON['lssn_controlbar'] == "Y" ) {
         if (!iframeUrl) return;
 
         // 1. Extract folder name to ensure it's a valid content URL
-        var matches = iframeUrl.match(/\/process\/\d+\/([a-zA-Z0-9_-]+)\//);
+        var foldNameStr = '<?php echo $foldName; ?>';
+        var regex = new RegExp("/process/" + foldNameStr + "/([a-zA-Z0-9_-]+)/");
+        var matches = iframeUrl.match(regex);
         var folder = matches ? matches[1] : '';
         if (!folder) {
             // Ignore empty src, about:blank, or non-content URLs (e.g. parent popup URL)

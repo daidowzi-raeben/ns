@@ -1,0 +1,640 @@
+@import url(./font.css);
+
+body {
+/*   width: 100%; */
+/*   height: 100%; */
+  width: 1280px;
+  height: 720px;
+  background: url(../img/loading.gif) no-repeat;
+  background-size: 100% 100%;
+  overflow:hidden;
+  margin:0px;
+  padding:0px;
+}
+
+.content {
+  position: relative;
+  left: 0px;
+  top: 0px;
+  width: 1280px;
+  height: 720px;
+/*   background: url(../img/bg.png) no-repeat; */
+  overflow:hidden;
+}
+
+.content > .video1 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+}
+
+.content > .controlBar {
+  position: absolute;
+  bottom : 0px;
+  z-index: 999;
+  background: hsla(0, 10%, 0%, 0.1);
+/*   background: #1c1c1c; */
+/*   padding-bottom: 40px; */
+  padding-top: 0px;
+/*   width: 1010px; */
+  /* width: 1280px; */  /*원래 소스*/
+  width: 100%; /*shy 추가*/
+  right:0px;
+  height:66px;
+/*   transition-duration: 0.4s; */
+/*   border-top-left-radius: 20px; */
+  transition:0.3s;
+      background: linear-gradient( to bottom, 
+      rgba(20, 20, 20, 0) 0%, 
+      rgba(20, 20, 20, 0.25) 25%, 
+      rgba(20, 20, 20, 0.25) 25%, 
+      rgba(20, 20, 20, 0.25) 25%, 
+      rgba(20, 20, 20, 0.25) 25% );
+}
+.content > .mobile_start {
+	width: 100%;
+	height: 100%;
+	background: url(../img/mobile_start.png) no-repeat;
+	background-size: 100% 100%;
+	overflow:hidden;
+	margin:0px;
+	padding:0px;
+}
+
+.content > .controlBar .button> button:hover,
+.content > .controlBar .button> button:focus{
+/*     background-position: -53px 0px; */
+    background-position: -40px 0px;
+}
+
+
+
+
+.content > .controlBar > .button> button.toggle{
+    background-position: -0px -40px;
+}
+
+.content > .controlBar > .button > button.toggle:hover,
+.content > .controlBar > .button > button.toggle:focus{
+    background-position: -40px -40px;
+}
+
+
+
+
+.content > .controlBar > .button {
+	border: 0px;
+  	cursor: pointer;
+	position: absolute;
+  	width: 40px;
+  	height: 40px;
+  	font-family: NanumSquare;;
+  	color: #ffffff;
+  	top:23px;
+}
+.content > .controlBar > .digClock {
+	top: 35px;
+    color: #fff;
+    font-family: NanumBarunGothic;
+    font-size: 17px;
+}
+
+
+.content > .controlBar > .curTime {
+    left: 323px;
+}
+.content > .controlBar > .slash {
+	left: 371px;
+    /* font-size: 17px; */
+    top: 35px;
+}
+.content > .controlBar > .totalTime {
+  left : 381px;
+}
+
+
+
+.content > .controlBar > .guid {
+  right: 230px;
+}
+.content > .controlBar > .etc2 {
+  left : 248px;
+}
+.content > .controlBar > .etc3 {
+  left : 173px;
+}
+
+
+
+.content > .controlBar > .button > button {
+  border: 0px;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+.content > .controlBar > .logo {
+    background: url(../img/logo.png) no-repeat;
+    margin-left: 3px;
+    width: 126px;
+    height: 40px;
+    float: left;
+}
+
+.content > .controlBar > .data_down > button{
+    background: url(../img/databtn.png) no-repeat;
+    margin-left: 44px;
+    width: 90px;
+    height: 40px;
+    float: left;
+    border:0px;
+    cursor: pointer;
+}
+
+.content > .controlBar > .data_down > button:hover {
+    background: url(../img/databtn_over.png) no-repeat;
+}
+
+.content > .controlBar > .guid > button {
+  background: url(../img/etc1.png) no-repeat;
+}
+.content > .controlBar > .etc2 > button {
+  background: url(../img/etc2.png) no-repeat;
+}
+.content > .controlBar > .etc3 > button {
+  background: url(../img/etc3.png) no-repeat;
+}
+
+
+.content > .controlBar > .play {
+  left: 115px;
+}
+
+.content > .controlBar > .pause {
+   left: 115px;
+}
+
+.content > .controlBar > .replay {
+ 	left : 155px;
+}
+
+.content > .controlBar > .trackBtn {
+  	right : 240px;
+}
+
+.content > .controlBar > .fullScreen {
+  	right : 234px;
+}
+
+.content > .controlBar > .play > button {
+  background: url(../img/play.png) no-repeat;
+}
+.content > .controlBar > .pause > button {
+  background: url(../img/pause.png) no-repeat;
+}
+.content > .controlBar > .replay > button {
+  background: url(../img/replay.png) no-repeat;
+}
+.content > .controlBar > .trackBtn > button {
+  background: url(../img/script.png) no-repeat;
+}
+.content > .controlBar > .fullScreen > button {
+  background: url(../img/fullscreen.png) no-repeat;
+}
+
+.content > .controlBar > .curPage {
+	right: 101px;
+    top: 34px;
+    color: #67ffb3;
+    font-size: 20px;
+    font-family: NanumBarunGothic;
+/*     font-weight: 700; */
+}
+
+.content > .controlBar > .pageSlash {
+	right: 73px;
+    top: 32px;
+    font-size: 20px;
+    color: #ffffff;
+}
+.content > .controlBar > .totalPage {
+	right: 58px;
+    top: 34px;
+    color: #ffffff;
+    font-size: 20px;
+    font-family: NanumBarunGothic;
+/*     font-weight: 700; */
+
+}
+
+
+.content > .controlBar > .movePrev {
+  right : 143px;
+}
+.content > .controlBar > .movePrev > button {
+  background: url(../img/prev.png) no-repeat;
+}
+.content > .controlBar > .moveNext {
+  right : 35px;
+  top:25px;
+}
+.content > .controlBar > .moveNext > button {
+  background: url(../img/next.png) no-repeat;
+}
+
+.content > .controlBar > .sound {
+    left: 190px;
+}
+
+.content > .controlBar > .sound > button {
+
+  background: url(../img/mute.png) no-repeat;
+}
+
+
+.content > .controlBar > .nextAlert {
+  position: absolute;
+  width: 80px;
+  height: 29px;
+  right: 35px;
+  bottom: 66px;
+  transition-duration: 1.0s;
+  background: url(../img/moveAlert.png) no-repeat;
+  display: none;
+}
+
+
+.content > .controlBar > .timeLine {
+  	position: absolute;
+/*   background: hsla(0, 10%, 10%, 0.3); */
+  	background: #fff;
+	  /* width: 1260px; */
+    width: 1260px; /* 초기 너비 hdcnr 수정*/
+    max-width: 100%; /* 부모 요소보다 더 커지지 않도록 제한 hdcnr 수정*/
+    padding-top: 11px;
+    top: 10px;
+    left: 10px;
+    z-index: 250;
+  border-radius: 20px;
+}
+
+
+.content > .controlBar > .timeLine > .timeBar {
+	position: absolute;
+    width: 20px;
+    left: -1%;
+    height: 20px;
+    bottom: -6px;
+    z-index: 200;
+    cursor:pointer;
+  	background: url(../img/time_bar.png) no-repeat;
+}
+
+
+.content > .controlBar > .timeLine > .progress {
+  background: #2aff77;
+  width: 0%;
+  position: absolute;
+  padding-top: 11px;
+  top: 0px;
+  border-radius: 20px;
+}
+
+
+.content > .controlBar > .timeLine.hover{
+/*   background-color: hsla(0, 50%, 100%, 0.5); */
+  padding-top: 11px;
+}
+
+
+.content > .controlBar > .timeLine > .progress.hover {
+/*   background-color: hsl(173.6, 100%, 50%); */
+  padding-top: 11px;
+  top: -0px;
+}
+
+.content > .controlBar > .soundLine {
+  position: absolute;
+  background: #fff;
+  width: 73px;
+  padding-top: 14px;
+  left: 227px;
+  top: 37px;
+  border-radius: 20px;
+}
+
+.content > .controlBar > .soundLine > .soundProgress {
+  background: #2aff77;
+  width: 60%;
+  position: absolute;
+  padding-top: 14px;
+  top: 0px;
+  border-radius: 20px;
+  
+}
+
+.content > .controlBar > .soundLine:hover {
+/*   background-color: hsla(0, 50%, 100%, 0.5); */
+}
+
+.content > .printBtn {
+  right: 315px;
+  position: absolute;
+  right : 5%;
+  top : 10%;
+  width: 13%;
+  height: 18%;
+  background: url(../img/printBtn.png) no-repeat;
+  background-size: 100% 100%;
+  z-index: 300;
+  display: none;
+}
+
+
+
+.content > .controlBar > div > .tooltips.hover {
+	position: relative;
+}
+
+.content > .controlBar > div > .tooltips {
+/* 	-webkit-transition: bottom .3s ease-in-out, opacity .3s ease-in-out; */
+/* 	-moz-transition: bottom .3s ease-in-out, opacity .3s ease-in-out; */
+/* 	transition: bottom .3s ease-in-out, opacity .3s ease-in-out; */
+
+/* 	background-color: #3dccfb; */
+
+/*   -webkit-box-shadow: 0px 0px 3px 1px rgba(50, 50, 50, 0.4); */
+/* 	-moz-box-shadow: 0px 0px 3px 1px rgba(50, 50, 50, 0.4); */
+/* 	box-shadow: 0px 0px 3px 1px rgba(50, 50, 50, 0.4); */
+
+/*   -webkit-border-radius: 5px; */
+/* 	-moz-border-radius: 5px; */
+/* 	border-radius: 5px; */
+
+/*   color: #ffffff; */
+/* 	font-size: 12px; */
+/* 	margin-bottom: 10px; */
+/* 	padding: 7px 12px; */
+/* 	position: absolute; */
+/* 	width: auto; */
+/* 	min-width: 60px; */
+/* 	max-width: 300px; */
+/* 	word-wrap: break-word; */
+
+/* 	z-index: 9999; */
+
+/* 	opacity: 0; */
+/* 	left: -9999px; */
+/* 	top: -9999px; */
+/* 	width: 55px; */
+/* 	text-align: center; */
+
+    -webkit-transition: bottom .3s ease-in-out, opacity .3s ease-in-out;
+    -moz-transition: bottom .3s ease-in-out, opacity .3s ease-in-out;
+    transition: bottom .3s ease-in-out, opacity .3s ease-in-out;
+    background-color: rgba(0, 0, 0, 0.8);
+    /* background-color: #ff6c00; */
+    /* -webkit-box-shadow: 0px 0px 3px 1px rgba(50, 50, 50, 0.4); */
+    -moz-box-shadow: 0px 0px 3px 1px rgba(50, 50, 50, 0.4);
+    /* box-shadow: 0px 0px 3px 1px rgba(50, 50, 50, 0.4); */
+    /* -webkit-border-radius: 5px; */
+    -moz-border-radius: 5px;
+    /* border-radius: 5px; */
+    /* color: #ffffff; */
+    /* font-size: 12px; */
+    /* margin-bottom: 10px; */
+    padding: 7px 12px;
+    /* position: absolute; */
+    width: auto;
+    min-width: 60px;
+    max-width: 300px;
+    word-wrap: break-word;
+    /* z-index: 9999; */
+    opacity: 0;
+    left: -9999px;
+    top: -9999px;
+    /* width: 55px; */
+    height: 29px;
+    text-align: center;
+
+}
+
+
+.content > .controlBar > div > .tooltips::after
+{
+/*     content: ""; */
+/*     position: absolute; */
+/*     top: 100%; */
+/*     left: 50%; */
+/*     margin-left: -5px; */
+/*     border-width: 5px; */
+/*     border-style: solid; */
+/*     border-color: #3dccfb transparent transparent transparent; */
+}
+
+
+.content > .controlBar > div > .tooltips.hover {
+	  top: -65px;
+	  left: -1px;
+	  opacity: 1;
+}
+
+.content > .controlBar > div > .tooltips.play{
+	position: relative;
+	background: url(../img/Play_m.png) no-repeat;
+	height:16px;
+	left: -1px;
+}
+
+.content > .controlBar > div > .tooltips.pause{
+	position: relative;
+	background: url(../img/Pause_m.png) no-repeat;
+	height:16px;
+	left: -3px;
+}
+
+
+.content > .controlBar > div > .tooltips.replay{
+	position: relative;
+	background: url(../img/Replay_m.png) no-repeat;
+	height:16px;
+	left: -7px;
+}
+
+.content > .controlBar > div > .tooltips.track{
+	position: relative;
+	background: url(../img/Script_m.png) no-repeat;
+	height:16px;
+	left: -5px;
+}
+
+
+.content > .controlBar > div > .tooltips.sound{
+	position: relative;
+	background: url(../img/Sound-On_m.png) no-repeat;
+	height:16px;
+	left: -27px;
+}
+
+.content >.leftSymbol {
+  	background: url() no-repeat;
+  	background-size: 100% 100%;
+	width: 544px;
+    height: 35px;
+  	position: absolute;
+  	left:0%;
+  	top : 0%;
+/*   transform: skew(-10deg); */
+  	z-index: 200;
+}
+
+.content >.rightSymbol {
+  	background: url(../img/rightSymbol.png) no-repeat;
+  	background-size: 100% 100%;
+	width: 159px;
+    height: 66px;
+  	position: absolute;
+  	right : 0px;
+  	top : 0px;
+/*   transform: skew(-10deg); */
+  	z-index: 200;
+}
+
+.setUpBg {
+  	background: url(../img/speed.png) no-repeat;
+  	position: absolute;
+	width: 90px;
+    height: 40px;
+	left: 22px;
+    top: 25px;
+}
+.setUp {
+  	position: absolute;
+	left: 0px;
+    top: 13px;
+	color: #fff;
+    font-family: 'NanumBarunGothic';
+    font-size: 13px;
+    text-align: center;
+    cursor:pointer;
+    width: 90px;
+}
+.prevrate{
+	background: url(../img/prevrate.png) no-repeat;
+	position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 6px;
+    top: 9px;
+    cursor: pointer;
+}
+.nextrate{
+	background: url(../img/nextrate.png) no-repeat;
+	position: absolute;
+    width: 20px;
+    height: 20px;
+	left: 65px;
+    top: 10px;
+    cursor: pointer;
+}
+
+.speedWrap{
+    position: absolute;
+	width: 36px;
+    height: 279px;
+    top: -304px;
+    left: 26px;
+    background-color: hsla(0, 0%, 10%, 0.7);
+    font-family: 'NanumBarunGothic';
+    font-size: 12px;
+    text-align: center;
+    color: #fff;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    z-index: 200;
+  	display: none;
+}
+.speedTitle{
+  margin-top: 10px;
+}
+.speedLine{
+  border: 0.3px #bbbbbb solid;
+  width: 80%;
+  top: 30px;
+  position: absolute;
+  margin-left: 7px;
+}
+.speedPart{
+  padding-top: 7px;
+  cursor: pointer;
+}
+.speedPart:hover,
+.speedPart.toggle{
+  color: #2aff77;
+}
+
+#guide_close{
+	position: absolute;
+	top:1px;
+	right:0px;
+    font-size: 30px;
+    font-weight: normal;
+    line-height: 1;
+    color: #000000;
+    opacity: 1;
+    margin-right: 5px;
+    z-index:300;
+}
+button.close {
+    padding: 0;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    -webkit-appearance: none;
+}
+
+.content > .controlBar > .lock {
+	background: url(../img/openControl.png) no-repeat;
+    width: 40px;
+    height: 40px;
+/*     border:0px; */
+    cursor: pointer;
+    position: absolute;
+    right: 192px;
+    background-position: 0px 0px;
+}
+.content > .controlBar > .lock:hover{
+	background: url(../img/closeControl.png) no-repeat;
+	background-position: -40px 0px;
+}
+
+.content > .controlBar > .open{
+	background: url(../img/openControl.png) no-repeat;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    position: absolute;
+    right: 192px;
+    background-position: 0px 0px;
+}
+.content > .controlBar > .open:hover{
+	background: url(../img/openControl.png) no-repeat;
+	background-position: -40px 0px;
+	
+}
+
+.content > .controlBar > .close{
+	background: url(../img/closeControl.png) no-repeat;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    position: absolute;
+    right: 192px;
+    background-position: 0px 0px;
+}
+.content > .controlBar > .close:hover{
+	background: url(../img/closeControl.png) no-repeat;
+	background-position: -40px 0px;
+	
+}
+
