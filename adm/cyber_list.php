@@ -62,6 +62,8 @@ else if($app_lssn_no == "35")
 	$strLesson = "금석위개(金石爲開), 실행으로 증명하는 신뢰";
 else if($app_lssn_no == "33")
 	$strLesson = "[2025] 직장인의 소통 지혜! 비지니스 윤리";
+else if($app_lssn_no == "36")
+	$strLesson = "[2026 10월_하반기 윤리경영 사이버 교육] 책임감 있는 기업의 롱런메이트, 윤리경영";
 $sql_order = " order by {$sst} {$sod} ";
 
 $sql = " select count(*) as cnt {$sql_common} {$sql_search} {$sql_order} ";
@@ -132,6 +134,7 @@ $colspan = 16;
                             <?=option_selected("33", $app_lssn_no, "윤리경영 사이버교육(상반기)");?>
                             <?=option_selected("34", $app_lssn_no, "윤리경영 사이버교육(하반기)");?>
                             <?=option_selected("35", $app_lssn_no, "금석위개(金石爲開), 실행으로 증명하는 신뢰");?>
+                            <?=option_selected("36", $app_lssn_no, "10월_하반기 윤리경영 사이버 교육");?>
                         </select>
                     </td>
                 </tr>
