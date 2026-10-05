@@ -397,6 +397,11 @@ function setPage()
     	nextpage(Number(_this.$curChapter), Number(_this.$curPageNumber)); //navi.js 함수호출
     });
 
+    // nextAlert 클릭 시에도 다음페이지로 이동하도록 추가
+    _this.$nextAlert.css("cursor", "pointer").on("click", function() {
+    	nextpage(Number(_this.$curChapter), Number(_this.$curPageNumber));
+    });
+
       
     // 사운드 조절
     _this.$soundLine.on('click', function(event) {
