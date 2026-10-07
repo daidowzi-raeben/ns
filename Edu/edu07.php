@@ -274,7 +274,7 @@ $result = sql_query($sql);
                 </div>
                 <div class="row">
                     <div class="col">
-                        <label>학습기간</label><span>2026.10.01(목) ~ 2026.10.31(토)</span>
+                        <label>학습기간</label><span>2026.10.19(목) ~ 2026.10.23(토)</span>
                     </div>
                     <div class="col">
                         <label>학습시간</label><span>2시간</span>
@@ -290,10 +290,9 @@ $result = sql_query($sql);
                         <?php
                     } else {
                         ?>
-                        <a href="/Edu/class36.php?ls=36" class="class-enter"
-                            style="<?php if ($result_m36['app_study_rate'] == 100) {
-                                echo "background: #5a5ae7;";
-                            } ?>"><span>
+                        <a href="/Edu/class36.php?ls=36" class="class-enter" style="<?php if ($result_m36['app_study_rate'] == 100) {
+                            echo "background: #5a5ae7;";
+                        } ?>"><span>
                                 <?php if ($result_m36['app_study_rate'] == 100) {
                                     echo '학습완료';
                                 } else {
