@@ -274,7 +274,7 @@ $result = sql_query($sql);
                 </div>
                 <div class="row">
                     <div class="col">
-                        <label>학습기간</label><span>2026.10.19(목) ~ 2026.10.23(토)</span>
+                        <label>학습기간</label><span>2026.10.19(월) ~ 2026.10.23(토)</span>
                     </div>
                     <div class="col">
                         <label>학습시간</label><span>2시간</span>
