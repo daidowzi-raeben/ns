@@ -29,6 +29,23 @@ if ($next_cpt) {
     }
 }
 
+$all_chapters = array();
+$sql_all = "select c.cpt_no, c.cpt_seq, c.cpt_contents, cn.c_url, cn.c_page 
+            from {$g5['chapter_table']} as c 
+            left join {$g5['contents_table']} as cn on (cn.c_no = c.cpt_contents) 
+            where c.cpt_lesson = '{$l_no}' 
+            order by c.cpt_seq asc";
+$res_all = sql_query($sql_all);
+while ($row_all = sql_fetch_array($res_all)) {
+    $all_chapters[] = array(
+        'cpt_no' => (int)$row_all['cpt_no'],
+        'cpt_seq' => (int)$row_all['cpt_seq'],
+        'cpt_contents' => (int)$row_all['cpt_contents'],
+        'c_url' => $row_all['c_url'],
+        'c_page' => (int)$row_all['c_page']
+    );
+}
+
 $userLessData = get_lessonApply2($member['mb_id'], $l_no);
 //�н� ������ ���ٸ�, ���� ����
 if( !$userLessData ) {
@@ -196,30 +213,115 @@ if( $LESSON['lssn_controlbar'] == "Y" ) {
     <script type="text/javascript">
     var pp = 0;
     var control_enable = '';
-    setClass(<?php echo $LESSON['lssn_no']?>, <?php echo $CHAPTER['cpt_no']?>, <?php echo $CONTENTS['c_no']?>);
+    var allChapters = <?php echo json_encode($all_chapters); ?>;
+    var current_chapter_no = <?php echo (int)$CHAPTER['cpt_no']; ?>;
+    var current_contents_no = <?php echo (int)$CONTENTS['c_no']; ?>;
+    var current_chasi_folder = '<?php echo $CONTENTS['c_url']; ?>';
+    var current_open_page = <?php echo (int)$open_page; ?>;
+    var foldName = '<?php echo $foldName; ?>';
+    var lessonNo = <?php echo (int)$l_no; ?>;
+    var isMovingChapter = false;
+
+    setClass(lessonNo, current_chapter_no, current_contents_no);
     setClassUrl("<?=$page_url?>");
 
-    var current_open_page = <?php echo $open_page?>;
-    var current_chasi_folder = '<?php echo $CONTENTS['c_url']; ?>';
+    function getContentUrl(c_url, pageNum) {
+        var p2 = (pageNum < 10 ? '0' : '') + pageNum;
+        var p3 = (pageNum < 10 ? '00' : (pageNum < 100 ? '0' : '')) + pageNum;
+        var base = "<?php echo G5_URL; ?>/process/" + foldName + "/" + c_url + "/";
+
+        if (lessonNo == 10 || lessonNo == 14) {
+            return base + p2 + ".html";
+        } else if (lessonNo == 19 || lessonNo == 34 || lessonNo == 35 || lessonNo == 36) {
+            return base + c_url + "_" + p2 + ".html";
+        } else if (lessonNo == 32) {
+            return base + p3 + ".htm";
+        } else if (lessonNo == 16) {
+            return base + p3 + ".html";
+        } else if (lessonNo == 33) {
+            return base + "01/" + p3 + ".htm";
+        } else if (lessonNo == 17) {
+            return "<?php echo G5_URL; ?>/process/" + foldName + "/" + c_url + ".html";
+        } else {
+            return base + p2 + ".htm";
+        }
+    }
+
+    function getNextChapterInfo() {
+        var currentIndex = -1;
+        for (var i = 0; i < allChapters.length; i++) {
+            if (allChapters[i].cpt_no == current_chapter_no || allChapters[i].c_url == current_chasi_folder) {
+                currentIndex = i;
+                break;
+            }
+        }
+        if (currentIndex !== -1 && currentIndex + 1 < allChapters.length) {
+            return allChapters[currentIndex + 1];
+        }
+        return null;
+    }
+
+    function saveCurrentChapterComplete(callback) {
+        var datas = "lesson=" + lessonNo + "&chapter=" + current_chapter_no + "&contents=" + current_contents_no + "&page=end";
+        $.ajax({
+            type: "POST",
+            url: "/Edu/contents_wbt_check_json.php",
+            data: datas,
+            complete: function() {
+                if (typeof callback === "function") {
+                    callback();
+                }
+            }
+        });
+    }
 
     function goNextChapter() {
-        var next_c_no = '<?php echo $next_c_no; ?>';
-        var next_cpt_url = '<?php echo $next_cpt_url; ?>';
-        var next_contents_no = '<?php echo $next_contents_no; ?>';
-        var foldName = '<?php echo $foldName; ?>';
-        
-        if (next_c_no && next_cpt_url) {
-            var next_url = "<?php echo G5_URL; ?>/process/" + foldName + "/" + next_cpt_url + "/" + next_cpt_url + "_01.html";
-            
-            setClass(<?php echo $l_no; ?>, next_c_no, next_contents_no);
-            current_chasi_folder = next_cpt_url;
-            current_open_page = 1;
-            pp = 0;
-            
-            setClassUrl(next_url);
+        if (isMovingChapter) return;
+        isMovingChapter = true;
+
+        const n = document.getElementById('pop-dim');
+        if (n) n.style.display = "block";
+
+        var nextChapter = getNextChapterInfo();
+
+        if (nextChapter) {
+            // 방금 본 차시 학습완료(100%) 저장 후 다음 차시로 이동
+            saveCurrentChapterComplete(function() {
+                var next_url = getContentUrl(nextChapter.c_url, 1);
+
+                current_chapter_no = nextChapter.cpt_no;
+                current_contents_no = nextChapter.cpt_contents;
+                current_chasi_folder = nextChapter.c_url;
+                current_open_page = 1;
+                pp = 0;
+
+                setClass(lessonNo, nextChapter.cpt_no, nextChapter.cpt_contents);
+                setClassUrl(next_url);
+
+                setTimeout(function() {
+                    isMovingChapter = false;
+                    if (n) n.style.display = "none";
+                }, 1000);
+            });
         } else {
-            alert("모든 과정을 마치셨습니다.");
-            self.close();
+            // 모든 차시 완료
+            saveCurrentChapterComplete(function() {
+                alert("모든 과정을 마치셨습니다.");
+                isMovingChapter = false;
+                if (n) n.style.display = "none";
+
+                if (window.parent && window.parent.$ && window.parent.$("#popup_win").length) {
+                    try {
+                        window.parent.$("#popup_win").bPopup().close();
+                    } catch(e) {}
+                }
+                if (window.opener) {
+                    try { window.opener.location.reload(); } catch(e) {}
+                    window.close();
+                } else {
+                    location.reload();
+                }
+            });
         }
     }
 
@@ -244,7 +346,6 @@ if( $LESSON['lssn_controlbar'] == "Y" ) {
         var matches = iframeUrl.match(regex);
         var folder = matches ? matches[1] : '';
         if (!folder) {
-            // Ignore empty src, about:blank, or non-content URLs (e.g. parent popup URL)
             return;
         }
 
@@ -257,31 +358,31 @@ if( $LESSON['lssn_controlbar'] == "Y" ) {
         // Dim background to prevent rapid double clicking
         const n = document.getElementById('pop-dim');
         if (n) {
-            n.style = "display:block";
+            n.style.display = "block";
             setTimeout(() => {
-                n.style = "display:none";
-            }, 3000);
+                n.style.display = "none";
+            }, 1000);
         }
 
         // 3. Handle folder/chapter transition
         if (folder !== current_chasi_folder) {
-            $.ajax({
-                type: "POST",
-                url: "/Edu/contents_wbt_check_json.php",
-                data: { action: "get_chapter_info", lesson: <?php echo $l_no; ?>, cpt_folder: folder },
-                success: function(res) {
-                    var data = JSON.parse(res);
-                    if (data.res) {
-                        setClass(<?php echo $l_no; ?>, data.cpt_no, data.c_no);
-                        current_chasi_folder = folder;
-                        current_open_page = actualPage;
-                        pp = 0;
-                        
-                        check_contents_wbt(actualPage);
-                    }
+            var found = null;
+            for (var i = 0; i < allChapters.length; i++) {
+                if (allChapters[i].c_url === folder) {
+                    found = allChapters[i];
+                    break;
                 }
-            });
-            return;
+            }
+            if (found) {
+                current_chapter_no = found.cpt_no;
+                current_contents_no = found.cpt_contents;
+                current_chasi_folder = found.c_url;
+                current_open_page = actualPage;
+                pp = 0;
+                setClass(lessonNo, found.cpt_no, found.cpt_contents);
+                check_contents_wbt(actualPage);
+                return;
+            }
         }
 
         // 4. Update progress for the current chapter

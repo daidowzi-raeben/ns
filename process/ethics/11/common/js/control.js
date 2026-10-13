@@ -614,7 +614,13 @@ function setPage()
     	  localStorage.setItem(UsrData, JSON.stringify(data));
       	  console.log(data);
     	  _this.$media.get(0).pause();
-    	  if(Number(_this.$curChapter) >= 8){
+
+          // LMS 연동: 영상 재생 완료 시 부모 창에 100% 학습완료 즉시 저장
+          if (window.parent && typeof window.parent.endCheck === "function") {
+              window.parent.endCheck();
+          }
+
+    	  if(Number(_this.$curChapter) >= 6){
     	    _this.$nextAlert.css("background","url(../common/img/moveAlert_end.png) no-repeat");
     	  }else{
     	    _this.$nextAlert.css("background","url(../common/img/moveAlert.png) no-repeat");

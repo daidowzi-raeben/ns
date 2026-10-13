@@ -34,4 +34,4 @@ _this.$bolPlay = false;  // 재생 여부 ( false : 일시정지 true : 재생�
 _this.$movieName = strPage + ".mp4";
 _this.$moviePath = "../mp4/" + _this.$movieName; // 로컬/상대경로: ../mp4/01_01.mp4
 
-document.write('<script type="text/javascript" src="../common/js/navi.js?v=4"></script>');
+document.write('<script type="text/javascript" src="../common/js/navi.js?v=5"></script>');
