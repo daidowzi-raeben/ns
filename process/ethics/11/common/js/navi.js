@@ -67,10 +67,7 @@ function nextpage(c,p) {
   p = Number(hpage);
 //  alert("nextpage   c : "+c+"   p : "+p);   
 	if ( p >= ( pageinfo[c].length-1)  ) {
-		// LMS 연동: 부모 창의 완료 처리 및 다음 차시 이동 함수 호출
-		if (window.parent && typeof window.parent.endCheck === "function") {
-			window.parent.endCheck();
-		}
+		// LMS 연동: 부모 창의 다음 차시 이동 함수 단독 호출
 		if (window.parent && typeof window.parent.goNextChapter === "function") {
 			window.parent.goNextChapter();
 			return;

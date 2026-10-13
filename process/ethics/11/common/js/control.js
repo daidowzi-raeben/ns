@@ -377,28 +377,19 @@ function setPage()
     	prevpage(Number(_this.$curChapter),Number(_this.$curPageNumber)); //navi.js 함수호출
     });
     
+    var isNextActionTriggered = false;
     //다음페이지 이동버튼
-    setButton(_this.$nextBtn.children("button"),'',lastIndex++, function() {
-//    	var move_page = strChapter + "_" +(itostr(parseInt(_this.$curPageNumber) + 1)) + ".html";
-//    	if(!checkItem()){
-//			alert("학습 완료 후 이동 가능 합니다.");
-//    	}else{
-//    		if(bolPorted){
-//    			setCommit();//현대CNR 하이인재원
-//    			goNext(); //현대CNR 하이인재원
-//    		}else{
-//    			if(parseInt(_this.$curPageNumber) + 1 > _this.$totalPageNumber ) {
-//    				alert("마지막 페이지 입니다.");
-//    				return;
-//    			}
-//    			location.href = move_page;
-//    		}
-//    	}
+    setButton(_this.$nextBtn.children("button"),"",lastIndex++, function() {
+        if (isNextActionTriggered) return;
+        isNextActionTriggered = true;
     	nextpage(Number(_this.$curChapter), Number(_this.$curPageNumber)); //navi.js 함수호출
     });
 
     // nextAlert 클릭 시에도 다음페이지로 이동하도록 추가
     _this.$nextAlert.css("cursor", "pointer").on("click", function() {
+        if (isNextActionTriggered) return;
+        isNextActionTriggered = true;
+        _this.$nextAlert.css("pointer-events", "none").fadeOut(300);
     	nextpage(Number(_this.$curChapter), Number(_this.$curPageNumber));
     });
 
@@ -608,8 +599,11 @@ function setPage()
 	  });
      
 
+      var hasEndedHandled = false;
       //영상 완료 시 (완료시 이벤트)
-      _this.$media.on('ended',function(){
+      _this.$media.on("ended",function(){
+    	  if (hasEndedHandled) return;
+    	  hasEndedHandled = true;
     	  data[curPage] = 1;
     	  localStorage.setItem(UsrData, JSON.stringify(data));
       	  console.log(data);

@@ -261,8 +261,12 @@ if( $LESSON['lssn_controlbar'] == "Y" ) {
         return null;
     }
 
-    function saveCurrentChapterComplete(callback) {
-        var datas = "lesson=" + lessonNo + "&chapter=" + current_chapter_no + "&contents=" + current_contents_no + "&page=end";
+    function saveChapterComplete(cptNo, cntNo, callback) {
+        if (!cptNo || !cntNo) {
+            if (typeof callback === "function") callback();
+            return;
+        }
+        var datas = "lesson=" + lessonNo + "&chapter=" + cptNo + "&contents=" + cntNo + "&page=end";
         $.ajax({
             type: "POST",
             url: "/Edu/contents_wbt_check_json.php",
@@ -275,18 +279,38 @@ if( $LESSON['lssn_controlbar'] == "Y" ) {
         });
     }
 
+    function saveCurrentChapterComplete(callback) {
+        saveChapterComplete(current_chapter_no, current_contents_no, callback);
+    }
+
+    function endCheck() {
+        saveChapterComplete(current_chapter_no, current_contents_no);
+    }
+
     function goNextChapter() {
-        if (isMovingChapter) return;
+        if (isMovingChapter) {
+            console.log("[LMS] Chapter transition already in progress. Ignoring duplicate call.");
+            return;
+        }
         isMovingChapter = true;
 
         const n = document.getElementById('pop-dim');
-        if (n) n.style.display = "block";
+        if (n) {
+            n.style.display = "block";
+            n.style.pointerEvents = "auto";
+        }
+
+        // 현재 완료할 차시 번호 캡처 (비동기 콜백 중 변경 방지)
+        var finishChapterNo = current_chapter_no;
+        var finishContentsNo = current_contents_no;
+        var finishChasiFolder = current_chasi_folder;
 
         var nextChapter = getNextChapterInfo();
 
         if (nextChapter) {
-            // 방금 본 차시 학습완료(100%) 저장 후 다음 차시로 이동
-            saveCurrentChapterComplete(function() {
+            // [1~5차시 -> 다음 차시 이동]
+            // 방금 본 차시 완료(100%) 저장 후 다음 차시로 전환
+            saveChapterComplete(finishChapterNo, finishContentsNo, function() {
                 var next_url = getContentUrl(nextChapter.c_url, 1);
 
                 current_chapter_no = nextChapter.cpt_no;
@@ -301,27 +325,35 @@ if( $LESSON['lssn_controlbar'] == "Y" ) {
                 setTimeout(function() {
                     isMovingChapter = false;
                     if (n) n.style.display = "none";
-                }, 1000);
+                }, 2500);
             });
         } else {
-            // 모든 차시 완료
-            saveCurrentChapterComplete(function() {
-                alert("모든 과정을 마치셨습니다.");
+            // [마지막 차시 완료 처리]
+            // 실제 마지막 차시에 도달해 있을 때만 "모든 과정 완료" 처리
+            var lastChapter = allChapters[allChapters.length - 1];
+            if (lastChapter && (finishChapterNo == lastChapter.cpt_no || finishChasiFolder == lastChapter.c_url)) {
+                saveChapterComplete(lastChapter.cpt_no, lastChapter.cpt_contents, function() {
+                    alert("모든 과정을 마치셨습니다.");
+                    isMovingChapter = false;
+                    if (n) n.style.display = "none";
+
+                    if (window.parent && window.parent.$ && window.parent.$("#popup_win").length) {
+                        try {
+                            window.parent.$("#popup_win").bPopup().close();
+                        } catch(e) {}
+                    }
+                    if (window.opener) {
+                        try { window.opener.location.reload(); } catch(e) {}
+                        window.close();
+                    } else {
+                        location.reload();
+                    }
+                });
+            } else {
+                console.warn("[LMS] Unexpected nextChapter null while not at last chapter.");
                 isMovingChapter = false;
                 if (n) n.style.display = "none";
-
-                if (window.parent && window.parent.$ && window.parent.$("#popup_win").length) {
-                    try {
-                        window.parent.$("#popup_win").bPopup().close();
-                    } catch(e) {}
-                }
-                if (window.opener) {
-                    try { window.opener.location.reload(); } catch(e) {}
-                    window.close();
-                } else {
-                    location.reload();
-                }
-            });
+            }
         }
     }
 
@@ -355,15 +387,6 @@ if( $LESSON['lssn_controlbar'] == "Y" ) {
         var pageMatches = nameWithoutExt.match(/\d+$/);
         var actualPage = pageMatches ? parseInt(pageMatches[0], 10) : 1;
 
-        // Dim background to prevent rapid double clicking
-        const n = document.getElementById('pop-dim');
-        if (n) {
-            n.style.display = "block";
-            setTimeout(() => {
-                n.style.display = "none";
-            }, 1000);
-        }
-
         // 3. Handle folder/chapter transition
         if (folder !== current_chasi_folder) {
             var found = null;
@@ -381,9 +404,17 @@ if( $LESSON['lssn_controlbar'] == "Y" ) {
                 pp = 0;
                 setClass(lessonNo, found.cpt_no, found.cpt_contents);
                 check_contents_wbt(actualPage);
+
+                isMovingChapter = false;
+                const n = document.getElementById('pop-dim');
+                if (n) n.style.display = "none";
                 return;
             }
         }
+
+        isMovingChapter = false;
+        const n = document.getElementById('pop-dim');
+        if (n) n.style.display = "none";
 
         // 4. Update progress for the current chapter
         check_contents_wbt(actualPage);
@@ -399,7 +430,9 @@ if( $LESSON['lssn_controlbar'] == "Y" ) {
         height: 100%;
         top: 0;
         left: 0;
-        z-index: 999;
+        z-index: 99999;
+        background: rgba(0, 0, 0, 0.05);
+        cursor: wait;
     }
     </style>
     <div id="pop-dim" style="display:none"></div>
