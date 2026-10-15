@@ -248,19 +248,29 @@ body {
 
 .content>.controlBar>.movePrev {
   right: 143px;
+  pointer-events: none;
+  cursor: default;
+  opacity: 0.35;
 }
 
 .content>.controlBar>.movePrev>button {
   background: url(../img/prev.png) no-repeat;
+  cursor: default;
+  pointer-events: none;
 }
 
 .content>.controlBar>.moveNext {
   right: 35px;
   top: 25px;
+  pointer-events: none;
+  cursor: default;
+  opacity: 0.35;
 }
 
 .content>.controlBar>.moveNext>button {
   background: url(../img/next.png) no-repeat;
+  cursor: default;
+  pointer-events: none;
 }
 
 .content>.controlBar>.sound {

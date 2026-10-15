@@ -39,6 +39,7 @@ function setPage()
   var barLeft = 0;
   var barRigth = 0;
   var boolflag = false; //배속
+  var hasEndedHandled = false;
 //  var summaryPage = false;
 //  var progressControll = jindoCompleteChk(); //LMS 용
 
@@ -120,11 +121,11 @@ function setPage()
           </div>\
     	  <div class="button play playPause"><button></button></div>\
           <div class="button replay"><button></button></div>\
-          <div class="button movePrev"><button></button></div>\
+          <div class="button movePrev" style="pointer-events: none; opacity: 0.35; cursor: default;"><button style="cursor: default; pointer-events: none;"></button></div>\
           <div class="button digClock curPage">'+ _this.$curPageNumber +'</div>\
           <div class="button digClock pageSlash">·</div>\
           <div class="button digClock totalPage">'+ itostr(_this.$totalPageNumber) +'</div>\
-          <div class="button moveNext"><button></button></div>\
+          <div class="button moveNext" style="pointer-events: none; opacity: 0.35; cursor: default;"><button style="cursor: default; pointer-events: none;"></button></div>\
           <div class="button digClock curTime">00:00</div>\
           <div class="button digClock slash">|</div>\
           <div class="button digClock totalTime">00:00</div>\
@@ -362,28 +363,32 @@ function setPage()
       }
     });
     
-    //이전페이지 이동버튼
-    setButton(_this.$prevBtn.children("button"),'',lastIndex++, function() {
-//    	var move_page = strChapter + "_" +(itostr(parseInt(_this.$curPageNumber) - 1)) + ".html";
-//    		if(bolPorted){
-//    			goBack(); //현대CNR 하이인재원
-//    		}else{
-//    			if(parseInt(_this.$curPageNumber) - 1 <= 0 ) {
-//    				alert("처음 페이지 입니다.");
-//    				return;
-//    			}
-//    			location.href = move_page;
-//    		}
+    //이전페이지 이동버튼 (잠금)
+    setButton(_this.$prevBtn.children("button"),'',lastIndex++, function(e) {
+        if (!hasEndedHandled) {
+            alert("학습 완료 후 이동 가능 합니다.");
+            if (e && e.preventDefault) e.preventDefault();
+            return false;
+        }
     	prevpage(Number(_this.$curChapter),Number(_this.$curPageNumber)); //navi.js 함수호출
     });
+    _this.$prevBtn.css({"pointer-events": "none", "opacity": "0.35", "cursor": "default"});
+    _this.$prevBtn.children("button").css({"cursor": "default", "pointer-events": "none"});
     
     var isNextActionTriggered = false;
-    //다음페이지 이동버튼
-    setButton(_this.$nextBtn.children("button"),"",lastIndex++, function() {
+    //다음페이지 이동버튼 (잠금)
+    setButton(_this.$nextBtn.children("button"),"",lastIndex++, function(e) {
+        if (!hasEndedHandled) {
+            alert("학습 완료 후 이동 가능 합니다.");
+            if (e && e.preventDefault) e.preventDefault();
+            return false;
+        }
         if (isNextActionTriggered) return;
         isNextActionTriggered = true;
     	nextpage(Number(_this.$curChapter), Number(_this.$curPageNumber)); //navi.js 함수호출
     });
+    _this.$nextBtn.css({"pointer-events": "none", "opacity": "0.35", "cursor": "default"});
+    _this.$nextBtn.children("button").css({"cursor": "default", "pointer-events": "none"});
 
     // nextAlert 클릭 시에도 다음페이지로 이동하도록 추가
     _this.$nextAlert.css("cursor", "pointer").on("click", function() {
@@ -566,6 +571,10 @@ function setPage()
     	  localStorage.setItem(UsrData, JSON.stringify(data));
       	  console.log(data);
     	  _this.$media.get(0).pause();
+
+          // 영상 완료 시 다음 버튼 잠금 해제
+          _this.$nextBtn.css({"pointer-events": "auto", "opacity": "1", "cursor": "pointer"});
+          _this.$nextBtn.children("button").css({"cursor": "pointer", "pointer-events": "auto"});
 
           // LMS 연동: 영상 재생 완료 시 부모 창에 100% 학습완료 즉시 저장
           if (window.parent && typeof window.parent.endCheck === "function") {
