@@ -282,8 +282,12 @@ $result = sql_query($sql);
                 </div>
                 <div class="play">
                     <?php
-                    $tempSday = "2026-10-01 09:00";
-                    $tempEday = "2026-10-31 18:00";
+                    $tempSday = "2026-10-19 09:00";
+                    $tempEday = "2026-10-23 23:59:59";
+                    $test_members = array('admin', 'sj001', 'sj002', 'sj003', 'sj004', 'sj005', 'sj006', 'sj007');
+                    if (in_array($member['mb_id'], $test_members)) {
+                        $tempSday = "2026-10-01 09:00";
+                    }
                     if (!($tempSday <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($tempEday . "+1 day"))) {
                         ?>
                         <a href="#//" class="day-end"><span>학습기간이 아닙니다. </span></a>

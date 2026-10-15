@@ -299,6 +299,8 @@ body {
   left: 10px;
   z-index: 250;
   border-radius: 20px;
+  pointer-events: none !important;
+  cursor: default !important;
 }
 
 

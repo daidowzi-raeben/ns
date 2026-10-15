@@ -95,7 +95,12 @@ if( !$CHAPTER ){
 }
 
 ## 신청기간 확인
-if( !($LESSON['lssn_sdate'] <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($LESSON['lssn_edate']."+1 day"))) {
+$lssn_sdate = $LESSON['lssn_sdate'];
+$lssn_edate = $LESSON['lssn_edate'];
+if ($l_no == 36 && in_array($member['mb_id'], array('admin', 'sj001', 'sj002', 'sj003', 'sj004', 'sj005', 'sj006', 'sj007'))) {
+    $lssn_sdate = "2026-10-01 00:00:00";
+}
+if( !($lssn_sdate <= G5_TIME_YMDHIS && strtotime(G5_TIME_YMDHIS) < strtotime($lssn_edate."+1 day"))) {
 	alert("학습기간이 아닙니다.");
 	exit;
 }

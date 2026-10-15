@@ -207,12 +207,10 @@ $(document).keydown(function(keyEvent) {
       setVolume(volTemp);
       break;
     case 37: //왼
-      if(_this.$media.get(0).currentTime - 5 <= 0) _this.$media.get(0).currentTime = 0;
-      else _this.$media.get(0).currentTime = _this.$media.get(0).currentTime - 5;
+      // 뒤로 탐색 비활성화
       break;
     case 39: //오른
-      if(_this.$media.get(0).currentTime + 5 >= _this.$media.get(0).duration ) _this.$media.get(0).currentTime = _this.$media.get(0).duration;
-      else _this.$media.get(0).currentTime = _this.$media.get(0).currentTime + 5;
+      // 앞으로 탐색 비활성화
       break;
     case 32:  //스페이스
 //    	alert(_this.$bolPlay);

@@ -114,7 +114,7 @@ function setPage()
   });
 
     _this.$attribute = $(
-        '<div class="timeLine timeLinePadding">\
+        '<div class="timeLine timeLinePadding" style="pointer-events: none; cursor: default;">\
     		<div class="progress timeLinePadding">\
             </div>\
           </div>\
@@ -530,54 +530,12 @@ function setPage()
 		}
 	});
 
-  	 //드래그
-      _this.$timeLine.on('mousedown touchstart', function() {
-    	  if(!checkItem()){
-    		  alert("학습 완료 후 이동 가능 합니다.");
-    	  }else{
-    		  mouseDrag = true;
-    		  _this.$media.get(0).pause();
-    	  }
+   	 //드래그 및 클릭 방지 (영상 진행률바 이동 금지)
+      _this.$timeLine.css({"pointer-events": "none", "cursor": "default"});
+      _this.$timeLine.on('mousedown touchstart click', function(e) {
+    	  e.preventDefault();
+    	  return false;
       });
-      
-      // 드래그 중
-      $(document).on('mousemove touchmove', function(e) {
-    	  
-        if(!mouseDrag) return;
-        if(e.pageX > barRigth || e.pageX < barLeft) return;
-        barWid = _this.$timeLine.css("width").split("px")[0];
-        perMouseX =  (e.pageX - barLeft) / barWid;
-        percent = perMouseX * 100;
-        _this.$timeProgress.css("width",percent.toFixed(5)+"%");
-        curTime = clock(_this.$media.get(0).duration * perMouseX);
-        _this.$curTime.get(0).innerHTML = curTime;
-        lineHover(true);
-        
-      });
-      
-      // 드래그 끝
-      $(document).on('mouseup touchend', function() {
-        if(!mouseDrag) return;
-        mouseDrag = false;
-        _this.$media.get(0).currentTime = _this.$media.get(0).duration * perMouseX;
-        _this.$media.get(0).play();
-        lineHover(false);
-      });
-
-
-
-    // 타임라인 클릭했을때 화면 이동
-    _this.$timeLine.on('click', function(e) {
-    	if(!checkItem()){
-			alert("학습 완료 후 이동 가능 합니다.");
-    	}else{
-		      if(mouseDrag) return;
-		      barWid = _this.$timeLine.css("width").split("px")[0];
-		      barWid = (_this.$bolFullScreen && _this.$browser.indexOf("IE") != -1) ? barWid / 100 : barWid;
-		      perMouseX = e.offsetX / barWid;
-		      _this.$media.get(0).currentTime = _this.$media.get(0).duration * perMouseX;
-    	}
-    });
 	   
 	    
 	  _this.$media.on('timeupdate', function() {
