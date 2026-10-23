@@ -190,7 +190,7 @@ $result = sql_query($sql);
                 </div>
                 <div class="row">
                     <div class="col">
-                        <label>학습기간</label><span>2026.10.19(월) ~ 2026.10.23(토)</span>
+                        <label>학습기간</label><span>2026.10.19(월) ~ 2026.10.28(수)</span>
                     </div>
                     <div class="col">
                         <label>학습시간</label><span>2시간</span>
@@ -199,7 +199,7 @@ $result = sql_query($sql);
                 <div class="play">
                     <?php
                     $tempSday = "2026-10-19 00:00";
-                    $tempEday = "2026-10-23 23:59:59";
+                    $tempEday = "2026-10-28 23:59:59";
                     $test_members = array('admin', 'sj001', 'sj002', 'sj003', 'sj004', 'sj005', 'sj006', 'sj007');
                     if (in_array($member['mb_id'], $test_members)) {
                         $tempSday = "2026-10-01 00:00";
