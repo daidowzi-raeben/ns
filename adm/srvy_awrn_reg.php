@@ -1,19 +1,19 @@
 <?php
 include_once('./_common.php');
 
-if($type == "B")
+if($type == "A")
 {
 	$sub_menu = "300520";
 	$g5['title'] = "설문지관리 ▶ 윤리CP인식도조사 ▶ 신규등록";
 	$strType = "ethc";
-	$strSrvyType = "B";
+	$strSrvyType = "A";
 }
 else
 {
 	$sub_menu = "300510";
 	$g5['title'] = "설문지관리 ▶ CP교육만족도 조사 ▶ 신규등록";
 	$strType = "awrn";
-	$strSrvyType = "A";
+	$strSrvyType = "B";
 }
 
 auth_check($auth[$sub_menu], 'r');
@@ -77,6 +77,17 @@ add_javascript('<script type="text/javascript" src="'.G5_JS_URL.'/jquery.bpopup.
                     </label>
                     <label for="ck6">
                         <input type="radio" name="srvy_stat" id="ck6" value="N" <?if( $srvy['srvy_status'] == "N" ){?> checked<?}?>> 사용안함
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row"><label for="srvy_semi">반기구분</label></th>
+                <td>
+                    <label for="semi_a">
+                        <input type="radio" name="srvy_semi" id="semi_a" value="A"<?if( $w == "" || $srvy['srvy_semi'] == "A" || !$srvy['srvy_semi'] ){?> checked<?}?>> 상반기(1차)
+                    </label>
+                    <label for="semi_b">
+                        <input type="radio" name="srvy_semi" id="semi_b" value="B"<?if( $srvy['srvy_semi'] == "B" ){?> checked<?}?>> 하반기(2차)
                     </label>
                 </td>
             </tr>

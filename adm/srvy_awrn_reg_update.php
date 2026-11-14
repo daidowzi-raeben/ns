@@ -21,6 +21,7 @@ $srvy_link = trim($_POST['srvy_link']);
 $srvy_keep = trim($_POST['srvy_keep']);
 $srvy_status = trim($_POST['srvy_stat']);
 $srvy_type = trim($_POST['srvy_type']);
+$srvy_semi = isset($_POST['srvy_semi']) && trim($_POST['srvy_semi']) ? trim($_POST['srvy_semi']) : 'A';
 $srvy_year = substr($srvy_rdate, 0, 4);
 $srvy_code = trim($_POST['srvy_code']);
 
@@ -36,7 +37,8 @@ $sql_common = "
 				srvy_keep 		= '{$srvy_keep}',
 				srvy_type 		= '{$srvy_type}',
 				srvy_status 	= '{$srvy_status}',
-				srvy_year 		= '{$srvy_year}'";
+				srvy_year 		= '{$srvy_year}',
+				srvy_semi 		= '{$srvy_semi}'";
 
 
 if ($w == '')
@@ -58,7 +60,7 @@ else if ($w == 'u')
 else
     alert('제대로 된 값이 넘어오지 않았습니다.');
 
-if($srvy_type == "A")
+if($srvy_type == "B")
 	goto_url('./srvy_awrn_list.php?'.$qstr.'&amp;', false);
 else
 	goto_url('./srvy_ethc_list.php?'.$qstr.'&amp;', false);

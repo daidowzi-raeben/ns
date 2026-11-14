@@ -6,7 +6,7 @@ auth_check($auth[$sub_menu], 'r');
 
 $sql_common = " from {$g5['survey_table']} ";
 
-$sql_search = " where (1) and srvy_type = 'A' ";
+$sql_search = " where (1) and srvy_type = 'B' ";
 if ($stx) {
     $sql_search .= " and ( ";
     switch ($sfl) {
@@ -71,7 +71,7 @@ $colspan = 16;
         </div>
         <div class="r_div">
             <?php if ($is_admin == 'super') { ?>
-                <a href="./srvy_awrn_reg.php" id="member_add" class="btn btn_03">신규등록</a>
+                <a href="./srvy_awrn_reg.php?type=B" id="member_add" class="btn btn_03">신규등록</a>
             <?php } ?>
         </div>
     </div>
@@ -101,7 +101,7 @@ $colspan = 16;
                 <td class="cp_list_"><?php echo date("Y-m-d", strtotime($row['srvy_sdate']))?> ~ <?php echo date("Y-m-d", strtotime($row['srvy_edate']))?></td>
                 <td class="cp_list_"><?php echo substr($row['srvy_rdate'], 0, 10)?></td>
                 <td class="cp_list_"><?php echo $srvy_stat?></td>
-                <td class="cp_list_"><a href="./srvy_awrn_reg.php?&amp;w=u&amp;code=<?php echo $row['srvy_code']?>" class="btn btn_03">수정</a></td>
+                <td class="cp_list_"><a href="./srvy_awrn_reg.php?type=B&amp;w=u&amp;code=<?php echo $row['srvy_code']?>" class="btn btn_03">수정</a></td>
             </tr>
 			<?php
 				$startNum++;
