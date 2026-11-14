@@ -14,7 +14,7 @@ if($result['srvy_code'])
 
 <!-- 팝업레이어 시작 { -->
 <script>
-var pop_url2 = "<?php echo $result['srvy_link']?>";
+var pop_url2 = "<?php echo $result['srvy_link']?>?v=<?php echo $result['srvy_code']?>";
 
 var popupX2 = '<?php echo $result['srvy_coord_x']?>';
 var popupY2 = '<?php echo $result['srvy_coord_y']?>';

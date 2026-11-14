@@ -10,6 +10,15 @@ $srvy = get_survey($srvy_code);
 if(!$srvy['srvy_code'])
 	alert('존재하지 않는 데이터입니다.');
 
+// 캐시된 이전 회차(중지 상태) 설문 폼에서 제출된 경우 현재 사용(Y) 중인 동일 타입 설문으로 자동 매핑
+if($srvy['srvy_status'] != 'Y') {
+	$active_srvy = sql_fetch(" select * from {$g5['survey_table']} where srvy_type = '{$srvy['srvy_type']}' and srvy_status = 'Y' order by srvy_code desc limit 1 ");
+	if($active_srvy['srvy_code']) {
+		$srvy = $active_srvy;
+		$srvy_code = $active_srvy['srvy_code'];
+	}
+}
+
 for( $i=1; $i<=$srvd_count; $i++ ) 
 {
 	$arr_data[] = ${"survey_".$i} ? ${"survey_".$i} : "_";
