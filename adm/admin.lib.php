@@ -545,10 +545,10 @@ function get_belong($bl_code, $fields='*')
 // 소속 년도를 SELECT 형식으로 얻음
 function get_blYear_select($name, $selected='', $event='')
 {
-    global $g5, $is_admin, $member, $config;
+    global $g5, $is_admin, $member, $config, $bl_year;
 	
 	if(!$selected)
-		$selected = $config['cf_1'];
+		$selected = $bl_year ? $bl_year : date('Y', G5_SERVER_TIME);
 
     //[21.07] 마일리지 개편 >> belong_table 사용 안 함
 	//$sql = " select bl_year from {$g5['belong_table']}  group by bl_year ";
@@ -585,11 +585,14 @@ function get_blCate_select($name, $selected='윤리경영 및 준법경영', $ev
 }
 */
 #분류 상/하반기
-function get_blCate_select($name, $selected='A', $event='')
+function get_blCate_select($name, $selected='', $event='')
 {
     global $g5, $is_admin, $member;
 
-    $str = "<select id=\"$name\" name=\"$name\" class=\"mb_form\">";
+    if (!$selected)
+        $selected = ((int)date('n', G5_SERVER_TIME) >= 10) ? 'B' : 'A';
+
+    $str = "<select id=\"$name\" name=\"$name\" class=\"mb_form\" $event>";
 	$str .= option_selected("A", $selected, "상반기");
 	$str .= option_selected("B", $selected, "하반기");
     $str .= "</select>";
@@ -740,12 +743,12 @@ $ARR_QUESTION_AREA = array(
 	"Q005" => "5차시",
 );
 
-#년도, 분기값 설정
+#년도, 분기값 설정 (기본값: 올해 연도, 10월 기점 전은 상반기(A) / 후는 하반기(B))
 if (!$bl_year)
-	$bl_year = $config['cf_1'];
+	$bl_year = date('Y', G5_SERVER_TIME);
 
 if (!$bl_cate)
-	$bl_cate = $config['cf_2'];
+	$bl_cate = ((int)date('n', G5_SERVER_TIME) >= 10) ? 'B' : 'A';
 
 $NSqstr = "&amp;type=". $type ."&amp;bl_year=" . $bl_year . "&amp;bl_cate=".$bl_cate;
 ?>

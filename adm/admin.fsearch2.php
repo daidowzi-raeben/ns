@@ -13,7 +13,7 @@
 <tr>
 	<th scope="row"><label for="mb_year">년도</label></th>
 	<td>
-		<?php echo get_blYear_select("bl_year") ?>
+		<?php echo get_blYear_select("bl_year", $bl_year) ?>
 	</td>
 	<th scope="row"><label for="">분류</label></th>
 	<td>

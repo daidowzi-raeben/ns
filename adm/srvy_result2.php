@@ -20,6 +20,12 @@ if ($type == "A") {
 
 auth_check($auth[$sub_menu], 'r');
 
+if (!$bl_year)
+    $bl_year = date('Y', G5_SERVER_TIME);
+if (!$bl_cate)
+    $bl_cate = ((int)date('n', G5_SERVER_TIME) >= 10) ? 'B' : 'A';
+$NSqstr = "&amp;type=" . $type . "&amp;bl_year=" . $bl_year . "&amp;bl_cate=" . $bl_cate;
+
 $sql_common = " from {$g5['member_table']} as m ";
 $sql_common .= " left join {$g5['survey_data_table']} as sd ";
 $sql_common .= " on m.mb_id = sd.srvd_uid and sd.srvy_type = '{$type}' and sd.srvy_year='$bl_year' and sd.srvy_semi = '$bl_cate' ";
@@ -86,12 +92,12 @@ $colspan = 16;
 
 <div class="local_ov02">
     <div class="l_div">
-        <a href="srvy_result.php?type=<?php echo $type . $NSqstr ?>" class="btn btn_02"><?php echo $btnTitle ?> 진도관리</a>
+        <a href="srvy_result.php?type=<?php echo $type ?>&amp;bl_year=<?php echo $bl_year ?>&amp;bl_cate=<?php echo $bl_cate ?>" class="btn btn_02"><?php echo $btnTitle ?> 진도관리</a>
         <a href="#" class="btn btn_03"><?php echo $btnTitle ?> 설문데이터</a>
     </div>
     <div class="r_div">
         <?php if ($is_admin == 'super' || $is_admin == 'manager') { ?>
-            <a href="./srvy_excel_down.php?type=<?php echo $type . $NSqstr ?>&amp;str=2" target="_blank" id="member_add"
+            <a href="./srvy_excel_down.php?type=<?php echo $type ?>&amp;bl_year=<?php echo $bl_year ?>&amp;bl_cate=<?php echo $bl_cate ?>&amp;str=2" target="_blank" id="member_add"
                 class="btn btn_04">EXCEL</a>
         <?php } ?>
     </div>

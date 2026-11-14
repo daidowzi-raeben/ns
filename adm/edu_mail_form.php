@@ -228,12 +228,12 @@ while ($l = sql_fetch_array($res_lssn)) {
                     <td>
                         <label for="survey_year">년도</label>
                         <?php 
-                        $selected_year = '';
-                        $selected_semi = 'A';
+                        $selected_year = date('Y', G5_SERVER_TIME);
+                        $selected_semi = ((int)date('n', G5_SERVER_TIME) >= 10) ? 'B' : 'A';
                         if ($w == 'u' && in_array($emq['emq_target_type'], array('cp_satisfaction', 'cp_ethics', 'cp_pledge')) && $emq['emq_target_ids']) {
                             $parts = explode('|', $emq['emq_target_ids']);
-                            $selected_year = isset($parts[0]) ? $parts[0] : '';
-                            $selected_semi = isset($parts[1]) ? $parts[1] : 'A';
+                            $selected_year = isset($parts[0]) && $parts[0] ? $parts[0] : $selected_year;
+                            $selected_semi = isset($parts[1]) && $parts[1] ? $parts[1] : $selected_semi;
                         }
                         echo get_blYear_select("survey_year", $selected_year);
                         ?>

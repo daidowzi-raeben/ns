@@ -42,6 +42,11 @@ if ( ! function_exists('is_ie')) {
 
 auth_check($auth[$sub_menu], "r");
 
+if (!$bl_year)
+	$bl_year = date('Y', G5_SERVER_TIME);
+if (!$bl_cate)
+	$bl_cate = ((int)date('n', G5_SERVER_TIME) >= 10) ? 'B' : 'A';
+
 $sql_common = " from {$g5['member_table']} as m ";
 $sql_common .= " left join {$g5['survey_data_table']} as sd ";
 $sql_common .= " on m.mb_id = sd.srvd_uid and sd.srvy_type = '{$type}' and sd.srvy_year='$bl_year' and sd.srvy_semi = '$bl_cate' ";
