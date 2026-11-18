@@ -2,7 +2,7 @@
 if (!defined("_GNUBOARD_")) exit; // 개별 페이지 접근 불가
 
 $sql = " select * from {$g5['survey_table']}
-          where '".G5_TIME_YMDHIS."' between date_format(srvy_sdate, '%Y-%m-%d 05:59:59') and date_format(srvy_edate, '%Y-%m-%d 18:00:00')
+          where '".G5_TIME_YMDHIS."' between date_format(srvy_sdate, '%Y-%m-%d 10:00:00') and date_format(srvy_edate, '%Y-%m-%d 18:00:00')
 			and srvy_type = 'B' and srvy_status = 'Y'  and srvy_year = '2026'
           order by srvy_code desc limit 1";
 // echo $sql;
